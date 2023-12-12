@@ -1,9 +1,12 @@
 ﻿Imports System.IO
 Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
+
 Public Class ModuloPrincipal
 
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        notificacion()
         'Abro la cadena de conexion para poder llegar a la base de datos
         Try
             conexionSql.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=base_sistema_gestion;Data Source=DESKTOP-P7RK5LC\SQLEXPRESS01"
@@ -85,4 +88,33 @@ Public Class ModuloPrincipal
         AbrirFormEnPanel(New Pagos)
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private WithEvents timer As New Timer()
+
+    Private Sub notificacion()
+        ' Configuración del temporizador
+        timer.Interval = 10 ' Intervalo en milisegundos
+        timer.Start()
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ' Mueve la notificación hacia la derecha
+        LabelNotificacion.Left += 5 ' Puedes ajustar la velocidad cambiando este valor
+
+        ' Verifica si la notificación ha alcanzado el extremo derecho del panel
+        If LabelNotificacion.Right >= PanelSuperior.Right Then
+            ' Detén el temporizador y cierra el formulario cuando la notificación se ha movido completamente
+            timer.Stop()
+            Me.Close()
+        End If
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        Notificaciones.Show()
+
+    End Sub
 End Class
