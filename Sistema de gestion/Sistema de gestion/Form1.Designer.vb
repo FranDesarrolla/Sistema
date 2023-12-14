@@ -24,6 +24,7 @@ Partial Class ModuloPrincipal
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         PanelSuperior = New Panel()
+        PictureBox2 = New PictureBox()
         LabelNotificacion = New Label()
         brnRestaurar = New PictureBox()
         btnMinimizar = New PictureBox()
@@ -39,18 +40,17 @@ Partial Class ModuloPrincipal
         btnClientes = New Button()
         Button2 = New Button()
         btnProductos = New Button()
-        PictureBox1 = New PictureBox()
+        PBLogo = New PictureBox()
         PanelContenedor = New Panel()
         Timer1 = New Timer(components)
-        PictureBox2 = New PictureBox()
         PanelSuperior.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(brnRestaurar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnMinimizar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnMaximizar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
         PanelLateral.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PBLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PanelSuperior
@@ -67,6 +67,16 @@ Partial Class ModuloPrincipal
         PanelSuperior.Name = "PanelSuperior"
         PanelSuperior.Size = New Size(1300, 39)
         PanelSuperior.TabIndex = 0
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.timbre_de_llamada
+        PictureBox2.Location = New Point(3, 14)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(25, 25)
+        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox2.TabIndex = 3
+        PictureBox2.TabStop = False
         ' 
         ' LabelNotificacion
         ' 
@@ -134,7 +144,7 @@ Partial Class ModuloPrincipal
         PanelLateral.Controls.Add(btnClientes)
         PanelLateral.Controls.Add(Button2)
         PanelLateral.Controls.Add(btnProductos)
-        PanelLateral.Controls.Add(PictureBox1)
+        PanelLateral.Controls.Add(PBLogo)
         PanelLateral.Dock = DockStyle.Left
         PanelLateral.Location = New Point(0, 39)
         PanelLateral.Name = "PanelLateral"
@@ -285,16 +295,15 @@ Partial Class ModuloPrincipal
         btnProductos.Text = "Productos"
         btnProductos.UseVisualStyleBackColor = False
         ' 
-        ' PictureBox1
+        ' PBLogo
         ' 
-        PictureBox1.Dock = DockStyle.Top
-        PictureBox1.Image = My.Resources.Resources.FamilyCannVerde
-        PictureBox1.Location = New Point(0, 0)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(231, 164)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 0
-        PictureBox1.TabStop = False
+        PBLogo.Dock = DockStyle.Top
+        PBLogo.Location = New Point(0, 0)
+        PBLogo.Name = "PBLogo"
+        PBLogo.Size = New Size(231, 164)
+        PBLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PBLogo.TabIndex = 0
+        PBLogo.TabStop = False
         ' 
         ' PanelContenedor
         ' 
@@ -304,19 +313,6 @@ Partial Class ModuloPrincipal
         PanelContenedor.Name = "PanelContenedor"
         PanelContenedor.Size = New Size(1069, 611)
         PanelContenedor.TabIndex = 2
-        ' 
-        ' Timer1
-        ' 
-        ' 
-        ' PictureBox2
-        ' 
-        PictureBox2.Image = My.Resources.Resources.timbre_de_llamada
-        PictureBox2.Location = New Point(3, 14)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(25, 25)
-        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox2.TabIndex = 3
-        PictureBox2.TabStop = False
         ' 
         ' ModuloPrincipal
         ' 
@@ -332,13 +328,13 @@ Partial Class ModuloPrincipal
         Text = "344"
         PanelSuperior.ResumeLayout(False)
         PanelSuperior.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(brnRestaurar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnMinimizar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnMaximizar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).EndInit()
         PanelLateral.ResumeLayout(False)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PBLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -350,7 +346,7 @@ Partial Class ModuloPrincipal
     Friend WithEvents PanelLateral As Panel
     Friend WithEvents PanelContenedor As Panel
     Friend WithEvents btnProductos As Button
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PBLogo As PictureBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button6 As Button

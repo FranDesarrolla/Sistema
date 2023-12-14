@@ -6,6 +6,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 Public Class ModuloPrincipal
 
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RutaDelLogoDelSistema()
         notificacion()
         'Abro la cadena de conexion para poder llegar a la base de datos
         Try
@@ -14,6 +15,11 @@ Public Class ModuloPrincipal
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+    End Sub
+
+    Private Sub RutaDelLogoDelSistema()
+        'PBLogo.Image = Image.FromFile("C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Logo.png")
+        PBLogo.Image = Image.FromFile("C:\Users\Usuario\Desktop\FAMILYCANN\FAMILYCANN LOGO\PNG ALTA CALIDAD\FamilyCannNegro.png")
     End Sub
 
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
@@ -93,6 +99,7 @@ Public Class ModuloPrincipal
     End Sub
 
     Private WithEvents timer As New Timer()
+    Private limiteFinal As Integer = 1200 ' Ajusta este valor según tu límite final
 
     Private Sub notificacion()
         ' Configuración del temporizador
@@ -100,15 +107,15 @@ Public Class ModuloPrincipal
         timer.Start()
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         ' Mueve la notificación hacia la derecha
         LabelNotificacion.Left += 5 ' Puedes ajustar la velocidad cambiando este valor
 
         ' Verifica si la notificación ha alcanzado el extremo derecho del panel
-        If LabelNotificacion.Right >= PanelSuperior.Right Then
-            ' Detén el temporizador y cierra el formulario cuando la notificación se ha movido completamente
+        If LabelNotificacion.Right >= limiteFinal Then
+            ' Detén el temporizador y cierra el formulario cuando la notificación alcanza el límite
             timer.Stop()
-            Me.Close()
+
         End If
 
     End Sub
@@ -117,4 +124,6 @@ Public Class ModuloPrincipal
         Notificaciones.Show()
 
     End Sub
+
+
 End Class
