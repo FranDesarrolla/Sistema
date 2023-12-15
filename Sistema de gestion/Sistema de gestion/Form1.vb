@@ -1,9 +1,13 @@
 ﻿Imports System.IO
 Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
+
 Public Class ModuloPrincipal
 
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RutaDelLogoDelSistema()
+        notificacion()
         'Abro la cadena de conexion para poder llegar a la base de datos
         Try
             conexionSql.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=base_sistema_gestion;Data Source=DESKTOP-P7RK5LC\SQLEXPRESS01"
@@ -11,6 +15,11 @@ Public Class ModuloPrincipal
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+    End Sub
+
+    Private Sub RutaDelLogoDelSistema()
+        'PBLogo.Image = Image.FromFile("C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Logo.png")
+        PBLogo.Image = Image.FromFile("C:\Users\Usuario\Desktop\FAMILYCANN\FAMILYCANN LOGO\PNG ALTA CALIDAD\FamilyCannNegro.png")
     End Sub
 
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
@@ -84,5 +93,37 @@ Public Class ModuloPrincipal
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         AbrirFormEnPanel(New Pagos)
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private WithEvents timer As New Timer()
+    Private limiteFinal As Integer = 1200 ' Ajusta este valor según tu límite final
+
+    Private Sub notificacion()
+        ' Configuración del temporizador
+        timer.Interval = 10 ' Intervalo en milisegundos
+        timer.Start()
+    End Sub
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
+        ' Mueve la notificación hacia la derecha
+        LabelNotificacion.Left += 5 ' Puedes ajustar la velocidad cambiando este valor
+
+        ' Verifica si la notificación ha alcanzado el extremo derecho del panel
+        If LabelNotificacion.Right >= limiteFinal Then
+            ' Detén el temporizador y cierra el formulario cuando la notificación alcanza el límite
+            timer.Stop()
+
+        End If
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        Notificaciones.Show()
+
+    End Sub
+
 
 End Class

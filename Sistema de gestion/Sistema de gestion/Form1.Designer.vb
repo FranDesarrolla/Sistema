@@ -22,40 +22,42 @@ Partial Class ModuloPrincipal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         PanelSuperior = New Panel()
+        PictureBox2 = New PictureBox()
+        LabelNotificacion = New Label()
         brnRestaurar = New PictureBox()
         btnMinimizar = New PictureBox()
         btnMaximizar = New PictureBox()
         btnCerrar = New PictureBox()
         PanelLateral = New Panel()
-        Panel7 = New Panel()
+        Panel9 = New Panel()
+        Button1 = New Button()
         Button7 = New Button()
-        Panel6 = New Panel()
         Button6 = New Button()
-        Panel5 = New Panel()
         Button5 = New Button()
-        Panel4 = New Panel()
         Button4 = New Button()
-        Panel3 = New Panel()
         btnClientes = New Button()
-        Panel2 = New Panel()
         Button2 = New Button()
-        Panel1 = New Panel()
         btnProductos = New Button()
-        PictureBox1 = New PictureBox()
+        PBLogo = New PictureBox()
         PanelContenedor = New Panel()
+        Timer1 = New Timer(components)
         PanelSuperior.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(brnRestaurar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnMinimizar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnMaximizar, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
         PanelLateral.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PBLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PanelSuperior
         ' 
-        PanelSuperior.BackColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        PanelSuperior.BackColor = Color.FromArgb(CByte(121), CByte(126), CByte(160))
+        PanelSuperior.Controls.Add(PictureBox2)
+        PanelSuperior.Controls.Add(LabelNotificacion)
         PanelSuperior.Controls.Add(brnRestaurar)
         PanelSuperior.Controls.Add(btnMinimizar)
         PanelSuperior.Controls.Add(btnMaximizar)
@@ -65,6 +67,25 @@ Partial Class ModuloPrincipal
         PanelSuperior.Name = "PanelSuperior"
         PanelSuperior.Size = New Size(1300, 39)
         PanelSuperior.TabIndex = 0
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.timbre_de_llamada
+        PictureBox2.Location = New Point(3, 14)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(25, 25)
+        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox2.TabIndex = 3
+        PictureBox2.TabStop = False
+        ' 
+        ' LabelNotificacion
+        ' 
+        LabelNotificacion.AutoSize = True
+        LabelNotificacion.Location = New Point(157, 18)
+        LabelNotificacion.Name = "LabelNotificacion"
+        LabelNotificacion.Size = New Size(41, 15)
+        LabelNotificacion.TabIndex = 2
+        LabelNotificacion.Text = "Label1"
         ' 
         ' brnRestaurar
         ' 
@@ -113,210 +134,180 @@ Partial Class ModuloPrincipal
         ' 
         ' PanelLateral
         ' 
-        PanelLateral.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
-        PanelLateral.Controls.Add(Panel7)
+        PanelLateral.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        PanelLateral.Controls.Add(Panel9)
+        PanelLateral.Controls.Add(Button1)
         PanelLateral.Controls.Add(Button7)
-        PanelLateral.Controls.Add(Panel6)
         PanelLateral.Controls.Add(Button6)
-        PanelLateral.Controls.Add(Panel5)
         PanelLateral.Controls.Add(Button5)
-        PanelLateral.Controls.Add(Panel4)
         PanelLateral.Controls.Add(Button4)
-        PanelLateral.Controls.Add(Panel3)
         PanelLateral.Controls.Add(btnClientes)
-        PanelLateral.Controls.Add(Panel2)
         PanelLateral.Controls.Add(Button2)
-        PanelLateral.Controls.Add(Panel1)
         PanelLateral.Controls.Add(btnProductos)
-        PanelLateral.Controls.Add(PictureBox1)
+        PanelLateral.Controls.Add(PBLogo)
         PanelLateral.Dock = DockStyle.Left
         PanelLateral.Location = New Point(0, 39)
         PanelLateral.Name = "PanelLateral"
         PanelLateral.Size = New Size(231, 611)
         PanelLateral.TabIndex = 1
         ' 
-        ' Panel7
+        ' Panel9
         ' 
-        Panel7.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel7.Location = New Point(3, 413)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(5, 32)
-        Panel7.TabIndex = 11
+        Panel9.Dock = DockStyle.Bottom
+        Panel9.Location = New Point(0, 530)
+        Panel9.Name = "Panel9"
+        Panel9.Size = New Size(231, 81)
+        Panel9.TabIndex = 0
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button1.Dock = DockStyle.Top
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.ForeColor = Color.White
+        Button1.ImageAlign = ContentAlignment.MiddleLeft
+        Button1.Location = New Point(0, 479)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(231, 45)
+        Button1.TabIndex = 13
+        Button1.Text = "Proveedores"
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Button7
         ' 
-        Button7.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        Button7.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button7.Dock = DockStyle.Top
         Button7.FlatAppearance.BorderSize = 0
         Button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         Button7.FlatStyle = FlatStyle.Flat
         Button7.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button7.ForeColor = Color.White
         Button7.ImageAlign = ContentAlignment.MiddleLeft
-        Button7.Location = New Point(12, 413)
+        Button7.Location = New Point(0, 434)
         Button7.Name = "Button7"
-        Button7.Size = New Size(219, 32)
+        Button7.Size = New Size(231, 45)
         Button7.TabIndex = 12
         Button7.Text = "Reportes"
         Button7.UseVisualStyleBackColor = False
         ' 
-        ' Panel6
-        ' 
-        Panel6.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel6.Location = New Point(3, 375)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(5, 32)
-        Panel6.TabIndex = 9
-        ' 
         ' Button6
         ' 
-        Button6.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        Button6.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button6.Dock = DockStyle.Top
         Button6.FlatAppearance.BorderSize = 0
         Button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         Button6.FlatStyle = FlatStyle.Flat
         Button6.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button6.ForeColor = Color.White
         Button6.ImageAlign = ContentAlignment.MiddleLeft
-        Button6.Location = New Point(12, 375)
+        Button6.Location = New Point(0, 389)
         Button6.Name = "Button6"
-        Button6.Size = New Size(219, 32)
+        Button6.Size = New Size(231, 45)
         Button6.TabIndex = 10
         Button6.Text = "Pagos"
         Button6.UseVisualStyleBackColor = False
         ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel5.Location = New Point(3, 337)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(5, 32)
-        Panel5.TabIndex = 7
-        ' 
         ' Button5
         ' 
-        Button5.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        Button5.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button5.Dock = DockStyle.Top
         Button5.FlatAppearance.BorderSize = 0
         Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         Button5.FlatStyle = FlatStyle.Flat
         Button5.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button5.ForeColor = Color.White
         Button5.ImageAlign = ContentAlignment.MiddleLeft
-        Button5.Location = New Point(12, 337)
+        Button5.Location = New Point(0, 344)
         Button5.Name = "Button5"
-        Button5.Size = New Size(219, 32)
+        Button5.Size = New Size(231, 45)
         Button5.TabIndex = 8
         Button5.Text = "Compras"
         Button5.UseVisualStyleBackColor = False
         ' 
-        ' Panel4
-        ' 
-        Panel4.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel4.Location = New Point(3, 299)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(5, 32)
-        Panel4.TabIndex = 5
-        ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        Button4.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button4.Dock = DockStyle.Top
         Button4.FlatAppearance.BorderSize = 0
         Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button4.ForeColor = Color.White
         Button4.ImageAlign = ContentAlignment.MiddleLeft
-        Button4.Location = New Point(12, 299)
+        Button4.Location = New Point(0, 299)
         Button4.Name = "Button4"
-        Button4.Size = New Size(219, 32)
+        Button4.Size = New Size(231, 45)
         Button4.TabIndex = 6
         Button4.Text = "Pedidos"
         Button4.UseVisualStyleBackColor = False
         ' 
-        ' Panel3
-        ' 
-        Panel3.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel3.Location = New Point(3, 261)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(5, 32)
-        Panel3.TabIndex = 3
-        ' 
         ' btnClientes
         ' 
-        btnClientes.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        btnClientes.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        btnClientes.Dock = DockStyle.Top
         btnClientes.FlatAppearance.BorderSize = 0
         btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         btnClientes.FlatStyle = FlatStyle.Flat
         btnClientes.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnClientes.ForeColor = Color.White
         btnClientes.ImageAlign = ContentAlignment.MiddleLeft
-        btnClientes.Location = New Point(12, 261)
+        btnClientes.Location = New Point(0, 254)
         btnClientes.Name = "btnClientes"
-        btnClientes.Size = New Size(219, 32)
+        btnClientes.Size = New Size(231, 45)
         btnClientes.TabIndex = 4
         btnClientes.Text = "Clientes"
         btnClientes.UseVisualStyleBackColor = False
         ' 
-        ' Panel2
-        ' 
-        Panel2.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel2.Location = New Point(3, 223)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(5, 32)
-        Panel2.TabIndex = 1
-        ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        Button2.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        Button2.Dock = DockStyle.Top
         Button2.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
         Button2.ImageAlign = ContentAlignment.MiddleLeft
-        Button2.Location = New Point(12, 223)
+        Button2.Location = New Point(0, 209)
         Button2.Name = "Button2"
-        Button2.Size = New Size(219, 32)
+        Button2.Size = New Size(231, 45)
         Button2.TabIndex = 2
         Button2.Text = "Ventas"
         Button2.UseVisualStyleBackColor = False
         ' 
-        ' Panel1
-        ' 
-        Panel1.BackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
-        Panel1.Location = New Point(3, 185)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(5, 32)
-        Panel1.TabIndex = 0
-        ' 
         ' btnProductos
         ' 
-        btnProductos.BackColor = Color.FromArgb(CByte(26), CByte(32), CByte(40))
+        btnProductos.BackColor = Color.FromArgb(CByte(145), CByte(150), CByte(184))
+        btnProductos.Dock = DockStyle.Top
         btnProductos.FlatAppearance.BorderSize = 0
         btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(80), CByte(200))
         btnProductos.FlatStyle = FlatStyle.Flat
         btnProductos.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnProductos.ForeColor = Color.White
         btnProductos.ImageAlign = ContentAlignment.MiddleLeft
-        btnProductos.Location = New Point(12, 185)
+        btnProductos.Location = New Point(0, 164)
         btnProductos.Name = "btnProductos"
-        btnProductos.Size = New Size(219, 32)
+        btnProductos.Size = New Size(231, 45)
         btnProductos.TabIndex = 0
         btnProductos.Text = "Productos"
         btnProductos.UseVisualStyleBackColor = False
         ' 
-        ' PictureBox1
+        ' PBLogo
         ' 
-        PictureBox1.Dock = DockStyle.Top
-        PictureBox1.Image = My.Resources.Resources.FamilyCannVerde
-        PictureBox1.Location = New Point(0, 0)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(231, 164)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 0
-        PictureBox1.TabStop = False
+        PBLogo.Dock = DockStyle.Top
+        PBLogo.Location = New Point(0, 0)
+        PBLogo.Name = "PBLogo"
+        PBLogo.Size = New Size(231, 164)
+        PBLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PBLogo.TabIndex = 0
+        PBLogo.TabStop = False
         ' 
         ' PanelContenedor
         ' 
-        PanelContenedor.BackColor = Color.FromArgb(CByte(49), CByte(66), CByte(82))
+        PanelContenedor.BackColor = Color.FromArgb(CByte(170), CByte(175), CByte(208))
         PanelContenedor.Dock = DockStyle.Fill
         PanelContenedor.Location = New Point(231, 39)
         PanelContenedor.Name = "PanelContenedor"
@@ -334,14 +325,16 @@ Partial Class ModuloPrincipal
         Controls.Add(PanelSuperior)
         FormBorderStyle = FormBorderStyle.None
         Name = "ModuloPrincipal"
-        Text = "ModuloPrincipal"
+        Text = "344"
         PanelSuperior.ResumeLayout(False)
+        PanelSuperior.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(brnRestaurar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnMinimizar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnMaximizar, ComponentModel.ISupportInitialize).EndInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).EndInit()
         PanelLateral.ResumeLayout(False)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PBLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -353,18 +346,16 @@ Partial Class ModuloPrincipal
     Friend WithEvents PanelLateral As Panel
     Friend WithEvents PanelContenedor As Panel
     Friend WithEvents btnProductos As Button
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PBLogo As PictureBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents Panel7 As Panel
     Friend WithEvents Button7 As Button
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Button6 As Button
-    Friend WithEvents Panel5 As Panel
     Friend WithEvents Button5 As Button
-    Friend WithEvents Panel4 As Panel
     Friend WithEvents Button4 As Button
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents btnClientes As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents LabelNotificacion As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
