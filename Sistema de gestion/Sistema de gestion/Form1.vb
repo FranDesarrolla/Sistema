@@ -18,8 +18,12 @@ Public Class ModuloPrincipal
     End Sub
 
     Private Sub RutaDelLogoDelSistema()
-        'PBLogo.Image = Image.FromFile("C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Logo.png")
-        PBLogo.Image = Image.FromFile("C:\Users\Usuario\Desktop\FAMILYCANN\FAMILYCANN LOGO\PNG ALTA CALIDAD\FamilyCannNegro.png")
+        Dim rutaProyecto As String = Application.StartupPath
+
+        Dim nombreArchivo As String = "Logo.png"
+        Dim rutaImagen As String = Path.Combine(rutaProyecto, nombreArchivo)
+
+        PBLogo.Image = Image.FromFile(rutaImagen)
     End Sub
 
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
@@ -31,7 +35,6 @@ Public Class ModuloPrincipal
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Close()
-
     End Sub
 
     Private Sub btnMaximizar_Click(sender As Object, e As EventArgs) Handles btnMaximizar.Click
@@ -64,10 +67,6 @@ Public Class ModuloPrincipal
         Me.PanelContenedor.Controls.Add(fh)
         Me.PanelContenedor.Tag = fh
         fh.Show()
-    End Sub
-
-    Private Sub PanelContenedor_Paint(sender As Object, e As PaintEventArgs) Handles PanelContenedor.Paint
-
     End Sub
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
