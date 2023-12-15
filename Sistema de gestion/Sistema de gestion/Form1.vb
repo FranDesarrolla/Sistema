@@ -13,21 +13,6 @@ Public Class ModuloPrincipal
         End Try
     End Sub
 
-<<<<<<< Updated upstream
-=======
-    Private Sub RutaDelLogoDelSistema()
-
-        Dim rutaProyecto As String = Application.StartupPath
-
-        Dim nombreArchivo As String = "Logo.png"
-
-        Dim rutaImagen As String = Path.Combine(rutaProyecto, nombreArchivo)
-
-        PBLogo.Image = Image.FromFile(rutaImagen)
-
-    End Sub
-
->>>>>>> Stashed changes
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
     Private Shared Sub ReleaseCapture()
     End Sub
