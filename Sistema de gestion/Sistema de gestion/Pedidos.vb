@@ -12,6 +12,7 @@ Public Class Pedidos
             setdedatos.Tables("dtPedido").Rows.Clear()
         End If
 
+        ModuloSistema.conexionSql.Open()
         Dim consultassql As String = "select * from pedidos"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)

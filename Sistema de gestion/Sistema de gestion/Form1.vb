@@ -1,20 +1,14 @@
-﻿Imports System.IO
+﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class ModuloPrincipal
-
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RutaDelLogoDelSistema()
         notificacion()
-        'Abro la cadena de conexion para poder llegar a la base de datos
-        Try
-            conexionSql.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=base_sistema_gestion;Data Source=DESKTOP-P7RK5LC\SQLEXPRESS01"
-            conexionSql.Open()
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+        ModuloSistema.CargarCadenaConexion()
     End Sub
 
     Private Sub RutaDelLogoDelSistema()
@@ -71,30 +65,36 @@ Public Class ModuloPrincipal
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
         AbrirFormEnPanel(New Productos)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub btnClientes_Click(sender As Object, e As EventArgs) Handles btnClientes.Click
         AbrirFormEnPanel(New Clientes)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         AbrirFormEnPanel(New Ventas)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         AbrirFormEnPanel(New Pedidos)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         AbrirFormEnPanel(New Compras)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         AbrirFormEnPanel(New Pagos)
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        ModuloSistema.conexionSql.Close()
     End Sub
 
     Private WithEvents timer As New Timer()
@@ -116,13 +116,13 @@ Public Class ModuloPrincipal
             timer.Stop()
 
         End If
-
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Notificaciones.Show()
-
     End Sub
 
-
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        ModuloSistema.conexionSql.Close()
+    End Sub
 End Class

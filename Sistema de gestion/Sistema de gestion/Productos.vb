@@ -7,6 +7,7 @@ Public Class Productos
 
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaProductos()
+        ModuloSistema.conexionSql.Open()
     End Sub
 
     Public Sub llenarGrillaProductos()
@@ -16,8 +17,6 @@ Public Class Productos
         End If
 
         Dim consultassql As String = "SELECT a.idproducto, a.idproveedor, a.NombreProducto, a.Descripcion, a.UnidadMedida, a.Categoria, a.Rubro, a.Stock, a.PrecioUnitario, a.Descuentos, a.Impuestos FROM Productos a"
-
-
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dt As New DataTable

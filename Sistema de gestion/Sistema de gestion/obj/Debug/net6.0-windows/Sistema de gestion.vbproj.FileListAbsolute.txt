@@ -92,3 +92,4 @@ C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\
 C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.genruntimeconfig.cache
 C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\ref\Sistema de gestion.dll
 C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Notificaciones.resources
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Notificaciones.resources
