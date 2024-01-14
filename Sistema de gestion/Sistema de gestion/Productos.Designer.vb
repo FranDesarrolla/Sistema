@@ -23,9 +23,9 @@ Partial Class Productos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Label1 = New Label()
-        Label2 = New Label()
         GrillaProductos = New DataGridView()
         DataGridView2 = New DataGridView()
+        Label2 = New Label()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -33,49 +33,57 @@ Partial Class Productos
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(379, 43)
+        Label1.Location = New Point(506, 27)
         Label1.Name = "Label1"
         Label1.Size = New Size(61, 15)
         Label1.TabIndex = 0
         Label1.Text = "Productos"
         ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(655, 43)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(14, 15)
-        Label2.TabIndex = 2
-        Label2.Text = "X"
-        ' 
         ' GrillaProductos
         ' 
+        GrillaProductos.AllowUserToAddRows = False
+        GrillaProductos.AllowUserToDeleteRows = False
+        GrillaProductos.AllowUserToResizeColumns = False
+        GrillaProductos.AllowUserToResizeRows = False
         GrillaProductos.BackgroundColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
-        GrillaProductos.BorderStyle = BorderStyle.None
-        GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        GrillaProductos.Location = New Point(23, 108)
+        GrillaProductos.BorderStyle = BorderStyle.Fixed3D
+        GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        GrillaProductos.Location = New Point(12, 74)
+        GrillaProductos.MultiSelect = False
         GrillaProductos.Name = "GrillaProductos"
+        GrillaProductos.RowHeadersVisible = False
         GrillaProductos.RowTemplate.Height = 25
-        GrillaProductos.Size = New Size(765, 307)
+        GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        GrillaProductos.Size = New Size(776, 525)
         GrillaProductos.TabIndex = 3
         ' 
         ' DataGridView2
         ' 
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Location = New Point(817, 108)
+        DataGridView2.Location = New Point(797, 74)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowTemplate.Height = 25
-        DataGridView2.Size = New Size(240, 307)
+        DataGridView2.Size = New Size(263, 318)
         DataGridView2.TabIndex = 4
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(1016, 9)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(41, 15)
+        Label2.TabIndex = 5
+        Label2.Text = "Label2"
+        Label2.Visible = False
         ' 
         ' Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1069, 611)
+        Controls.Add(Label2)
         Controls.Add(DataGridView2)
         Controls.Add(GrillaProductos)
-        Controls.Add(Label2)
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Productos"
@@ -87,7 +95,7 @@ Partial Class Productos
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents GrillaProductos As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Label2 As Label
 End Class
