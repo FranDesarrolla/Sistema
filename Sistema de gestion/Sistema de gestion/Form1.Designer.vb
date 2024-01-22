@@ -81,11 +81,13 @@ Partial Class ModuloPrincipal
         ' LabelNotificacion
         ' 
         LabelNotificacion.AutoSize = True
+        LabelNotificacion.Enabled = False
         LabelNotificacion.Location = New Point(157, 18)
         LabelNotificacion.Name = "LabelNotificacion"
         LabelNotificacion.Size = New Size(41, 15)
         LabelNotificacion.TabIndex = 2
         LabelNotificacion.Text = "Label1"
+        LabelNotificacion.Visible = False
         ' 
         ' brnRestaurar
         ' 

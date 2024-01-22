@@ -93,3 +93,36 @@ C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\
 C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\ref\Sistema de gestion.dll
 C:\Users\Usuario\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Notificaciones.resources
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Notificaciones.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\Sistema de gestion.exe
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\Sistema de gestion.deps.json
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\Sistema de gestion.runtimeconfig.json
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\Sistema de gestion.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\Sistema de gestion.pdb
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Clientes.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Compras.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ModuloPrincipal.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Resources.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Notificaciones.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Pagos.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Pedidos.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Productos.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Ventas.resources
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.GenerateResource.cache
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.AssemblyInfo.vb
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.sourcelink.json
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.CopyComplete
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\refint\Sistema de gestion.dll
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.pdb
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.genruntimeconfig.cache
+C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\ref\Sistema de gestion.dll

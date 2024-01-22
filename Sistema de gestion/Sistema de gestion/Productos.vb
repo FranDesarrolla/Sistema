@@ -47,9 +47,7 @@ Public Class Productos
 
     End Sub
 
-    Private Sub GrillaProductos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrillaProductos.CellContentClick
 
-    End Sub
 
     Private Sub Label2_Click_1(sender As Object, e As EventArgs) Handles Label2.Click
 
