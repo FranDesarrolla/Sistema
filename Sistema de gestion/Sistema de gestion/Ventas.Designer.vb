@@ -23,11 +23,11 @@ Partial Class Ventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         GrillaVentas = New DataGridView()
-        Button1 = New Button()
-        Button2 = New Button()
-        Button3 = New Button()
+        btnAgregar = New Button()
+        btnEliminar = New Button()
         Button4 = New Button()
         Button5 = New Button()
+        btnEditar = New Button()
         CType(GrillaVentas, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -53,32 +53,23 @@ Partial Class Ventas
         GrillaVentas.Size = New Size(879, 398)
         GrillaVentas.TabIndex = 4
         ' 
-        ' Button1
+        ' btnAgregar
         ' 
-        Button1.Location = New Point(919, 120)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(138, 55)
-        Button1.TabIndex = 5
-        Button1.Text = "Agregar"
-        Button1.UseVisualStyleBackColor = True
+        btnAgregar.Location = New Point(919, 120)
+        btnAgregar.Name = "btnAgregar"
+        btnAgregar.Size = New Size(138, 55)
+        btnAgregar.TabIndex = 5
+        btnAgregar.Text = "Agregar"
+        btnAgregar.UseVisualStyleBackColor = True
         ' 
-        ' Button2
+        ' btnEliminar
         ' 
-        Button2.Location = New Point(919, 181)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(138, 55)
-        Button2.TabIndex = 6
-        Button2.Text = "Modificar"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' Button3
-        ' 
-        Button3.Location = New Point(919, 242)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(138, 55)
-        Button3.TabIndex = 7
-        Button3.Text = "Eliminar"
-        Button3.UseVisualStyleBackColor = True
+        btnEliminar.Location = New Point(919, 242)
+        btnEliminar.Name = "btnEliminar"
+        btnEliminar.Size = New Size(138, 55)
+        btnEliminar.TabIndex = 7
+        btnEliminar.Text = "Eliminar"
+        btnEliminar.UseVisualStyleBackColor = True
         ' 
         ' Button4
         ' 
@@ -98,16 +89,25 @@ Partial Class Ventas
         Button5.Text = "Emitir Remito"
         Button5.UseVisualStyleBackColor = True
         ' 
+        ' btnEditar
+        ' 
+        btnEditar.Location = New Point(919, 181)
+        btnEditar.Name = "btnEditar"
+        btnEditar.Size = New Size(138, 55)
+        btnEditar.TabIndex = 10
+        btnEditar.Text = "Editar"
+        btnEditar.UseVisualStyleBackColor = True
+        ' 
         ' Ventas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1069, 611)
+        Controls.Add(btnEditar)
         Controls.Add(Button5)
         Controls.Add(Button4)
-        Controls.Add(Button3)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
+        Controls.Add(btnEliminar)
+        Controls.Add(btnAgregar)
         Controls.Add(GrillaVentas)
         FormBorderStyle = FormBorderStyle.None
         Name = "Ventas"
@@ -116,9 +116,9 @@ Partial Class Ventas
         ResumeLayout(False)
     End Sub
     Friend WithEvents GrillaVentas As DataGridView
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnEliminar As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents btnEditar As Button
 End Class

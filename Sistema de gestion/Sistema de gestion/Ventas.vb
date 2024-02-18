@@ -50,8 +50,16 @@ Public Class Ventas
 
     End Sub
 
-    Private Sub GrillaVentas_DoubleClick(sender As Object, e As EventArgs) Handles GrillaVentas.DoubleClick
-        ModuloPrincipal.AbrirFormEnPanel(New ABM_Ventas)
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+
+        ABM_Ventas.ABM.Text = "Editar"
+
+        ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
+        ABM_Ventas.txtIdCli.Text = GrillaVentas.CurrentRow.Cells(3).Value
+        ABM_Ventas.txtCliente.Text = GrillaVentas.CurrentRow.Cells(1).Value
+
+        ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ModuloSistema.conexionSql.Close()
+
     End Sub
 End Class
