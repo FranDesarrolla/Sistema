@@ -52,7 +52,7 @@ Public Class ModuloPrincipal
         SendMessage(Me.Handle, &H112&, &HF012&, 0)
     End Sub
 
-    Private Sub AbrirFormEnPanel(ByVal Formhijo As Object)
+    Public Sub AbrirFormEnPanel(ByVal Formhijo As Object)
         If Me.PanelContenedor.Controls.Count > 0 Then Me.PanelContenedor.Controls.RemoveAt(0)
         Dim fh As Form = TryCast(Formhijo, Form)
         fh.TopLevel = False

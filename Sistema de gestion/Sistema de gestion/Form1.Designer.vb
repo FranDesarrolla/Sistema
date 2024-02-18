@@ -41,8 +41,8 @@ Partial Class ModuloPrincipal
         Button2 = New Button()
         btnProductos = New Button()
         PBLogo = New PictureBox()
-        PanelContenedor = New Panel()
         Timer1 = New Timer(components)
+        PanelContenedor = New Panel()
         PanelSuperior.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(brnRestaurar, ComponentModel.ISupportInitialize).BeginInit()
@@ -346,7 +346,6 @@ Partial Class ModuloPrincipal
     Friend WithEvents btnMaximizar As PictureBox
     Friend WithEvents btnCerrar As PictureBox
     Friend WithEvents PanelLateral As Panel
-    Friend WithEvents PanelContenedor As Panel
     Friend WithEvents btnProductos As Button
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents Button2 As Button
@@ -360,4 +359,5 @@ Partial Class ModuloPrincipal
     Friend WithEvents LabelNotificacion As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PanelContenedor As Panel
 End Class

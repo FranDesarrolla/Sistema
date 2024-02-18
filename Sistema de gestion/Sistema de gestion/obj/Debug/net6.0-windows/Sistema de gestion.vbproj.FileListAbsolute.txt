@@ -126,3 +126,4 @@ C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema 
 C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.pdb
 C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.genruntimeconfig.cache
 C:\Users\Usuario\Documents\GitHub\Sistema de gestion\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\ref\Sistema de gestion.dll
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Ventas.resources

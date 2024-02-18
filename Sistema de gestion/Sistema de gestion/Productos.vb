@@ -24,11 +24,13 @@ Public Class Productos
         GrillaProductos.DataSource = setdedatos.Tables("dt")
         GrillaProductos.Font = New Font("Arial", 10)
 
-        GrillaProductos.Columns(1).Visible = False
-        GrillaProductos.Columns(5).Visible = False
-        GrillaProductos.Columns(6).Visible = False
-        GrillaProductos.Columns(9).Visible = False
-        GrillaProductos.Columns(10).Visible = False
+        'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
+
+        Dim columnasOcultas As Integer() = {1, 5, 6, 9, 10}
+
+        For Each col In columnasOcultas
+            GrillaProductos.Columns(col).Visible = False
+        Next
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
 
@@ -46,8 +48,6 @@ Public Class Productos
         Next i
 
     End Sub
-
-
 
     Private Sub Label2_Click_1(sender As Object, e As EventArgs) Handles Label2.Click
 

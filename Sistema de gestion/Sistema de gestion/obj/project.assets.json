@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Francisco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
+      "projectUniqueName": "C:\\Users\\Francisco\\Desktop\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
       "projectName": "Sistema de gestion",
-      "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion\\obj\\",
+      "projectPath": "C:\\Users\\Francisco\\Desktop\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
+      "packagesPath": "C:\\Users\\Francisco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Francisco\\Desktop\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Francisco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -532,20 +532,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.Data.SqlClient\" 4.8.5 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
-      "libraryId": "System.Data.SqlClient",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }
