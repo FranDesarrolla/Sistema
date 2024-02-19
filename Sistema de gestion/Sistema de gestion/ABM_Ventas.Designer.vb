@@ -23,10 +23,8 @@ Partial Class ABM_Ventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         ABM = New Label()
-        txtIdCli = New TextBox()
+        txtCuenta = New TextBox()
         lblCliente = New Label()
-        txtCliente = New TextBox()
-        TextBox2 = New TextBox()
         Panel1 = New Panel()
         Panel5 = New Panel()
         lblCod = New Label()
@@ -49,6 +47,10 @@ Partial Class ABM_Ventas
         btnVolver = New Button()
         Button2 = New Button()
         Label8 = New Label()
+        lblNombre = New Label()
+        lblNombreCliente = New Label()
+        lblApellido = New Label()
+        lblApellidoCliente = New Label()
         Panel1.SuspendLayout()
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
@@ -66,36 +68,21 @@ Partial Class ABM_Ventas
         ABM.Text = "Label1"
         ABM.Visible = False
         ' 
-        ' txtIdCli
+        ' txtCuenta
         ' 
-        txtIdCli.Location = New Point(75, 15)
-        txtIdCli.Name = "txtIdCli"
-        txtIdCli.Size = New Size(57, 23)
-        txtIdCli.TabIndex = 4
+        txtCuenta.Location = New Point(75, 7)
+        txtCuenta.Name = "txtCuenta"
+        txtCuenta.Size = New Size(81, 23)
+        txtCuenta.TabIndex = 4
         ' 
         ' lblCliente
         ' 
         lblCliente.AutoSize = True
-        lblCliente.Location = New Point(25, 23)
+        lblCliente.Location = New Point(25, 15)
         lblCliente.Name = "lblCliente"
         lblCliente.Size = New Size(44, 15)
         lblCliente.TabIndex = 3
         lblCliente.Text = "Cliente"
-        ' 
-        ' txtCliente
-        ' 
-        txtCliente.Enabled = False
-        txtCliente.Location = New Point(25, 44)
-        txtCliente.Name = "txtCliente"
-        txtCliente.Size = New Size(288, 23)
-        txtCliente.TabIndex = 6
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.Location = New Point(138, 15)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(23, 23)
-        TextBox2.TabIndex = 8
         ' 
         ' Panel1
         ' 
@@ -235,10 +222,12 @@ Partial Class ABM_Ventas
         ' Panel2
         ' 
         Panel2.BorderStyle = BorderStyle.FixedSingle
-        Panel2.Controls.Add(txtCliente)
-        Panel2.Controls.Add(TextBox2)
+        Panel2.Controls.Add(lblApellidoCliente)
+        Panel2.Controls.Add(lblApellido)
+        Panel2.Controls.Add(lblNombreCliente)
+        Panel2.Controls.Add(lblNombre)
         Panel2.Controls.Add(lblCliente)
-        Panel2.Controls.Add(txtIdCli)
+        Panel2.Controls.Add(txtCuenta)
         Panel2.Location = New Point(29, 117)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1013, 81)
@@ -309,11 +298,47 @@ Partial Class ABM_Ventas
         Label8.TabIndex = 17
         Label8.Text = "Editar Comprobante"
         ' 
+        ' lblNombre
+        ' 
+        lblNombre.AutoSize = True
+        lblNombre.Location = New Point(260, 15)
+        lblNombre.Name = "lblNombre"
+        lblNombre.Size = New Size(54, 15)
+        lblNombre.TabIndex = 5
+        lblNombre.Text = "Nombre:"
+        ' 
+        ' lblNombreCliente
+        ' 
+        lblNombreCliente.AutoSize = True
+        lblNombreCliente.Location = New Point(320, 15)
+        lblNombreCliente.Name = "lblNombreCliente"
+        lblNombreCliente.Size = New Size(44, 15)
+        lblNombreCliente.TabIndex = 6
+        lblNombreCliente.Text = "Cliente"
+        ' 
+        ' lblApellido
+        ' 
+        lblApellido.AutoSize = True
+        lblApellido.Location = New Point(260, 38)
+        lblApellido.Name = "lblApellido"
+        lblApellido.Size = New Size(54, 15)
+        lblApellido.TabIndex = 7
+        lblApellido.Text = "Apellido:"
+        ' 
+        ' lblApellidoCliente
+        ' 
+        lblApellidoCliente.AutoSize = True
+        lblApellidoCliente.Location = New Point(320, 38)
+        lblApellidoCliente.Name = "lblApellidoCliente"
+        lblApellidoCliente.Size = New Size(51, 15)
+        lblApellidoCliente.TabIndex = 8
+        lblApellidoCliente.Text = "Apellido"
+        ' 
         ' ABM_Ventas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.Control
+        BackColor = SystemColors.ControlLightLight
         ClientSize = New Size(1069, 611)
         ControlBox = False
         Controls.Add(Label8)
@@ -347,10 +372,8 @@ Partial Class ABM_Ventas
     End Sub
 
     Friend WithEvents ABM As Label
-    Friend WithEvents txtIdCli As TextBox
+    Friend WithEvents txtCuenta As TextBox
     Friend WithEvents lblCliente As Label
-    Friend WithEvents txtCliente As TextBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
@@ -373,4 +396,8 @@ Partial Class ABM_Ventas
     Friend WithEvents Button2 As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents Label8 As Label
+    Friend WithEvents lblApellidoCliente As Label
+    Friend WithEvents lblApellido As Label
+    Friend WithEvents lblNombreCliente As Label
+    Friend WithEvents lblNombre As Label
 End Class

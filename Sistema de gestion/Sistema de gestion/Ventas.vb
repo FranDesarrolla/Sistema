@@ -13,7 +13,7 @@ Public Class Ventas
         End If
 
         Dim consultassql As String = "SELECT NDV.idventa as ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, NDV.idcliente, NDV.idempleado, NDV.FechaDeVenta AS Fecha, 
-		                                    NDV.PuntoDeVenta as Sucursal, NDV.NroComprobante as Comprobante, NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total
+		                                    NDV.PuntoDeVenta as Sucursal, NDV.NroComprobante as Comprobante, NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido
                                     FROM NotasDeVentas NDV
                                     INNER JOIN Clientes C ON C.idcliente = NDV.idcliente
                                     INNER JOIN Empleados E ON E.idempleado = NDV.idempleado"
@@ -30,6 +30,8 @@ Public Class Ventas
         GrillaVentas.Columns(4).Visible = False
         GrillaVentas.Columns(10).Visible = False
         GrillaVentas.Columns(11).Visible = False
+        GrillaVentas.Columns(12).Visible = False
+        GrillaVentas.Columns(13).Visible = False
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
 
@@ -44,7 +46,7 @@ Public Class Ventas
 
         'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
 
-        For i As Integer = 0 To 11
+        For i As Integer = 0 To 13
             GrillaVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
 
@@ -55,8 +57,9 @@ Public Class Ventas
         ABM_Ventas.ABM.Text = "Editar"
 
         ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
-        ABM_Ventas.txtIdCli.Text = GrillaVentas.CurrentRow.Cells(3).Value
-        ABM_Ventas.txtCliente.Text = GrillaVentas.CurrentRow.Cells(1).Value
+        ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
+        ABM_Ventas.lblNombreCliente.Text = GrillaVentas.CurrentRow.Cells(12).Value
+        ABM_Ventas.lblApellidoCliente.Text = GrillaVentas.CurrentRow.Cells(13).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ModuloSistema.conexionSql.Close()
