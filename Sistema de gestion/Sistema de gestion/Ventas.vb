@@ -26,12 +26,11 @@ Public Class Ventas
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
 
-        GrillaVentas.Columns(3).Visible = False
-        GrillaVentas.Columns(4).Visible = False
-        GrillaVentas.Columns(10).Visible = False
-        GrillaVentas.Columns(11).Visible = False
-        GrillaVentas.Columns(12).Visible = False
-        GrillaVentas.Columns(13).Visible = False
+        Dim columnasOcultar() As Integer = {3, 4, 10, 11, 12, 13}
+
+        For Each columna As Integer In columnasOcultar
+            GrillaVentas.Columns(columna).Visible = False
+        Next
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
 
