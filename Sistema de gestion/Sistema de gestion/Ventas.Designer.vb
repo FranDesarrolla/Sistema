@@ -39,7 +39,7 @@ Partial Class Ventas
         GrillaVentas.AllowUserToResizeRows = False
         GrillaVentas.BackgroundColor = Color.Silver
         GrillaVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        GrillaVentas.Location = New Point(24, 120)
+        GrillaVentas.Location = New Point(24, 65)
         GrillaVentas.MultiSelect = False
         GrillaVentas.Name = "GrillaVentas"
         GrillaVentas.ReadOnly = True
@@ -50,21 +50,23 @@ Partial Class Ventas
         GrillaVentas.ShowCellToolTips = False
         GrillaVentas.ShowEditingIcon = False
         GrillaVentas.ShowRowErrors = False
-        GrillaVentas.Size = New Size(879, 398)
+        GrillaVentas.Size = New Size(879, 457)
         GrillaVentas.TabIndex = 4
         ' 
         ' btnAgregar
         ' 
-        btnAgregar.Location = New Point(919, 120)
+        btnAgregar.BackColor = Color.White
+        btnAgregar.ForeColor = Color.Black
+        btnAgregar.Location = New Point(919, 65)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(138, 55)
         btnAgregar.TabIndex = 5
         btnAgregar.Text = "Agregar"
-        btnAgregar.UseVisualStyleBackColor = True
+        btnAgregar.UseVisualStyleBackColor = False
         ' 
         ' btnEliminar
         ' 
-        btnEliminar.Location = New Point(919, 242)
+        btnEliminar.Location = New Point(919, 187)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(138, 55)
         btnEliminar.TabIndex = 7
@@ -91,7 +93,7 @@ Partial Class Ventas
         ' 
         ' btnEditar
         ' 
-        btnEditar.Location = New Point(919, 181)
+        btnEditar.Location = New Point(919, 126)
         btnEditar.Name = "btnEditar"
         btnEditar.Size = New Size(138, 55)
         btnEditar.TabIndex = 10
@@ -102,6 +104,7 @@ Partial Class Ventas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         ClientSize = New Size(1069, 611)
         Controls.Add(btnEditar)
         Controls.Add(Button5)

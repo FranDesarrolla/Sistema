@@ -59,6 +59,7 @@ Public Class Ventas
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
         ABM_Ventas.lblNombreCliente.Text = GrillaVentas.CurrentRow.Cells(12).Value
         ABM_Ventas.lblApellidoCliente.Text = GrillaVentas.CurrentRow.Cells(13).Value
+        ABM_Ventas.lblApellidoCliente.Text = GrillaVentas.CurrentRow.Cells(14).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ModuloSistema.conexionSql.Close()
