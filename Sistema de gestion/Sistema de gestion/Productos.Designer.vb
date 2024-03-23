@@ -26,6 +26,11 @@ Partial Class Productos
         GrillaProductos = New DataGridView()
         DataGridView2 = New DataGridView()
         Label2 = New Label()
+        btnEditar = New Button()
+        btnEliminar = New Button()
+        btnAgregar = New Button()
+        txtCodigoPbusqueda = New TextBox()
+        btnBuscar = New Button()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -48,22 +53,22 @@ Partial Class Productos
         GrillaProductos.BackgroundColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
         GrillaProductos.BorderStyle = BorderStyle.Fixed3D
         GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        GrillaProductos.Location = New Point(12, 74)
+        GrillaProductos.Location = New Point(12, 148)
         GrillaProductos.MultiSelect = False
         GrillaProductos.Name = "GrillaProductos"
         GrillaProductos.RowHeadersVisible = False
         GrillaProductos.RowTemplate.Height = 25
         GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        GrillaProductos.Size = New Size(776, 525)
+        GrillaProductos.Size = New Size(811, 289)
         GrillaProductos.TabIndex = 3
         ' 
         ' DataGridView2
         ' 
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Location = New Point(797, 74)
+        DataGridView2.Location = New Point(829, 148)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowTemplate.Height = 25
-        DataGridView2.Size = New Size(263, 318)
+        DataGridView2.Size = New Size(231, 289)
         DataGridView2.TabIndex = 4
         ' 
         ' Label2
@@ -76,11 +81,60 @@ Partial Class Productos
         Label2.Text = "Label2"
         Label2.Visible = False
         ' 
+        ' btnEditar
+        ' 
+        btnEditar.Location = New Point(325, 494)
+        btnEditar.Name = "btnEditar"
+        btnEditar.Size = New Size(138, 55)
+        btnEditar.TabIndex = 13
+        btnEditar.Text = "Editar"
+        btnEditar.UseVisualStyleBackColor = True
+        ' 
+        ' btnEliminar
+        ' 
+        btnEliminar.Location = New Point(524, 494)
+        btnEliminar.Name = "btnEliminar"
+        btnEliminar.Size = New Size(138, 55)
+        btnEliminar.TabIndex = 12
+        btnEliminar.Text = "Eliminar"
+        btnEliminar.UseVisualStyleBackColor = True
+        ' 
+        ' btnAgregar
+        ' 
+        btnAgregar.BackColor = Color.White
+        btnAgregar.ForeColor = Color.Black
+        btnAgregar.Location = New Point(138, 494)
+        btnAgregar.Name = "btnAgregar"
+        btnAgregar.Size = New Size(138, 55)
+        btnAgregar.TabIndex = 11
+        btnAgregar.Text = "Agregar"
+        btnAgregar.UseVisualStyleBackColor = False
+        ' 
+        ' txtCodigoPbusqueda
+        ' 
+        txtCodigoPbusqueda.Location = New Point(107, 106)
+        txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
+        txtCodigoPbusqueda.Size = New Size(100, 23)
+        txtCodigoPbusqueda.TabIndex = 14
+        ' 
+        ' btnBuscar
+        ' 
+        btnBuscar.Location = New Point(265, 106)
+        btnBuscar.Name = "btnBuscar"
+        btnBuscar.Size = New Size(34, 23)
+        btnBuscar.TabIndex = 15
+        btnBuscar.UseVisualStyleBackColor = True
+        ' 
         ' Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1069, 611)
+        Controls.Add(btnBuscar)
+        Controls.Add(txtCodigoPbusqueda)
+        Controls.Add(btnEditar)
+        Controls.Add(btnEliminar)
+        Controls.Add(btnAgregar)
         Controls.Add(Label2)
         Controls.Add(DataGridView2)
         Controls.Add(GrillaProductos)
@@ -98,4 +152,9 @@ Partial Class Productos
     Friend WithEvents GrillaProductos As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label2 As Label
+    Friend WithEvents btnEditar As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents txtCodigoPbusqueda As TextBox
+    Friend WithEvents btnBuscar As Button
 End Class

@@ -172,7 +172,7 @@ Partial Class ModuloPrincipal
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
         Button1.ImageAlign = ContentAlignment.MiddleLeft
         Button1.Location = New Point(0, 479)
@@ -189,7 +189,7 @@ Partial Class ModuloPrincipal
         Button7.FlatAppearance.BorderSize = 0
         Button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button7.FlatStyle = FlatStyle.Flat
-        Button7.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button7.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button7.ForeColor = Color.White
         Button7.ImageAlign = ContentAlignment.MiddleLeft
         Button7.Location = New Point(0, 434)
@@ -206,7 +206,7 @@ Partial Class ModuloPrincipal
         Button6.FlatAppearance.BorderSize = 0
         Button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button6.FlatStyle = FlatStyle.Flat
-        Button6.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button6.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button6.ForeColor = Color.White
         Button6.ImageAlign = ContentAlignment.MiddleLeft
         Button6.Location = New Point(0, 389)
@@ -223,7 +223,7 @@ Partial Class ModuloPrincipal
         Button5.FlatAppearance.BorderSize = 0
         Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button5.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button5.ForeColor = Color.White
         Button5.ImageAlign = ContentAlignment.MiddleLeft
         Button5.Location = New Point(0, 344)
@@ -240,7 +240,7 @@ Partial Class ModuloPrincipal
         Button4.FlatAppearance.BorderSize = 0
         Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button4.FlatStyle = FlatStyle.Flat
-        Button4.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button4.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button4.ForeColor = Color.White
         Button4.ImageAlign = ContentAlignment.MiddleLeft
         Button4.Location = New Point(0, 299)
@@ -257,7 +257,7 @@ Partial Class ModuloPrincipal
         btnClientes.FlatAppearance.BorderSize = 0
         btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         btnClientes.FlatStyle = FlatStyle.Flat
-        btnClientes.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        btnClientes.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnClientes.ForeColor = Color.White
         btnClientes.ImageAlign = ContentAlignment.MiddleLeft
         btnClientes.Location = New Point(0, 254)
@@ -274,7 +274,7 @@ Partial Class ModuloPrincipal
         Button2.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Button2.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
         Button2.ImageAlign = ContentAlignment.MiddleLeft
         Button2.Location = New Point(0, 209)
@@ -291,7 +291,7 @@ Partial Class ModuloPrincipal
         btnProductos.FlatAppearance.BorderSize = 0
         btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         btnProductos.FlatStyle = FlatStyle.Flat
-        btnProductos.Font = New Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        btnProductos.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnProductos.ForeColor = Color.White
         btnProductos.ImageAlign = ContentAlignment.MiddleLeft
         btnProductos.Location = New Point(0, 164)

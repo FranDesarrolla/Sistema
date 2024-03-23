@@ -6,50 +6,55 @@ Public Class Productos
     End Sub
 
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        llenarGrillaProductos()
-        ModuloSistema.conexionSql.Open()
+        llenarGrillaProductos() ' Llamada al método sin término de búsqueda para mostrar todos los productos
+        ModuloSistema.conexionSql.Open() ' Abre la conexión SQL
     End Sub
 
-    Public Sub llenarGrillaProductos()
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim terminoBusqueda As String = txtCodigoPbusqueda.Text.Trim()
+        llenarGrillaProductos(terminoBusqueda) ' Llamada al método con el término de búsqueda ingresado
+    End Sub
+
+    Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
         'Limpiar datos de la grilla
-        If setdedatos.Tables.Contains("dt") Then
-            setdedatos.Tables("dt").Rows.Clear()
+        If setdedatos.Tables.Contains("dtProducto") Then
+            setdedatos.Tables("dtProducto").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT a.idproducto as Codigo, a.idproveedor as Proveedor, a.NombreProducto AS Producto, a.Descripcion AS Descripcion, a.UnidadMedida AS UM, a.Categoria, a.Rubro, a.Stock, a.PrecioUnitario AS Precio, a.Descuentos, a.Impuestos FROM Productos a"
+        Dim consultassql As String = "SELECT Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario FROM Productos"
+
+        ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
+        If Not String.IsNullOrEmpty(terminoBusqueda) Then
+            consultassql &= " WHERE Descripcion LIKE '%" & terminoBusqueda & "%' OR Codigo LIKE '%" & terminoBusqueda & "%'"
+        End If
+
+        consultassql &= " ORDER BY Codigo ASC"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
-        Dim dt As New DataTable
-        adaptadorSql.Fill(setdedatos, "dt")
-        GrillaProductos.DataSource = setdedatos.Tables("dt")
+        Dim dtProducto As New DataTable
+        adaptadorSql.Fill(setdedatos, "dtProducto")
+        GrillaProductos.DataSource = setdedatos.Tables("dtProducto")
         GrillaProductos.Font = New Font("Arial", 10)
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-
-        Dim columnasOcultas As Integer() = {1, 5, 6, 9, 10}
-
+        Dim columnasOcultas As Integer() = {2}
         For Each col In columnasOcultas
             GrillaProductos.Columns(col).Visible = False
         Next
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
-
-        GrillaProductos.Columns(0).FillWeight = 10
-        GrillaProductos.Columns(2).FillWeight = 29
-        GrillaProductos.Columns(3).FillWeight = 40
-        GrillaProductos.Columns(4).FillWeight = 5
-        GrillaProductos.Columns(7).FillWeight = 8
-        GrillaProductos.Columns(8).FillWeight = 8
+        GrillaProductos.Columns(0).FillWeight = 8
+        GrillaProductos.Columns(1).FillWeight = 18
+        GrillaProductos.Columns(2).FillWeight = 30
+        GrillaProductos.Columns(3).FillWeight = 5
+        GrillaProductos.Columns(4).FillWeight = 7
+        GrillaProductos.Columns(5).FillWeight = 7
+        GrillaProductos.Columns(6).FillWeight = 7
+        GrillaProductos.Columns(7).FillWeight = 7
 
         'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
-
-        For i As Integer = 0 To 6
+        For i As Integer = 0 To 7
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
-
-    End Sub
-
-    Private Sub Label2_Click_1(sender As Object, e As EventArgs) Handles Label2.Click
-
     End Sub
 End Class

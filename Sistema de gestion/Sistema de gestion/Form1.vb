@@ -125,4 +125,8 @@ Public Class ModuloPrincipal
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         ModuloSistema.conexionSql.Close()
     End Sub
+
+    Private Sub PanelContenedor_Paint(sender As Object, e As PaintEventArgs) Handles PanelContenedor.Paint
+
+    End Sub
 End Class
