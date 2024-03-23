@@ -50,7 +50,7 @@ Partial Class Productos
         GrillaProductos.AllowUserToDeleteRows = False
         GrillaProductos.AllowUserToResizeColumns = False
         GrillaProductos.AllowUserToResizeRows = False
-        GrillaProductos.BackgroundColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
+        GrillaProductos.BackgroundColor = Color.Silver
         GrillaProductos.BorderStyle = BorderStyle.Fixed3D
         GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaProductos.Location = New Point(12, 148)
@@ -129,6 +129,7 @@ Partial Class Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         ClientSize = New Size(1069, 611)
         Controls.Add(btnBuscar)
         Controls.Add(txtCodigoPbusqueda)

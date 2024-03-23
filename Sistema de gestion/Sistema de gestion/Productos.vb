@@ -21,7 +21,7 @@ Public Class Productos
             setdedatos.Tables("dtProducto").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario FROM Productos"
+        Dim consultassql As String = "SELECT IDProducto,Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario FROM Productos"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
@@ -56,5 +56,22 @@ Public Class Productos
         For i As Integer = 0 To 7
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        ABM_Productos.Productos_ABM.Text = "Editar"
+
+        ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
+        ABM_Productos.codProducto.Text = GrillaProductos.CurrentRow.Cells(1).Value
+        ABM_Productos.descripProducto.Text = GrillaProductos.CurrentRow.Cells(2).Value
+        ABM_Productos.especifiProducto.Text = GrillaProductos.CurrentRow.Cells(3).Value
+        ABM_Productos.UnidadProducto.Text = GrillaProductos.CurrentRow.Cells(4).Value
+        ABM_Productos.RubroProducto.Text = GrillaProductos.CurrentRow.Cells(5).Value
+        ABM_Productos.CategoriaProducto.Text = GrillaProductos.CurrentRow.Cells(6).Value
+        ABM_Productos.StockProducto.Text = GrillaProductos.CurrentRow.Cells(7).Value
+        ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value
+
+        ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
+        ModuloSistema.conexionSql.Close()
     End Sub
 End Class
