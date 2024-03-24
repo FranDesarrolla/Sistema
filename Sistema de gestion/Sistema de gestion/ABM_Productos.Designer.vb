@@ -42,9 +42,9 @@ Partial Class ABM_Productos
         TextBox12 = New TextBox()
         PrecioUnitarioProducto = New TextBox()
         TextBox18 = New TextBox()
-        Button1 = New Button()
+        btnAceptarABMP = New Button()
         Button2 = New Button()
-        Productos_ABM = New TextBox()
+        lblSeñalProducto = New Label()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -85,6 +85,7 @@ Partial Class ABM_Productos
         ' 
         ' id_producto
         ' 
+        id_producto.Enabled = False
         id_producto.Location = New Point(137, 9)
         id_producto.Name = "id_producto"
         id_producto.Size = New Size(62, 23)
@@ -237,14 +238,14 @@ Partial Class ABM_Productos
         TextBox18.TabIndex = 13
         TextBox18.Text = "Precio Unitario:"
         ' 
-        ' Button1
+        ' btnAceptarABMP
         ' 
-        Button1.Location = New Point(424, 462)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 52)
-        Button1.TabIndex = 14
-        Button1.Text = "Aceptar"
-        Button1.UseVisualStyleBackColor = True
+        btnAceptarABMP.Location = New Point(424, 462)
+        btnAceptarABMP.Name = "btnAceptarABMP"
+        btnAceptarABMP.Size = New Size(75, 52)
+        btnAceptarABMP.TabIndex = 14
+        btnAceptarABMP.Text = "Aceptar"
+        btnAceptarABMP.UseVisualStyleBackColor = True
         ' 
         ' Button2
         ' 
@@ -255,23 +256,23 @@ Partial Class ABM_Productos
         Button2.Text = "Volver"
         Button2.UseVisualStyleBackColor = True
         ' 
-        ' Productos_ABM
+        ' lblSeñalProducto
         ' 
-        Productos_ABM.BackColor = SystemColors.Menu
-        Productos_ABM.BorderStyle = BorderStyle.None
-        Productos_ABM.Location = New Point(917, 12)
-        Productos_ABM.Name = "Productos_ABM"
-        Productos_ABM.Size = New Size(62, 16)
-        Productos_ABM.TabIndex = 16
+        lblSeñalProducto.AutoSize = True
+        lblSeñalProducto.Location = New Point(906, 13)
+        lblSeñalProducto.Name = "lblSeñalProducto"
+        lblSeñalProducto.Size = New Size(41, 15)
+        lblSeñalProducto.TabIndex = 17
+        lblSeñalProducto.Text = "Label1"
         ' 
         ' ABM_Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1069, 611)
-        Controls.Add(Productos_ABM)
+        Controls.Add(lblSeñalProducto)
         Controls.Add(Button2)
-        Controls.Add(Button1)
+        Controls.Add(btnAceptarABMP)
         Controls.Add(TextBox18)
         Controls.Add(PrecioUnitarioProducto)
         Controls.Add(Panel1)
@@ -305,7 +306,7 @@ Partial Class ABM_Productos
     Friend WithEvents RubroProducto As TextBox
     Friend WithEvents PrecioUnitarioProducto As TextBox
     Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAceptarABMP As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Productos_ABM As TextBox
+    Friend WithEvents lblSeñalProducto As Label
 End Class

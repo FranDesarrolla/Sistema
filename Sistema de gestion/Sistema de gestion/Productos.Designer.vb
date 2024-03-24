@@ -28,7 +28,7 @@ Partial Class Productos
         Label2 = New Label()
         btnEditar = New Button()
         btnEliminar = New Button()
-        btnAgregar = New Button()
+        btnAgregarProducto = New Button()
         txtCodigoPbusqueda = New TextBox()
         btnBuscar = New Button()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
@@ -99,16 +99,16 @@ Partial Class Productos
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = True
         ' 
-        ' btnAgregar
+        ' btnAgregarProducto
         ' 
-        btnAgregar.BackColor = Color.White
-        btnAgregar.ForeColor = Color.Black
-        btnAgregar.Location = New Point(138, 494)
-        btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(138, 55)
-        btnAgregar.TabIndex = 11
-        btnAgregar.Text = "Agregar"
-        btnAgregar.UseVisualStyleBackColor = False
+        btnAgregarProducto.BackColor = Color.White
+        btnAgregarProducto.ForeColor = Color.Black
+        btnAgregarProducto.Location = New Point(138, 494)
+        btnAgregarProducto.Name = "btnAgregarProducto"
+        btnAgregarProducto.Size = New Size(138, 55)
+        btnAgregarProducto.TabIndex = 11
+        btnAgregarProducto.Text = "Agregar"
+        btnAgregarProducto.UseVisualStyleBackColor = False
         ' 
         ' txtCodigoPbusqueda
         ' 
@@ -135,7 +135,7 @@ Partial Class Productos
         Controls.Add(txtCodigoPbusqueda)
         Controls.Add(btnEditar)
         Controls.Add(btnEliminar)
-        Controls.Add(btnAgregar)
+        Controls.Add(btnAgregarProducto)
         Controls.Add(Label2)
         Controls.Add(DataGridView2)
         Controls.Add(GrillaProductos)
@@ -155,7 +155,7 @@ Partial Class Productos
     Friend WithEvents Label2 As Label
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnEliminar As Button
-    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnAgregarProducto As Button
     Friend WithEvents txtCodigoPbusqueda As TextBox
     Friend WithEvents btnBuscar As Button
 End Class

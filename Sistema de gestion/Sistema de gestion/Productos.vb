@@ -7,7 +7,7 @@ Public Class Productos
 
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaProductos() ' Llamada al método sin término de búsqueda para mostrar todos los productos
-        ModuloSistema.conexionSql.Open() ' Abre la conexión SQL
+        'ModuloSistema.conexionSql.Open() ' Abre la conexión SQL
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -59,7 +59,7 @@ Public Class Productos
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        ABM_Productos.Productos_ABM.Text = "Editar"
+        ABM_Productos.lblSeñalProducto.Text = "EDITAR"
 
         ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
         ABM_Productos.codProducto.Text = GrillaProductos.CurrentRow.Cells(1).Value
@@ -73,5 +73,15 @@ Public Class Productos
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
         ModuloSistema.conexionSql.Close()
+
+
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+
+        ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
+
+        ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
+
     End Sub
 End Class
