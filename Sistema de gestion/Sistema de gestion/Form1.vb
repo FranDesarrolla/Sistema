@@ -60,8 +60,19 @@ Public Class ModuloPrincipal
         fh.Dock = DockStyle.Fill
         Me.PanelContenedor.Controls.Add(fh)
         Me.PanelContenedor.Tag = fh
+
+        ' Verificar si la conexión está abierta
+        If ModuloSistema.conexionSql.State = ConnectionState.Open Then
+            ModuloSistema.conexionSql.Close() ' Si está abierta, cerrar la conexión
+        End If
+
+        ' Abrir la conexión
+        ModuloSistema.conexionSql.Open()
+
         fh.Show()
     End Sub
+
+
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
         AbrirFormEnPanel(New Productos)
@@ -124,9 +135,5 @@ Public Class ModuloPrincipal
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         ModuloSistema.conexionSql.Close()
-    End Sub
-
-    Private Sub PanelContenedor_Paint(sender As Object, e As PaintEventArgs) Handles PanelContenedor.Paint
-
     End Sub
 End Class

@@ -72,8 +72,6 @@ Public Class Productos
         ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
-        ModuloSistema.conexionSql.Close()
-
 
     End Sub
 

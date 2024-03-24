@@ -3,7 +3,7 @@
 Public Class Ventas
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaVentas()
-        ModuloSistema.conexionSql.Open()
+        ModuloSistema.conexionSql.Close()
     End Sub
     Public Sub llenarGrillaVentas()
         'LIMPIAR DATOS DE LA GRILLA
