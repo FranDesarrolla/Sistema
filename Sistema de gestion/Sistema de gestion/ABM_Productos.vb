@@ -5,6 +5,29 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ModuloPrincipal.AbrirFormEnPanel(Productos)
+        LimpiarFormularioABMProducto()
+        ' Cierra la conexión después de ejecutar la consulta
+    End Sub
+
+    Public Sub LimpiarFormularioABMProducto()
+
+        ' Limpiar los campos de texto
+        Me.id_producto.Text = ""  ' Suponemos que se quiere limpiar el campo
+        Me.codProducto.Text = ""
+        Me.descripProducto.Text = ""
+        Me.especifiProducto.Text = ""
+        Me.UnidadProducto.Text = ""
+        Me.RubroProducto.Text = ""
+        Me.CategoriaProducto.Text = ""
+        Me.StockProducto.Text = ""
+        Me.PrecioUnitarioProducto.Text = ""
+
+        ' Desactivar el botón "Guardar" (si existe)
+        'If Not btnAceptarABMP Is Nothing Then
+        'btnAceptarABMP.Enabled = False
+        'End If
+
+
     End Sub
 
     Private Sub btnAceptarABMP_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
@@ -29,6 +52,7 @@
 
                 ' Muestra un mensaje de éxito
                 MsgBox("Datos Guardados", +vbOKOnly + vbInformation)
+                Productos.llenarGrillaProductos()
             Catch ex As Exception
                 ' Muestra un mensaje de error en caso de excepción
                 MsgBox(ex.ToString)
@@ -58,15 +82,21 @@
                 ' Cierra la conexión después de ejecutar la consulta
                 MsgBox("Datos Guardados", +vbOKOnly + vbInformation)
 
+
             Catch ex As Exception
                 MsgBox(ex.ToString)
 
             End Try
             ' Abre el formulario "Productos" en un panel dentro del formulario principal
 
+            Productos.llenarGrillaProductos()
             ModuloPrincipal.AbrirFormEnPanel(Productos)
 
         End If
+
+    End Sub
+
+    Private Sub ID_Click(sender As Object, e As EventArgs) Handles ID.Click
 
     End Sub
 End Class

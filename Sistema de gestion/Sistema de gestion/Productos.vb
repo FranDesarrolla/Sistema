@@ -1,10 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Productos
-    Private Sub Label2_Click(sender As Object, e As EventArgs)
-        Close()
-    End Sub
-
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaProductos() ' Llamada al método sin término de búsqueda para mostrar todos los productos
         'ModuloSistema.conexionSql.Open() ' Abre la conexión SQL
@@ -82,4 +78,6 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
 
     End Sub
+
+
 End Class

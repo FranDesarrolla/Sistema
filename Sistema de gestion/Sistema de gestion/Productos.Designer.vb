@@ -23,16 +23,15 @@ Partial Class Productos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Label1 = New Label()
-        GrillaProductos = New DataGridView()
         DataGridView2 = New DataGridView()
         Label2 = New Label()
         btnEditar = New Button()
-        btnEliminar = New Button()
         btnAgregarProducto = New Button()
         txtCodigoPbusqueda = New TextBox()
         btnBuscar = New Button()
-        CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
+        GrillaProductos = New DataGridView()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -43,24 +42,6 @@ Partial Class Productos
         Label1.Size = New Size(61, 15)
         Label1.TabIndex = 0
         Label1.Text = "Productos"
-        ' 
-        ' GrillaProductos
-        ' 
-        GrillaProductos.AllowUserToAddRows = False
-        GrillaProductos.AllowUserToDeleteRows = False
-        GrillaProductos.AllowUserToResizeColumns = False
-        GrillaProductos.AllowUserToResizeRows = False
-        GrillaProductos.BackgroundColor = Color.Silver
-        GrillaProductos.BorderStyle = BorderStyle.Fixed3D
-        GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        GrillaProductos.Location = New Point(12, 148)
-        GrillaProductos.MultiSelect = False
-        GrillaProductos.Name = "GrillaProductos"
-        GrillaProductos.RowHeadersVisible = False
-        GrillaProductos.RowTemplate.Height = 25
-        GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        GrillaProductos.Size = New Size(811, 289)
-        GrillaProductos.TabIndex = 3
         ' 
         ' DataGridView2
         ' 
@@ -83,27 +64,18 @@ Partial Class Productos
         ' 
         ' btnEditar
         ' 
-        btnEditar.Location = New Point(325, 494)
+        btnEditar.Location = New Point(372, 443)
         btnEditar.Name = "btnEditar"
         btnEditar.Size = New Size(138, 55)
         btnEditar.TabIndex = 13
         btnEditar.Text = "Editar"
         btnEditar.UseVisualStyleBackColor = True
         ' 
-        ' btnEliminar
-        ' 
-        btnEliminar.Location = New Point(524, 494)
-        btnEliminar.Name = "btnEliminar"
-        btnEliminar.Size = New Size(138, 55)
-        btnEliminar.TabIndex = 12
-        btnEliminar.Text = "Eliminar"
-        btnEliminar.UseVisualStyleBackColor = True
-        ' 
         ' btnAgregarProducto
         ' 
         btnAgregarProducto.BackColor = Color.White
         btnAgregarProducto.ForeColor = Color.Black
-        btnAgregarProducto.Location = New Point(138, 494)
+        btnAgregarProducto.Location = New Point(216, 443)
         btnAgregarProducto.Name = "btnAgregarProducto"
         btnAgregarProducto.Size = New Size(138, 55)
         btnAgregarProducto.TabIndex = 11
@@ -112,18 +84,40 @@ Partial Class Productos
         ' 
         ' txtCodigoPbusqueda
         ' 
-        txtCodigoPbusqueda.Location = New Point(107, 106)
+        txtCodigoPbusqueda.Location = New Point(138, 106)
         txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
         txtCodigoPbusqueda.Size = New Size(100, 23)
         txtCodigoPbusqueda.TabIndex = 14
         ' 
         ' btnBuscar
         ' 
-        btnBuscar.Location = New Point(265, 106)
+        btnBuscar.Location = New Point(262, 106)
         btnBuscar.Name = "btnBuscar"
         btnBuscar.Size = New Size(34, 23)
         btnBuscar.TabIndex = 15
         btnBuscar.UseVisualStyleBackColor = True
+        ' 
+        ' GrillaProductos
+        ' 
+        GrillaProductos.AllowUserToAddRows = False
+        GrillaProductos.AllowUserToDeleteRows = False
+        GrillaProductos.AllowUserToResizeColumns = False
+        GrillaProductos.AllowUserToResizeRows = False
+        GrillaProductos.BackgroundColor = Color.Silver
+        GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        GrillaProductos.Location = New Point(86, 148)
+        GrillaProductos.MultiSelect = False
+        GrillaProductos.Name = "GrillaProductos"
+        GrillaProductos.ReadOnly = True
+        GrillaProductos.RowHeadersVisible = False
+        GrillaProductos.RowTemplate.Height = 25
+        GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        GrillaProductos.ShowCellErrors = False
+        GrillaProductos.ShowCellToolTips = False
+        GrillaProductos.ShowEditingIcon = False
+        GrillaProductos.ShowRowErrors = False
+        GrillaProductos.Size = New Size(726, 289)
+        GrillaProductos.TabIndex = 16
         ' 
         ' Productos
         ' 
@@ -131,31 +125,29 @@ Partial Class Productos
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
         ClientSize = New Size(1069, 611)
+        Controls.Add(GrillaProductos)
         Controls.Add(btnBuscar)
         Controls.Add(txtCodigoPbusqueda)
         Controls.Add(btnEditar)
-        Controls.Add(btnEliminar)
         Controls.Add(btnAgregarProducto)
         Controls.Add(Label2)
         Controls.Add(DataGridView2)
-        Controls.Add(GrillaProductos)
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Productos"
         Text = "Productos"
-        CType(GrillaProductos, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        CType(GrillaProductos, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents GrillaProductos As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents btnEditar As Button
-    Friend WithEvents btnEliminar As Button
     Friend WithEvents btnAgregarProducto As Button
     Friend WithEvents txtCodigoPbusqueda As TextBox
     Friend WithEvents btnBuscar As Button
+    Friend WithEvents GrillaProductos As DataGridView
 End Class

@@ -22,115 +22,65 @@ Partial Class ABM_Productos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        TextBox1 = New TextBox()
         descripProducto = New TextBox()
         especifiProducto = New TextBox()
-        TextBox2 = New TextBox()
         id_producto = New TextBox()
-        TextBox6 = New TextBox()
         codProducto = New TextBox()
-        TextBox8 = New TextBox()
-        TextBox9 = New TextBox()
         UnidadProducto = New TextBox()
         TituloAbmProducto = New TextBox()
         Panel1 = New Panel()
         StockProducto = New TextBox()
         CategoriaProducto = New TextBox()
         RubroProducto = New TextBox()
-        TextBox13 = New TextBox()
-        TextBox11 = New TextBox()
-        TextBox12 = New TextBox()
         PrecioUnitarioProducto = New TextBox()
         TextBox18 = New TextBox()
         btnAceptarABMP = New Button()
         Button2 = New Button()
         lblSeñalProducto = New Label()
+        CB_Activo = New CheckBox()
+        ID = New Label()
+        Label1 = New Label()
+        Label2 = New Label()
+        Label3 = New Label()
+        Label4 = New Label()
+        Label5 = New Label()
+        Label6 = New Label()
+        Label7 = New Label()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' TextBox1
-        ' 
-        TextBox1.BackColor = SystemColors.Menu
-        TextBox1.BorderStyle = BorderStyle.None
-        TextBox1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox1.Location = New Point(14, 12)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(18, 16)
-        TextBox1.TabIndex = 0
-        TextBox1.Text = "ID:"
-        ' 
         ' descripProducto
         ' 
-        descripProducto.Location = New Point(137, 78)
+        descripProducto.Location = New Point(169, 74)
         descripProducto.Name = "descripProducto"
         descripProducto.Size = New Size(330, 23)
         descripProducto.TabIndex = 2
         ' 
         ' especifiProducto
         ' 
-        especifiProducto.Location = New Point(137, 112)
+        especifiProducto.Location = New Point(169, 109)
         especifiProducto.Name = "especifiProducto"
         especifiProducto.Size = New Size(330, 23)
         especifiProducto.TabIndex = 3
         ' 
-        ' TextBox2
-        ' 
-        TextBox2.BackColor = SystemColors.Menu
-        TextBox2.BorderStyle = BorderStyle.None
-        TextBox2.Location = New Point(14, 115)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(103, 16)
-        TextBox2.TabIndex = 1
-        TextBox2.Text = "Especificaciones:"
-        ' 
         ' id_producto
         ' 
         id_producto.Enabled = False
-        id_producto.Location = New Point(137, 9)
+        id_producto.Location = New Point(169, 13)
         id_producto.Name = "id_producto"
         id_producto.Size = New Size(62, 23)
         id_producto.TabIndex = 4
         ' 
-        ' TextBox6
-        ' 
-        TextBox6.BackColor = SystemColors.Menu
-        TextBox6.BorderStyle = BorderStyle.None
-        TextBox6.Location = New Point(14, 45)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(85, 16)
-        TextBox6.TabIndex = 5
-        TextBox6.Text = "Cod. Producto:"
-        ' 
         ' codProducto
         ' 
-        codProducto.Location = New Point(137, 42)
+        codProducto.Location = New Point(169, 42)
         codProducto.Name = "codProducto"
         codProducto.Size = New Size(120, 23)
         codProducto.TabIndex = 6
         ' 
-        ' TextBox8
-        ' 
-        TextBox8.BackColor = SystemColors.Menu
-        TextBox8.BorderStyle = BorderStyle.None
-        TextBox8.Location = New Point(14, 81)
-        TextBox8.Name = "TextBox8"
-        TextBox8.Size = New Size(103, 16)
-        TextBox8.TabIndex = 7
-        TextBox8.Text = "Descrip. Producto:"
-        ' 
-        ' TextBox9
-        ' 
-        TextBox9.BackColor = SystemColors.Menu
-        TextBox9.BorderStyle = BorderStyle.None
-        TextBox9.Location = New Point(548, 81)
-        TextBox9.Name = "TextBox9"
-        TextBox9.Size = New Size(62, 16)
-        TextBox9.TabIndex = 8
-        TextBox9.Text = "Categoria:"
-        ' 
         ' UnidadProducto
         ' 
-        UnidadProducto.Location = New Point(613, 9)
+        UnidadProducto.Location = New Point(613, 13)
         UnidadProducto.Name = "UnidadProducto"
         UnidadProducto.Size = New Size(62, 23)
         UnidadProducto.TabIndex = 9
@@ -147,30 +97,31 @@ Partial Class ABM_Productos
         ' 
         ' Panel1
         ' 
+        Panel1.Controls.Add(CB_Activo)
+        Panel1.Controls.Add(Label7)
+        Panel1.Controls.Add(Label6)
+        Panel1.Controls.Add(Label5)
+        Panel1.Controls.Add(Label4)
+        Panel1.Controls.Add(Label3)
+        Panel1.Controls.Add(Label2)
+        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(ID)
         Panel1.Controls.Add(StockProducto)
         Panel1.Controls.Add(CategoriaProducto)
         Panel1.Controls.Add(RubroProducto)
-        Panel1.Controls.Add(TextBox13)
-        Panel1.Controls.Add(TextBox9)
         Panel1.Controls.Add(UnidadProducto)
-        Panel1.Controls.Add(TextBox8)
-        Panel1.Controls.Add(TextBox11)
-        Panel1.Controls.Add(TextBox12)
-        Panel1.Controls.Add(TextBox1)
         Panel1.Controls.Add(id_producto)
-        Panel1.Controls.Add(TextBox6)
         Panel1.Controls.Add(especifiProducto)
         Panel1.Controls.Add(codProducto)
-        Panel1.Controls.Add(TextBox2)
         Panel1.Controls.Add(descripProducto)
         Panel1.Location = New Point(41, 70)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(984, 152)
+        Panel1.Size = New Size(984, 161)
         Panel1.TabIndex = 11
         ' 
         ' StockProducto
         ' 
-        StockProducto.Location = New Point(613, 112)
+        StockProducto.Location = New Point(613, 109)
         StockProducto.Name = "StockProducto"
         StockProducto.Size = New Size(62, 23)
         StockProducto.TabIndex = 12
@@ -188,36 +139,6 @@ Partial Class ABM_Productos
         RubroProducto.Name = "RubroProducto"
         RubroProducto.Size = New Size(62, 23)
         RubroProducto.TabIndex = 15
-        ' 
-        ' TextBox13
-        ' 
-        TextBox13.BackColor = SystemColors.Menu
-        TextBox13.BorderStyle = BorderStyle.None
-        TextBox13.Location = New Point(548, 118)
-        TextBox13.Name = "TextBox13"
-        TextBox13.Size = New Size(62, 16)
-        TextBox13.TabIndex = 14
-        TextBox13.Text = "Stock:"
-        ' 
-        ' TextBox11
-        ' 
-        TextBox11.BackColor = SystemColors.Menu
-        TextBox11.BorderStyle = BorderStyle.None
-        TextBox11.Location = New Point(548, 12)
-        TextBox11.Name = "TextBox11"
-        TextBox11.Size = New Size(62, 16)
-        TextBox11.TabIndex = 12
-        TextBox11.Text = "Unidad:"
-        ' 
-        ' TextBox12
-        ' 
-        TextBox12.BackColor = SystemColors.Menu
-        TextBox12.BorderStyle = BorderStyle.None
-        TextBox12.Location = New Point(548, 45)
-        TextBox12.Name = "TextBox12"
-        TextBox12.Size = New Size(62, 16)
-        TextBox12.TabIndex = 13
-        TextBox12.Text = "Rubro:"
         ' 
         ' PrecioUnitarioProducto
         ' 
@@ -265,6 +186,88 @@ Partial Class ABM_Productos
         lblSeñalProducto.TabIndex = 17
         lblSeñalProducto.Text = "Label1"
         ' 
+        ' CB_Activo
+        ' 
+        CB_Activo.AutoSize = True
+        CB_Activo.Location = New Point(767, 15)
+        CB_Activo.Name = "CB_Activo"
+        CB_Activo.Size = New Size(60, 19)
+        CB_Activo.TabIndex = 18
+        CB_Activo.Text = "Activo"
+        CB_Activo.UseVisualStyleBackColor = True
+        ' 
+        ' ID
+        ' 
+        ID.AutoSize = True
+        ID.Location = New Point(98, 16)
+        ID.Name = "ID"
+        ID.Size = New Size(20, 15)
+        ID.TabIndex = 16
+        ID.Text = "id:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(14, 77)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(104, 15)
+        Label1.TabIndex = 17
+        Label1.Text = "Descrip. Producto:"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(28, 45)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(90, 15)
+        Label2.TabIndex = 18
+        Label2.Text = "Codi. Producto:"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(22, 112)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(96, 15)
+        Label3.TabIndex = 19
+        Label3.Text = "Especificaciones:"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(542, 16)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(48, 15)
+        Label4.TabIndex = 20
+        Label4.Text = "Unidad:"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(548, 45)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(42, 15)
+        Label5.TabIndex = 21
+        Label5.Text = "Rubro:"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(529, 77)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(61, 15)
+        Label6.TabIndex = 22
+        Label6.Text = "Categoria:"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(551, 112)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(39, 15)
+        Label7.TabIndex = 23
+        Label7.Text = "Stock:"
+        ' 
         ' ABM_Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -285,22 +288,13 @@ Partial Class ABM_Productos
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents descripProducto As TextBox
     Friend WithEvents especifiProducto As TextBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents id_producto As TextBox
-    Friend WithEvents TextBox6 As TextBox
     Friend WithEvents codProducto As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox9 As TextBox
     Friend WithEvents UnidadProducto As TextBox
     Friend WithEvents TituloAbmProducto As TextBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox13 As TextBox
     Friend WithEvents StockProducto As TextBox
     Friend WithEvents CategoriaProducto As TextBox
     Friend WithEvents RubroProducto As TextBox
@@ -309,4 +303,13 @@ Partial Class ABM_Productos
     Friend WithEvents btnAceptarABMP As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents lblSeñalProducto As Label
+    Friend WithEvents CB_Activo As CheckBox
+    Friend WithEvents ID As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
 End Class
