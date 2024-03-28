@@ -3,7 +3,6 @@
 Public Class Ventas
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaVentas()
-        ModuloSistema.conexionSql.Close()
     End Sub
     Public Sub llenarGrillaVentas()
         'LIMPIAR DATOS DE LA GRILLA
@@ -49,20 +48,33 @@ Public Class Ventas
             GrillaVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
 
+        ABM_Ventas.llenarGrillaMovVentas()
+
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
 
-        ABM_Ventas.ABM.Text = "Editar"
+        ABM_Ventas.lblABM.Text = "Editar"
 
+        ABM_Ventas.lblID.Text = GrillaVentas.CurrentRow.Cells(0).Value
         ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
         ABM_Ventas.lblNombreCliente.Text = GrillaVentas.CurrentRow.Cells(12).Value
         ABM_Ventas.lblApellidoCliente.Text = GrillaVentas.CurrentRow.Cells(13).Value
         ABM_Ventas.lblDireccion.Text = GrillaVentas.CurrentRow.Cells(14).Value
+        ABM_Ventas.txtFecha.Text = GrillaVentas.CurrentRow.Cells(5).Value
+        ABM_Ventas.txtSucursal.Text = GrillaVentas.CurrentRow.Cells(6).Value
+        ABM_Ventas.txtComprobante.Text = GrillaVentas.CurrentRow.Cells(7).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
-        ModuloSistema.conexionSql.Close()
+        ABM_Ventas.llenarGrillaMovVentas()
+
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+
+        ABM_Ventas.lblABM.Text = "Agregar"
+        ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
 
     End Sub
 End Class

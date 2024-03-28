@@ -178,7 +178,7 @@ Partial Class ModuloPrincipal
         Button1.Location = New Point(0, 479)
         Button1.Name = "Button1"
         Button1.Size = New Size(231, 45)
-        Button1.TabIndex = 13
+        Button1.TabIndex = 107
         Button1.Text = "Proveedores"
         Button1.UseVisualStyleBackColor = False
         ' 
@@ -195,7 +195,7 @@ Partial Class ModuloPrincipal
         Button7.Location = New Point(0, 434)
         Button7.Name = "Button7"
         Button7.Size = New Size(231, 45)
-        Button7.TabIndex = 12
+        Button7.TabIndex = 106
         Button7.Text = "Reportes"
         Button7.UseVisualStyleBackColor = False
         ' 
@@ -212,7 +212,7 @@ Partial Class ModuloPrincipal
         Button6.Location = New Point(0, 389)
         Button6.Name = "Button6"
         Button6.Size = New Size(231, 45)
-        Button6.TabIndex = 10
+        Button6.TabIndex = 105
         Button6.Text = "Pagos"
         Button6.UseVisualStyleBackColor = False
         ' 
@@ -229,7 +229,7 @@ Partial Class ModuloPrincipal
         Button5.Location = New Point(0, 344)
         Button5.Name = "Button5"
         Button5.Size = New Size(231, 45)
-        Button5.TabIndex = 8
+        Button5.TabIndex = 104
         Button5.Text = "Compras"
         Button5.UseVisualStyleBackColor = False
         ' 
@@ -246,7 +246,7 @@ Partial Class ModuloPrincipal
         Button4.Location = New Point(0, 299)
         Button4.Name = "Button4"
         Button4.Size = New Size(231, 45)
-        Button4.TabIndex = 6
+        Button4.TabIndex = 103
         Button4.Text = "Pedidos"
         Button4.UseVisualStyleBackColor = False
         ' 
@@ -263,7 +263,7 @@ Partial Class ModuloPrincipal
         btnClientes.Location = New Point(0, 254)
         btnClientes.Name = "btnClientes"
         btnClientes.Size = New Size(231, 45)
-        btnClientes.TabIndex = 4
+        btnClientes.TabIndex = 102
         btnClientes.Text = "Clientes"
         btnClientes.UseVisualStyleBackColor = False
         ' 
@@ -280,7 +280,7 @@ Partial Class ModuloPrincipal
         Button2.Location = New Point(0, 209)
         Button2.Name = "Button2"
         Button2.Size = New Size(231, 45)
-        Button2.TabIndex = 2
+        Button2.TabIndex = 101
         Button2.Text = "Ventas"
         Button2.UseVisualStyleBackColor = False
         ' 
@@ -297,7 +297,7 @@ Partial Class ModuloPrincipal
         btnProductos.Location = New Point(0, 164)
         btnProductos.Name = "btnProductos"
         btnProductos.Size = New Size(231, 45)
-        btnProductos.TabIndex = 0
+        btnProductos.TabIndex = 100
         btnProductos.Text = "Productos"
         btnProductos.UseVisualStyleBackColor = False
         ' 

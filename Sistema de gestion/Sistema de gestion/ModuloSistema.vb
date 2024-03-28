@@ -5,7 +5,7 @@ Module ModuloSistema
     'para poder generar una cadena de conexión
     Public conexionSql As New SqlClient.SqlConnection
     'para la recepcion de datos
-    Public aadaptadorSql As New SqlClient.SqlDataAdapter
+    Public adaptadorSql As New SqlClient.SqlDataAdapter
     'para la ejecucion de los comandos de sql
     Public consultasSql As New SqlClient.SqlCommand
     'para realizar las acciones de ejecución 
