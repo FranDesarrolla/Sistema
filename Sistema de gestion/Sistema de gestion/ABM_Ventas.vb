@@ -3,6 +3,7 @@
 Public Class ABM_Ventas
     Private Sub ABM_Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaMovVentas()
+        Combobox()
     End Sub
 
     Public Sub ActivarBotones()
@@ -22,8 +23,9 @@ Public Class ABM_Ventas
             setdedatos.Tables("dtmovventas").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDNotasDeVentasMov as ID, Producto, Cantidad, PrecioUnitario as Unitario, Descuento, Impuestos, SubTotal as Subtotal FROM NotasDeVentasMov
-                                      WHERE IDNotaDeVenta = " & lblID.Text
+        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad, NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal FROM NotasDeVentasMov NDM
+                                      INNER JOIN Productos P ON P.Codigo = NDM.Producto
+                                      WHERE NDM.IDNotaDeVenta = " & lblID.Text
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtmovventas As New DataTable
@@ -39,21 +41,22 @@ Public Class ABM_Ventas
             GrillaMovVentas.Columns(columna).Visible = False
         Next
 
-        GrillaMovVentas.Columns(1).FillWeight = 25
-        GrillaMovVentas.Columns(2).FillWeight = 15
-        GrillaMovVentas.Columns(3).FillWeight = 15
-        GrillaMovVentas.Columns(4).FillWeight = 15
-        GrillaMovVentas.Columns(5).FillWeight = 15
-        GrillaMovVentas.Columns(6).FillWeight = 15
+        GrillaMovVentas.Columns(1).FillWeight = 15
+        GrillaMovVentas.Columns(2).FillWeight = 20
+        GrillaMovVentas.Columns(3).FillWeight = 12
+        GrillaMovVentas.Columns(4).FillWeight = 12
+        GrillaMovVentas.Columns(5).FillWeight = 12
+        GrillaMovVentas.Columns(6).FillWeight = 12
+        GrillaMovVentas.Columns(7).FillWeight = 12
 
-        For i As Integer = 0 To 6
+        For i As Integer = 0 To 7
             GrillaMovVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
 
         ActivarBotones()
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
         LimpiaMovVentas()
@@ -118,7 +121,7 @@ Public Class ABM_Ventas
 
     Public Sub LimpiaMovVentas()
         Me.txtCodigo.Text = ""
-        Me.txtProducto.Text = ""
+        Me.boxProductos.Text = ""
         Me.txtCantidad.Text = ""
         Me.txtUnitario.Text = ""
         Me.txtDescuento.Text = ""
@@ -150,5 +153,23 @@ Public Class ABM_Ventas
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         LimpiaMovVentas()
+    End Sub
+
+    Public Sub Combobox()
+
+        'Select para el Combobox Productos
+
+        adaptadorSql.SelectCommand = acciones
+        adaptadorSql.SelectCommand.Connection = conexionSql
+        acciones.CommandText = "SELECT * FROM Productos"
+        adaptadorSql.Fill(setdedatos, "dtproductos")
+        boxProductos.DataSource = setdedatos.Tables("dtproductos")
+
+        'Datos a visualizar en el Combobox Productos
+
+        boxProductos.DisplayMember = "Descripcion"
+        boxProductos.ValueMember = "Codigo"
+        acciones.ExecuteNonQuery()
+
     End Sub
 End Class

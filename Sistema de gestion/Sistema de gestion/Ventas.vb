@@ -12,7 +12,7 @@ Public Class Ventas
         End If
 
         Dim consultassql As String = "SELECT NDV.IDNotaDeVenta AS ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, NDV.Cliente, NDV.Empleado, NDV.FechaDeVenta AS Fecha, 
-		                            NDV.PuntoDeVenta as Sucursal, NDV.NroComprobante as Comprobante, NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido, C.Direccion
+		                            NDV.PuntoDeVenta as Sucursal, NDV.NroComprobante as Comprobante, NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, C.CondicionIVA
                                     FROM NotasDeVentas NDV
                                     INNER JOIN Clientes C ON C.Cuenta = NDV.Cliente
                                     INNER JOIN Empleados E ON E.Cuenta = NDV.Empleado"
@@ -25,7 +25,7 @@ Public Class Ventas
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
 
-        Dim columnasOcultar() As Integer = {3, 4, 10, 11, 12, 13, 14}
+        Dim columnasOcultar() As Integer = {3, 4, 10, 11, 12, 13, 14, 15, 16, 17}
 
         For Each columna As Integer In columnasOcultar
             GrillaVentas.Columns(columna).Visible = False
@@ -44,7 +44,7 @@ Public Class Ventas
 
         'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
 
-        For i As Integer = 0 To 14
+        For i As Integer = 0 To 17
             GrillaVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
 
@@ -57,14 +57,16 @@ Public Class Ventas
         ABM_Ventas.lblABM.Text = "Editar"
 
         ABM_Ventas.lblID.Text = GrillaVentas.CurrentRow.Cells(0).Value
-        ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
         ABM_Ventas.lblNombreCliente.Text = GrillaVentas.CurrentRow.Cells(12).Value
         ABM_Ventas.lblApellidoCliente.Text = GrillaVentas.CurrentRow.Cells(13).Value
         ABM_Ventas.lblDireccion.Text = GrillaVentas.CurrentRow.Cells(14).Value
+        ABM_Ventas.lblDNII.Text = GrillaVentas.CurrentRow.Cells(15).Value
+        ABM_Ventas.lblCUITT.Text = GrillaVentas.CurrentRow.Cells(16).Value
         ABM_Ventas.txtFecha.Text = GrillaVentas.CurrentRow.Cells(5).Value
         ABM_Ventas.txtSucursal.Text = GrillaVentas.CurrentRow.Cells(6).Value
         ABM_Ventas.txtComprobante.Text = GrillaVentas.CurrentRow.Cells(7).Value
+        ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ABM_Ventas.llenarGrillaMovVentas()
