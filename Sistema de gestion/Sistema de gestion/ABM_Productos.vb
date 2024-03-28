@@ -21,6 +21,7 @@
         Me.CategoriaProducto.Text = ""
         Me.StockProducto.Text = ""
         Me.PrecioUnitarioProducto.Text = ""
+        Me.txtIvaProducto.Text = ""
 
         ' Desactivar el botón "Guardar" (si existe)
         'If Not btnAceptarABMP Is Nothing Then
@@ -41,8 +42,8 @@
 
                 acciones.Connection = conexionSql
                 acciones.CommandType = CommandType.Text
-                acciones.CommandText = "INSERT INTO dbo.Productos (Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario) 
-                        VALUES ('" & codProducto.Text & "', '" & descripProducto.Text & "', '" & especifiProducto.Text & "', '" & UnidadProducto.Text & "', '" & RubroProducto.Text & "', '" & CategoriaProducto.Text & "', '" & StockProducto.Text & "', '" & precioFormateado & "')"
+                acciones.CommandText = "INSERT INTO dbo.Productos (Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario,Iva) 
+                        VALUES ('" & codProducto.Text & "', '" & descripProducto.Text & "', '" & especifiProducto.Text & "', '" & UnidadProducto.Text & "', '" & RubroProducto.Text & "', '" & CategoriaProducto.Text & "', '" & StockProducto.Text & "', '" & precioFormateado & "','" & txtIvaProducto.Text & "')"
 
                 ' Ejecuta la consulta de inserción
                 acciones.ExecuteNonQuery()
@@ -75,7 +76,8 @@
 	                                        Rubro = '" & RubroProducto.Text & "',
 	                                        Categoria = '" & CategoriaProducto.Text & "',
 	                                        Stock = '" & StockProducto.Text & "',
-	                                        PrecioUnitario = '" & precioFormateado & "'
+	                                        PrecioUnitario = '" & precioFormateado & "',
+                                            Iva = '" & txtIvaProducto.Text & "'
                                             WHERE IDProducto = " & Val(id_producto.Text) & ""
                 acciones.ExecuteNonQuery()
 

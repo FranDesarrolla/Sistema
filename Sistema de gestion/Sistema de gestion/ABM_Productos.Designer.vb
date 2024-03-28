@@ -29,6 +29,15 @@ Partial Class ABM_Productos
         UnidadProducto = New TextBox()
         TituloAbmProducto = New TextBox()
         Panel1 = New Panel()
+        CB_Activo = New CheckBox()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label5 = New Label()
+        Label4 = New Label()
+        Label3 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
+        ID = New Label()
         StockProducto = New TextBox()
         CategoriaProducto = New TextBox()
         RubroProducto = New TextBox()
@@ -37,15 +46,8 @@ Partial Class ABM_Productos
         btnAceptarABMP = New Button()
         Button2 = New Button()
         lblSeñalProducto = New Label()
-        CB_Activo = New CheckBox()
-        ID = New Label()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
-        Label4 = New Label()
-        Label5 = New Label()
-        Label6 = New Label()
-        Label7 = New Label()
+        Label8 = New Label()
+        txtIvaProducto = New TextBox()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -97,6 +99,8 @@ Partial Class ABM_Productos
         ' 
         ' Panel1
         ' 
+        Panel1.Controls.Add(txtIvaProducto)
+        Panel1.Controls.Add(Label8)
         Panel1.Controls.Add(CB_Activo)
         Panel1.Controls.Add(Label7)
         Panel1.Controls.Add(Label6)
@@ -118,6 +122,88 @@ Partial Class ABM_Productos
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(984, 161)
         Panel1.TabIndex = 11
+        ' 
+        ' CB_Activo
+        ' 
+        CB_Activo.AutoSize = True
+        CB_Activo.Location = New Point(907, 15)
+        CB_Activo.Name = "CB_Activo"
+        CB_Activo.Size = New Size(60, 19)
+        CB_Activo.TabIndex = 18
+        CB_Activo.Text = "Activo"
+        CB_Activo.UseVisualStyleBackColor = True
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(551, 112)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(39, 15)
+        Label7.TabIndex = 23
+        Label7.Text = "Stock:"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(529, 77)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(61, 15)
+        Label6.TabIndex = 22
+        Label6.Text = "Categoria:"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(548, 45)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(42, 15)
+        Label5.TabIndex = 21
+        Label5.Text = "Rubro:"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(542, 16)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(48, 15)
+        Label4.TabIndex = 20
+        Label4.Text = "Unidad:"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(22, 112)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(96, 15)
+        Label3.TabIndex = 19
+        Label3.Text = "Especificaciones:"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(28, 45)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(90, 15)
+        Label2.TabIndex = 18
+        Label2.Text = "Codi. Producto:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(14, 77)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(104, 15)
+        Label1.TabIndex = 17
+        Label1.Text = "Descrip. Producto:"
+        ' 
+        ' ID
+        ' 
+        ID.AutoSize = True
+        ID.Location = New Point(98, 16)
+        ID.Name = "ID"
+        ID.Size = New Size(20, 15)
+        ID.TabIndex = 16
+        ID.Text = "id:"
         ' 
         ' StockProducto
         ' 
@@ -186,87 +272,21 @@ Partial Class ABM_Productos
         lblSeñalProducto.TabIndex = 17
         lblSeñalProducto.Text = "Label1"
         ' 
-        ' CB_Activo
+        ' Label8
         ' 
-        CB_Activo.AutoSize = True
-        CB_Activo.Location = New Point(767, 15)
-        CB_Activo.Name = "CB_Activo"
-        CB_Activo.Size = New Size(60, 19)
-        CB_Activo.TabIndex = 18
-        CB_Activo.Text = "Activo"
-        CB_Activo.UseVisualStyleBackColor = True
+        Label8.AutoSize = True
+        Label8.Location = New Point(713, 16)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(25, 15)
+        Label8.TabIndex = 24
+        Label8.Text = "Iva:"
         ' 
-        ' ID
+        ' txtIvaProducto
         ' 
-        ID.AutoSize = True
-        ID.Location = New Point(98, 16)
-        ID.Name = "ID"
-        ID.Size = New Size(20, 15)
-        ID.TabIndex = 16
-        ID.Text = "id:"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(14, 77)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(104, 15)
-        Label1.TabIndex = 17
-        Label1.Text = "Descrip. Producto:"
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(28, 45)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(90, 15)
-        Label2.TabIndex = 18
-        Label2.Text = "Codi. Producto:"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(22, 112)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(96, 15)
-        Label3.TabIndex = 19
-        Label3.Text = "Especificaciones:"
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(542, 16)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(48, 15)
-        Label4.TabIndex = 20
-        Label4.Text = "Unidad:"
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Location = New Point(548, 45)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(42, 15)
-        Label5.TabIndex = 21
-        Label5.Text = "Rubro:"
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Location = New Point(529, 77)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(61, 15)
-        Label6.TabIndex = 22
-        Label6.Text = "Categoria:"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Location = New Point(551, 112)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(39, 15)
-        Label7.TabIndex = 23
-        Label7.Text = "Stock:"
+        txtIvaProducto.Location = New Point(757, 13)
+        txtIvaProducto.Name = "txtIvaProducto"
+        txtIvaProducto.Size = New Size(62, 23)
+        txtIvaProducto.TabIndex = 25
         ' 
         ' ABM_Productos
         ' 
@@ -312,4 +332,6 @@ Partial Class ABM_Productos
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents txtIvaProducto As TextBox
+    Friend WithEvents Label8 As Label
 End Class

@@ -17,7 +17,7 @@ Public Class Productos
             setdedatos.Tables("dtProducto").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDProducto,Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario FROM Productos"
+        Dim consultassql As String = "SELECT IDProducto,Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario,Iva FROM Productos"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
@@ -40,16 +40,17 @@ Public Class Productos
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
         GrillaProductos.Columns(0).FillWeight = 8
-        GrillaProductos.Columns(1).FillWeight = 18
+        GrillaProductos.Columns(1).FillWeight = 15
         GrillaProductos.Columns(2).FillWeight = 30
         GrillaProductos.Columns(3).FillWeight = 5
         GrillaProductos.Columns(4).FillWeight = 7
         GrillaProductos.Columns(5).FillWeight = 7
         GrillaProductos.Columns(6).FillWeight = 7
         GrillaProductos.Columns(7).FillWeight = 7
+        GrillaProductos.Columns(8).FillWeight = 5
 
         'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
-        For i As Integer = 0 To 7
+        For i As Integer = 0 To 8
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
     End Sub
@@ -66,6 +67,8 @@ Public Class Productos
         ABM_Productos.CategoriaProducto.Text = GrillaProductos.CurrentRow.Cells(6).Value
         ABM_Productos.StockProducto.Text = GrillaProductos.CurrentRow.Cells(7).Value
         ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value
+        ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value
+
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
 
