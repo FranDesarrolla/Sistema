@@ -55,7 +55,7 @@ Partial Class ModuloPrincipal
         ' 
         ' PanelSuperior
         ' 
-        PanelSuperior.BackColor = Color.FromArgb(CByte(82), CByte(17), CByte(26))
+        PanelSuperior.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         PanelSuperior.Controls.Add(PictureBox2)
         PanelSuperior.Controls.Add(LabelNotificacion)
         PanelSuperior.Controls.Add(brnRestaurar)
@@ -139,7 +139,7 @@ Partial Class ModuloPrincipal
         ' 
         ' PanelLateral
         ' 
-        PanelLateral.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        PanelLateral.BackColor = Color.Tan
         PanelLateral.Controls.Add(Panel9)
         PanelLateral.Controls.Add(Button1)
         PanelLateral.Controls.Add(Button7)
@@ -158,7 +158,7 @@ Partial Class ModuloPrincipal
         ' 
         ' Panel9
         ' 
-        Panel9.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Panel9.BackColor = Color.Tan
         Panel9.Dock = DockStyle.Bottom
         Panel9.Location = New Point(0, 530)
         Panel9.Name = "Panel9"
@@ -167,13 +167,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button1.BackColor = Color.Tan
         Button1.Dock = DockStyle.Top
         Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button1.ForeColor = Color.White
+        Button1.ForeColor = Color.Black
         Button1.ImageAlign = ContentAlignment.MiddleLeft
         Button1.Location = New Point(0, 479)
         Button1.Name = "Button1"
@@ -184,13 +184,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button7
         ' 
-        Button7.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button7.BackColor = Color.Tan
         Button7.Dock = DockStyle.Top
         Button7.FlatAppearance.BorderSize = 0
-        Button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button7.FlatStyle = FlatStyle.Flat
         Button7.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button7.ForeColor = Color.White
+        Button7.ForeColor = Color.Black
         Button7.ImageAlign = ContentAlignment.MiddleLeft
         Button7.Location = New Point(0, 434)
         Button7.Name = "Button7"
@@ -201,13 +201,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button6
         ' 
-        Button6.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button6.BackColor = Color.Tan
         Button6.Dock = DockStyle.Top
         Button6.FlatAppearance.BorderSize = 0
-        Button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button6.FlatStyle = FlatStyle.Flat
         Button6.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button6.ForeColor = Color.White
+        Button6.ForeColor = Color.Black
         Button6.ImageAlign = ContentAlignment.MiddleLeft
         Button6.Location = New Point(0, 389)
         Button6.Name = "Button6"
@@ -218,13 +218,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button5
         ' 
-        Button5.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button5.BackColor = Color.Tan
         Button5.Dock = DockStyle.Top
         Button5.FlatAppearance.BorderSize = 0
-        Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button5.FlatStyle = FlatStyle.Flat
         Button5.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button5.ForeColor = Color.White
+        Button5.ForeColor = Color.Black
         Button5.ImageAlign = ContentAlignment.MiddleLeft
         Button5.Location = New Point(0, 344)
         Button5.Name = "Button5"
@@ -235,13 +235,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button4.BackColor = Color.Tan
         Button4.Dock = DockStyle.Top
         Button4.FlatAppearance.BorderSize = 0
-        Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button4.ForeColor = Color.White
+        Button4.ForeColor = Color.Black
         Button4.ImageAlign = ContentAlignment.MiddleLeft
         Button4.Location = New Point(0, 299)
         Button4.Name = "Button4"
@@ -252,13 +252,13 @@ Partial Class ModuloPrincipal
         ' 
         ' btnClientes
         ' 
-        btnClientes.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        btnClientes.BackColor = Color.Tan
         btnClientes.Dock = DockStyle.Top
         btnClientes.FlatAppearance.BorderSize = 0
-        btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnClientes.FlatStyle = FlatStyle.Flat
         btnClientes.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        btnClientes.ForeColor = Color.White
+        btnClientes.ForeColor = Color.Black
         btnClientes.ImageAlign = ContentAlignment.MiddleLeft
         btnClientes.Location = New Point(0, 254)
         btnClientes.Name = "btnClientes"
@@ -269,13 +269,13 @@ Partial Class ModuloPrincipal
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        Button2.BackColor = Color.Tan
         Button2.Dock = DockStyle.Top
         Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Button2.ForeColor = Color.White
+        Button2.ForeColor = Color.Black
         Button2.ImageAlign = ContentAlignment.MiddleLeft
         Button2.Location = New Point(0, 209)
         Button2.Name = "Button2"
@@ -286,13 +286,13 @@ Partial Class ModuloPrincipal
         ' 
         ' btnProductos
         ' 
-        btnProductos.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        btnProductos.BackColor = Color.Tan
         btnProductos.Dock = DockStyle.Top
         btnProductos.FlatAppearance.BorderSize = 0
-        btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(114), CByte(34), CByte(52))
+        btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnProductos.FlatStyle = FlatStyle.Flat
         btnProductos.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        btnProductos.ForeColor = Color.White
+        btnProductos.ForeColor = Color.Black
         btnProductos.ImageAlign = ContentAlignment.MiddleLeft
         btnProductos.Location = New Point(0, 164)
         btnProductos.Name = "btnProductos"
@@ -303,7 +303,7 @@ Partial Class ModuloPrincipal
         ' 
         ' PBLogo
         ' 
-        PBLogo.BackColor = Color.FromArgb(CByte(98), CByte(26), CByte(39))
+        PBLogo.BackColor = Color.Tan
         PBLogo.Dock = DockStyle.Top
         PBLogo.Location = New Point(0, 0)
         PBLogo.Name = "PBLogo"
@@ -314,7 +314,7 @@ Partial Class ModuloPrincipal
         ' 
         ' PanelContenedor
         ' 
-        PanelContenedor.BackColor = Color.FromArgb(CByte(50), CByte(0), CByte(0))
+        PanelContenedor.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         PanelContenedor.Dock = DockStyle.Fill
         PanelContenedor.Location = New Point(231, 39)
         PanelContenedor.Name = "PanelContenedor"

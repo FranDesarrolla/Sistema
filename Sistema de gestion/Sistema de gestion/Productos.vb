@@ -81,6 +81,4 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
 
     End Sub
-
-
 End Class
