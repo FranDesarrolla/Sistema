@@ -79,4 +79,5 @@ Public Class Ventas
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
 
     End Sub
+
 End Class

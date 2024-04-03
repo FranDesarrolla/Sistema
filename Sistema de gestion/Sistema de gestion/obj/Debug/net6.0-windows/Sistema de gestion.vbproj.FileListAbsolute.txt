@@ -165,3 +165,5 @@ C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\ob
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Productos.resources
 C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Clientes.resources
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Clientes.resources
+C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Proveedores.resources
+C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Proveedores.resources

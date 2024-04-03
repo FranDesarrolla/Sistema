@@ -14,7 +14,7 @@ Public Class Clientes
             setdedatos.Tables("dtCliente").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDCliente,	Cuenta, Nombre, Apellido, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, FechaDeRegistro, EstadoDeCuenta 
+        Dim consultassql As String = "SELECT IDCliente, Cuenta, Nombre, Apellido, DNI, CUIT, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, CondicionIVA, FechaDeRegistro, EstadoDeCuenta 
                                       FROM Clientes"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
@@ -31,7 +31,7 @@ Public Class Clientes
         GrillaClientes.Font = New Font("Arial", 10)
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-        Dim columnasOcultas As Integer() = {0, 12, 13}
+        Dim columnasOcultas As Integer() = {0, 15}
         For Each col In columnasOcultas
             GrillaClientes.Columns(col).Visible = False
         Next
@@ -46,19 +46,27 @@ Public Class Clientes
 
     Private Sub btnEditarCliente_Click(sender As Object, e As EventArgs) Handles btnEditarCliente.Click
         ABM_Clientes.lblSeñalCliente.Text = "EDITAR"
+
         ABM_Clientes.txtIDCliente.Text = GrillaClientes.CurrentRow.Cells(0).Value
         ABM_Clientes.txtCuentaCliente.Text = GrillaClientes.CurrentRow.Cells(1).Value
         ABM_Clientes.txtNombreCliente.Text = GrillaClientes.CurrentRow.Cells(2).Value
         ABM_Clientes.txtApellidoCliente.Text = GrillaClientes.CurrentRow.Cells(3).Value
-        ABM_Clientes.txtNacionalidadCliente.Text = GrillaClientes.CurrentRow.Cells(4).Value
-        ABM_Clientes.txtProvinciaCliente.Text = GrillaClientes.CurrentRow.Cells(5).Value
-        ABM_Clientes.txtLocalidadCliente.Text = GrillaClientes.CurrentRow.Cells(6).Value
-        ABM_Clientes.txtCodPCliente.Text = GrillaClientes.CurrentRow.Cells(7).Value
-        ABM_Clientes.txtDireccionCliente.Text = GrillaClientes.CurrentRow.Cells(8).Value
-        ABM_Clientes.dtFechaNacimiento.Value = GrillaClientes.CurrentRow.Cells(9).Value
-        ABM_Clientes.txtTelefonoCliente.Text = GrillaClientes.CurrentRow.Cells(10).Value
-        ABM_Clientes.txtEmailCliente.Text = GrillaClientes.CurrentRow.Cells(11).Value
+        ABM_Clientes.txtDniClie.Text = GrillaClientes.CurrentRow.Cells(4).Value
+        ABM_Clientes.txtCuitClie.Text = GrillaClientes.CurrentRow.Cells(5).Value
+        ABM_Clientes.txtNacionalidadCliente.Text = GrillaClientes.CurrentRow.Cells(6).Value
+        ABM_Clientes.txtProvinciaCliente.Text = GrillaClientes.CurrentRow.Cells(7).Value
+        ABM_Clientes.txtLocalidadCliente.Text = GrillaClientes.CurrentRow.Cells(8).Value
+        ABM_Clientes.txtCodPCliente.Text = GrillaClientes.CurrentRow.Cells(9).Value
+        ABM_Clientes.txtDireccionCliente.Text = GrillaClientes.CurrentRow.Cells(10).Value
+        ABM_Clientes.dtFechaNacimiento.Value = GrillaClientes.CurrentRow.Cells(11).Value
+        ABM_Clientes.txtTelefonoCliente.Text = GrillaClientes.CurrentRow.Cells(12).Value
+        ABM_Clientes.txtEmailCliente.Text = GrillaClientes.CurrentRow.Cells(13).Value
+        ABM_Clientes.txtCondicionivaClie.Text = GrillaClientes.CurrentRow.Cells(14).Value
+        ABM_Clientes.dtFechaRegistroCliente.Text = GrillaClientes.CurrentRow.Cells(15).Value
+        ABM_Clientes.txtEstadoCuenta.Text = GrillaClientes.CurrentRow.Cells(16).Value
+
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
     End Sub
+
 End Class

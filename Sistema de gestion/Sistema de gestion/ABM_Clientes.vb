@@ -11,6 +11,8 @@
         Me.txtCuentaCliente.Text = ""
         Me.txtNombreCliente.Text = ""
         Me.txtApellidoCliente.Text = ""
+        Me.txtDniClie.Text = ""
+        Me.txtCuitClie.Text = ""
         Me.txtNacionalidadCliente.Text = ""
         Me.txtProvinciaCliente.Text = ""
         Me.txtLocalidadCliente.Text = ""
@@ -19,11 +21,14 @@
         Me.dtFechaNacimiento.Value = "01/01/1999"  ' Asigna una fecha nula o vacía según corresponda
         Me.txtTelefonoCliente.Text = ""
         Me.txtEmailCliente.Text = ""
+        Me.txtCondicionivaClie.Text = ""
+        Me.dtFechaRegistroCliente.Value = "01/01/1999"
+        Me.txtEstadoCuenta.Text = ""
 
         ' Desactivar el botón "Guardar" (si existe)
-        If Not BtnAceptarCliente Is Nothing Then
-            BtnAceptarCliente.Enabled = False
-        End If
+        'If Not BtnAceptarCliente Is Nothing Then
+        'BtnAceptarCliente.Enabled = False
+        'End If
 
     End Sub
 
@@ -34,9 +39,8 @@
             Try
                 acciones.Connection = conexionSql
                 acciones.CommandType = CommandType.Text
-                acciones.CommandText = "INSERT INTO dbo.Clientes (Cuenta, Nombre, Apellido, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, FechaDeRegistro, EstadoDeCuenta)
-                                        VALUES ('" & txtCuentaCliente.Text & "', '" & txtNombreCliente.Text & "', '" & txtApellidoCliente.Text & "', '" & txtNacionalidadCliente.Text & "', '" & txtProvinciaCliente.Text & "', '" & txtLocalidadCliente.Text & "', '" & txtCodPCliente.Text & "', " & txtDireccionCliente.Text & "," & dtFechaNacimiento.Value & ", '" & txtTelefonoCliente.Text & "', '" & txtEmailCliente.Text & "', " & dtFechaRegistroCliente.Value & ", '" & txtEstadoCuenta.Text & "')"
-
+                acciones.CommandText = "INSERT INTO dbo.Clientes (Cuenta, Nombre, Apellido, DNI, CUIT, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, CondicionIVA, FechaDeRegistro, EstadoDeCuenta)
+                                        VALUES ('" & txtCuentaCliente.Text & "', '" & txtNombreCliente.Text & "', '" & txtApellidoCliente.Text & "', '" & txtDniClie.Text & "', '" & txtCuitClie.Text & "', '" & txtNacionalidadCliente.Text & "', '" & txtProvinciaCliente.Text & "', '" & txtLocalidadCliente.Text & "', '" & txtCodPCliente.Text & "', '" & txtDireccionCliente.Text & "', '" & dtFechaNacimiento.Value & "', '" & txtTelefonoCliente.Text & "', '" & txtEmailCliente.Text & "', '" & txtCondicionivaClie.Text & "', '" & dtFechaRegistroCliente.Value & "', '" & txtEstadoCuenta.Text & "')"
                 ' Ejecuta la consulta de inserción
                 acciones.ExecuteNonQuery()
 
@@ -50,8 +54,8 @@
                 MsgBox(ex.ToString)
             End Try
 
-            ' Abre el formulario "Productos" en un panel dentro del formulario principal
-            ModuloPrincipal.AbrirFormEnPanel(Productos)
+
+            ModuloPrincipal.AbrirFormEnPanel(Clientes)
 
         ElseIf lblSeñalCliente.Text = "EDITAR" Then
             Try
@@ -63,6 +67,8 @@
 	                                            Cuenta = '" & txtCuentaCliente.Text & "',
 	                                            Nombre = '" & txtNombreCliente.Text & "',
 	                                            Apellido = '" & txtApellidoCliente.Text & "',
+                                                DNI = '" & txtDniClie.Text & "',
+                                                CUIT = '" & txtCuitClie.Text & "',
 	                                            Nacionalidad = '" & txtNacionalidadCliente.Text & "',
 	                                            Provincia = '" & txtProvinciaCliente.Text & "',
 	                                            Localidad = '" & txtLocalidadCliente.Text & "',
@@ -71,9 +77,10 @@
 	                                            FechaDeNacimiento = " & dtFechaNacimiento.Value & ",
 	                                            Telefono = '" & txtTelefonoCliente.Text & "',
 	                                            Email = '" & txtEmailCliente.Text & "',
+                                                CondicionIVA = '" & txtCondicionivaClie.Text & "',
 	                                            FechaDeRegistro = '" & dtFechaRegistroCliente.Text & "',
 	                                            EstadoDeCuenta = '" & txtEstadoCuenta.Text & "'
-                                                WHERE IDProducto = " & Val(txtIDCliente.Text) & ""
+                                                WHERE IDCliente = " & Val(txtIDCliente.Text) & ""
                 acciones.ExecuteNonQuery()
 
                 ' Cierra la conexión después de ejecutar la consulta
@@ -85,10 +92,14 @@
                 MsgBox(ex.ToString)
 
             End Try
-            ' Abre el formulario "Productos" en un panel dentro del formulario principal
-            Productos.llenarGrillaProductos()
+
+            Clientes.llenarGrillaClientes()
             ModuloPrincipal.AbrirFormEnPanel(Clientes)
 
         End If
+    End Sub
+
+    Private Sub ABM_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

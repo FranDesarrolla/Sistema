@@ -53,6 +53,12 @@ Partial Class ABM_Clientes
         Label13 = New Label()
         Label14 = New Label()
         txtIDCliente = New TextBox()
+        Label15 = New Label()
+        Label16 = New Label()
+        Label17 = New Label()
+        txtCondicionivaClie = New TextBox()
+        txtDniClie = New TextBox()
+        txtCuitClie = New TextBox()
         SuspendLayout()
         ' 
         ' Label1
@@ -89,7 +95,7 @@ Partial Class ABM_Clientes
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(47, 136)
+        Label4.Location = New Point(47, 164)
         Label4.Name = "Label4"
         Label4.Size = New Size(104, 21)
         Label4.TabIndex = 3
@@ -99,7 +105,7 @@ Partial Class ABM_Clientes
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(525, 136)
+        Label5.Location = New Point(525, 164)
         Label5.Name = "Label5"
         Label5.Size = New Size(77, 21)
         Label5.TabIndex = 4
@@ -109,7 +115,7 @@ Partial Class ABM_Clientes
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(72, 195)
+        Label6.Location = New Point(72, 223)
         Label6.Name = "Label6"
         Label6.Size = New Size(79, 21)
         Label6.TabIndex = 5
@@ -119,7 +125,7 @@ Partial Class ABM_Clientes
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.Location = New Point(498, 195)
+        Label7.Location = New Point(498, 223)
         Label7.Name = "Label7"
         Label7.Size = New Size(108, 21)
         Label7.TabIndex = 6
@@ -129,7 +135,7 @@ Partial Class ABM_Clientes
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label8.Location = New Point(74, 258)
+        Label8.Location = New Point(74, 286)
         Label8.Name = "Label8"
         Label8.Size = New Size(77, 21)
         Label8.TabIndex = 7
@@ -139,7 +145,7 @@ Partial Class ABM_Clientes
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label9.Location = New Point(47, 323)
+        Label9.Location = New Point(47, 351)
         Label9.Name = "Label9"
         Label9.Size = New Size(158, 21)
         Label9.TabIndex = 8
@@ -149,7 +155,7 @@ Partial Class ABM_Clientes
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.Location = New Point(541, 323)
+        Label10.Location = New Point(541, 351)
         Label10.Name = "Label10"
         Label10.Size = New Size(71, 21)
         Label10.TabIndex = 9
@@ -159,7 +165,7 @@ Partial Class ABM_Clientes
         ' 
         Label11.AutoSize = True
         Label11.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label11.Location = New Point(89, 390)
+        Label11.Location = New Point(89, 418)
         Label11.Name = "Label11"
         Label11.Size = New Size(51, 21)
         Label11.TabIndex = 10
@@ -188,58 +194,58 @@ Partial Class ABM_Clientes
         ' 
         ' txtNacionalidadCliente
         ' 
-        txtNacionalidadCliente.Location = New Point(187, 138)
+        txtNacionalidadCliente.Location = New Point(187, 166)
         txtNacionalidadCliente.Name = "txtNacionalidadCliente"
         txtNacionalidadCliente.Size = New Size(213, 23)
         txtNacionalidadCliente.TabIndex = 14
         ' 
         ' txtProvinciaCliente
         ' 
-        txtProvinciaCliente.Location = New Point(617, 138)
+        txtProvinciaCliente.Location = New Point(617, 166)
         txtProvinciaCliente.Name = "txtProvinciaCliente"
         txtProvinciaCliente.Size = New Size(260, 23)
         txtProvinciaCliente.TabIndex = 15
         ' 
         ' txtLocalidadCliente
         ' 
-        txtLocalidadCliente.Location = New Point(187, 197)
+        txtLocalidadCliente.Location = New Point(187, 225)
         txtLocalidadCliente.Name = "txtLocalidadCliente"
         txtLocalidadCliente.Size = New Size(243, 23)
         txtLocalidadCliente.TabIndex = 16
         ' 
         ' txtCodPCliente
         ' 
-        txtCodPCliente.Location = New Point(617, 197)
+        txtCodPCliente.Location = New Point(617, 225)
         txtCodPCliente.Name = "txtCodPCliente"
         txtCodPCliente.Size = New Size(173, 23)
         txtCodPCliente.TabIndex = 17
         ' 
         ' txtDireccionCliente
         ' 
-        txtDireccionCliente.Location = New Point(187, 260)
+        txtDireccionCliente.Location = New Point(187, 288)
         txtDireccionCliente.Name = "txtDireccionCliente"
         txtDireccionCliente.Size = New Size(546, 23)
         txtDireccionCliente.TabIndex = 18
         ' 
         ' txtTelefonoCliente
         ' 
-        txtTelefonoCliente.Location = New Point(651, 325)
+        txtTelefonoCliente.Location = New Point(651, 353)
         txtTelefonoCliente.Name = "txtTelefonoCliente"
         txtTelefonoCliente.Size = New Size(277, 23)
         txtTelefonoCliente.TabIndex = 20
         ' 
         ' txtEmailCliente
         ' 
-        txtEmailCliente.Location = New Point(187, 392)
+        txtEmailCliente.Location = New Point(187, 420)
         txtEmailCliente.Name = "txtEmailCliente"
-        txtEmailCliente.Size = New Size(596, 23)
+        txtEmailCliente.Size = New Size(425, 23)
         txtEmailCliente.TabIndex = 21
         ' 
         ' dtFechaNacimiento
         ' 
         dtFechaNacimiento.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtFechaNacimiento.Format = DateTimePickerFormat.Short
-        dtFechaNacimiento.Location = New Point(230, 322)
+        dtFechaNacimiento.Location = New Point(230, 350)
         dtFechaNacimiento.Name = "dtFechaNacimiento"
         dtFechaNacimiento.Size = New Size(200, 23)
         dtFechaNacimiento.TabIndex = 22
@@ -275,14 +281,14 @@ Partial Class ABM_Clientes
         ' 
         dtFechaRegistroCliente.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtFechaRegistroCliente.Format = DateTimePickerFormat.Short
-        dtFechaRegistroCliente.Location = New Point(230, 459)
+        dtFechaRegistroCliente.Location = New Point(230, 487)
         dtFechaRegistroCliente.Name = "dtFechaRegistroCliente"
         dtFechaRegistroCliente.Size = New Size(200, 23)
         dtFechaRegistroCliente.TabIndex = 26
         ' 
         ' txtEstadoCuenta
         ' 
-        txtEstadoCuenta.Location = New Point(714, 459)
+        txtEstadoCuenta.Location = New Point(714, 487)
         txtEstadoCuenta.Name = "txtEstadoCuenta"
         txtEstadoCuenta.Size = New Size(42, 23)
         txtEstadoCuenta.TabIndex = 27
@@ -291,7 +297,7 @@ Partial Class ABM_Clientes
         ' 
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label12.Location = New Point(550, 457)
+        Label12.Location = New Point(550, 485)
         Label12.Name = "Label12"
         Label12.Size = New Size(133, 21)
         Label12.TabIndex = 28
@@ -301,7 +307,7 @@ Partial Class ABM_Clientes
         ' 
         Label13.AutoSize = True
         Label13.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label13.Location = New Point(47, 461)
+        Label13.Location = New Point(47, 489)
         Label13.Name = "Label13"
         Label13.Size = New Size(136, 21)
         Label13.TabIndex = 29
@@ -325,11 +331,68 @@ Partial Class ABM_Clientes
         txtIDCliente.Size = New Size(43, 23)
         txtIDCliente.TabIndex = 31
         ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label15.Location = New Point(111, 128)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(40, 21)
+        Label15.TabIndex = 32
+        Label15.Text = "DNI:"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label16.Location = New Point(556, 128)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(46, 21)
+        Label16.TabIndex = 33
+        Label16.Text = "CUIT:"
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label17.Location = New Point(692, 418)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(127, 21)
+        Label17.TabIndex = 34
+        Label17.Text = "CONDICION IVA:"
+        ' 
+        ' txtCondicionivaClie
+        ' 
+        txtCondicionivaClie.Location = New Point(825, 420)
+        txtCondicionivaClie.Name = "txtCondicionivaClie"
+        txtCondicionivaClie.Size = New Size(98, 23)
+        txtCondicionivaClie.TabIndex = 35
+        ' 
+        ' txtDniClie
+        ' 
+        txtDniClie.Location = New Point(187, 130)
+        txtDniClie.Name = "txtDniClie"
+        txtDniClie.Size = New Size(199, 23)
+        txtDniClie.TabIndex = 36
+        ' 
+        ' txtCuitClie
+        ' 
+        txtCuitClie.Location = New Point(617, 130)
+        txtCuitClie.Name = "txtCuitClie"
+        txtCuitClie.Size = New Size(199, 23)
+        txtCuitClie.TabIndex = 37
+        ' 
         ' ABM_Clientes
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1069, 611)
+        Controls.Add(txtCuitClie)
+        Controls.Add(txtDniClie)
+        Controls.Add(txtCondicionivaClie)
+        Controls.Add(Label17)
+        Controls.Add(Label16)
+        Controls.Add(Label15)
         Controls.Add(txtIDCliente)
         Controls.Add(Label14)
         Controls.Add(Label13)
@@ -399,4 +462,10 @@ Partial Class ABM_Clientes
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents txtIDCliente As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtCondicionivaClie As TextBox
+    Friend WithEvents txtDniClie As TextBox
+    Friend WithEvents txtCuitClie As TextBox
 End Class
