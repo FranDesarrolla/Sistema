@@ -54,7 +54,14 @@ Public Class Ventas
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
 
+        ABM_Ventas.btnCabecera.Text = "Actualizar Cabecera"
         ABM_Ventas.lblABM.Text = "Editar"
+        ABM_Ventas.btnFin.Enabled = True
+
+        'Activar paneles
+        ABM_Ventas.panelProducto.Enabled = True
+        ABM_Ventas.panelAdd.Enabled = True
+        ABM_Ventas.GrillaMovVentas.Enabled = True
 
         ABM_Ventas.lblID.Text = GrillaVentas.CurrentRow.Cells(0).Value
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
@@ -63,10 +70,11 @@ Public Class Ventas
         ABM_Ventas.lblDireccion.Text = GrillaVentas.CurrentRow.Cells(14).Value
         ABM_Ventas.lblDNII.Text = GrillaVentas.CurrentRow.Cells(15).Value
         ABM_Ventas.lblCUITT.Text = GrillaVentas.CurrentRow.Cells(16).Value
-        ABM_Ventas.txtFecha.Text = GrillaVentas.CurrentRow.Cells(5).Value
+        ABM_Ventas.dateTime.Value = GrillaVentas.CurrentRow.Cells(5).Value
         ABM_Ventas.txtSucursal.Text = GrillaVentas.CurrentRow.Cells(6).Value
         ABM_Ventas.txtComprobante.Text = GrillaVentas.CurrentRow.Cells(7).Value
         ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
+
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ABM_Ventas.llenarGrillaMovVentas()
@@ -75,7 +83,13 @@ Public Class Ventas
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
 
+        Dim idPuntoVenta As String = DirectCast(ModuloPrincipal.boxPV.SelectedItem, DataRowView)("IDPuntoVenta").ToString()
+        Dim idPuntoVentaRellenado As String = idPuntoVenta.PadLeft(5, "0"c)
+        ABM_Ventas.txtSucursal.Text = idPuntoVentaRellenado
+
+        ABM_Ventas.btnCabecera.Text = "Confirmar Cabecera"
         ABM_Ventas.lblABM.Text = "Agregar"
+        ABM_Ventas.lblID.Text = 0
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
 
     End Sub

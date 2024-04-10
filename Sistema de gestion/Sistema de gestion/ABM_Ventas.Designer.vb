@@ -27,22 +27,26 @@ Partial Class ABM_Ventas
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         lblABM = New Label()
         lblCliente = New Label()
-        Panel1 = New Panel()
+        panelCabecera = New Panel()
+        dateTime = New DateTimePicker()
         Panel5 = New Panel()
         lblCod = New Label()
         Label6 = New Label()
-        txtFecha = New TextBox()
         Label5 = New Label()
         Label4 = New Label()
         txtComprobante = New TextBox()
         Label3 = New Label()
-        txtSucursal = New TextBox()
         Label2 = New Label()
         lblEmpresa = New Label()
         Panel4 = New Panel()
         lblLetra = New Label()
+        txtSucursal = New TextBox()
         btnFin = New Button()
-        Panel2 = New Panel()
+        panelDatos = New Panel()
+        lblNombreEmpleado = New Label()
+        lblEmpleado = New Label()
+        txtQuien = New TextBox()
+        lblQuien = New Label()
         lblCUITT = New Label()
         lblCUIT = New Label()
         txtCuenta = New TextBox()
@@ -54,13 +58,14 @@ Partial Class ABM_Ventas
         lblApellido = New Label()
         lblNombreCliente = New Label()
         lblNombre = New Label()
-        Panel3 = New Panel()
+        panelTotal = New Panel()
         lblTotal = New Label()
         Label1 = New Label()
+        btnVolver = New Button()
         GrillaMovVentas = New DataGridView()
         btnAgregar = New Button()
         lblID = New Label()
-        Panel8 = New Panel()
+        panelProducto = New Panel()
         Label12 = New Label()
         boxProductos = New ComboBox()
         lblMov = New Label()
@@ -85,21 +90,24 @@ Partial Class ABM_Ventas
         lblCantidad = New Label()
         btnEditar = New Button()
         btnEliminar = New Button()
-        Panel6 = New Panel()
-        Panel7 = New Panel()
-        ComboBox2 = New ComboBox()
+        panelAdd = New Panel()
+        panelAdicional = New Panel()
+        btnCabecera = New Button()
+        boxComprobante = New ComboBox()
         Label18 = New Label()
-        ComboBox1 = New ComboBox()
+        boxMetodo = New ComboBox()
         Label17 = New Label()
-        Panel1.SuspendLayout()
+        Panel1 = New Panel()
+        panelCabecera.SuspendLayout()
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
-        Panel2.SuspendLayout()
-        Panel3.SuspendLayout()
+        panelDatos.SuspendLayout()
+        panelTotal.SuspendLayout()
         CType(GrillaMovVentas, ComponentModel.ISupportInitialize).BeginInit()
-        Panel8.SuspendLayout()
-        Panel6.SuspendLayout()
-        Panel7.SuspendLayout()
+        panelProducto.SuspendLayout()
+        panelAdd.SuspendLayout()
+        panelAdicional.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' lblABM
@@ -122,24 +130,32 @@ Partial Class ABM_Ventas
         lblCliente.TabIndex = 3
         lblCliente.Text = "Cliente:"
         ' 
-        ' Panel1
+        ' panelCabecera
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
-        Panel1.Controls.Add(Panel5)
-        Panel1.Controls.Add(Label6)
-        Panel1.Controls.Add(txtFecha)
-        Panel1.Controls.Add(Label5)
-        Panel1.Controls.Add(Label4)
-        Panel1.Controls.Add(txtComprobante)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(txtSucursal)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(lblEmpresa)
-        Panel1.Controls.Add(Panel4)
-        Panel1.Location = New Point(29, 25)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1013, 65)
-        Panel1.TabIndex = 9
+        panelCabecera.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
+        panelCabecera.Controls.Add(dateTime)
+        panelCabecera.Controls.Add(Panel5)
+        panelCabecera.Controls.Add(Label6)
+        panelCabecera.Controls.Add(Label5)
+        panelCabecera.Controls.Add(Label4)
+        panelCabecera.Controls.Add(txtComprobante)
+        panelCabecera.Controls.Add(Label3)
+        panelCabecera.Controls.Add(Label2)
+        panelCabecera.Controls.Add(lblEmpresa)
+        panelCabecera.Controls.Add(Panel4)
+        panelCabecera.Location = New Point(29, 25)
+        panelCabecera.Name = "panelCabecera"
+        panelCabecera.Size = New Size(1013, 65)
+        panelCabecera.TabIndex = 9
+        ' 
+        ' dateTime
+        ' 
+        dateTime.CalendarFont = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        dateTime.Format = DateTimePickerFormat.Short
+        dateTime.Location = New Point(559, 29)
+        dateTime.Name = "dateTime"
+        dateTime.Size = New Size(97, 23)
+        dateTime.TabIndex = 1
         ' 
         ' Panel5
         ' 
@@ -170,22 +186,11 @@ Partial Class ABM_Ventas
         Label6.TabIndex = 17
         Label6.Text = "Velez Sarsfield 572 - Bell Ville - 2550 - Córdoba"
         ' 
-        ' txtFecha
-        ' 
-        txtFecha.BackColor = Color.White
-        txtFecha.BorderStyle = BorderStyle.None
-        txtFecha.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        txtFecha.Location = New Point(559, 31)
-        txtFecha.Name = "txtFecha"
-        txtFecha.Size = New Size(86, 20)
-        txtFecha.TabIndex = 1
-        txtFecha.TextAlign = HorizontalAlignment.Center
-        ' 
         ' Label5
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(559, 9)
+        Label5.Location = New Point(556, 9)
         Label5.Name = "Label5"
         Label5.Size = New Size(44, 19)
         Label5.TabIndex = 15
@@ -205,6 +210,7 @@ Partial Class ABM_Ventas
         ' 
         txtComprobante.BackColor = Color.White
         txtComprobante.BorderStyle = BorderStyle.None
+        txtComprobante.Enabled = False
         txtComprobante.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
         txtComprobante.Location = New Point(803, 31)
         txtComprobante.Name = "txtComprobante"
@@ -216,28 +222,17 @@ Partial Class ABM_Ventas
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(803, 9)
+        Label3.Location = New Point(800, 9)
         Label3.Name = "Label3"
         Label3.Size = New Size(94, 19)
         Label3.TabIndex = 13
         Label3.Text = "Comprobante"
         ' 
-        ' txtSucursal
-        ' 
-        txtSucursal.BackColor = Color.White
-        txtSucursal.BorderStyle = BorderStyle.None
-        txtSucursal.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        txtSucursal.Location = New Point(727, 31)
-        txtSucursal.Name = "txtSucursal"
-        txtSucursal.Size = New Size(57, 20)
-        txtSucursal.TabIndex = 2
-        txtSucursal.TextAlign = HorizontalAlignment.Center
-        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(727, 9)
+        Label2.Location = New Point(724, 9)
         Label2.Name = "Label2"
         Label2.Size = New Size(59, 19)
         Label2.TabIndex = 9
@@ -275,9 +270,22 @@ Partial Class ABM_Ventas
         lblLetra.Text = "X"
         lblLetra.TextAlign = ContentAlignment.MiddleCenter
         ' 
+        ' txtSucursal
+        ' 
+        txtSucursal.BackColor = Color.White
+        txtSucursal.BorderStyle = BorderStyle.None
+        txtSucursal.Enabled = False
+        txtSucursal.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        txtSucursal.Location = New Point(753, 56)
+        txtSucursal.Name = "txtSucursal"
+        txtSucursal.Size = New Size(59, 20)
+        txtSucursal.TabIndex = 2
+        txtSucursal.TextAlign = HorizontalAlignment.Center
+        ' 
         ' btnFin
         ' 
         btnFin.BackColor = Color.Tan
+        btnFin.Enabled = False
         btnFin.FlatAppearance.BorderSize = 0
         btnFin.FlatStyle = FlatStyle.Flat
         btnFin.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
@@ -288,25 +296,70 @@ Partial Class ABM_Ventas
         btnFin.Text = "Finalizar"
         btnFin.UseVisualStyleBackColor = False
         ' 
-        ' Panel2
+        ' panelDatos
         ' 
-        Panel2.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
-        Panel2.Controls.Add(lblCUITT)
-        Panel2.Controls.Add(lblCUIT)
-        Panel2.Controls.Add(txtCuenta)
-        Panel2.Controls.Add(lblDNII)
-        Panel2.Controls.Add(lblDNI)
-        Panel2.Controls.Add(lblDireccion)
-        Panel2.Controls.Add(lblDirec)
-        Panel2.Controls.Add(lblApellidoCliente)
-        Panel2.Controls.Add(lblApellido)
-        Panel2.Controls.Add(lblNombreCliente)
-        Panel2.Controls.Add(lblNombre)
-        Panel2.Controls.Add(lblCliente)
-        Panel2.Location = New Point(29, 96)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1013, 68)
-        Panel2.TabIndex = 10
+        panelDatos.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
+        panelDatos.Controls.Add(lblNombreEmpleado)
+        panelDatos.Controls.Add(lblEmpleado)
+        panelDatos.Controls.Add(txtQuien)
+        panelDatos.Controls.Add(lblQuien)
+        panelDatos.Controls.Add(lblCUITT)
+        panelDatos.Controls.Add(lblCUIT)
+        panelDatos.Controls.Add(txtCuenta)
+        panelDatos.Controls.Add(lblDNII)
+        panelDatos.Controls.Add(lblDNI)
+        panelDatos.Controls.Add(lblDireccion)
+        panelDatos.Controls.Add(lblDirec)
+        panelDatos.Controls.Add(lblApellidoCliente)
+        panelDatos.Controls.Add(lblApellido)
+        panelDatos.Controls.Add(lblNombreCliente)
+        panelDatos.Controls.Add(lblNombre)
+        panelDatos.Controls.Add(lblCliente)
+        panelDatos.Location = New Point(29, 95)
+        panelDatos.Name = "panelDatos"
+        panelDatos.Size = New Size(1013, 70)
+        panelDatos.TabIndex = 10
+        ' 
+        ' lblNombreEmpleado
+        ' 
+        lblNombreEmpleado.AutoSize = True
+        lblNombreEmpleado.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        lblNombreEmpleado.Location = New Point(740, 37)
+        lblNombreEmpleado.Name = "lblNombreEmpleado"
+        lblNombreEmpleado.Size = New Size(97, 19)
+        lblNombreEmpleado.TabIndex = 32
+        lblNombreEmpleado.Text = "###########"
+        ' 
+        ' lblEmpleado
+        ' 
+        lblEmpleado.AutoSize = True
+        lblEmpleado.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        lblEmpleado.Location = New Point(662, 37)
+        lblEmpleado.Name = "lblEmpleado"
+        lblEmpleado.Size = New Size(72, 19)
+        lblEmpleado.TabIndex = 31
+        lblEmpleado.Text = "Empleado:"
+        ' 
+        ' txtQuien
+        ' 
+        txtQuien.BackColor = Color.White
+        txtQuien.BorderStyle = BorderStyle.None
+        txtQuien.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        txtQuien.Location = New Point(742, 14)
+        txtQuien.Name = "txtQuien"
+        txtQuien.Size = New Size(95, 20)
+        txtQuien.TabIndex = 5
+        txtQuien.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' lblQuien
+        ' 
+        lblQuien.AutoSize = True
+        lblQuien.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        lblQuien.Location = New Point(662, 14)
+        lblQuien.Name = "lblQuien"
+        lblQuien.Size = New Size(49, 19)
+        lblQuien.TabIndex = 30
+        lblQuien.Text = "Quien:"
         ' 
         ' lblCUITT
         ' 
@@ -424,21 +477,21 @@ Partial Class ABM_Ventas
         lblNombre.TabIndex = 5
         lblNombre.Text = "Nombre:"
         ' 
-        ' Panel3
+        ' panelTotal
         ' 
-        Panel3.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
-        Panel3.Controls.Add(lblTotal)
-        Panel3.Controls.Add(Label1)
-        Panel3.Location = New Point(29, 534)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1013, 51)
-        Panel3.TabIndex = 11
+        panelTotal.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
+        panelTotal.Controls.Add(lblTotal)
+        panelTotal.Controls.Add(Label1)
+        panelTotal.Location = New Point(251, 535)
+        panelTotal.Name = "panelTotal"
+        panelTotal.Size = New Size(791, 50)
+        panelTotal.TabIndex = 11
         ' 
         ' lblTotal
         ' 
         lblTotal.AutoSize = True
         lblTotal.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
-        lblTotal.Location = New Point(854, 12)
+        lblTotal.Location = New Point(625, 13)
         lblTotal.Name = "lblTotal"
         lblTotal.Size = New Size(23, 25)
         lblTotal.TabIndex = 19
@@ -448,11 +501,25 @@ Partial Class ABM_Ventas
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(780, 12)
+        Label1.Location = New Point(546, 13)
         Label1.Name = "Label1"
         Label1.Size = New Size(73, 25)
         Label1.TabIndex = 18
         Label1.Text = "TOTAL:"
+        ' 
+        ' btnVolver
+        ' 
+        btnVolver.BackColor = Color.Tan
+        btnVolver.FlatAppearance.BorderSize = 0
+        btnVolver.FlatStyle = FlatStyle.Flat
+        btnVolver.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnVolver.Location = New Point(6, 10)
+        btnVolver.Name = "btnVolver"
+        btnVolver.Size = New Size(204, 31)
+        btnVolver.TabIndex = 16
+        btnVolver.TabStop = False
+        btnVolver.Text = "Volver"
+        btnVolver.UseVisualStyleBackColor = False
         ' 
         ' GrillaMovVentas
         ' 
@@ -474,9 +541,10 @@ Partial Class ABM_Ventas
         GrillaMovVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaMovVentas.Cursor = Cursors.Hand
         GrillaMovVentas.EditMode = DataGridViewEditMode.EditOnEnter
+        GrillaMovVentas.Enabled = False
         GrillaMovVentas.EnableHeadersVisualStyles = False
         GrillaMovVentas.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        GrillaMovVentas.Location = New Point(251, 200)
+        GrillaMovVentas.Location = New Point(251, 202)
         GrillaMovVentas.MultiSelect = False
         GrillaMovVentas.Name = "GrillaMovVentas"
         GrillaMovVentas.ReadOnly = True
@@ -502,7 +570,7 @@ Partial Class ABM_Ventas
         GrillaMovVentas.ShowCellToolTips = False
         GrillaMovVentas.ShowEditingIcon = False
         GrillaMovVentas.ShowRowErrors = False
-        GrillaMovVentas.Size = New Size(790, 286)
+        GrillaMovVentas.Size = New Size(791, 284)
         GrillaMovVentas.TabIndex = 5
         GrillaMovVentas.TabStop = False
         ' 
@@ -530,41 +598,42 @@ Partial Class ABM_Ventas
         lblID.Text = "1"
         lblID.Visible = False
         ' 
-        ' Panel8
+        ' panelProducto
         ' 
-        Panel8.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel8.Controls.Add(Label12)
-        Panel8.Controls.Add(boxProductos)
-        Panel8.Controls.Add(lblMov)
-        Panel8.Controls.Add(btnLimpiar)
-        Panel8.Controls.Add(Label16)
-        Panel8.Controls.Add(lblIDMov)
-        Panel8.Controls.Add(txtIVA)
-        Panel8.Controls.Add(Label15)
-        Panel8.Controls.Add(txtSubtotalCon)
-        Panel8.Controls.Add(Label14)
-        Panel8.Controls.Add(txtSubtotalSin)
-        Panel8.Controls.Add(Label11)
-        Panel8.Controls.Add(txtIVAP)
-        Panel8.Controls.Add(Label10)
-        Panel8.Controls.Add(txtDescuento)
-        Panel8.Controls.Add(Label9)
-        Panel8.Controls.Add(txtUnitario)
-        Panel8.Controls.Add(Label8)
-        Panel8.Controls.Add(txtCantidad)
-        Panel8.Controls.Add(txtCodigo)
-        Panel8.Controls.Add(lblProd)
-        Panel8.Controls.Add(btnAgregar)
-        Panel8.Location = New Point(29, 170)
-        Panel8.Name = "Panel8"
-        Panel8.Size = New Size(217, 359)
-        Panel8.TabIndex = 26
+        panelProducto.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        panelProducto.Controls.Add(Label12)
+        panelProducto.Controls.Add(boxProductos)
+        panelProducto.Controls.Add(lblMov)
+        panelProducto.Controls.Add(btnLimpiar)
+        panelProducto.Controls.Add(Label16)
+        panelProducto.Controls.Add(lblIDMov)
+        panelProducto.Controls.Add(txtIVA)
+        panelProducto.Controls.Add(Label15)
+        panelProducto.Controls.Add(txtSubtotalCon)
+        panelProducto.Controls.Add(Label14)
+        panelProducto.Controls.Add(txtSubtotalSin)
+        panelProducto.Controls.Add(Label11)
+        panelProducto.Controls.Add(txtIVAP)
+        panelProducto.Controls.Add(Label10)
+        panelProducto.Controls.Add(txtDescuento)
+        panelProducto.Controls.Add(Label9)
+        panelProducto.Controls.Add(txtUnitario)
+        panelProducto.Controls.Add(Label8)
+        panelProducto.Controls.Add(txtCantidad)
+        panelProducto.Controls.Add(txtCodigo)
+        panelProducto.Controls.Add(lblProd)
+        panelProducto.Controls.Add(btnAgregar)
+        panelProducto.Enabled = False
+        panelProducto.Location = New Point(29, 170)
+        panelProducto.Name = "panelProducto"
+        panelProducto.Size = New Size(217, 359)
+        panelProducto.TabIndex = 26
         ' 
         ' Label12
         ' 
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label12.Location = New Point(142, 102)
+        Label12.Location = New Point(139, 102)
         Label12.Name = "Label12"
         Label12.Size = New Size(67, 19)
         Label12.TabIndex = 48
@@ -611,7 +680,7 @@ Partial Class ABM_Ventas
         ' 
         Label16.AutoSize = True
         Label16.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label16.Location = New Point(190, 166)
+        Label16.Location = New Point(55, 164)
         Label16.Name = "Label16"
         Label16.Size = New Size(20, 19)
         Label16.TabIndex = 45
@@ -640,13 +709,14 @@ Partial Class ABM_Ventas
         txtIVA.Name = "txtIVA"
         txtIVA.Size = New Size(204, 20)
         txtIVA.TabIndex = 12
+        txtIVA.Text = "0,00"
         txtIVA.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label15
         ' 
         Label15.AutoSize = True
         Label15.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label15.Location = New Point(6, 187)
+        Label15.Location = New Point(3, 187)
         Label15.Name = "Label15"
         Label15.Size = New Size(86, 19)
         Label15.TabIndex = 43
@@ -664,13 +734,14 @@ Partial Class ABM_Ventas
         txtSubtotalCon.Name = "txtSubtotalCon"
         txtSubtotalCon.Size = New Size(204, 20)
         txtSubtotalCon.TabIndex = 14
+        txtSubtotalCon.Text = "0,00"
         txtSubtotalCon.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label14
         ' 
         Label14.AutoSize = True
         Label14.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label14.Location = New Point(6, 270)
+        Label14.Location = New Point(3, 270)
         Label14.Name = "Label14"
         Label14.Size = New Size(125, 19)
         Label14.TabIndex = 41
@@ -688,13 +759,14 @@ Partial Class ABM_Ventas
         txtSubtotalSin.Name = "txtSubtotalSin"
         txtSubtotalSin.Size = New Size(204, 20)
         txtSubtotalSin.TabIndex = 13
+        txtSubtotalSin.Text = "0,00"
         txtSubtotalSin.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label11
         ' 
         Label11.AutoSize = True
         Label11.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label11.Location = New Point(6, 228)
+        Label11.Location = New Point(3, 228)
         Label11.Name = "Label11"
         Label11.Size = New Size(118, 19)
         Label11.TabIndex = 39
@@ -706,18 +778,20 @@ Partial Class ABM_Ventas
         txtIVAP.BorderStyle = BorderStyle.None
         txtIVAP.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
         txtIVAP.ForeColor = Color.Black
-        txtIVAP.Location = New Point(141, 165)
+        txtIVAP.Location = New Point(6, 164)
         txtIVAP.Margin = New Padding(0)
         txtIVAP.Name = "txtIVAP"
+        txtIVAP.ReadOnly = True
         txtIVAP.Size = New Size(46, 20)
-        txtIVAP.TabIndex = 11
+        txtIVAP.TabIndex = 10
+        txtIVAP.Text = "0,00"
         txtIVAP.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label10
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.Location = New Point(141, 144)
+        Label10.Location = New Point(3, 145)
         Label10.Name = "Label10"
         Label10.Size = New Size(30, 19)
         Label10.TabIndex = 36
@@ -729,18 +803,19 @@ Partial Class ABM_Ventas
         txtDescuento.BorderStyle = BorderStyle.None
         txtDescuento.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
         txtDescuento.ForeColor = Color.Black
-        txtDescuento.Location = New Point(6, 165)
+        txtDescuento.Location = New Point(81, 164)
         txtDescuento.Margin = New Padding(0)
         txtDescuento.Name = "txtDescuento"
         txtDescuento.Size = New Size(129, 20)
-        txtDescuento.TabIndex = 10
+        txtDescuento.TabIndex = 11
+        txtDescuento.Text = "0,00"
         txtDescuento.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label9
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label9.Location = New Point(6, 144)
+        Label9.Location = New Point(76, 144)
         Label9.Name = "Label9"
         Label9.Size = New Size(100, 19)
         Label9.TabIndex = 34
@@ -757,13 +832,14 @@ Partial Class ABM_Ventas
         txtUnitario.Name = "txtUnitario"
         txtUnitario.Size = New Size(129, 20)
         txtUnitario.TabIndex = 8
+        txtUnitario.Text = "0,00"
         txtUnitario.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label8.Location = New Point(6, 102)
+        Label8.Location = New Point(3, 102)
         Label8.Name = "Label8"
         Label8.Size = New Size(102, 19)
         Label8.TabIndex = 32
@@ -780,6 +856,7 @@ Partial Class ABM_Ventas
         txtCantidad.Name = "txtCantidad"
         txtCantidad.Size = New Size(68, 20)
         txtCantidad.TabIndex = 9
+        txtCantidad.Text = "0,00"
         txtCantidad.TextAlign = HorizontalAlignment.Center
         ' 
         ' txtCodigo
@@ -800,7 +877,7 @@ Partial Class ABM_Ventas
         ' 
         lblProd.AutoSize = True
         lblProd.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        lblProd.Location = New Point(6, 32)
+        lblProd.Location = New Point(3, 32)
         lblProd.Name = "lblProd"
         lblProd.Size = New Size(68, 19)
         lblProd.TabIndex = 28
@@ -842,70 +919,96 @@ Partial Class ABM_Ventas
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = False
         ' 
-        ' Panel6
+        ' panelAdd
         ' 
-        Panel6.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel6.Controls.Add(btnFin)
-        Panel6.Controls.Add(btnEditar)
-        Panel6.Controls.Add(btnEliminar)
-        Panel6.Location = New Point(251, 492)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(791, 37)
-        Panel6.TabIndex = 27
+        panelAdd.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        panelAdd.Controls.Add(btnFin)
+        panelAdd.Controls.Add(btnEditar)
+        panelAdd.Controls.Add(btnEliminar)
+        panelAdd.Enabled = False
+        panelAdd.Location = New Point(251, 492)
+        panelAdd.Name = "panelAdd"
+        panelAdd.Size = New Size(791, 37)
+        panelAdd.TabIndex = 27
         ' 
-        ' Panel7
+        ' panelAdicional
         ' 
-        Panel7.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel7.Controls.Add(ComboBox2)
-        Panel7.Controls.Add(Label18)
-        Panel7.Controls.Add(ComboBox1)
-        Panel7.Controls.Add(Label17)
-        Panel7.Location = New Point(251, 170)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(791, 27)
-        Panel7.TabIndex = 28
+        panelAdicional.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        panelAdicional.Controls.Add(btnCabecera)
+        panelAdicional.Controls.Add(boxComprobante)
+        panelAdicional.Controls.Add(Label18)
+        panelAdicional.Controls.Add(boxMetodo)
+        panelAdicional.Controls.Add(Label17)
+        panelAdicional.Location = New Point(251, 170)
+        panelAdicional.Name = "panelAdicional"
+        panelAdicional.Size = New Size(791, 27)
+        panelAdicional.TabIndex = 28
         ' 
-        ' ComboBox2
+        ' btnCabecera
         ' 
-        ComboBox2.BackColor = Color.Tan
-        ComboBox2.FlatStyle = FlatStyle.Flat
-        ComboBox2.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(669, 1)
-        ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(121, 25)
-        ComboBox2.TabIndex = 6
+        btnCabecera.BackColor = Color.Tan
+        btnCabecera.FlatAppearance.BorderSize = 0
+        btnCabecera.FlatStyle = FlatStyle.Flat
+        btnCabecera.Font = New Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        btnCabecera.Location = New Point(599, 3)
+        btnCabecera.Name = "btnCabecera"
+        btnCabecera.Size = New Size(187, 21)
+        btnCabecera.TabIndex = 7
+        btnCabecera.Text = "Confirmar Cabecera"
+        btnCabecera.UseVisualStyleBackColor = False
+        ' 
+        ' boxComprobante
+        ' 
+        boxComprobante.BackColor = Color.Tan
+        boxComprobante.FlatStyle = FlatStyle.Flat
+        boxComprobante.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        boxComprobante.FormattingEnabled = True
+        boxComprobante.ItemHeight = 17
+        boxComprobante.Location = New Point(406, 1)
+        boxComprobante.Name = "boxComprobante"
+        boxComprobante.Size = New Size(121, 25)
+        boxComprobante.TabIndex = 6
         ' 
         ' Label18
         ' 
         Label18.AutoSize = True
         Label18.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label18.Location = New Point(520, 4)
+        Label18.Location = New Point(257, 4)
         Label18.Name = "Label18"
         Label18.Size = New Size(143, 19)
         Label18.TabIndex = 30
         Label18.Text = "Tipo de comprobante:"
         ' 
-        ' ComboBox1
+        ' boxMetodo
         ' 
-        ComboBox1.BackColor = Color.Tan
-        ComboBox1.FlatStyle = FlatStyle.Flat
-        ComboBox1.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(373, 1)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(121, 25)
-        ComboBox1.TabIndex = 5
+        boxMetodo.BackColor = Color.Tan
+        boxMetodo.FlatStyle = FlatStyle.Flat
+        boxMetodo.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        boxMetodo.FormattingEnabled = True
+        boxMetodo.ItemHeight = 17
+        boxMetodo.Location = New Point(124, 1)
+        boxMetodo.Name = "boxMetodo"
+        boxMetodo.Size = New Size(121, 25)
+        boxMetodo.TabIndex = 5
         ' 
         ' Label17
         ' 
         Label17.AutoSize = True
         Label17.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label17.Location = New Point(252, 4)
+        Label17.Location = New Point(3, 4)
         Label17.Name = "Label17"
         Label17.Size = New Size(115, 19)
         Label17.TabIndex = 28
         Label17.Text = "Metodo de pago:"
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
+        Panel1.Controls.Add(btnVolver)
+        Panel1.Location = New Point(29, 535)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(217, 50)
+        Panel1.TabIndex = 20
         ' 
         ' ABM_Ventas
         ' 
@@ -914,14 +1017,16 @@ Partial Class ABM_Ventas
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
         ControlBox = False
-        Controls.Add(Panel7)
-        Controls.Add(Panel6)
-        Controls.Add(Panel8)
+        Controls.Add(Panel1)
+        Controls.Add(panelAdicional)
+        Controls.Add(panelAdd)
+        Controls.Add(panelProducto)
         Controls.Add(lblID)
         Controls.Add(GrillaMovVentas)
-        Controls.Add(Panel3)
-        Controls.Add(Panel2)
-        Controls.Add(Panel1)
+        Controls.Add(panelTotal)
+        Controls.Add(txtSucursal)
+        Controls.Add(panelDatos)
+        Controls.Add(panelCabecera)
         Controls.Add(lblABM)
         Controls.Add(lblCantidad)
         FormBorderStyle = FormBorderStyle.None
@@ -932,36 +1037,36 @@ Partial Class ABM_Ventas
         ShowIcon = False
         ShowInTaskbar = False
         Text = "ABM_Ventas"
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
+        panelCabecera.ResumeLayout(False)
+        panelCabecera.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
-        Panel3.ResumeLayout(False)
-        Panel3.PerformLayout()
+        panelDatos.ResumeLayout(False)
+        panelDatos.PerformLayout()
+        panelTotal.ResumeLayout(False)
+        panelTotal.PerformLayout()
         CType(GrillaMovVentas, ComponentModel.ISupportInitialize).EndInit()
-        Panel8.ResumeLayout(False)
-        Panel8.PerformLayout()
-        Panel6.ResumeLayout(False)
-        Panel7.ResumeLayout(False)
-        Panel7.PerformLayout()
+        panelProducto.ResumeLayout(False)
+        panelProducto.PerformLayout()
+        panelAdd.ResumeLayout(False)
+        panelAdicional.ResumeLayout(False)
+        panelAdicional.PerformLayout()
+        Panel1.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents lblABM As Label
     Friend WithEvents lblCliente As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents panelCabecera As Panel
+    Friend WithEvents panelDatos As Panel
+    Friend WithEvents panelTotal As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents lblLetra As Label
     Friend WithEvents lblEmpresa As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtFecha As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtComprobante As TextBox
     Friend WithEvents Label3 As Label
@@ -984,11 +1089,11 @@ Partial Class ABM_Ventas
     Friend WithEvents lblDNII As Label
     Friend WithEvents lblDNI As Label
     Friend WithEvents lblID As Label
-    Friend WithEvents Panel8 As Panel
+    Friend WithEvents panelProducto As Panel
     Friend WithEvents txtCuenta As TextBox
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnEliminar As Button
-    Friend WithEvents Panel6 As Panel
+    Friend WithEvents panelAdd As Panel
     Friend WithEvents Button4 As Button
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents lblCantidad As Label
@@ -1011,13 +1116,21 @@ Partial Class ABM_Ventas
     Friend WithEvents Label16 As Label
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents lblMov As Label
-    Friend WithEvents Panel7 As Panel
+    Friend WithEvents panelAdicional As Panel
     Friend WithEvents Label17 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents boxComprobante As ComboBox
     Friend WithEvents Label18 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents boxMetodo As ComboBox
     Friend WithEvents lblCUITT As Label
     Friend WithEvents lblCUIT As Label
     Friend WithEvents boxProductos As ComboBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents btnVolver As Button
+    Friend WithEvents btnCabecera As Button
+    Friend WithEvents txtQuien As TextBox
+    Friend WithEvents lblQuien As Label
+    Friend WithEvents lblEmpleado As Label
+    Friend WithEvents lblNombreEmpleado As Label
+    Friend WithEvents dateTime As DateTimePicker
+    Friend WithEvents Panel1 As Panel
 End Class

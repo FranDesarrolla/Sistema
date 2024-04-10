@@ -2,179 +2,364 @@
 Imports System.Data.SqlClient
 
 Public Class ABM_Ventas
+    Private cambiosRealizados As New List(Of Cambio)
+
+    Private Class Cambio
+        Public TipoOperacion As String
+        Public DatosAntes As String()
+    End Class
+
     Private Sub ABM_Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LimpiaMovVentas()
         llenarGrillaMovVentas()
         LlenarComboBoxProductos()
+        LlenarComboBoxMetodos()
+        ConfigurarComboBoxComprobante()
     End Sub
 
-    Public Sub ActivarBotones()
-        If GrillaMovVentas.Rows.Count > 0 Then
-            btnEditar.Enabled = True
-            btnEliminar.Enabled = True
+    Private Sub ConfigurarComboBoxComprobante()
+        boxComprobante.Items.AddRange({"Factura", "Nota de Crédito", "Nota de Débito"})
+        boxComprobante.SelectedItem = "Factura"
+    End Sub
+
+
+    Private Sub txtUnitario_Leave(sender As Object, e As EventArgs) Handles txtUnitario.Leave
+        ' Reemplazar puntos por comas
+        txtUnitario.Text = txtUnitario.Text.Replace(".", ",")
+
+        ' Verificar si el cuadro de texto está vacío
+        If String.IsNullOrEmpty(txtUnitario.Text) Then
+            ' Si está vacío, establecer el valor en "0,00"
+            txtUnitario.Text = "0,00"
         Else
-            btnEditar.Enabled = False
-            btnEliminar.Enabled = False
+            ' Si no está vacío, verificar si tiene decimales
+            If Not txtUnitario.Text.Contains(",") Then
+                ' Si no tiene decimales, agregar ",00"
+                txtUnitario.Text &= ",00"
+            Else
+                ' Separar la parte decimal
+                Dim partes As String() = txtUnitario.Text.Split(","c)
+                ' Verificar si la parte decimal tiene solo un dígito
+                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
+                    ' Si solo tiene un dígito, agregar un 0 adicional
+                    txtUnitario.Text &= "0"
+                End If
+            End If
         End If
     End Sub
 
+
     Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
-        ' Verificar si los campos txtUnitario y txtCantidad no están vacíos
-        If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso Not String.IsNullOrEmpty(txtCantidad.Text) Then
-            ' Convertir los valores de txtUnitario y txtCantidad a números
-            Dim unitario As Decimal = Decimal.Parse(txtUnitario.Text)
-            Dim cantidad As Decimal = Decimal.Parse(txtCantidad.Text)
 
-            ' Calcular el subtotal sin impuestos
-            Dim subtotalSin As Decimal = unitario * cantidad
+        ' Reemplazar puntos por comas
+        txtCantidad.Text = txtCantidad.Text.Replace(".", ",")
 
-            ' Mostrar el subtotal sin impuestos en el TextBox correspondiente
-            txtSubtotalSin.Text = subtotalSin.ToString()
+        ' Verificar si el cuadro de texto está vacío
+        If String.IsNullOrEmpty(txtCantidad.Text) Then
+            ' Si está vacío, establecer el valor en "0,00"
+            txtCantidad.Text = "0,00"
+        Else
+            ' Si no está vacío, verificar si tiene decimales
+            If Not txtCantidad.Text.Contains(",") Then
+                ' Si no tiene decimales, agregar ",00"
+                txtCantidad.Text &= ",00"
+            Else
+                ' Separar la parte decimal
+                Dim partes As String() = txtCantidad.Text.Split(","c)
+                ' Verificar si la parte decimal tiene solo un dígito
+                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
+                    ' Si solo tiene un dígito, agregar un 0 adicional
+                    txtCantidad.Text &= "0"
+                End If
+            End If
         End If
     End Sub
 
     Private Sub txtIVAP_Leave(sender As Object, e As EventArgs) Handles txtIVAP.Leave
-        ' Verificar si los campos txtUnitario, txtCantidad y txtIVAP no están vacíos
-        If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso Not String.IsNullOrEmpty(txtCantidad.Text) AndAlso Not String.IsNullOrEmpty(txtIVAP.Text) Then
-            ' Convertir los valores de txtUnitario, txtCantidad y txtIVAP a números
+
+        ' Reemplazar puntos por comas
+        txtIVAP.Text = txtIVAP.Text.Replace(".", ",")
+
+        ' Verificar si el cuadro de texto está vacío
+        If String.IsNullOrEmpty(txtIVAP.Text) Then
+            ' Si está vacío, establecer el valor en "0,00"
+            txtIVAP.Text = "0,00"
+        Else
+            ' Si no está vacío, verificar si tiene decimales
+            If Not txtIVAP.Text.Contains(",") Then
+                ' Si no tiene decimales, agregar ",00"
+                txtIVAP.Text &= ",00"
+            Else
+                ' Separar la parte decimal
+                Dim partes As String() = txtIVAP.Text.Split(","c)
+                ' Verificar si la parte decimal tiene solo un dígito
+                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
+                    ' Si solo tiene un dígito, agregar un 0 adicional
+                    txtIVAP.Text &= "0"
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub txtDescuento_Leave(sender As Object, e As EventArgs) Handles txtDescuento.Leave
+        If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso Not String.IsNullOrEmpty(txtCantidad.Text) AndAlso Not String.IsNullOrEmpty(txtDescuento.Text) AndAlso Not String.IsNullOrEmpty(txtIVAP.Text) Then
             Dim unitario As Decimal = Decimal.Parse(txtUnitario.Text)
             Dim cantidad As Decimal = Decimal.Parse(txtCantidad.Text)
+            Dim descuento As Decimal = Decimal.Parse(txtDescuento.Text)
             Dim iva As Decimal = Decimal.Parse(txtIVAP.Text)
 
-            ' Calcular el subtotal con impuestos
-            Dim subtotalCon As Decimal = (unitario * cantidad) * (iva / 100 + 1)
-            Dim importeIVA As Decimal = subtotalCon - (unitario * cantidad)
+            Dim subtotalSinIva As Decimal = unitario * cantidad
+            Dim descuentoAplicado As Decimal = subtotalSinIva * (descuento / 100)
+            Dim subtotalConDescuento As Decimal = subtotalSinIva - descuentoAplicado
 
-            ' Mostrar el subtotal con impuestos en el TextBox correspondiente
-            txtSubtotalCon.Text = subtotalCon.ToString()
-            txtIVA.Text = importeIVA.ToString()
+            Dim importeIVA As Decimal = subtotalConDescuento * (iva / 100)
+            Dim subtotalConDescuentoConIVA As Decimal = subtotalConDescuento + importeIVA
+
+            ' Utilizamos String.Format para limitar la cantidad de decimales a 2
+            txtSubtotalSin.Text = String.Format("{0:0.00}", subtotalConDescuento)
+            txtIVA.Text = String.Format("{0:0.00}", importeIVA)
+            txtSubtotalCon.Text = String.Format("{0:0.00}", subtotalConDescuentoConIVA)
+
+            ' Verificar si el cuadro de texto está vacío
+            If String.IsNullOrEmpty(txtDescuento.Text) Then
+                ' Si está vacío, establecer el valor en "0,00"
+                txtDescuento.Text = "0,00"
+            Else
+                ' Si no está vacío, verificar si tiene decimales
+                If Not txtDescuento.Text.Contains(",") Then
+                    ' Si no tiene decimales, agregar ",00"
+                    txtDescuento.Text = txtDescuento.Text & ",00"
+                ElseIf txtDescuento.Text.IndexOf(",") = txtDescuento.Text.Length - 1 Then
+                    ' Si solo tiene un decimal, agregar un 0 adicional
+                    txtDescuento.Text = txtDescuento.Text & "0"
+                End If
+            End If
         End If
     End Sub
 
     Private Sub SumarSubtotalesYActualizarTotal()
         Dim total As Decimal = 0
 
-        ' Iterar a través de todas las filas de la grilla
         For Each fila As DataGridViewRow In GrillaMovVentas.Rows
-            ' Verificar si la fila no es la fila de encabezado y si tiene datos en la columna de subtotal
             If Not fila.IsNewRow AndAlso fila.Cells("Subtotal").Value IsNot Nothing Then
-                ' Convertir el valor de la columna Subtotal a Decimal y sumarlo al total
                 total += Convert.ToDecimal(fila.Cells("Subtotal").Value)
             End If
         Next
 
-        ' Mostrar el total en el Label lblTotal
         lblTotal.Text = "$" & total.ToString()
     End Sub
 
     Private Sub GrillaMovVentas_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles GrillaMovVentas.RowsAdded
-        ' Llamar a la función para sumar los subtotales y actualizar el total
         SumarSubtotalesYActualizarTotal()
     End Sub
 
     Public Sub llenarGrillaMovVentas()
-        'LIMPIAR DATOS DE LA GRILLA
+        LimpiarGrilla()
 
+        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto WHERE NDM.IDNotaDeVenta = " & lblID.Text
+
+        Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
+        adaptadorSql.Fill(setdedatos, "dtmovventas")
+        GrillaMovVentas.DataSource = setdedatos.Tables("dtmovventas")
+
+        ConfigurarColumnasGrilla()
+        ActivarBotones()
+    End Sub
+
+    Private Sub LimpiarGrilla()
         If setdedatos.Tables.Contains("dtmovventas") Then
             setdedatos.Tables("dtmovventas").Rows.Clear()
         End If
+    End Sub
 
-        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM
-                                      INNER JOIN Productos P ON P.Codigo = NDM.Producto
-                                      WHERE NDM.IDNotaDeVenta = " & lblID.Text
-
-        Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
-        Dim dtmovventas As New DataTable
-        adaptadorSql.Fill(setdedatos, "dtmovventas")
-        GrillaMovVentas.DataSource = setdedatos.Tables("dtmovventas")
-        GrillaMovVentas.Font = New Font("Arial", 10)
-
-        'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-
+    Private Sub ConfigurarColumnasGrilla()
         Dim columnasOcultar() As Integer = {0, 8, 9}
 
         For Each columna As Integer In columnasOcultar
             GrillaMovVentas.Columns(columna).Visible = False
         Next
 
-        GrillaMovVentas.Columns(1).FillWeight = 15
-        GrillaMovVentas.Columns(2).FillWeight = 25
-        GrillaMovVentas.Columns(3).FillWeight = 7
-        GrillaMovVentas.Columns(4).FillWeight = 12
-        GrillaMovVentas.Columns(5).FillWeight = 12
-        GrillaMovVentas.Columns(6).FillWeight = 12
-        GrillaMovVentas.Columns(7).FillWeight = 12
+        Dim columnasFillWeight() As Integer = {1, 2, 3, 4, 5, 6, 7}
 
-        For i As Integer = 0 To 9
-            GrillaMovVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Next i
-
-        ActivarBotones()
+        For Each columna As Integer In columnasFillWeight
+            GrillaMovVentas.Columns(columna).FillWeight = 12
+            GrillaMovVentas.Columns(columna).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
     End Sub
 
-    Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
-        ModuloPrincipal.AbrirFormEnPanel(Ventas)
-        llenarGrillaMovVentas()
-        LimpiaMovVentas()
+    Public Sub ActivarBotones()
+        Dim enableButtons As Boolean = (GrillaMovVentas.Rows.Count > 0)
+
+        btnEditar.Enabled = enableButtons
+        btnEliminar.Enabled = enableButtons
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Dim resultado As Integer = MessageBox.Show("¿Esta seguro de eliminar este registro?", "Atencion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        Dim resultado As Integer = MessageBox.Show("¿Está seguro de eliminar este registro?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If resultado = DialogResult.Yes Then
             Try
-                adaptadorSql.SelectCommand = acciones
-                adaptadorSql.SelectCommand.Connection = conexionSql
-                acciones.CommandText = "DELETE FROM NotasDeVentasMov WHERE IDNotasDeVentasMov = " & GrillaMovVentas.CurrentRow.Cells(0).Value & ""
-                acciones.ExecuteNonQuery()
+                Dim id As Integer = Convert.ToInt32(GrillaMovVentas.CurrentRow.Cells(0).Value)
+                Dim query As String = "DELETE FROM NotasDeVentasMov WHERE IDNotasDeVentasMov = @ID"
+                Using connection As New SqlConnection(conexionSql.ConnectionString),
+                      command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@ID", id)
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                End Using
 
                 MessageBox.Show("El registro se ha eliminado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                MessageBox.Show("Error al eliminar el registro: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+
             llenarGrillaMovVentas()
             ActivarBotones()
         End If
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-
-        Dim precioFormateado As String = txtUnitario.Text.Replace(",", ".")
-        Dim descFormateado As String = txtDescuento.Text.Replace(",", ".")
-        Dim ivaFormateado As String = txtIVA.Text.Replace(",", ".")
-        Dim subconFormateado As String = txtSubtotalCon.Text.Replace(",", ".")
-
         If lblMov.Text = "Editar" Then
-            Try
-
-                adaptadorSql.SelectCommand = acciones
-                adaptadorSql.SelectCommand.Connection = conexionSql
-                acciones.CommandText = "UPDATE dbo.NotasDeVentasMov
-                                        SET Producto = '" & GrillaMovVentas.CurrentRow.Cells(1).Value & "', Cantidad = " & GrillaMovVentas.CurrentRow.Cells(2).Value & ", PrecioUnitario = " & precioFormateado & ", Descuento = " & descFormateado & ", Impuestos = " & ivaFormateado & ", SubTotal = " & subconFormateado & "
-                                        WHERE IDNotasDeVentasMov = " & GrillaMovVentas.CurrentRow.Cells(0).Value
-
-                acciones.ExecuteNonQuery()
-
-                LimpiaMovVentas()
-                MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
-            llenarGrillaMovVentas()
+            EditarMovimiento()
         Else
-            Try
-                adaptadorSql.SelectCommand = acciones
-                adaptadorSql.SelectCommand.Connection = conexionSql
-                acciones.CommandText = "INSERT INTO dbo.NotasDeVentasMov (IDNotaDeVenta, Producto, Cantidad, PrecioUnitario, Descuento, Impuestos, SubTotal)
-                                VALUES ('" & lblID.Text & "','" & txtCodigo.Text & "','" & txtCantidad.Text & "','" & precioFormateado & "', '" & descFormateado & "', '" & ivaFormateado & "', '" & subconFormateado & "')"
-                acciones.ExecuteNonQuery()
-
-                LimpiaMovVentas()
-                MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
-            llenarGrillaMovVentas()
+            AgregarMovimiento()
         End If
     End Sub
+
+    Private Sub EditarMovimiento()
+        Try
+            Dim precioFormateado As Decimal = Decimal.Parse(txtUnitario.Text)
+            Dim descFormateado As Decimal = Decimal.Parse(txtDescuento.Text)
+            Dim ivaFormateado As Decimal = Decimal.Parse(txtIVA.Text)
+            Dim subconFormateado As Decimal = Decimal.Parse(txtSubtotalCon.Text)
+
+            Dim id As Integer = Convert.ToInt32(GrillaMovVentas.CurrentRow.Cells(0).Value)
+            Dim query As String = "UPDATE dbo.NotasDeVentasMov
+                                SET Producto = @Producto, Cantidad = @Cantidad, PrecioUnitario = @PrecioUnitario, Descuento = @Descuento, Impuestos = @Impuestos, SubTotal = @SubTotal
+                                WHERE IDNotasDeVentasMov = @ID"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Producto", txtCodigo.Text)
+                command.Parameters.AddWithValue("@Cantidad", Convert.ToDecimal(txtCantidad.Text))
+                command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
+                command.Parameters.AddWithValue("@Descuento", descFormateado)
+                command.Parameters.AddWithValue("@Impuestos", ivaFormateado)
+                command.Parameters.AddWithValue("@SubTotal", subconFormateado)
+                command.Parameters.AddWithValue("@ID", id)
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+
+            LimpiaMovVentas()
+            MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            llenarGrillaMovVentas()
+        Catch ex As Exception
+            MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub AgregarMovimiento()
+        Try
+            Dim precioFormateado As Decimal = Decimal.Parse(txtUnitario.Text)
+            Dim descFormateado As Decimal = Decimal.Parse(txtDescuento.Text)
+            Dim ivaFormateado As Decimal = Decimal.Parse(txtIVA.Text)
+            Dim subconFormateado As Decimal = Decimal.Parse(txtSubtotalCon.Text)
+
+            Dim query As String = "INSERT INTO dbo.NotasDeVentasMov (IDNotaDeVenta, Producto, Cantidad, PrecioUnitario, Descuento, Impuestos, SubTotal)
+                                VALUES (@IDNotaDeVenta, @Producto, @Cantidad, @PrecioUnitario, @Descuento, @Impuestos, @SubTotal)"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@IDNotaDeVenta", lblID.Text)
+                command.Parameters.AddWithValue("@Producto", txtCodigo.Text)
+                command.Parameters.AddWithValue("@Cantidad", Convert.ToDecimal(txtCantidad.Text))
+                command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
+                command.Parameters.AddWithValue("@Descuento", descFormateado)
+                command.Parameters.AddWithValue("@Impuestos", ivaFormateado)
+                command.Parameters.AddWithValue("@SubTotal", subconFormateado)
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+
+            LimpiaMovVentas()
+            MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            llenarGrillaMovVentas()
+        Catch ex As Exception
+            MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub EditarRegistro()
+        Try
+            ' Obtener el índice seleccionado en boxComprobante (se le suma 1 para obtener el valor deseado)
+            Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
+
+            ' Obtener el valor seleccionado en boxMetodo
+            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
+
+            Dim id As Integer = Convert.ToInt32(lblID.Text)
+            Dim query As String = "UPDATE dbo.NotasDeVentasMov
+                                SET IDNotaDeVenta = @idnotadeventa, Cliente = @cliente, Empleado = @empleado, FechaDeVenta = @fechadeventa, PuntoDeVenta = @puntodeventa, NroComprobante = @nrocomprobante, MetodoDePago = @metododepago, Letra = @letra, TipoFactura = @tipofactura, Total = @total
+                                WHERE IDNotasDeVentasMov = @ID"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
+                command.Parameters.AddWithValue("@empleado", txtQuien.Text)
+                command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
+                command.Parameters.AddWithValue("@puntodeventa", txtSucursal.Text)
+                command.Parameters.AddWithValue("@nrocomprobante", txtComprobante.Text)
+                command.Parameters.AddWithValue("@metododepago", metodoPago)
+                command.Parameters.AddWithValue("@letra", lblLetra.Text)
+                command.Parameters.AddWithValue("@tipofactura", tipoFactura)
+                command.Parameters.AddWithValue("@total", 0)
+                command.Parameters.AddWithValue("@ID", id)
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Cabecera actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub AgregarRegistro()
+        Try
+            ' Obtener el índice seleccionado en boxComprobante (se le suma 1 para obtener el valor deseado)
+            Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
+
+            ' Obtener el valor seleccionado en boxMetodo
+            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
+
+            Dim query As String = "INSERT INTO dbo.NotasDeVentas (Cliente, Empleado, FechaDeVenta, PuntoDeVenta, NroComprobante, MetodoDePago, Letra, TipoFactura, Total)
+                               VALUES (@cliente, @empleado, @fechadeventa, @puntodeventa, @nrocomprobante, @metododepago, @letra, @tipofactura, @total);
+                               SELECT SCOPE_IDENTITY();"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
+                command.Parameters.AddWithValue("@empleado", txtQuien.Text)
+                command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
+                command.Parameters.AddWithValue("@puntodeventa", txtSucursal.Text)
+                command.Parameters.AddWithValue("@nrocomprobante", txtComprobante.Text)
+                command.Parameters.AddWithValue("@metododepago", metodoPago)
+                command.Parameters.AddWithValue("@letra", lblLetra.Text)
+                command.Parameters.AddWithValue("@tipofactura", tipoFactura)
+                command.Parameters.AddWithValue("@total", lblTotal.Text)
+                connection.Open()
+
+                ' Ejecutar la consulta y obtener el último ID insertado
+                Dim nuevoID As Integer = Convert.ToInt32(command.ExecuteScalar())
+                lblID.Text = nuevoID.ToString()
+            End Using
+
+            MessageBox.Show("Cabecera creada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 
     Public Sub LimpiaMovVentas()
         Me.txtCodigo.Text = ""
@@ -191,8 +376,15 @@ Public Class ABM_Ventas
         lblMov.Text = ""
     End Sub
 
-    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+    Private Function ObtenerDatosAntesDeOperacion() As String()
+        Return {txtCodigo.Text, boxProductos.Text, txtCantidad.Text, txtUnitario.Text, txtDescuento.Text, txtIVAP.Text, txtIVA.Text, txtSubtotalSin.Text, txtSubtotalCon.Text}
+    End Function
 
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        CargarDatosParaEditar()
+    End Sub
+
+    Private Sub CargarDatosParaEditar()
         Me.txtCodigo.Text = GrillaMovVentas.CurrentRow.Cells(1).Value
         Me.boxProductos.Text = GrillaMovVentas.CurrentRow.Cells(9).Value
         Me.txtCantidad.Text = GrillaMovVentas.CurrentRow.Cells(3).Value
@@ -205,7 +397,6 @@ Public Class ABM_Ventas
 
         lblMov.Text = "Editar"
         btnAgregar.Text = "Aceptar"
-
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -213,48 +404,62 @@ Public Class ABM_Ventas
     End Sub
 
     Public Sub LlenarComboBoxProductos()
-        'Select para el Combobox Productos
-
-        adaptadorSql.SelectCommand = acciones
-        adaptadorSql.SelectCommand.Connection = conexionSql
-        acciones.CommandText = "SELECT Codigo, Descripcion, PrecioUnitario, IVA FROM Productos"
-        adaptadorSql.Fill(setdedatos, "dtproductos")
-        boxProductos.DataSource = setdedatos.Tables("dtproductos")
-
-        'Datos a visualizar en el Combobox Productos
-
+        Dim query As String = "SELECT Codigo, Descripcion, PrecioUnitario, IVA FROM Productos"
+        Dim adaptadorSql As New SqlDataAdapter(query, conexionSql)
+        Dim dtProductos As New DataTable
+        adaptadorSql.Fill(dtProductos)
+        boxProductos.DataSource = dtProductos
         boxProductos.DisplayMember = "Descripcion"
         boxProductos.ValueMember = "Codigo"
-        acciones.ExecuteNonQuery()
+    End Sub
+
+    Public Sub LlenarComboBoxMetodos()
+        Dim query As String = "SELECT IDMetodoPago, Metodo, ValDescAgregado FROM MetodosDePago"
+        Dim adaptadorSql As New SqlDataAdapter(query, conexionSql)
+        Dim dtMetodos As New DataTable
+        adaptadorSql.Fill(dtMetodos)
+        boxMetodo.DataSource = dtMetodos
+        boxMetodo.DisplayMember = "Metodo"
+        boxMetodo.ValueMember = "IDMetodoPago"
     End Sub
 
     Private Sub boxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles boxProductos.SelectedIndexChanged
-        ' Obtiene la fila seleccionada del ComboBox
         Dim filaSeleccionada As DataRowView = DirectCast(boxProductos.SelectedItem, DataRowView)
 
-        ' Verifica si se ha seleccionado una fila y si los datos son válidos
         If filaSeleccionada IsNot Nothing AndAlso filaSeleccionada.Row IsNot Nothing Then
-            ' Asigna los valores de los campos correspondientes a los TextBox
             txtCodigo.Text = filaSeleccionada.Row("Codigo").ToString()
             txtUnitario.Text = filaSeleccionada.Row("PrecioUnitario").ToString()
             txtIVAP.Text = filaSeleccionada.Row("IVA").ToString()
         End If
     End Sub
 
-    Public Sub LlenarComboBoxTipoComprobante()
-        'Select para el Combobox Productos
-
-        adaptadorSql.SelectCommand = acciones
-        adaptadorSql.SelectCommand.Connection = conexionSql
-        acciones.CommandText = "SELECT Codigo, Descripcion, PrecioUnitario, IVA FROM Productos"
-        adaptadorSql.Fill(setdedatos, "dtproductos")
-        boxProductos.DataSource = setdedatos.Tables("dtproductos")
-
-        'Datos a visualizar en el Combobox Productos
-
-        boxProductos.DisplayMember = "Descripcion"
-        boxProductos.ValueMember = "Codigo"
-        acciones.ExecuteNonQuery()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        ModuloPrincipal.AbrirFormEnPanel(Ventas)
+        llenarGrillaMovVentas()
+        LimpiaMovVentas()
     End Sub
 
+    Private Sub btnCabecera_Click(sender As Object, e As EventArgs) Handles btnCabecera.Click
+        If lblABM.Text = "Agregar" Then
+            AgregarRegistro()
+            btnCabecera.Text = "Actualizar Cabecera"
+            lblABM.Text = "Editar"
+            btnFin.Enabled = True
+
+            'Activar paneles
+            panelProducto.Enabled = True
+            panelAdd.Enabled = True
+            GrillaMovVentas.Enabled = True
+
+        Else
+            EditarRegistro()
+        End If
+    End Sub
+
+    Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
+        EditarRegistro()
+        ModuloPrincipal.AbrirFormEnPanel(Ventas)
+        llenarGrillaMovVentas()
+        LimpiaMovVentas()
+    End Sub
 End Class

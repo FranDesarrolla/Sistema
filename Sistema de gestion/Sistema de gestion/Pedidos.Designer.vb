@@ -22,6 +22,9 @@ Partial Class Pedidos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         GrillaPedidos = New DataGridView()
         CType(GrillaPedidos, ComponentModel.ISupportInitialize).BeginInit()
@@ -38,17 +41,60 @@ Partial Class Pedidos
         ' 
         ' GrillaPedidos
         ' 
-        GrillaPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        GrillaPedidos.Location = New Point(136, 114)
+        GrillaPedidos.AllowUserToAddRows = False
+        GrillaPedidos.AllowUserToDeleteRows = False
+        GrillaPedidos.AllowUserToResizeColumns = False
+        GrillaPedidos.AllowUserToResizeRows = False
+        GrillaPedidos.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        GrillaPedidos.BorderStyle = BorderStyle.None
+        GrillaPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = Color.Tan
+        DataGridViewCellStyle4.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        GrillaPedidos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        GrillaPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        GrillaPedidos.Cursor = Cursors.Hand
+        GrillaPedidos.EditMode = DataGridViewEditMode.EditOnEnter
+        GrillaPedidos.EnableHeadersVisualStyles = False
+        GrillaPedidos.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
+        GrillaPedidos.Location = New Point(92, 84)
+        GrillaPedidos.MultiSelect = False
         GrillaPedidos.Name = "GrillaPedidos"
+        GrillaPedidos.ReadOnly = True
+        GrillaPedidos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.Beige
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle5.SelectionForeColor = Color.White
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        GrillaPedidos.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        GrillaPedidos.RowHeadersVisible = False
+        GrillaPedidos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle6.BackColor = Color.Beige
+        DataGridViewCellStyle6.ForeColor = Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle6.SelectionForeColor = Color.White
+        GrillaPedidos.RowsDefaultCellStyle = DataGridViewCellStyle6
         GrillaPedidos.RowTemplate.Height = 25
-        GrillaPedidos.Size = New Size(765, 307)
-        GrillaPedidos.TabIndex = 7
+        GrillaPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        GrillaPedidos.ShowCellErrors = False
+        GrillaPedidos.ShowCellToolTips = False
+        GrillaPedidos.ShowEditingIcon = False
+        GrillaPedidos.ShowRowErrors = False
+        GrillaPedidos.Size = New Size(879, 464)
+        GrillaPedidos.TabIndex = 12
         ' 
         ' Pedidos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
         Controls.Add(GrillaPedidos)
         Controls.Add(Label1)

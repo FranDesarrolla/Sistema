@@ -9,6 +9,7 @@ Public Class ModuloPrincipal
         RutaDelLogoDelSistema()
         notificacion()
         ModuloSistema.CargarCadenaConexion()
+        LlenarComboBoxPV()
     End Sub
 
     Private Sub RutaDelLogoDelSistema()
@@ -135,6 +136,17 @@ Public Class ModuloPrincipal
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        AbrirFormEnPanel(New Reportes)
         ModuloSistema.conexionSql.Close()
     End Sub
+
+    Public Sub LlenarComboBoxPV()
+        Dim query As String = "SELECT IDPuntoVenta, PuntoDeVenta, Descripcion, NumeracionFacturaA, NumeracionFacturaB, NumeracionNDebitoA, NumeracionNDebitoB, NumeracionNCreditoA, NumeracionNCreditoB FROM PuntosDeVentas"
+        Dim adaptadorSql As New SqlDataAdapter(query, conexionSql)
+        Dim dtPV As New DataTable
+        adaptadorSql.Fill(dtPV)
+        boxPV.DataSource = dtPV
+        boxPV.DisplayMember = "PuntoDeVenta"
+    End Sub
+
 End Class

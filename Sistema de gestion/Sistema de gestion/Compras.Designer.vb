@@ -38,6 +38,7 @@ Partial Class Compras
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.None

@@ -29,7 +29,7 @@ Public Class Pedidos
 
     End Sub
 
-    Private Sub GrillaPedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrillaPedidos.CellContentClick
+    Private Sub GrillaPedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 End Class

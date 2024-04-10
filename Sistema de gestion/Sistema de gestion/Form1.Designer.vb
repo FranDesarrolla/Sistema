@@ -24,6 +24,7 @@ Partial Class ModuloPrincipal
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         PanelSuperior = New Panel()
+        boxPV = New ComboBox()
         PictureBox2 = New PictureBox()
         LabelNotificacion = New Label()
         brnRestaurar = New PictureBox()
@@ -56,6 +57,7 @@ Partial Class ModuloPrincipal
         ' PanelSuperior
         ' 
         PanelSuperior.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        PanelSuperior.Controls.Add(boxPV)
         PanelSuperior.Controls.Add(PictureBox2)
         PanelSuperior.Controls.Add(LabelNotificacion)
         PanelSuperior.Controls.Add(brnRestaurar)
@@ -67,6 +69,19 @@ Partial Class ModuloPrincipal
         PanelSuperior.Name = "PanelSuperior"
         PanelSuperior.Size = New Size(1300, 39)
         PanelSuperior.TabIndex = 0
+        ' 
+        ' boxPV
+        ' 
+        boxPV.BackColor = Color.Tan
+        boxPV.FlatStyle = FlatStyle.Flat
+        boxPV.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        boxPV.FormattingEnabled = True
+        boxPV.ItemHeight = 17
+        boxPV.Location = New Point(43, 8)
+        boxPV.Name = "boxPV"
+        boxPV.Size = New Size(121, 25)
+        boxPV.TabIndex = 0
+        boxPV.TabStop = False
         ' 
         ' PictureBox2
         ' 
@@ -82,7 +97,7 @@ Partial Class ModuloPrincipal
         ' 
         LabelNotificacion.AutoSize = True
         LabelNotificacion.Enabled = False
-        LabelNotificacion.Location = New Point(157, 18)
+        LabelNotificacion.Location = New Point(170, 18)
         LabelNotificacion.Name = "LabelNotificacion"
         LabelNotificacion.Size = New Size(41, 15)
         LabelNotificacion.TabIndex = 2
@@ -179,6 +194,7 @@ Partial Class ModuloPrincipal
         Button1.Name = "Button1"
         Button1.Size = New Size(231, 45)
         Button1.TabIndex = 107
+        Button1.TabStop = False
         Button1.Text = "Proveedores"
         Button1.UseVisualStyleBackColor = False
         ' 
@@ -196,6 +212,7 @@ Partial Class ModuloPrincipal
         Button7.Name = "Button7"
         Button7.Size = New Size(231, 45)
         Button7.TabIndex = 106
+        Button7.TabStop = False
         Button7.Text = "Reportes"
         Button7.UseVisualStyleBackColor = False
         ' 
@@ -213,6 +230,7 @@ Partial Class ModuloPrincipal
         Button6.Name = "Button6"
         Button6.Size = New Size(231, 45)
         Button6.TabIndex = 105
+        Button6.TabStop = False
         Button6.Text = "Pagos"
         Button6.UseVisualStyleBackColor = False
         ' 
@@ -230,6 +248,7 @@ Partial Class ModuloPrincipal
         Button5.Name = "Button5"
         Button5.Size = New Size(231, 45)
         Button5.TabIndex = 104
+        Button5.TabStop = False
         Button5.Text = "Compras"
         Button5.UseVisualStyleBackColor = False
         ' 
@@ -247,6 +266,7 @@ Partial Class ModuloPrincipal
         Button4.Name = "Button4"
         Button4.Size = New Size(231, 45)
         Button4.TabIndex = 103
+        Button4.TabStop = False
         Button4.Text = "Pedidos"
         Button4.UseVisualStyleBackColor = False
         ' 
@@ -264,6 +284,7 @@ Partial Class ModuloPrincipal
         btnClientes.Name = "btnClientes"
         btnClientes.Size = New Size(231, 45)
         btnClientes.TabIndex = 102
+        btnClientes.TabStop = False
         btnClientes.Text = "Clientes"
         btnClientes.UseVisualStyleBackColor = False
         ' 
@@ -281,6 +302,7 @@ Partial Class ModuloPrincipal
         Button2.Name = "Button2"
         Button2.Size = New Size(231, 45)
         Button2.TabIndex = 101
+        Button2.TabStop = False
         Button2.Text = "Ventas"
         Button2.UseVisualStyleBackColor = False
         ' 
@@ -298,6 +320,7 @@ Partial Class ModuloPrincipal
         btnProductos.Name = "btnProductos"
         btnProductos.Size = New Size(231, 45)
         btnProductos.TabIndex = 100
+        btnProductos.TabStop = False
         btnProductos.Text = "Productos"
         btnProductos.UseVisualStyleBackColor = False
         ' 
@@ -365,5 +388,6 @@ Partial Class ModuloPrincipal
     Friend WithEvents LabelNotificacion As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents boxPV As ComboBox
     Friend WithEvents PanelContenedor As Panel
 End Class
