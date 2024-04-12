@@ -155,8 +155,11 @@ Public Class ABM_Ventas
         SumarSubtotalesYActualizarTotal()
     End Sub
 
+
+
     Public Sub llenarGrillaMovVentas()
         LimpiarGrilla()
+
 
         Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto WHERE NDM.IDNotaDeVenta = " & lblID.Text
 
@@ -424,6 +427,7 @@ Public Class ABM_Ventas
         boxMetodo.DisplayMember = "Metodo"
         boxMetodo.ValueMember = "IDMetodoPago"
     End Sub
+
 
     Private Sub boxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles boxProductos.SelectedIndexChanged
         Dim filaSeleccionada As DataRowView = DirectCast(boxProductos.SelectedItem, DataRowView)

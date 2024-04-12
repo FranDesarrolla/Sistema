@@ -81,4 +81,8 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
 
     End Sub
+
+    Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
+        llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
+    End Sub
 End Class

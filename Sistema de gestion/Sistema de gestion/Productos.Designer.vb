@@ -91,6 +91,7 @@ Partial Class Productos
         btnBuscar.Size = New Size(21, 20)
         btnBuscar.TabIndex = 15
         btnBuscar.UseVisualStyleBackColor = True
+        btnBuscar.Visible = False
         ' 
         ' GrillaProductos
         ' 
