@@ -60,7 +60,7 @@ Partial Class ABM_Ventas
         lblNombre = New Label()
         panelTotal = New Panel()
         lblTotal = New Label()
-        Label1 = New Label()
+        lblTitotal = New Label()
         btnVolver = New Button()
         GrillaMovVentas = New DataGridView()
         btnAgregar = New Button()
@@ -481,7 +481,7 @@ Partial Class ABM_Ventas
         ' 
         panelTotal.BackColor = Color.FromArgb(CByte(227), CByte(238), CByte(212))
         panelTotal.Controls.Add(lblTotal)
-        panelTotal.Controls.Add(Label1)
+        panelTotal.Controls.Add(lblTitotal)
         panelTotal.Location = New Point(251, 535)
         panelTotal.Name = "panelTotal"
         panelTotal.Size = New Size(791, 50)
@@ -491,21 +491,21 @@ Partial Class ABM_Ventas
         ' 
         lblTotal.AutoSize = True
         lblTotal.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
-        lblTotal.Location = New Point(625, 13)
+        lblTotal.Location = New Point(630, 11)
         lblTotal.Name = "lblTotal"
         lblTotal.Size = New Size(23, 25)
         lblTotal.TabIndex = 19
         lblTotal.Text = "0"
         ' 
-        ' Label1
+        ' lblTitotal
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(546, 13)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(73, 25)
-        Label1.TabIndex = 18
-        Label1.Text = "TOTAL:"
+        lblTitotal.AutoSize = True
+        lblTitotal.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitotal.Location = New Point(555, 11)
+        lblTitotal.Name = "lblTitotal"
+        lblTitotal.Size = New Size(73, 25)
+        lblTitotal.TabIndex = 18
+        lblTitotal.Text = "TOTAL:"
         ' 
         ' btnVolver
         ' 
@@ -1076,7 +1076,7 @@ Partial Class ABM_Ventas
     Friend WithEvents lblCod As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents lblTotal As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblTitotal As Label
     Friend WithEvents btnFin As Button
     Friend WithEvents lblApellidoCliente As Label
     Friend WithEvents lblApellido As Label

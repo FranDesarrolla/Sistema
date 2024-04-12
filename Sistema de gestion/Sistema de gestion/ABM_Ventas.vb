@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 Imports System.Data.SqlClient
+Imports System.Reflection.Emit
 
 Public Class ABM_Ventas
     Private cambiosRealizados As New List(Of Cambio)
@@ -15,6 +16,7 @@ Public Class ABM_Ventas
         LlenarComboBoxProductos()
         LlenarComboBoxMetodos()
         ConfigurarComboBoxComprobante()
+        lblTotal.Left = lblTitotal.Right
     End Sub
 
     Private Sub ConfigurarComboBoxComprobante()
@@ -461,5 +463,12 @@ Public Class ABM_Ventas
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
         LimpiaMovVentas()
+    End Sub
+
+    Private Sub lblTitotal_Click(sender As Object, e As EventArgs) Handles lblTitotal.Click
+
+    End Sub
+
+    Private Sub lblTotal_Click(sender As Object, e As EventArgs) Handles lblTotal.Click
     End Sub
 End Class
