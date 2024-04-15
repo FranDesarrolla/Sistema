@@ -104,6 +104,30 @@ Public Class ABM_Ventas
     End Sub
 
     Private Sub txtDescuento_Leave(sender As Object, e As EventArgs) Handles txtDescuento.Leave
+
+        ' Reemplazar puntos por comas
+        txtDescuento.Text = txtDescuento.Text.Replace(".", ",")
+
+        ' Verificar si el cuadro de texto está vacío
+        If String.IsNullOrEmpty(txtDescuento.Text) Then
+            ' Si está vacío, establecer el valor en "0,00"
+            txtDescuento.Text = "0,00"
+        Else
+            ' Si no está vacío, verificar si tiene decimales
+            If Not txtDescuento.Text.Contains(",") Then
+                ' Si no tiene decimales, agregar ",00"
+                txtDescuento.Text &= ",00"
+            Else
+                ' Separar la parte decimal
+                Dim partes As String() = txtDescuento.Text.Split(","c)
+                ' Verificar si la parte decimal tiene solo un dígito
+                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
+                    ' Si solo tiene un dígito, agregar un 0 adicional
+                    txtDescuento.Text &= "0"
+                End If
+            End If
+        End If
+
         If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso Not String.IsNullOrEmpty(txtCantidad.Text) AndAlso Not String.IsNullOrEmpty(txtDescuento.Text) AndAlso Not String.IsNullOrEmpty(txtIVAP.Text) Then
             Dim unitario As Decimal = Decimal.Parse(txtUnitario.Text)
             Dim cantidad As Decimal = Decimal.Parse(txtCantidad.Text)
