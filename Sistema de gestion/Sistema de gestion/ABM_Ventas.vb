@@ -493,10 +493,5 @@ Public Class ABM_Ventas
         LimpiaMovVentas()
     End Sub
 
-    Private Sub lblTitotal_Click(sender As Object, e As EventArgs) Handles lblTitotal.Click
 
-    End Sub
-
-    Private Sub lblTotal_Click(sender As Object, e As EventArgs) Handles lblTotal.Click
-    End Sub
 End Class
