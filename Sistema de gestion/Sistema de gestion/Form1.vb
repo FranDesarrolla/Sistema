@@ -1,18 +1,30 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
-Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class ModuloPrincipal
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' Muestra el formulario de inicio de sesión
+        Dim loginForm As New Login()
+        loginForm.ShowDialog()
+
+        ' Oculta este formulario (ModuloPrincipal) solo si el inicio de sesión fue exitoso
+        If loginForm.DialogResult = DialogResult.OK Then
+            Me.Hide()
+        Else
+            ' Si el inicio de sesión falló o se cerró el formulario de inicio de sesión, cierra la aplicación
+            Application.Exit()
+            Return
+        End If
+
         RutaDelLogoDelSistema()
         notificacion()
         ModuloSistema.CargarCadenaConexion()
         LlenarComboBoxPV()
     End Sub
 
-    Private Sub RutaDelLogoDelSistema()
+    Public Sub RutaDelLogoDelSistema()
         Dim rutaProyecto As String = Application.StartupPath
 
         Dim nombreArchivo As String = "Logo.png"
@@ -148,5 +160,4 @@ Public Class ModuloPrincipal
         boxPV.DataSource = dtPV
         boxPV.DisplayMember = "PuntoDeVenta"
     End Sub
-
 End Class

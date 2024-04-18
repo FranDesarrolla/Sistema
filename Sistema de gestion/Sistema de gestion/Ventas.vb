@@ -72,7 +72,7 @@ Public Class Ventas
         ABM_Ventas.lblCUITT.Text = GrillaVentas.CurrentRow.Cells(16).Value
         ABM_Ventas.dateTime.Value = GrillaVentas.CurrentRow.Cells(5).Value
         ABM_Ventas.txtSucursal.Text = GrillaVentas.CurrentRow.Cells(6).Value
-        ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(8).Value
+        ABM_Ventas.lblLetra.Text = GrillaVentas.CurrentRow.Cells(7).Value
 
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)

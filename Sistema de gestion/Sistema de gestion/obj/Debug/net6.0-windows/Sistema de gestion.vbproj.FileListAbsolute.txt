@@ -173,3 +173,4 @@ C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion
 C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Reportes.resources
 C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Pedidos.resources
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Pedidos.resources
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Login.resources

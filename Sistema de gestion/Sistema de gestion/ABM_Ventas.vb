@@ -179,8 +179,6 @@ Public Class ABM_Ventas
         SumarSubtotalesYActualizarTotal()
     End Sub
 
-
-
     Public Sub llenarGrillaMovVentas()
         LimpiarGrilla()
 

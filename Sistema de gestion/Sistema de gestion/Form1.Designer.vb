@@ -32,7 +32,6 @@ Partial Class ModuloPrincipal
         btnMaximizar = New PictureBox()
         btnCerrar = New PictureBox()
         PanelLateral = New Panel()
-        Panel9 = New Panel()
         Button1 = New Button()
         Button7 = New Button()
         Button6 = New Button()
@@ -155,7 +154,6 @@ Partial Class ModuloPrincipal
         ' PanelLateral
         ' 
         PanelLateral.BackColor = Color.Tan
-        PanelLateral.Controls.Add(Panel9)
         PanelLateral.Controls.Add(Button1)
         PanelLateral.Controls.Add(Button7)
         PanelLateral.Controls.Add(Button6)
@@ -171,15 +169,6 @@ Partial Class ModuloPrincipal
         PanelLateral.Size = New Size(231, 611)
         PanelLateral.TabIndex = 1
         ' 
-        ' Panel9
-        ' 
-        Panel9.BackColor = Color.Tan
-        Panel9.Dock = DockStyle.Bottom
-        Panel9.Location = New Point(0, 530)
-        Panel9.Name = "Panel9"
-        Panel9.Size = New Size(231, 81)
-        Panel9.TabIndex = 0
-        ' 
         ' Button1
         ' 
         Button1.BackColor = Color.Tan
@@ -190,7 +179,7 @@ Partial Class ModuloPrincipal
         Button1.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.Black
         Button1.ImageAlign = ContentAlignment.MiddleLeft
-        Button1.Location = New Point(0, 479)
+        Button1.Location = New Point(0, 546)
         Button1.Name = "Button1"
         Button1.Size = New Size(231, 45)
         Button1.TabIndex = 107
@@ -208,7 +197,7 @@ Partial Class ModuloPrincipal
         Button7.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button7.ForeColor = Color.Black
         Button7.ImageAlign = ContentAlignment.MiddleLeft
-        Button7.Location = New Point(0, 434)
+        Button7.Location = New Point(0, 501)
         Button7.Name = "Button7"
         Button7.Size = New Size(231, 45)
         Button7.TabIndex = 106
@@ -226,7 +215,7 @@ Partial Class ModuloPrincipal
         Button6.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button6.ForeColor = Color.Black
         Button6.ImageAlign = ContentAlignment.MiddleLeft
-        Button6.Location = New Point(0, 389)
+        Button6.Location = New Point(0, 456)
         Button6.Name = "Button6"
         Button6.Size = New Size(231, 45)
         Button6.TabIndex = 105
@@ -244,7 +233,7 @@ Partial Class ModuloPrincipal
         Button5.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button5.ForeColor = Color.Black
         Button5.ImageAlign = ContentAlignment.MiddleLeft
-        Button5.Location = New Point(0, 344)
+        Button5.Location = New Point(0, 411)
         Button5.Name = "Button5"
         Button5.Size = New Size(231, 45)
         Button5.TabIndex = 104
@@ -262,7 +251,7 @@ Partial Class ModuloPrincipal
         Button4.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button4.ForeColor = Color.Black
         Button4.ImageAlign = ContentAlignment.MiddleLeft
-        Button4.Location = New Point(0, 299)
+        Button4.Location = New Point(0, 366)
         Button4.Name = "Button4"
         Button4.Size = New Size(231, 45)
         Button4.TabIndex = 103
@@ -280,7 +269,7 @@ Partial Class ModuloPrincipal
         btnClientes.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnClientes.ForeColor = Color.Black
         btnClientes.ImageAlign = ContentAlignment.MiddleLeft
-        btnClientes.Location = New Point(0, 254)
+        btnClientes.Location = New Point(0, 321)
         btnClientes.Name = "btnClientes"
         btnClientes.Size = New Size(231, 45)
         btnClientes.TabIndex = 102
@@ -298,7 +287,7 @@ Partial Class ModuloPrincipal
         Button2.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.Black
         Button2.ImageAlign = ContentAlignment.MiddleLeft
-        Button2.Location = New Point(0, 209)
+        Button2.Location = New Point(0, 276)
         Button2.Name = "Button2"
         Button2.Size = New Size(231, 45)
         Button2.TabIndex = 101
@@ -316,7 +305,7 @@ Partial Class ModuloPrincipal
         btnProductos.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         btnProductos.ForeColor = Color.Black
         btnProductos.ImageAlign = ContentAlignment.MiddleLeft
-        btnProductos.Location = New Point(0, 164)
+        btnProductos.Location = New Point(0, 231)
         btnProductos.Name = "btnProductos"
         btnProductos.Size = New Size(231, 45)
         btnProductos.TabIndex = 100
@@ -330,7 +319,7 @@ Partial Class ModuloPrincipal
         PBLogo.Dock = DockStyle.Top
         PBLogo.Location = New Point(0, 0)
         PBLogo.Name = "PBLogo"
-        PBLogo.Size = New Size(231, 164)
+        PBLogo.Size = New Size(231, 231)
         PBLogo.SizeMode = PictureBoxSizeMode.Zoom
         PBLogo.TabIndex = 0
         PBLogo.TabStop = False
@@ -384,7 +373,6 @@ Partial Class ModuloPrincipal
     Friend WithEvents Button4 As Button
     Friend WithEvents btnClientes As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents Panel9 As Panel
     Friend WithEvents LabelNotificacion As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents PictureBox2 As PictureBox

@@ -146,7 +146,7 @@ Partial Class ABM_Ventas
         panelCabecera.Location = New Point(29, 25)
         panelCabecera.Name = "panelCabecera"
         panelCabecera.Size = New Size(1013, 65)
-        panelCabecera.TabIndex = 9
+        panelCabecera.TabIndex = 1
         ' 
         ' dateTime
         ' 
@@ -292,7 +292,7 @@ Partial Class ABM_Ventas
         btnFin.Location = New Point(630, 3)
         btnFin.Name = "btnFin"
         btnFin.Size = New Size(158, 31)
-        btnFin.TabIndex = 15
+        btnFin.TabIndex = 3
         btnFin.Text = "Finalizar"
         btnFin.UseVisualStyleBackColor = False
         ' 
@@ -318,7 +318,7 @@ Partial Class ABM_Ventas
         panelDatos.Location = New Point(29, 95)
         panelDatos.Name = "panelDatos"
         panelDatos.Size = New Size(1013, 70)
-        panelDatos.TabIndex = 10
+        panelDatos.TabIndex = 2
         ' 
         ' lblNombreEmpleado
         ' 
@@ -348,7 +348,7 @@ Partial Class ABM_Ventas
         txtQuien.Location = New Point(742, 14)
         txtQuien.Name = "txtQuien"
         txtQuien.Size = New Size(95, 20)
-        txtQuien.TabIndex = 5
+        txtQuien.TabIndex = 2
         txtQuien.TextAlign = HorizontalAlignment.Center
         ' 
         ' lblQuien
@@ -392,7 +392,7 @@ Partial Class ABM_Ventas
         txtCuenta.Margin = New Padding(0)
         txtCuenta.Name = "txtCuenta"
         txtCuenta.Size = New Size(66, 20)
-        txtCuenta.TabIndex = 4
+        txtCuenta.TabIndex = 1
         txtCuenta.TextAlign = HorizontalAlignment.Center
         ' 
         ' lblDNII
@@ -485,7 +485,7 @@ Partial Class ABM_Ventas
         panelTotal.Location = New Point(251, 535)
         panelTotal.Name = "panelTotal"
         panelTotal.Size = New Size(791, 50)
-        panelTotal.TabIndex = 11
+        panelTotal.TabIndex = 8
         ' 
         ' lblTotal
         ' 
@@ -516,7 +516,7 @@ Partial Class ABM_Ventas
         btnVolver.Location = New Point(6, 10)
         btnVolver.Name = "btnVolver"
         btnVolver.Size = New Size(204, 31)
-        btnVolver.TabIndex = 16
+        btnVolver.TabIndex = 1
         btnVolver.TabStop = False
         btnVolver.Text = "Volver"
         btnVolver.UseVisualStyleBackColor = False
@@ -571,7 +571,7 @@ Partial Class ABM_Ventas
         GrillaMovVentas.ShowEditingIcon = False
         GrillaMovVentas.ShowRowErrors = False
         GrillaMovVentas.Size = New Size(791, 284)
-        GrillaMovVentas.TabIndex = 5
+        GrillaMovVentas.TabIndex = 7
         GrillaMovVentas.TabStop = False
         ' 
         ' btnAgregar
@@ -583,7 +583,7 @@ Partial Class ABM_Ventas
         btnAgregar.Location = New Point(6, 322)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(204, 31)
-        btnAgregar.TabIndex = 12
+        btnAgregar.TabIndex = 6
         btnAgregar.Text = "Agregar"
         btnAgregar.UseVisualStyleBackColor = False
         ' 
@@ -627,7 +627,7 @@ Partial Class ABM_Ventas
         panelProducto.Location = New Point(29, 170)
         panelProducto.Name = "panelProducto"
         panelProducto.Size = New Size(217, 359)
-        panelProducto.TabIndex = 26
+        panelProducto.TabIndex = 4
         ' 
         ' Label12
         ' 
@@ -648,7 +648,7 @@ Partial Class ABM_Ventas
         boxProductos.Location = New Point(6, 53)
         boxProductos.Name = "boxProductos"
         boxProductos.Size = New Size(204, 25)
-        boxProductos.TabIndex = 7
+        boxProductos.TabIndex = 1
         ' 
         ' lblMov
         ' 
@@ -783,7 +783,7 @@ Partial Class ABM_Ventas
         txtIVAP.Name = "txtIVAP"
         txtIVAP.ReadOnly = True
         txtIVAP.Size = New Size(46, 20)
-        txtIVAP.TabIndex = 10
+        txtIVAP.TabIndex = 4
         txtIVAP.Text = "0,00"
         txtIVAP.TextAlign = HorizontalAlignment.Center
         ' 
@@ -807,7 +807,7 @@ Partial Class ABM_Ventas
         txtDescuento.Margin = New Padding(0)
         txtDescuento.Name = "txtDescuento"
         txtDescuento.Size = New Size(129, 20)
-        txtDescuento.TabIndex = 11
+        txtDescuento.TabIndex = 5
         txtDescuento.Text = "0,00"
         txtDescuento.TextAlign = HorizontalAlignment.Center
         ' 
@@ -831,7 +831,7 @@ Partial Class ABM_Ventas
         txtUnitario.Margin = New Padding(0)
         txtUnitario.Name = "txtUnitario"
         txtUnitario.Size = New Size(129, 20)
-        txtUnitario.TabIndex = 8
+        txtUnitario.TabIndex = 2
         txtUnitario.Text = "0,00"
         txtUnitario.TextAlign = HorizontalAlignment.Center
         ' 
@@ -855,7 +855,7 @@ Partial Class ABM_Ventas
         txtCantidad.Margin = New Padding(0)
         txtCantidad.Name = "txtCantidad"
         txtCantidad.Size = New Size(68, 20)
-        txtCantidad.TabIndex = 9
+        txtCantidad.TabIndex = 3
         txtCantidad.Text = "0,00"
         txtCantidad.TextAlign = HorizontalAlignment.Center
         ' 
@@ -902,7 +902,7 @@ Partial Class ABM_Ventas
         btnEditar.Location = New Point(3, 3)
         btnEditar.Name = "btnEditar"
         btnEditar.Size = New Size(131, 31)
-        btnEditar.TabIndex = 13
+        btnEditar.TabIndex = 1
         btnEditar.Text = "Editar"
         btnEditar.UseVisualStyleBackColor = False
         ' 
@@ -915,7 +915,7 @@ Partial Class ABM_Ventas
         btnEliminar.Location = New Point(140, 3)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(131, 31)
-        btnEliminar.TabIndex = 14
+        btnEliminar.TabIndex = 2
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = False
         ' 
@@ -929,7 +929,7 @@ Partial Class ABM_Ventas
         panelAdd.Location = New Point(251, 492)
         panelAdd.Name = "panelAdd"
         panelAdd.Size = New Size(791, 37)
-        panelAdd.TabIndex = 27
+        panelAdd.TabIndex = 5
         ' 
         ' panelAdicional
         ' 
@@ -942,7 +942,7 @@ Partial Class ABM_Ventas
         panelAdicional.Location = New Point(251, 170)
         panelAdicional.Name = "panelAdicional"
         panelAdicional.Size = New Size(791, 27)
-        panelAdicional.TabIndex = 28
+        panelAdicional.TabIndex = 3
         ' 
         ' btnCabecera
         ' 
@@ -953,7 +953,7 @@ Partial Class ABM_Ventas
         btnCabecera.Location = New Point(599, 3)
         btnCabecera.Name = "btnCabecera"
         btnCabecera.Size = New Size(187, 21)
-        btnCabecera.TabIndex = 7
+        btnCabecera.TabIndex = 3
         btnCabecera.Text = "Confirmar Cabecera"
         btnCabecera.UseVisualStyleBackColor = False
         ' 
@@ -967,7 +967,7 @@ Partial Class ABM_Ventas
         boxComprobante.Location = New Point(406, 1)
         boxComprobante.Name = "boxComprobante"
         boxComprobante.Size = New Size(121, 25)
-        boxComprobante.TabIndex = 6
+        boxComprobante.TabIndex = 2
         ' 
         ' Label18
         ' 
@@ -989,7 +989,7 @@ Partial Class ABM_Ventas
         boxMetodo.Location = New Point(124, 1)
         boxMetodo.Name = "boxMetodo"
         boxMetodo.Size = New Size(121, 25)
-        boxMetodo.TabIndex = 5
+        boxMetodo.TabIndex = 1
         ' 
         ' Label17
         ' 
@@ -1008,7 +1008,7 @@ Partial Class ABM_Ventas
         Panel1.Location = New Point(29, 535)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(217, 50)
-        Panel1.TabIndex = 20
+        Panel1.TabIndex = 6
         ' 
         ' ABM_Ventas
         ' 

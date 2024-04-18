@@ -22,69 +22,17 @@ Partial Class Ventas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        GrillaVentas = New DataGridView()
         btnAgregar = New Button()
         btnEliminar = New Button()
-        Button4 = New Button()
-        Button5 = New Button()
+        btnRemito = New Button()
+        btnFactura = New Button()
         btnEditar = New Button()
-        GrillaVentas = New DataGridView()
         CType(GrillaVentas, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' btnAgregar
-        ' 
-        btnAgregar.BackColor = Color.White
-        btnAgregar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        btnAgregar.ForeColor = Color.Black
-        btnAgregar.Location = New Point(919, 65)
-        btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(138, 55)
-        btnAgregar.TabIndex = 5
-        btnAgregar.Text = "Agregar"
-        btnAgregar.UseVisualStyleBackColor = False
-        ' 
-        ' btnEliminar
-        ' 
-        btnEliminar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        btnEliminar.Location = New Point(919, 187)
-        btnEliminar.Name = "btnEliminar"
-        btnEliminar.Size = New Size(138, 55)
-        btnEliminar.TabIndex = 7
-        btnEliminar.Text = "Eliminar"
-        btnEliminar.UseVisualStyleBackColor = True
-        ' 
-        ' Button4
-        ' 
-        Button4.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Button4.Location = New Point(24, 535)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(176, 55)
-        Button4.TabIndex = 8
-        Button4.Text = "Emitir Factura"
-        Button4.UseVisualStyleBackColor = True
-        ' 
-        ' Button5
-        ' 
-        Button5.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Button5.Location = New Point(727, 535)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(176, 55)
-        Button5.TabIndex = 9
-        Button5.Text = "Emitir Remito"
-        Button5.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditar
-        ' 
-        btnEditar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        btnEditar.Location = New Point(919, 126)
-        btnEditar.Name = "btnEditar"
-        btnEditar.Size = New Size(138, 55)
-        btnEditar.TabIndex = 10
-        btnEditar.Text = "Editar"
-        btnEditar.UseVisualStyleBackColor = True
         ' 
         ' GrillaVentas
         ' 
@@ -95,14 +43,14 @@ Partial Class Ventas
         GrillaVentas.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaVentas.BorderStyle = BorderStyle.None
         GrillaVentas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle1.SelectionForeColor = Color.White
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        GrillaVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = Color.Tan
+        DataGridViewCellStyle4.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        GrillaVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         GrillaVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaVentas.Cursor = Cursors.Hand
         GrillaVentas.EditMode = DataGridViewEditMode.EditOnEnter
@@ -113,21 +61,21 @@ Partial Class Ventas
         GrillaVentas.Name = "GrillaVentas"
         GrillaVentas.ReadOnly = True
         GrillaVentas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle2.SelectionForeColor = Color.White
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        GrillaVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.Beige
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle5.SelectionForeColor = Color.White
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        GrillaVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         GrillaVentas.RowHeadersVisible = False
         GrillaVentas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.BackColor = Color.Beige
-        DataGridViewCellStyle3.ForeColor = Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle3.SelectionForeColor = Color.White
-        GrillaVentas.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.BackColor = Color.Beige
+        DataGridViewCellStyle6.ForeColor = Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle6.SelectionForeColor = Color.White
+        GrillaVentas.RowsDefaultCellStyle = DataGridViewCellStyle6
         GrillaVentas.RowTemplate.Height = 25
         GrillaVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaVentas.ShowCellErrors = False
@@ -137,28 +85,93 @@ Partial Class Ventas
         GrillaVentas.Size = New Size(879, 464)
         GrillaVentas.TabIndex = 11
         ' 
+        ' btnAgregar
+        ' 
+        btnAgregar.BackColor = Color.Tan
+        btnAgregar.FlatAppearance.BorderSize = 0
+        btnAgregar.FlatStyle = FlatStyle.Flat
+        btnAgregar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregar.Location = New Point(919, 65)
+        btnAgregar.Name = "btnAgregar"
+        btnAgregar.Size = New Size(138, 55)
+        btnAgregar.TabIndex = 12
+        btnAgregar.Text = "Agregar"
+        btnAgregar.UseVisualStyleBackColor = False
+        ' 
+        ' btnEliminar
+        ' 
+        btnEliminar.BackColor = Color.Tan
+        btnEliminar.FlatAppearance.BorderSize = 0
+        btnEliminar.FlatStyle = FlatStyle.Flat
+        btnEliminar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminar.Location = New Point(919, 187)
+        btnEliminar.Name = "btnEliminar"
+        btnEliminar.Size = New Size(138, 55)
+        btnEliminar.TabIndex = 13
+        btnEliminar.Text = "Eliminar"
+        btnEliminar.UseVisualStyleBackColor = False
+        ' 
+        ' btnRemito
+        ' 
+        btnRemito.BackColor = Color.Tan
+        btnRemito.FlatAppearance.BorderSize = 0
+        btnRemito.FlatStyle = FlatStyle.Flat
+        btnRemito.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnRemito.Location = New Point(727, 535)
+        btnRemito.Name = "btnRemito"
+        btnRemito.Size = New Size(176, 55)
+        btnRemito.TabIndex = 14
+        btnRemito.Text = "Emite Remito"
+        btnRemito.UseVisualStyleBackColor = False
+        ' 
+        ' btnFactura
+        ' 
+        btnFactura.BackColor = Color.Tan
+        btnFactura.FlatAppearance.BorderSize = 0
+        btnFactura.FlatStyle = FlatStyle.Flat
+        btnFactura.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnFactura.Location = New Point(24, 535)
+        btnFactura.Name = "btnFactura"
+        btnFactura.Size = New Size(176, 55)
+        btnFactura.TabIndex = 15
+        btnFactura.Text = "Emite Factura"
+        btnFactura.UseVisualStyleBackColor = False
+        ' 
+        ' btnEditar
+        ' 
+        btnEditar.BackColor = Color.Tan
+        btnEditar.FlatAppearance.BorderSize = 0
+        btnEditar.FlatStyle = FlatStyle.Flat
+        btnEditar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditar.Location = New Point(919, 126)
+        btnEditar.Name = "btnEditar"
+        btnEditar.Size = New Size(138, 55)
+        btnEditar.TabIndex = 16
+        btnEditar.Text = "Editar"
+        btnEditar.UseVisualStyleBackColor = False
+        ' 
         ' Ventas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        Controls.Add(GrillaVentas)
         Controls.Add(btnEditar)
-        Controls.Add(Button5)
-        Controls.Add(Button4)
+        Controls.Add(btnFactura)
+        Controls.Add(btnRemito)
         Controls.Add(btnEliminar)
         Controls.Add(btnAgregar)
+        Controls.Add(GrillaVentas)
         FormBorderStyle = FormBorderStyle.None
         Name = "Ventas"
         Text = "Ventas"
         CType(GrillaVentas, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
+    Friend WithEvents GrillaVentas As DataGridView
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEliminar As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnRemito As Button
+    Friend WithEvents btnFactura As Button
     Friend WithEvents btnEditar As Button
-    Friend WithEvents GrillaVentas As DataGridView
 End Class
