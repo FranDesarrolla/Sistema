@@ -9,7 +9,7 @@ Public Class Login
 
     Public Sub RutaDelLogoDelSistema()
         Dim rutaProyecto As String = Application.StartupPath
-        Dim nombreArchivo As String = "Logo.png"
+        Dim nombreArchivo As String = "gesnet.png"
         Dim rutaImagen As String = Path.Combine(rutaProyecto, nombreArchivo)
         PBLogo.Image = Image.FromFile(rutaImagen)
     End Sub
@@ -50,5 +50,4 @@ Public Class Login
             End Using
         End If
     End Sub
-
 End Class

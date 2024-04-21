@@ -22,15 +22,21 @@ Public Class ModuloPrincipal
         notificacion()
         ModuloSistema.CargarCadenaConexion()
         LlenarComboBoxPV()
+
+        lblUsuario.Text = loginForm.txtUsuario.Text
+
+        cbModo.Items.Add("Claro")
+        cbModo.Items.Add("Oscuro")
+
     End Sub
 
     Public Sub RutaDelLogoDelSistema()
         Dim rutaProyecto As String = Application.StartupPath
 
-        Dim nombreArchivo As String = "Logo.png"
+        Dim nombreArchivo As String = "copyright.png"
         Dim rutaImagen As String = Path.Combine(rutaProyecto, nombreArchivo)
 
-        PBLogo.Image = Image.FromFile(rutaImagen)
+        PBcopy.Image = Image.FromFile(rutaImagen)
     End Sub
 
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
@@ -85,8 +91,6 @@ Public Class ModuloPrincipal
         fh.Show()
     End Sub
 
-
-
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
         AbrirFormEnPanel(New Productos)
         ModuloSistema.conexionSql.Close()
@@ -97,27 +101,27 @@ Public Class ModuloPrincipal
         ModuloSistema.conexionSql.Close()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
         AbrirFormEnPanel(New Ventas)
         ModuloSistema.conexionSql.Close()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
         AbrirFormEnPanel(New Pedidos)
         ModuloSistema.conexionSql.Close()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
         AbrirFormEnPanel(New Compras)
         ModuloSistema.conexionSql.Close()
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnPagos.Click
         AbrirFormEnPanel(New Pagos)
         ModuloSistema.conexionSql.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnProveedores.Click
         AbrirFormEnPanel(New Proveedores)
         ModuloSistema.conexionSql.Close()
     End Sub
@@ -147,7 +151,7 @@ Public Class ModuloPrincipal
         Notificaciones.Show()
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
         AbrirFormEnPanel(New Reportes)
         ModuloSistema.conexionSql.Close()
     End Sub
@@ -159,5 +163,14 @@ Public Class ModuloPrincipal
         adaptadorSql.Fill(dtPV)
         boxPV.DataSource = dtPV
         boxPV.DisplayMember = "PuntoDeVenta"
+    End Sub
+
+    Private Sub Modo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbModo.SelectedIndexChanged
+        Select Case cbModo.SelectedIndex
+            Case 0 ' Modo Claro
+                CambiarPaletaClaro()
+            Case 1 ' Modo Oscuro
+                CambiarPaletaOscuro()
+        End Select
     End Sub
 End Class

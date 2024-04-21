@@ -22,52 +22,52 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Panel1 = New Panel()
-        lblContraseña = New Label()
-        txtContraseña = New TextBox()
+        btnIngresar = New Button()
+        PBLogo = New PictureBox()
+        PanelUsuario = New Panel()
         txtUsuario = New TextBox()
         lblUsuario = New Label()
         btnCancelar = New Button()
-        Panel2 = New Panel()
-        PBLogo = New PictureBox()
-        btnIngresar = New Button()
-        Panel1.SuspendLayout()
-        Panel2.SuspendLayout()
+        PanelContraseña = New Panel()
+        lblContraseña = New Label()
+        txtContraseña = New TextBox()
         CType(PBLogo, ComponentModel.ISupportInitialize).BeginInit()
+        PanelUsuario.SuspendLayout()
+        PanelContraseña.SuspendLayout()
         SuspendLayout()
         ' 
-        ' Panel1
+        ' btnIngresar
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel1.Controls.Add(lblContraseña)
-        Panel1.Controls.Add(txtContraseña)
-        Panel1.Location = New Point(110, 59)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(289, 41)
-        Panel1.TabIndex = 2
+        btnIngresar.BackColor = Color.Tan
+        btnIngresar.FlatAppearance.BorderSize = 0
+        btnIngresar.FlatStyle = FlatStyle.Flat
+        btnIngresar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnIngresar.Location = New Point(110, 108)
+        btnIngresar.Name = "btnIngresar"
+        btnIngresar.Size = New Size(142, 31)
+        btnIngresar.TabIndex = 25
+        btnIngresar.Text = "Ingresar"
+        btnIngresar.UseVisualStyleBackColor = False
         ' 
-        ' lblContraseña
+        ' PBLogo
         ' 
-        lblContraseña.AutoSize = True
-        lblContraseña.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        lblContraseña.Location = New Point(8, 11)
-        lblContraseña.Name = "lblContraseña"
-        lblContraseña.Size = New Size(82, 19)
-        lblContraseña.TabIndex = 7
-        lblContraseña.Text = "Contraseña:"
+        PBLogo.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
+        PBLogo.Location = New Point(11, 11)
+        PBLogo.Name = "PBLogo"
+        PBLogo.Size = New Size(88, 88)
+        PBLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PBLogo.TabIndex = 27
+        PBLogo.TabStop = False
         ' 
-        ' txtContraseña
+        ' PanelUsuario
         ' 
-        txtContraseña.BackColor = Color.White
-        txtContraseña.BorderStyle = BorderStyle.None
-        txtContraseña.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txtContraseña.ForeColor = Color.Black
-        txtContraseña.Location = New Point(102, 9)
-        txtContraseña.Margin = New Padding(0)
-        txtContraseña.Name = "txtContraseña"
-        txtContraseña.PasswordChar = "*"c
-        txtContraseña.Size = New Size(178, 20)
-        txtContraseña.TabIndex = 2
+        PanelUsuario.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        PanelUsuario.Controls.Add(txtUsuario)
+        PanelUsuario.Controls.Add(lblUsuario)
+        PanelUsuario.Location = New Point(110, 11)
+        PanelUsuario.Name = "PanelUsuario"
+        PanelUsuario.Size = New Size(289, 41)
+        PanelUsuario.TabIndex = 23
         ' 
         ' txtUsuario
         ' 
@@ -97,45 +97,45 @@ Partial Class Login
         btnCancelar.FlatAppearance.BorderSize = 0
         btnCancelar.FlatStyle = FlatStyle.Flat
         btnCancelar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCancelar.Location = New Point(257, 109)
+        btnCancelar.Location = New Point(257, 108)
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(142, 31)
-        btnCancelar.TabIndex = 4
+        btnCancelar.TabIndex = 26
         btnCancelar.Text = "Cancelar"
         btnCancelar.UseVisualStyleBackColor = False
         ' 
-        ' Panel2
+        ' PanelContraseña
         ' 
-        Panel2.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel2.Controls.Add(txtUsuario)
-        Panel2.Controls.Add(lblUsuario)
-        Panel2.Location = New Point(110, 12)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(289, 41)
-        Panel2.TabIndex = 1
+        PanelContraseña.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        PanelContraseña.Controls.Add(lblContraseña)
+        PanelContraseña.Controls.Add(txtContraseña)
+        PanelContraseña.Location = New Point(110, 58)
+        PanelContraseña.Name = "PanelContraseña"
+        PanelContraseña.Size = New Size(289, 41)
+        PanelContraseña.TabIndex = 24
         ' 
-        ' PBLogo
+        ' lblContraseña
         ' 
-        PBLogo.BackColor = Color.Tan
-        PBLogo.Location = New Point(11, 12)
-        PBLogo.Name = "PBLogo"
-        PBLogo.Size = New Size(88, 88)
-        PBLogo.SizeMode = PictureBoxSizeMode.Zoom
-        PBLogo.TabIndex = 15
-        PBLogo.TabStop = False
+        lblContraseña.AutoSize = True
+        lblContraseña.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        lblContraseña.Location = New Point(8, 11)
+        lblContraseña.Name = "lblContraseña"
+        lblContraseña.Size = New Size(82, 19)
+        lblContraseña.TabIndex = 7
+        lblContraseña.Text = "Contraseña:"
         ' 
-        ' btnIngresar
+        ' txtContraseña
         ' 
-        btnIngresar.BackColor = Color.Tan
-        btnIngresar.FlatAppearance.BorderSize = 0
-        btnIngresar.FlatStyle = FlatStyle.Flat
-        btnIngresar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        btnIngresar.Location = New Point(110, 109)
-        btnIngresar.Name = "btnIngresar"
-        btnIngresar.Size = New Size(142, 31)
-        btnIngresar.TabIndex = 3
-        btnIngresar.Text = "Ingresar"
-        btnIngresar.UseVisualStyleBackColor = False
+        txtContraseña.BackColor = Color.White
+        txtContraseña.BorderStyle = BorderStyle.None
+        txtContraseña.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtContraseña.ForeColor = Color.Black
+        txtContraseña.Location = New Point(102, 9)
+        txtContraseña.Margin = New Padding(0)
+        txtContraseña.Name = "txtContraseña"
+        txtContraseña.PasswordChar = "*"c
+        txtContraseña.Size = New Size(178, 20)
+        txtContraseña.TabIndex = 2
         ' 
         ' Login
         ' 
@@ -146,28 +146,27 @@ Partial Class Login
         ControlBox = False
         Controls.Add(btnIngresar)
         Controls.Add(PBLogo)
-        Controls.Add(Panel2)
+        Controls.Add(PanelUsuario)
         Controls.Add(btnCancelar)
-        Controls.Add(Panel1)
+        Controls.Add(PanelContraseña)
         FormBorderStyle = FormBorderStyle.None
         Name = "Login"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Login"
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
         CType(PBLogo, ComponentModel.ISupportInitialize).EndInit()
+        PanelUsuario.ResumeLayout(False)
+        PanelUsuario.PerformLayout()
+        PanelContraseña.ResumeLayout(False)
+        PanelContraseña.PerformLayout()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents txtContraseña As TextBox
-    Friend WithEvents lblContraseña As Label
+    Friend WithEvents btnIngresar As Button
+    Friend WithEvents PBLogo As PictureBox
+    Friend WithEvents PanelUsuario As Panel
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents lblUsuario As Label
     Friend WithEvents btnCancelar As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents PBLogo As PictureBox
-    Friend WithEvents btnIngresar As Button
+    Friend WithEvents PanelContraseña As Panel
+    Friend WithEvents lblContraseña As Label
+    Friend WithEvents txtContraseña As TextBox
 End Class
