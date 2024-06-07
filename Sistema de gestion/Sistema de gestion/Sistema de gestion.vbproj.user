@@ -4,6 +4,9 @@
     <Compile Update="ABM_Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ABM_Compras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ABM_Pedidos.vb">
       <SubType>Form</SubType>
     </Compile>

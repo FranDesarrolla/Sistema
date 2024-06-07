@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\abm_pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\sistema de gestion\\abm_pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\abm_pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\sistema de gestion\\pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\pedidos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\elias\\documents\\github\\sistema\\sistema de gestion\\sistema de gestion\\compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,85 +42,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ventas.vb",
+              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Ventas.vb",
+              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
+              "RelativeToolTip": "Sistema de gestion\\Ventas.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-05-31T19:35:33.927Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Ventas.vb",
-              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\Ventas.vb",
-              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
-              "RelativeToolTip": "Sistema de gestion\\Ventas.vb",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAmwFMAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Form1.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Form1.vb",
+              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Form1.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-12T14:44:55.5Z"
+              "WhenOpened": "2024-05-31T23:27:55.353Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ABM_Ventas.vb",
-              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Ventas.vb",
-              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Ventas.vb",
-              "ViewState": "AQIAAM8BAAAAAAAAAAAAANwBAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-16T10:16:35.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ABM_Pedidos.vb",
               "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Pedidos.vb",
               "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.vb",
               "RelativeToolTip": "Sistema de gestion\\ABM_Pedidos.vb",
-              "ViewState": "AQIAADwBAAAAAAAAAAAQwEkBAAA5AAAA",
+              "ViewState": "AQIAAPgAAAAAAAAAAAAAAMUBAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-16T10:36:10.052Z",
+              "WhenOpened": "2024-05-31T22:45:08.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ABM_Pedidos.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Pedidos.vb",
               "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.vb [Dise\u00F1o]",
               "RelativeToolTip": "Sistema de gestion\\ABM_Pedidos.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-12T13:16:49.986Z",
+              "WhenOpened": "2024-05-31T22:45:05.708Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "Compras.vb",
+              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Compras.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Compras.vb",
+              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Compras.vb",
+              "RelativeToolTip": "Sistema de gestion\\Compras.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-05-31T19:30:12.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Pedidos.vb",
               "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Pedidos.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Pedidos.vb",
               "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Pedidos.vb",
               "RelativeToolTip": "Sistema de gestion\\Pedidos.vb",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABAAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAwwD8AAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-12T13:08:00.094Z",
+              "WhenOpened": "2024-05-31T19:29:11.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Pedidos.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Pedidos.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Pedidos.vb",
               "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Pedidos.vb [Dise\u00F1o]",
               "RelativeToolTip": "Sistema de gestion\\Pedidos.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-12T13:05:48.8Z",
+              "WhenOpened": "2024-05-31T19:27:09.424Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Compras.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Compras.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Compras.vb",
+              "ToolTip": "C:\\Users\\Elias\\Documents\\GitHub\\Sistema\\Sistema de gestion\\Sistema de gestion\\Compras.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Compras.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-05-31T19:25:12.809Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

@@ -14,14 +14,14 @@ Public Class ABM_Pedidos
         llenarGrillaMovPedidos()
         LlenarComboBoxProductos()
         LlenarComboBoxMetodos()
-        ConfigurarComboBoxComprobante()
+        'ConfigurarComboBoxComprobante()
         lblTotal.Left = lblTitotal.Right
     End Sub
 
-    Private Sub ConfigurarComboBoxComprobante()
-        boxComprobante.Items.AddRange({"Factura", "Nota de Crédito", "Nota de Débito"})
-        boxComprobante.SelectedItem = "Factura"
-    End Sub
+    'Private Sub ConfigurarComboBoxComprobante()
+    'boxComprobante.Items.AddRange({"Factura", "Nota de Crédito", "Nota de Débito"})
+    'boxComprobante.SelectedItem = "Factura"
+    'End Sub
 
 
     Private Sub txtUnitario_Leave(sender As Object, e As EventArgs) Handles txtUnitario.Leave
@@ -184,7 +184,9 @@ Public Class ABM_Pedidos
         LimpiarGrilla()
 
 
-        Dim consultassql As String = "SELECT NDM.IDPedido as ID, NDM.CodigoProducto AS 'Producto', P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM PedidosMov NDM INNER JOIN Productos P ON P.Codigo = NDM.CodigoProducto WHERE NDM.IDPedido = " & lblID.Text
+        Dim consultassql As String = "SELECT PDM.IDPedido as ID, PDM.Producto AS 'Producto', P.Descripcion, PDM.Cantidad as 'Cant.', PDM.PrecioUnitario as Unitario, PDM.Descuento, PDM.Impuestos, PDM.SubTotal as Subtotal, P.Iva, P.Descripcion 
+                                      FROM PedidosMov PDM 
+                                      INNER JOIN Productos P ON P.Codigo = PDM.Producto WHERE PDM.IDPedido = " & lblID.Text
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         adaptadorSql.Fill(setdedatos, "dtmovpedidos")
@@ -262,7 +264,12 @@ Public Class ABM_Pedidos
 
             Dim id As Integer = Convert.ToInt32(GrillaMovPedidos.CurrentRow.Cells(0).Value)
             Dim query As String = "UPDATE dbo.PedidosMov
-                                SET CodigoProducto = @Producto, Cantidad = @Cantidad, PrecioUnitario = @PrecioUnitario, Descuento = @Descuento, Impuestos = @Impuestos, SubTotal = @SubTotal
+                                SET CodigoProducto = @Producto, 
+                                    Cantidad = @Cantidad,
+                                    PrecioUnitario = @PrecioUnitario,
+                                    Descuento = @Descuento,
+                                    Impuestos = @Impuestos,
+                                    SubTotal = @SubTotal
                                 WHERE IDPedido = @ID"
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
@@ -293,8 +300,8 @@ Public Class ABM_Pedidos
             Dim ivaFormateado As Decimal = Decimal.Parse(txtIVA.Text)
             Dim subconFormateado As Decimal = Decimal.Parse(txtSubtotalCon.Text)
 
-            Dim query As String = "INSERT INTO dbo.PedidosMov (IDPedido, CodigoProducto, Cantidad, PrecioUnitario, SubTotal, Descuento, Impuestos,)
-                                VALUES (@IDPedido, @Producto, @Cantidad, @PrecioUnitario, @SubTotal, @Descuento, @Impuestos)"
+            Dim query As String = "INSERT INTO dbo.PedidosMov (IDPedido, Producto, Cantidad, PrecioUnitario, Descuento, Impuestos, SubTotal)
+                                   VALUES (@idpedido, @producto, @cantidad, @preciounitario, @descuento, @impuestos, @subtotal)"
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
@@ -319,38 +326,34 @@ Public Class ABM_Pedidos
 
     Private Sub EditarRegistro()
         Try
-            ' Obtener el índice seleccionado en boxComprobante (se le suma 1 para obtener el valor deseado)
-            Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
-
-            ' Obtener el valor seleccionado en boxMetodo
-            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
-
+            ' Obtain the selected value in boxMetodo
+            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Estado").ToString()
             Dim id As Integer = Convert.ToInt32(lblID.Text)
-            Dim query As String = "UPDATE dbo.Pedidos
-                                SET IDPedido = @IDPedido, Cliente = @cliente, Empleado = @empleado, FechaPedido = @FechaPedido NroComprobante = @nrocomprobante, MetodoDePago = @metododepago, Letra = @letra, TipoFactura = @tipofactura, Total = @total
-                                WHERE IDNotasDeVentasMov = @ID"
-
+            Dim query As String = "UPDATE dbo.PedidosMov
+                            SET IDPedido = @idpedido,
+                                Cliente = @cliente,
+                                Empleado = @empleado,
+                                FechaPedido = @FechaPedido,
+                                PuntoDeVenta = @puntodeventa,
+                                MetodoDePago = @metododepago
+                            WHERE IDDetalle = @ID"
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
                 command.Parameters.AddWithValue("@empleado", txtQuien.Text)
-                command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
+                command.Parameters.AddWithValue("@FechaPedido", dateTime.Value)
                 command.Parameters.AddWithValue("@puntodeventa", txtSucursal.Text)
-                command.Parameters.AddWithValue("@nrocomprobante", txtNroPedido.Text)
                 command.Parameters.AddWithValue("@metododepago", metodoPago)
-                command.Parameters.AddWithValue("@letra", lblLetra.Text)
-                command.Parameters.AddWithValue("@tipofactura", tipoFactura)
-                command.Parameters.AddWithValue("@total", 0)
                 command.Parameters.AddWithValue("@ID", id)
                 connection.Open()
                 command.ExecuteNonQuery()
             End Using
-
             MessageBox.Show("Cabecera actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     Private Sub AgregarRegistro()
         Try
@@ -358,23 +361,24 @@ Public Class ABM_Pedidos
             Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
 
             ' Obtener el valor seleccionado en boxMetodo
-            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
+            Dim estadopedido As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("estado").ToString()
 
-            Dim query As String = "INSERT INTO dbo.NotasDeVentas (Cliente, Empleado, FechaDeVenta, PuntoDeVenta, NroComprobante, MetodoDePago, Letra, TipoFactura, Total)
-                               VALUES (@cliente, @empleado, @fechadeventa, @puntodeventa, @nrocomprobante, @metododepago, @letra, @tipofactura, @total);
-                               SELECT SCOPE_IDENTITY();"
+            Dim query As String = "INSERT INTO dbo.Pedidos (Cliente, Empleado, FechaPedido, EstadoPedido, PuntoDeVenta, NroPedido)
+                                   VALUES (@cliente, @empleado, @fechapedido, @estadopedido, @puntodeventa, @nropedido);
+;                                  SELECT SCOPE_IDENTITY();"
+
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
                 command.Parameters.AddWithValue("@empleado", txtQuien.Text)
-                command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
+                command.Parameters.AddWithValue("@fechapedido", dateTime.Value)
                 command.Parameters.AddWithValue("@puntodeventa", txtSucursal.Text)
-                command.Parameters.AddWithValue("@nrocomprobante", txtNroPedido.Text)
-                command.Parameters.AddWithValue("@metododepago", metodoPago)
-                command.Parameters.AddWithValue("@letra", lblLetra.Text)
-                command.Parameters.AddWithValue("@tipofactura", tipoFactura)
-                command.Parameters.AddWithValue("@total", lblTotal.Text)
+                command.Parameters.AddWithValue("@nropedido", txtNroPedido.Text)
+                command.Parameters.AddWithValue("@estadopedido", estadopedido)
+                'command.Parameters.AddWithValue("@letra", lblLetra.Text)
+                'command.Parameters.AddWithValue("@tipofactura", tipoFactura)
+                'command.Parameters.AddWithValue("@total", lblTotal.Text)
                 connection.Open()
 
                 ' Ejecutar la consulta y obtener el último ID insertado
@@ -442,13 +446,13 @@ Public Class ABM_Pedidos
     End Sub
 
     Public Sub LlenarComboBoxMetodos()
-        Dim query As String = "SELECT IDMetodoPago, Metodo, ValDescAgregado FROM MetodosDePago"
+        Dim query As String = "SELECT IDEstadoPedido, Estado FROM EstadoPedidos"
         Dim adaptadorSql As New SqlDataAdapter(query, conexionSql)
-        Dim dtMetodos As New DataTable
-        adaptadorSql.Fill(dtMetodos)
-        boxMetodo.DataSource = dtMetodos
-        boxMetodo.DisplayMember = "Metodo"
-        boxMetodo.ValueMember = "IDMetodoPago"
+        Dim dtEstados As New DataTable
+        adaptadorSql.Fill(dtEstados)
+        boxMetodo.DataSource = dtEstados
+        boxMetodo.DisplayMember = "Estado"
+        boxMetodo.ValueMember = "IDEstadoPedido"
     End Sub
 
 
@@ -491,4 +495,6 @@ Public Class ABM_Pedidos
         llenarGrillaMovPedidos()
         LimpiaMovPedidos()
     End Sub
+
+
 End Class

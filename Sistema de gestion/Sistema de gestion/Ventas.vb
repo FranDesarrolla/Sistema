@@ -11,11 +11,11 @@ Public Class Ventas
             setdedatos.Tables("dtventa").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT NDV.IDNotaDeVenta AS ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, NDV.Cliente, NDV.Empleado, NDV.FechaDeVenta AS Fecha, 
-		                            NDV.PuntoDeVenta as Sucursal,  NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, C.CondicionIVA
-                                    FROM NotasDeVentas NDV
-                                    INNER JOIN Clientes C ON C.Cuenta = NDV.Cliente
-                                    INNER JOIN Empleados E ON E.Cuenta = NDV.Empleado"
+        Dim consultassql As String = "SELECT COM.IDCompra AS ID, P.Nombre + ' ' + P.Apellido AS Proveedor, E.Nombre + ' ' + E.Apellido AS Empleado, COM.Proveedor AS CodProveedor, COM.Empleado, COM.FechaDeVenta AS Fecha,
+	   COM.Letra, COM.MetodoDePago as Metodo, COM.TipoFactura as Tipo, COM.Total, P.Nombre, P.Apellido, P.Direccion
+        FROM Compras COM
+INNER JOIN Proveedores P ON P.Cuenta = COM.Proveedor
+INNER JOIN Empleados E ON E.Cuenta = COM.Empleado"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtventa As New DataTable

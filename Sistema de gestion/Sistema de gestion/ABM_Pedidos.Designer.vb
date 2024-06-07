@@ -22,9 +22,9 @@ Partial Class ABM_Pedidos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         lblSeñalPedido = New Label()
         Panel1 = New Panel()
         btnVolver = New Button()
@@ -84,6 +84,7 @@ Partial Class ABM_Pedidos
         lblNombre = New Label()
         lblCliente = New Label()
         panelCabecera = New Panel()
+        lblID = New Label()
         dateTime = New DateTimePicker()
         Panel5 = New Panel()
         lblCod = New Label()
@@ -97,7 +98,6 @@ Partial Class ABM_Pedidos
         Panel4 = New Panel()
         lblLetra = New Label()
         lblCantidad = New Label()
-        lblID = New Label()
         Label1 = New Label()
         Panel1.SuspendLayout()
         panelAdicional.SuspendLayout()
@@ -209,9 +209,9 @@ Partial Class ABM_Pedidos
         Label17.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         Label17.Location = New Point(3, 4)
         Label17.Name = "Label17"
-        Label17.Size = New Size(115, 19)
+        Label17.Size = New Size(121, 19)
         Label17.TabIndex = 28
-        Label17.Text = "Metodo de pago:"
+        Label17.Text = "Estado del pedido:"
         ' 
         ' panelAdd
         ' 
@@ -572,14 +572,14 @@ Partial Class ABM_Pedidos
         GrillaMovPedidos.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaMovPedidos.BorderStyle = BorderStyle.None
         GrillaMovPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = Color.Tan
-        DataGridViewCellStyle4.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle4.SelectionForeColor = Color.White
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        GrillaMovPedidos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.Tan
+        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle1.SelectionForeColor = Color.White
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        GrillaMovPedidos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         GrillaMovPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaMovPedidos.Cursor = Cursors.Hand
         GrillaMovPedidos.EditMode = DataGridViewEditMode.EditOnEnter
@@ -591,21 +591,21 @@ Partial Class ABM_Pedidos
         GrillaMovPedidos.Name = "GrillaMovPedidos"
         GrillaMovPedidos.ReadOnly = True
         GrillaMovPedidos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Color.Beige
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle5.SelectionForeColor = Color.White
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        GrillaMovPedidos.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Beige
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        GrillaMovPedidos.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         GrillaMovPedidos.RowHeadersVisible = False
         GrillaMovPedidos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle6.BackColor = Color.Beige
-        DataGridViewCellStyle6.ForeColor = Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle6.SelectionForeColor = Color.White
-        GrillaMovPedidos.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.BackColor = Color.Beige
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle3.SelectionForeColor = Color.White
+        GrillaMovPedidos.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaMovPedidos.RowTemplate.Height = 25
         GrillaMovPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaMovPedidos.ShowCellErrors = False
@@ -868,6 +868,17 @@ Partial Class ABM_Pedidos
         panelCabecera.Size = New Size(1013, 65)
         panelCabecera.TabIndex = 33
         ' 
+        ' lblID
+        ' 
+        lblID.AutoSize = True
+        lblID.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        lblID.Location = New Point(0, -16)
+        lblID.Name = "lblID"
+        lblID.Size = New Size(13, 13)
+        lblID.TabIndex = 41
+        lblID.Text = "1"
+        lblID.Visible = False
+        ' 
         ' dateTime
         ' 
         dateTime.CalendarFont = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
@@ -999,17 +1010,6 @@ Partial Class ABM_Pedidos
         lblCantidad.Size = New Size(64, 19)
         lblCantidad.TabIndex = 40
         lblCantidad.Text = "Cantidad"
-        ' 
-        ' lblID
-        ' 
-        lblID.AutoSize = True
-        lblID.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
-        lblID.Location = New Point(0, -16)
-        lblID.Name = "lblID"
-        lblID.Size = New Size(13, 13)
-        lblID.TabIndex = 41
-        lblID.Text = "1"
-        lblID.Visible = False
         ' 
         ' Label1
         ' 
