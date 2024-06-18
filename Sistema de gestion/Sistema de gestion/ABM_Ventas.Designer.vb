@@ -22,9 +22,9 @@ Partial Class ABM_Ventas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         lblABM = New Label()
         lblCliente = New Label()
         btnFin = New Button()
@@ -53,7 +53,7 @@ Partial Class ABM_Ventas
         txtUnitario = New TextBox()
         Label8 = New Label()
         txtCantidad = New TextBox()
-        txtCodigo = New TextBox()
+        txtDescripcion = New TextBox()
         lblProd = New Label()
         btnLimpiar = New Button()
         btnEditar = New Button()
@@ -191,14 +191,14 @@ Partial Class ABM_Ventas
         GrillaMovVentas.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaMovVentas.BorderStyle = BorderStyle.None
         GrillaMovVentas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = Color.Tan
-        DataGridViewCellStyle4.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle4.SelectionForeColor = Color.White
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        GrillaMovVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.Tan
+        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle1.SelectionForeColor = Color.White
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        GrillaMovVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         GrillaMovVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaMovVentas.Cursor = Cursors.Hand
         GrillaMovVentas.EditMode = DataGridViewEditMode.EditOnEnter
@@ -210,21 +210,21 @@ Partial Class ABM_Ventas
         GrillaMovVentas.Name = "GrillaMovVentas"
         GrillaMovVentas.ReadOnly = True
         GrillaMovVentas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Color.Beige
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle5.SelectionForeColor = Color.White
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        GrillaMovVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Beige
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        GrillaMovVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         GrillaMovVentas.RowHeadersVisible = False
         GrillaMovVentas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle6.BackColor = Color.Beige
-        DataGridViewCellStyle6.ForeColor = Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle6.SelectionForeColor = Color.White
-        GrillaMovVentas.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.BackColor = Color.Beige
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle3.SelectionForeColor = Color.White
+        GrillaMovVentas.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaMovVentas.RowTemplate.Height = 25
         GrillaMovVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaMovVentas.ShowCellErrors = False
@@ -257,7 +257,6 @@ Partial Class ABM_Ventas
         lblID.Size = New Size(13, 13)
         lblID.TabIndex = 18
         lblID.Text = "1"
-        lblID.Visible = False
         ' 
         ' panelProducto
         ' 
@@ -277,7 +276,7 @@ Partial Class ABM_Ventas
         panelProducto.Controls.Add(txtUnitario)
         panelProducto.Controls.Add(Label8)
         panelProducto.Controls.Add(txtCantidad)
-        panelProducto.Controls.Add(txtCodigo)
+        panelProducto.Controls.Add(txtDescripcion)
         panelProducto.Controls.Add(lblProd)
         panelProducto.Enabled = False
         panelProducto.Location = New Point(57, 104)
@@ -462,19 +461,19 @@ Partial Class ABM_Ventas
         txtCantidad.Text = "0,00"
         txtCantidad.TextAlign = HorizontalAlignment.Center
         ' 
-        ' txtCodigo
+        ' txtDescripcion
         ' 
-        txtCodigo.BackColor = Color.White
-        txtCodigo.BorderStyle = BorderStyle.None
-        txtCodigo.Enabled = False
-        txtCodigo.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        txtCodigo.ForeColor = Color.Black
-        txtCodigo.Location = New Point(227, 32)
-        txtCodigo.Margin = New Padding(0)
-        txtCodigo.Name = "txtCodigo"
-        txtCodigo.Size = New Size(452, 18)
-        txtCodigo.TabIndex = 7
-        txtCodigo.TextAlign = HorizontalAlignment.Center
+        txtDescripcion.BackColor = Color.White
+        txtDescripcion.BorderStyle = BorderStyle.None
+        txtDescripcion.Enabled = False
+        txtDescripcion.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        txtDescripcion.ForeColor = Color.Black
+        txtDescripcion.Location = New Point(227, 32)
+        txtDescripcion.Margin = New Padding(0)
+        txtDescripcion.Name = "txtDescripcion"
+        txtDescripcion.Size = New Size(452, 18)
+        txtDescripcion.TabIndex = 7
+        txtDescripcion.TextAlign = HorizontalAlignment.Center
         ' 
         ' lblProd
         ' 
@@ -706,7 +705,7 @@ Partial Class ABM_Ventas
     Friend WithEvents Button4 As Button
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents txtProducto As TextBox
-    Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents lblProd As Label
     Friend WithEvents txtSubtotalCon As TextBox
     Friend WithEvents Label14 As Label

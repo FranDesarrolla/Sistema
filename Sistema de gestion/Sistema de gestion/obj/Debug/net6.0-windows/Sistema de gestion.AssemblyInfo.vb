@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("Sistema de gestion"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c82e35ba8dd85c8fbf7271e82b4f96f281d82273"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+beb9c313adb39c796f334b347517bf3e5ddec4db"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Sistema de gestion"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Sistema de gestion"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 Public Class ABM_Ventas
     Private cambiosRealizados As New List(Of Cambio)
 
@@ -47,32 +48,61 @@ Public Class ABM_Ventas
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-
-        ' Obtener el código de producto ingresado en el TextBox
-        Dim codProd As String = txtCodprod.Text
-
-        ' Limpiar los parámetros anteriores para evitar conflictos
-        consultasSql.Parameters.Clear()
-
         Try
+            ' Asegurarse de que la conexión SQL está inicializada
+            If ModuloSistema.conexionSql Is Nothing Then
+                Throw New InvalidOperationException("La conexión SQL no está inicializada.")
+            End If
 
-            acciones.Connection = conexionSql
-            acciones.CommandType = CommandType.Text
-            acciones.CommandText = "SELECT * FROM Productos WHERE codigo = '" + codProd + "'"
+            ' Asegurarse de abrir la conexión
+            If ModuloSistema.conexionSql.State <> ConnectionState.Open Then
+                ModuloSistema.conexionSql.Open()
+            End If
 
-            acciones.ExecuteNonQuery()
+            ' Obtener el código de producto ingresado en el TextBox
+            Dim codProd As String = txtCodprod.Text
+
+            ' Limpiar los parámetros anteriores para evitar conflictos
+            If ModuloSistema.consultasSql Is Nothing Then
+                ModuloSistema.consultasSql = New SqlCommand()
+            End If
+            ModuloSistema.consultasSql.Parameters.Clear()
+
+            ' Configurar el comando SQL
+            ModuloSistema.consultasSql.Connection = ModuloSistema.conexionSql
+            ModuloSistema.consultasSql.CommandType = CommandType.Text
+            ModuloSistema.consultasSql.CommandText = "SELECT * FROM Productos WHERE Codigo = @codigo"
+            ModuloSistema.consultasSql.Parameters.AddWithValue("@codigo", codProd)
 
             ' Ejecutar la consulta y obtener los resultados
-            Using reader As SqlDataReader = consultasSql.ExecuteReader()
+            Using reader As SqlDataReader = ModuloSistema.consultasSql.ExecuteReader()
                 ' Verificar si se encontraron resultados
                 If reader.HasRows Then
                     ' Leer los datos del producto
                     While reader.Read()
-                        ' Asignar los valores a los controles correspondientes
-                        txtProducto.Text = reader("Descripcion")
-                        txtIVAP.Text = reader("Iva")
-                        txtUnitario.Text = reader("PrecioUnitario")
-                        ' Puedes asignar más valores según tu tabla de productos
+                        Try
+                            ' Verificar y asignar los valores a los controles correspondientes
+                            If Not IsDBNull(reader("Descripcion")) Then
+                                txtDescripcion.Text = reader("Descripcion").ToString()
+                            Else
+                                txtDescripcion.Text = String.Empty
+                            End If
+
+                            If Not IsDBNull(reader("Iva")) Then
+                                txtIVAP.Text = reader("Iva").ToString()
+                            Else
+                                txtIVAP.Text = String.Empty
+                            End If
+
+                            If Not IsDBNull(reader("PrecioUnitario")) Then
+                                txtUnitario.Text = reader("PrecioUnitario").ToString()
+                            Else
+                                txtUnitario.Text = String.Empty
+                            End If
+
+                        Catch ex As Exception
+                            MessageBox.Show("Error al leer los datos del producto: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End Try
                     End While
                 Else
                     ' Mostrar mensaje si no se encuentra el producto
@@ -84,8 +114,8 @@ Public Class ABM_Ventas
             MessageBox.Show("Error al buscar el producto: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             ' Asegurarse de cerrar la conexión
-            If conexionSql.State = ConnectionState.Open Then
-                conexionSql.Close()
+            If ModuloSistema.conexionSql IsNot Nothing AndAlso ModuloSistema.conexionSql.State = ConnectionState.Open Then
+                ModuloSistema.conexionSql.Close()
             End If
         End Try
     End Sub
@@ -297,12 +327,12 @@ Public Class ABM_Ventas
 
             Dim id As Integer = Convert.ToInt32(GrillaMovVentas.CurrentRow.Cells(0).Value)
             Dim query As String = "UPDATE dbo.NotasDeVentasMov
-                                SET Producto = @Producto, Cantidad = @Cantidad, PrecioUnitario = @PrecioUnitario, Descuento = @Descuento, Impuestos = @Impuestos, SubTotal = @SubTotal
+                                SET Producto = @Producto, Cantidad = @Cantidad, PrecioUnitario = @PrecioUnitario, Descuento = @Descuento, Impuestos = 0, SubTotal = @SubTotal
                                 WHERE IDNotasDeVentasMov = @ID"
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Producto", txtCodigo.Text)
+                command.Parameters.AddWithValue("@Producto", txtCodprod.Text)
                 command.Parameters.AddWithValue("@Cantidad", Convert.ToDecimal(txtCantidad.Text))
                 command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
                 command.Parameters.AddWithValue("@Descuento", descFormateado)
@@ -327,12 +357,12 @@ Public Class ABM_Ventas
             Dim subconFormateado As Decimal = Decimal.Parse(txtSubtotalCon.Text)
 
             Dim query As String = "INSERT INTO dbo.NotasDeVentasMov (IDNotaDeVenta, Producto, Cantidad, PrecioUnitario, Descuento, Impuestos, SubTotal)
-                                VALUES (@IDNotaDeVenta, @Producto, @Cantidad, @PrecioUnitario, @Descuento, @Impuestos, @SubTotal)"
+                                VALUES (@IDNotaDeVenta, @Producto, @Cantidad, @PrecioUnitario, @Descuento, 0, @SubTotal)"
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@IDNotaDeVenta", lblID.Text)
-                command.Parameters.AddWithValue("@Producto", txtCodigo.Text)
+                command.Parameters.AddWithValue("@Producto", txtCodprod.Text)
                 command.Parameters.AddWithValue("@Cantidad", Convert.ToDecimal(txtCantidad.Text))
                 command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
                 command.Parameters.AddWithValue("@Descuento", descFormateado)
@@ -414,7 +444,7 @@ Public Class ABM_Ventas
 
 
     Public Sub LimpiaMovVentas()
-        Me.txtCodigo.Text = ""
+        Me.txtDescripcion.Text = ""
         Me.txtCodprod.Text = ""
         Me.txtCantidad.Text = ""
         Me.txtUnitario.Text = ""
@@ -427,7 +457,7 @@ Public Class ABM_Ventas
     End Sub
 
     Private Function ObtenerDatosAntesDeOperacion() As String()
-        Return {txtCodigo.Text, txtCodprod.Text, txtCantidad.Text, txtUnitario.Text, txtDescuento.Text, txtIVAP.Text, txtSubtotalCon.Text}
+        Return {txtDescripcion.Text, txtCodprod.Text, txtCantidad.Text, txtUnitario.Text, txtDescuento.Text, txtIVAP.Text, txtSubtotalCon.Text}
     End Function
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
@@ -435,8 +465,8 @@ Public Class ABM_Ventas
     End Sub
 
     Private Sub CargarDatosParaEditar()
-        Me.txtCodigo.Text = GrillaMovVentas.CurrentRow.Cells(1).Value
-        Me.txtCodprod.Text = GrillaMovVentas.CurrentRow.Cells(9).Value
+        Me.txtDescripcion.Text = GrillaMovVentas.CurrentRow.Cells(9).Value
+        Me.txtCodprod.Text = GrillaMovVentas.CurrentRow.Cells(1).Value
         Me.txtCantidad.Text = GrillaMovVentas.CurrentRow.Cells(3).Value
         Me.txtUnitario.Text = GrillaMovVentas.CurrentRow.Cells(4).Value
         Me.txtDescuento.Text = GrillaMovVentas.CurrentRow.Cells(5).Value
@@ -474,22 +504,91 @@ Public Class ABM_Ventas
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
-        llenarGrillaMovVentas
-        LimpiaMovVentas
+        llenarGrillaMovVentas()
+        LimpiaMovVentas()
     End Sub
 
     Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
-        EditarRegistro()
+
+        If lblABM.Text = "Agregar" Then
+            AgregarRegistro()
+        ElseIf lblABM.Text = "Editar" Then
+            EditarRegistro()
+        End If
+
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
         LimpiaMovVentas()
     End Sub
 
-    Private Sub panelProducto_Paint(sender As Object, e As PaintEventArgs) Handles panelProducto.Paint
+    'Campos validados
 
+    Private Sub txtCodprod_TextChanged(sender As Object, e As EventArgs) Handles txtCodprod.TextChanged
+        ValidarCampoProducto(txtCodprod)
     End Sub
 
-    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
-
+    Private Sub txtUnitario_TextChanged(sender As Object, e As EventArgs) Handles txtUnitario.TextChanged
+        ValidarCampoUnitario(txtUnitario)
     End Sub
+
+    'Mensajes correspondientes segun validaciones
+
+    Private Sub ValidarCampoProducto(textBox As TextBox)
+        Dim input As String = textBox.Text
+        If Not ValidarLongitudYContenido(input) Then
+            MessageBox.Show("El campo debe tener hasta 15 caracteres")
+            textBox.Text = ""
+        ElseIf Not ValidarCaracteresEspeciales(input) Then
+            MessageBox.Show("Error. El campo no debe contener caracteres especiales")
+            textBox.Text = ""
+        End If
+    End Sub
+
+    Private Sub ValidarCampoUnitario(textBox As TextBox)
+        Dim input As String = textBox.Text
+
+        If Not ValidarLetras(input) Then
+            MessageBox.Show("El campo solo permite números, ya sea decimales o enteros")
+            textBox.Text = ""
+        ElseIf Not ValidarCaracteresEspeciales(input) Then
+            MessageBox.Show("Error. El campo no debe contener caracteres especiales")
+            textBox.Text = ""
+        ElseIf Not ValidarMontoMaximo(input) Then
+            MessageBox.Show("El monto es superior al permitido menores a 999.999.999,99")
+            textBox.Text = ""
+        End If
+    End Sub
+
+
+    'Validar longitudes
+
+    Private Function ValidarLongitudYContenido(input As String) As Boolean
+        Return input.Trim().Length > 0 AndAlso input.Length <= 15
+    End Function
+
+    'Validar caracteres especiales
+
+    Private Function ValidarCaracteresEspeciales(input As String) As Boolean
+        Dim regex As New Regex("^[^#%$/Ñ]*$")
+        Return regex.IsMatch(input)
+    End Function
+
+    'Validar que no contenga letras ni numeros negativos, excepto numeros, comas y puntos
+
+    Private Function ValidarLetras(input As String) As Boolean
+        Dim regex As New Regex("^\d*([.,]?\d+)?$")
+        Return regex.IsMatch(input)
+    End Function
+
+    'Validar que el monto no supere los 999.999.999,99
+
+    Private Function ValidarMontoMaximo(input As String) As Boolean
+        Dim monto As Decimal
+        If Decimal.TryParse(input, monto) Then
+            Return monto <= 999999999.99
+        Else
+            Return False
+        End If
+    End Function
+
 End Class

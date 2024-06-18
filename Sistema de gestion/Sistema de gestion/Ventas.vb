@@ -69,11 +69,38 @@ Public Class Ventas
 
     End Sub
 
+    Private Function ObtenerSiguienteIDNotaDeVenta() As Integer
+        Dim siguienteID As Integer = 1
+        Dim consultaSql As String = "SELECT MAX(IDNotaDeVenta) FROM NotasDeVentas"
+
+        Using comandoSql As New SqlCommand(consultaSql, conexionSql)
+            Try
+                If conexionSql.State = ConnectionState.Closed Then
+                    conexionSql.Open()
+                End If
+
+                Dim resultado = comandoSql.ExecuteScalar()
+                If Not IsDBNull(resultado) Then
+                    siguienteID = Convert.ToInt32(resultado) + 1
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error al obtener el siguiente ID de nota de venta: " & ex.Message)
+            Finally
+                If conexionSql.State = ConnectionState.Open Then
+                    conexionSql.Close()
+                End If
+            End Try
+        End Using
+
+        Return siguienteID
+    End Function
+
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
 
         ABM_Ventas.lblABM.Text = "Agregar"
-        ABM_Ventas.lblID.Text = 0
+        ABM_Ventas.lblID.Text = ObtenerSiguienteIDNotaDeVenta()
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
+        ABM_Ventas.llenarGrillaMovVentas()
 
     End Sub
 
