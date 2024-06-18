@@ -54,7 +54,6 @@ C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.AssemblyInfoInputs.cache
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.AssemblyInfo.vb
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.CoreCompileInputs.cache
-C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.vbproj.CopyComplete
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.dll
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\refint\Sistema de gestion.dll
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.pdb
@@ -176,3 +175,6 @@ C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion
 C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Login.resources
 C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.Login.resources
 C:\Users\Elias\Documents\GitHub\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Compras.resources
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema_de_gestion.ABM_Compras.resources
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema de gestion.sourcelink.json
+C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net6.0-windows\Sistema .3DB07AE5.Up2Date

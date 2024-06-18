@@ -22,7 +22,7 @@ Partial Class ModuloPrincipal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(ModuloPrincipal))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuloPrincipal))
         PanelSuperior = New Panel()
         PBcopy = New PictureBox()
         txtBusqueda = New TextBox()

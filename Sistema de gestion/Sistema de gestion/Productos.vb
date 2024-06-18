@@ -55,7 +55,11 @@ Public Class Productos
         Next i
     End Sub
 
-    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+    Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
+        llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
+    End Sub
+
+    Private Sub btnEditar_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
         ABM_Productos.lblSeñalProducto.Text = "EDITAR"
 
         ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
@@ -71,18 +75,15 @@ Public Class Productos
 
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
-
     End Sub
 
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
-
+    Private Sub btnAceptarABMP_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
         ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
-
     End Sub
 
-    Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
-        llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
-    End Sub
+    Public Interface IFormConConexion
+        Property conexionSql As SqlConnection
+    End Interface
 End Class

@@ -28,57 +28,28 @@ Partial Class Productos
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Label1 = New Label()
         Label2 = New Label()
-        btnEditar = New Button()
-        btnAgregarProducto = New Button()
         btnBuscar = New Button()
         GrillaProductos = New DataGridView()
         DataGridView1 = New DataGridView()
         txtCodigoPbusqueda = New TextBox()
+        btnAceptarABMP = New Button()
+        btnEditar = New Button()
+        btnEliminar = New Button()
+        Panel2 = New Panel()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(439, 21)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(136, 37)
-        Label1.TabIndex = 0
-        Label1.Text = "Productos"
-        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(1016, 9)
+        Label2.Location = New Point(1015, 16)
         Label2.Name = "Label2"
         Label2.Size = New Size(41, 15)
         Label2.TabIndex = 5
         Label2.Text = "Label2"
         Label2.Visible = False
-        ' 
-        ' btnEditar
-        ' 
-        btnEditar.Location = New Point(671, 565)
-        btnEditar.Name = "btnEditar"
-        btnEditar.Size = New Size(138, 34)
-        btnEditar.TabIndex = 13
-        btnEditar.Text = "Editar"
-        btnEditar.UseVisualStyleBackColor = True
-        ' 
-        ' btnAgregarProducto
-        ' 
-        btnAgregarProducto.BackColor = Color.White
-        btnAgregarProducto.ForeColor = Color.Black
-        btnAgregarProducto.Location = New Point(29, 565)
-        btnAgregarProducto.Name = "btnAgregarProducto"
-        btnAgregarProducto.Size = New Size(138, 34)
-        btnAgregarProducto.TabIndex = 11
-        btnAgregarProducto.Text = "Agregar"
-        btnAgregarProducto.UseVisualStyleBackColor = False
         ' 
         ' btnBuscar
         ' 
@@ -86,9 +57,10 @@ Partial Class Productos
         btnBuscar.BackgroundImageLayout = ImageLayout.Stretch
         btnBuscar.FlatAppearance.BorderSize = 0
         btnBuscar.FlatStyle = FlatStyle.Flat
-        btnBuscar.Location = New Point(450, 76)
+        btnBuscar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnBuscar.Location = New Point(787, 69)
         btnBuscar.Name = "btnBuscar"
-        btnBuscar.Size = New Size(21, 20)
+        btnBuscar.Size = New Size(21, 22)
         btnBuscar.TabIndex = 15
         btnBuscar.UseVisualStyleBackColor = True
         btnBuscar.Visible = False
@@ -115,7 +87,7 @@ Partial Class Productos
         GrillaProductos.EditMode = DataGridViewEditMode.EditOnEnter
         GrillaProductos.EnableHeadersVisualStyles = False
         GrillaProductos.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        GrillaProductos.Location = New Point(29, 102)
+        GrillaProductos.Location = New Point(28, 96)
         GrillaProductos.MultiSelect = False
         GrillaProductos.Name = "GrillaProductos"
         GrillaProductos.ReadOnly = True
@@ -141,7 +113,7 @@ Partial Class Productos
         GrillaProductos.ShowCellToolTips = False
         GrillaProductos.ShowEditingIcon = False
         GrillaProductos.ShowRowErrors = False
-        GrillaProductos.Size = New Size(780, 457)
+        GrillaProductos.Size = New Size(780, 436)
         GrillaProductos.TabIndex = 16
         ' 
         ' DataGridView1
@@ -166,7 +138,7 @@ Partial Class Productos
         DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        DataGridView1.Location = New Point(815, 102)
+        DataGridView1.Location = New Point(814, 69)
         DataGridView1.MultiSelect = False
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
@@ -192,21 +164,68 @@ Partial Class Productos
         DataGridView1.ShowCellToolTips = False
         DataGridView1.ShowEditingIcon = False
         DataGridView1.ShowRowErrors = False
-        DataGridView1.Size = New Size(227, 457)
+        DataGridView1.Size = New Size(227, 525)
         DataGridView1.TabIndex = 17
         ' 
         ' txtCodigoPbusqueda
         ' 
         txtCodigoPbusqueda.BackColor = Color.White
         txtCodigoPbusqueda.BorderStyle = BorderStyle.None
-        txtCodigoPbusqueda.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        txtCodigoPbusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txtCodigoPbusqueda.ForeColor = Color.Black
-        txtCodigoPbusqueda.Location = New Point(29, 76)
+        txtCodigoPbusqueda.Location = New Point(28, 69)
         txtCodigoPbusqueda.Margin = New Padding(0)
         txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
-        txtCodigoPbusqueda.Size = New Size(409, 20)
+        txtCodigoPbusqueda.Size = New Size(780, 22)
         txtCodigoPbusqueda.TabIndex = 18
         txtCodigoPbusqueda.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' btnAceptarABMP
+        ' 
+        btnAceptarABMP.BackColor = Color.Tan
+        btnAceptarABMP.FlatAppearance.BorderSize = 0
+        btnAceptarABMP.FlatStyle = FlatStyle.Flat
+        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAceptarABMP.Location = New Point(28, 539)
+        btnAceptarABMP.Name = "btnAceptarABMP"
+        btnAceptarABMP.Size = New Size(176, 55)
+        btnAceptarABMP.TabIndex = 40
+        btnAceptarABMP.Text = "Agregar"
+        btnAceptarABMP.UseVisualStyleBackColor = False
+        ' 
+        ' btnEditar
+        ' 
+        btnEditar.BackColor = Color.Tan
+        btnEditar.FlatAppearance.BorderSize = 0
+        btnEditar.FlatStyle = FlatStyle.Flat
+        btnEditar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditar.Location = New Point(210, 539)
+        btnEditar.Name = "btnEditar"
+        btnEditar.Size = New Size(176, 55)
+        btnEditar.TabIndex = 41
+        btnEditar.Text = "Editar"
+        btnEditar.UseVisualStyleBackColor = False
+        ' 
+        ' btnEliminar
+        ' 
+        btnEliminar.BackColor = Color.Tan
+        btnEliminar.FlatAppearance.BorderSize = 0
+        btnEliminar.FlatStyle = FlatStyle.Flat
+        btnEliminar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminar.Location = New Point(632, 539)
+        btnEliminar.Name = "btnEliminar"
+        btnEliminar.Size = New Size(176, 55)
+        btnEliminar.TabIndex = 42
+        btnEliminar.Text = "Eliminar"
+        btnEliminar.UseVisualStyleBackColor = False
+        ' 
+        ' Panel2
+        ' 
+        Panel2.BackColor = Color.Tan
+        Panel2.Location = New Point(28, 20)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(1013, 43)
+        Panel2.TabIndex = 52
         ' 
         ' Productos
         ' 
@@ -214,14 +233,15 @@ Partial Class Productos
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
+        Controls.Add(Panel2)
+        Controls.Add(btnEliminar)
+        Controls.Add(btnEditar)
+        Controls.Add(btnAceptarABMP)
         Controls.Add(txtCodigoPbusqueda)
         Controls.Add(DataGridView1)
         Controls.Add(GrillaProductos)
         Controls.Add(btnBuscar)
-        Controls.Add(btnEditar)
-        Controls.Add(btnAgregarProducto)
         Controls.Add(Label2)
-        Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Productos"
         Text = "Productos"
@@ -230,13 +250,13 @@ Partial Class Productos
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnEditar As Button
-    Friend WithEvents btnAgregarProducto As Button
     Friend WithEvents btnBuscar As Button
     Friend WithEvents GrillaProductos As DataGridView
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents txtCodigoPbusqueda As TextBox
+    Friend WithEvents btnAceptarABMP As Button
+    Friend WithEvents btnEditar As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents Panel2 As Panel
 End Class

@@ -3,10 +3,8 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        ModuloPrincipal.AbrirFormEnPanel(Productos)
-        LimpiarFormularioABMProducto()
-        ' Cierra la conexión después de ejecutar la consulta
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Public Sub LimpiarFormularioABMProducto()
@@ -31,14 +29,13 @@
 
     End Sub
 
-    Private Sub btnAceptarABMP_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
-
+    Private Sub btnAceptarABMP_Click_1(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
         'Para agregar datos
         If lblSeñalProducto.Text = "AGREGAR" Then ' Verifica si la etiqueta es "AGREGAR"
 
             Try
                 ' Establece la conexión y configura la consulta de inserción
-                Dim precioFormateado As String = PrecioUnitarioProducto.Text.Replace(",", ".") ' Reemplazar la coma por punto
+                Dim precioFormateado = PrecioUnitarioProducto.Text.Replace(",", ".") ' Reemplazar la coma por punto
 
                 acciones.Connection = conexionSql
                 acciones.CommandType = CommandType.Text
@@ -49,7 +46,7 @@
                 acciones.ExecuteNonQuery()
 
                 ' Cierra la conexión después de ejecutar la consulta
-                ModuloSistema.conexionSql.Close()
+                conexionSql.Close()
 
                 ' Muestra un mensaje de éxito
                 MsgBox("Datos Guardados", +vbOKOnly + vbInformation)
@@ -64,7 +61,7 @@
 
         ElseIf lblSeñalProducto.Text = "EDITAR" Then
             Try
-                Dim precioFormateado As String = PrecioUnitarioProducto.Text.Replace(",", ".") ' Reemplazar la coma por punto
+                Dim precioFormateado = PrecioUnitarioProducto.Text.Replace(",", ".") ' Reemplazar la coma por punto
 
                 acciones.Connection = conexionSql
                 acciones.CommandType = CommandType.Text
@@ -95,10 +92,11 @@
             ModuloPrincipal.AbrirFormEnPanel(Productos)
 
         End If
-
     End Sub
 
-    Private Sub ID_Click(sender As Object, e As EventArgs) Handles ID.Click
-
+    Private Sub btnVolverABMP_Click(sender As Object, e As EventArgs) Handles btnVolverABMP.Click
+        ModuloPrincipal.AbrirFormEnPanel(Productos)
+        LimpiarFormularioABMProducto()
+        ' Cierra la conexión después de ejecutar la consulta
     End Sub
 End Class

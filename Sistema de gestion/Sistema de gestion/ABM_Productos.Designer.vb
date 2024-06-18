@@ -22,316 +22,410 @@ Partial Class ABM_Productos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        descripProducto = New TextBox()
         especifiProducto = New TextBox()
-        id_producto = New TextBox()
-        codProducto = New TextBox()
-        UnidadProducto = New TextBox()
         TituloAbmProducto = New TextBox()
-        Panel1 = New Panel()
+        txtIvaProducto = New TextBox()
+        Label8 = New Label()
         CB_Activo = New CheckBox()
+        Label3 = New Label()
+        PrecioUnitarioProducto = New TextBox()
+        TextBox18 = New TextBox()
+        lblSeñalProducto = New Label()
         Label7 = New Label()
         Label6 = New Label()
         Label5 = New Label()
         Label4 = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
-        ID = New Label()
         StockProducto = New TextBox()
         CategoriaProducto = New TextBox()
         RubroProducto = New TextBox()
-        PrecioUnitarioProducto = New TextBox()
-        TextBox18 = New TextBox()
+        UnidadProducto = New TextBox()
+        Label2 = New Label()
+        Label1 = New Label()
+        codProducto = New TextBox()
+        descripProducto = New TextBox()
+        ID = New Label()
+        id_producto = New TextBox()
+        panelProducto = New Panel()
+        Label11 = New Label()
+        Label10 = New Label()
+        Label9 = New Label()
         btnAceptarABMP = New Button()
-        Button2 = New Button()
-        lblSeñalProducto = New Label()
-        Label8 = New Label()
-        txtIvaProducto = New TextBox()
-        Panel1.SuspendLayout()
+        btnVolverABMP = New Button()
+        panelProducto.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' descripProducto
-        ' 
-        descripProducto.Location = New Point(169, 74)
-        descripProducto.Name = "descripProducto"
-        descripProducto.Size = New Size(330, 23)
-        descripProducto.TabIndex = 2
         ' 
         ' especifiProducto
         ' 
-        especifiProducto.Location = New Point(169, 109)
+        especifiProducto.BorderStyle = BorderStyle.None
+        especifiProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        especifiProducto.Location = New Point(171, 398)
+        especifiProducto.Multiline = True
         especifiProducto.Name = "especifiProducto"
-        especifiProducto.Size = New Size(330, 23)
+        especifiProducto.Size = New Size(793, 120)
         especifiProducto.TabIndex = 3
-        ' 
-        ' id_producto
-        ' 
-        id_producto.Enabled = False
-        id_producto.Location = New Point(169, 13)
-        id_producto.Name = "id_producto"
-        id_producto.Size = New Size(62, 23)
-        id_producto.TabIndex = 4
-        ' 
-        ' codProducto
-        ' 
-        codProducto.Location = New Point(169, 42)
-        codProducto.Name = "codProducto"
-        codProducto.Size = New Size(120, 23)
-        codProducto.TabIndex = 6
-        ' 
-        ' UnidadProducto
-        ' 
-        UnidadProducto.Location = New Point(613, 13)
-        UnidadProducto.Name = "UnidadProducto"
-        UnidadProducto.Size = New Size(62, 23)
-        UnidadProducto.TabIndex = 9
         ' 
         ' TituloAbmProducto
         ' 
         TituloAbmProducto.Anchor = AnchorStyles.Top
-        TituloAbmProducto.BackColor = SystemColors.Menu
+        TituloAbmProducto.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         TituloAbmProducto.BorderStyle = BorderStyle.None
         TituloAbmProducto.Location = New Point(304, 12)
         TituloAbmProducto.Name = "TituloAbmProducto"
         TituloAbmProducto.Size = New Size(412, 16)
         TituloAbmProducto.TabIndex = 10
         ' 
-        ' Panel1
+        ' txtIvaProducto
         ' 
-        Panel1.Controls.Add(txtIvaProducto)
-        Panel1.Controls.Add(Label8)
-        Panel1.Controls.Add(CB_Activo)
-        Panel1.Controls.Add(Label7)
-        Panel1.Controls.Add(Label6)
-        Panel1.Controls.Add(Label5)
-        Panel1.Controls.Add(Label4)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
-        Panel1.Controls.Add(ID)
-        Panel1.Controls.Add(StockProducto)
-        Panel1.Controls.Add(CategoriaProducto)
-        Panel1.Controls.Add(RubroProducto)
-        Panel1.Controls.Add(UnidadProducto)
-        Panel1.Controls.Add(id_producto)
-        Panel1.Controls.Add(especifiProducto)
-        Panel1.Controls.Add(codProducto)
-        Panel1.Controls.Add(descripProducto)
-        Panel1.Location = New Point(41, 70)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(984, 161)
-        Panel1.TabIndex = 11
+        txtIvaProducto.BorderStyle = BorderStyle.None
+        txtIvaProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        txtIvaProducto.Location = New Point(303, 175)
+        txtIvaProducto.Name = "txtIvaProducto"
+        txtIvaProducto.Size = New Size(76, 18)
+        txtIvaProducto.TabIndex = 25
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label8.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label8.Location = New Point(303, 147)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(30, 17)
+        Label8.TabIndex = 24
+        Label8.Text = "Iva:"
         ' 
         ' CB_Activo
         ' 
         CB_Activo.AutoSize = True
-        CB_Activo.Location = New Point(907, 15)
+        CB_Activo.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        CB_Activo.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        CB_Activo.Location = New Point(875, 47)
         CB_Activo.Name = "CB_Activo"
-        CB_Activo.Size = New Size(60, 19)
+        CB_Activo.Size = New Size(72, 25)
         CB_Activo.TabIndex = 18
         CB_Activo.Text = "Activo"
-        CB_Activo.UseVisualStyleBackColor = True
+        CB_Activo.UseVisualStyleBackColor = False
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label3.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.Location = New Point(167, 371)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(124, 21)
+        Label3.TabIndex = 19
+        Label3.Text = "Especificaciones:"
+        ' 
+        ' PrecioUnitarioProducto
+        ' 
+        PrecioUnitarioProducto.BorderStyle = BorderStyle.None
+        PrecioUnitarioProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        PrecioUnitarioProducto.Location = New Point(171, 206)
+        PrecioUnitarioProducto.Name = "PrecioUnitarioProducto"
+        PrecioUnitarioProducto.Size = New Size(239, 18)
+        PrecioUnitarioProducto.TabIndex = 12
+        ' 
+        ' TextBox18
+        ' 
+        TextBox18.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        TextBox18.BorderStyle = BorderStyle.None
+        TextBox18.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox18.Location = New Point(172, 178)
+        TextBox18.Name = "TextBox18"
+        TextBox18.Size = New Size(124, 17)
+        TextBox18.TabIndex = 13
+        TextBox18.Text = "Precio Unitario:"
+        ' 
+        ' lblSeñalProducto
+        ' 
+        lblSeñalProducto.AutoSize = True
+        lblSeñalProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        lblSeñalProducto.Location = New Point(1001, 9)
+        lblSeñalProducto.Name = "lblSeñalProducto"
+        lblSeñalProducto.Size = New Size(56, 21)
+        lblSeñalProducto.TabIndex = 17
+        lblSeñalProducto.Text = "Label1"
+        lblSeñalProducto.Visible = False
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(551, 112)
+        Label7.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label7.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.Location = New Point(168, 306)
         Label7.Name = "Label7"
-        Label7.Size = New Size(39, 15)
-        Label7.TabIndex = 23
+        Label7.Size = New Size(51, 21)
+        Label7.TabIndex = 31
         Label7.Text = "Stock:"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(529, 77)
+        Label6.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label6.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.Location = New Point(193, 211)
         Label6.Name = "Label6"
-        Label6.Size = New Size(61, 15)
-        Label6.TabIndex = 22
+        Label6.Size = New Size(72, 17)
+        Label6.TabIndex = 30
         Label6.Text = "Categoria:"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(548, 45)
+        Label5.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label5.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.Location = New Point(167, 242)
         Label5.Name = "Label5"
-        Label5.Size = New Size(42, 15)
-        Label5.TabIndex = 21
+        Label5.Size = New Size(56, 21)
+        Label5.TabIndex = 29
         Label5.Text = "Rubro:"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(542, 16)
+        Label4.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label4.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.Location = New Point(352, 211)
         Label4.Name = "Label4"
-        Label4.Size = New Size(48, 15)
-        Label4.TabIndex = 20
+        Label4.Size = New Size(55, 17)
+        Label4.TabIndex = 28
         Label4.Text = "Unidad:"
         ' 
-        ' Label3
+        ' StockProducto
         ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(22, 112)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(96, 15)
-        Label3.TabIndex = 19
-        Label3.Text = "Especificaciones:"
+        StockProducto.BorderStyle = BorderStyle.None
+        StockProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        StockProducto.Location = New Point(171, 333)
+        StockProducto.Name = "StockProducto"
+        StockProducto.Size = New Size(48, 18)
+        StockProducto.TabIndex = 25
+        ' 
+        ' CategoriaProducto
+        ' 
+        CategoriaProducto.BorderStyle = BorderStyle.None
+        CategoriaProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        CategoriaProducto.Location = New Point(352, 237)
+        CategoriaProducto.Name = "CategoriaProducto"
+        CategoriaProducto.Size = New Size(47, 18)
+        CategoriaProducto.TabIndex = 26
+        ' 
+        ' RubroProducto
+        ' 
+        RubroProducto.BorderStyle = BorderStyle.None
+        RubroProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        RubroProducto.Location = New Point(197, 239)
+        RubroProducto.Name = "RubroProducto"
+        RubroProducto.Size = New Size(47, 18)
+        RubroProducto.TabIndex = 27
+        ' 
+        ' UnidadProducto
+        ' 
+        UnidadProducto.BorderStyle = BorderStyle.None
+        UnidadProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        UnidadProducto.Location = New Point(40, 238)
+        UnidadProducto.Name = "UnidadProducto"
+        UnidadProducto.Size = New Size(47, 18)
+        UnidadProducto.TabIndex = 24
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(28, 45)
+        Label2.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label2.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Location = New Point(167, 41)
         Label2.Name = "Label2"
-        Label2.Size = New Size(90, 15)
-        Label2.TabIndex = 18
-        Label2.Text = "Codi. Producto:"
+        Label2.Size = New Size(101, 17)
+        Label2.TabIndex = 37
+        Label2.Text = "Cod. Producto:"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(14, 77)
+        Label1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label1.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label1.Location = New Point(167, 111)
         Label1.Name = "Label1"
-        Label1.Size = New Size(104, 15)
-        Label1.TabIndex = 17
-        Label1.Text = "Descrip. Producto:"
+        Label1.Size = New Size(83, 17)
+        Label1.TabIndex = 36
+        Label1.Text = "Descripción:"
+        ' 
+        ' codProducto
+        ' 
+        codProducto.BorderStyle = BorderStyle.None
+        codProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        codProducto.Location = New Point(171, 67)
+        codProducto.Name = "codProducto"
+        codProducto.Size = New Size(106, 18)
+        codProducto.TabIndex = 34
+        ' 
+        ' descripProducto
+        ' 
+        descripProducto.BorderStyle = BorderStyle.None
+        descripProducto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        descripProducto.Location = New Point(171, 138)
+        descripProducto.Name = "descripProducto"
+        descripProducto.Size = New Size(793, 18)
+        descripProducto.TabIndex = 32
         ' 
         ' ID
         ' 
         ID.AutoSize = True
-        ID.Location = New Point(98, 16)
+        ID.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        ID.Location = New Point(168, 11)
         ID.Name = "ID"
-        ID.Size = New Size(20, 15)
-        ID.TabIndex = 16
-        ID.Text = "id:"
+        ID.Size = New Size(24, 17)
+        ID.TabIndex = 35
+        ID.Text = "ID:"
         ' 
-        ' StockProducto
+        ' id_producto
         ' 
-        StockProducto.Location = New Point(613, 109)
-        StockProducto.Name = "StockProducto"
-        StockProducto.Size = New Size(62, 23)
-        StockProducto.TabIndex = 12
+        id_producto.BorderStyle = BorderStyle.None
+        id_producto.Enabled = False
+        id_producto.Font = New Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        id_producto.Location = New Point(168, 37)
+        id_producto.Name = "id_producto"
+        id_producto.Size = New Size(53, 18)
+        id_producto.TabIndex = 33
         ' 
-        ' CategoriaProducto
+        ' panelProducto
         ' 
-        CategoriaProducto.Location = New Point(613, 74)
-        CategoriaProducto.Name = "CategoriaProducto"
-        CategoriaProducto.Size = New Size(62, 23)
-        CategoriaProducto.TabIndex = 12
+        panelProducto.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        panelProducto.Controls.Add(Label11)
+        panelProducto.Controls.Add(Label10)
+        panelProducto.Controls.Add(Label9)
+        panelProducto.Controls.Add(id_producto)
+        panelProducto.Controls.Add(ID)
+        panelProducto.Controls.Add(txtIvaProducto)
+        panelProducto.Controls.Add(Label8)
+        panelProducto.Controls.Add(CategoriaProducto)
+        panelProducto.Controls.Add(RubroProducto)
+        panelProducto.Controls.Add(Label6)
+        panelProducto.Controls.Add(Label4)
+        panelProducto.Controls.Add(UnidadProducto)
+        panelProducto.Enabled = False
+        panelProducto.Location = New Point(132, 31)
+        panelProducto.Name = "panelProducto"
+        panelProducto.Size = New Size(867, 507)
+        panelProducto.TabIndex = 38
         ' 
-        ' RubroProducto
+        ' Label11
         ' 
-        RubroProducto.Location = New Point(613, 42)
-        RubroProducto.Name = "RubroProducto"
-        RubroProducto.Size = New Size(62, 23)
-        RubroProducto.TabIndex = 15
+        Label11.AutoSize = True
+        Label11.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label11.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label11.Location = New Point(405, 238)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(55, 17)
+        Label11.TabIndex = 43
+        Label11.Text = "Unidad:"
         ' 
-        ' PrecioUnitarioProducto
+        ' Label10
         ' 
-        PrecioUnitarioProducto.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        PrecioUnitarioProducto.Location = New Point(517, 344)
-        PrecioUnitarioProducto.Name = "PrecioUnitarioProducto"
-        PrecioUnitarioProducto.Size = New Size(109, 29)
-        PrecioUnitarioProducto.TabIndex = 12
+        Label10.AutoSize = True
+        Label10.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label10.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label10.Location = New Point(250, 239)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(49, 17)
+        Label10.TabIndex = 42
+        Label10.Text = "Rubro:"
         ' 
-        ' TextBox18
+        ' Label9
         ' 
-        TextBox18.BackColor = SystemColors.Menu
-        TextBox18.BorderStyle = BorderStyle.None
-        TextBox18.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox18.Location = New Point(380, 347)
-        TextBox18.Name = "TextBox18"
-        TextBox18.Size = New Size(106, 22)
-        TextBox18.TabIndex = 13
-        TextBox18.Text = "Precio Unitario:"
+        Label9.AutoSize = True
+        Label9.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Label9.Font = New Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        Label9.Location = New Point(93, 239)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(49, 17)
+        Label9.TabIndex = 41
+        Label9.Text = "Rubro:"
         ' 
         ' btnAceptarABMP
         ' 
-        btnAceptarABMP.Location = New Point(424, 462)
+        btnAceptarABMP.BackColor = Color.Tan
+        btnAceptarABMP.FlatAppearance.BorderSize = 0
+        btnAceptarABMP.FlatStyle = FlatStyle.Flat
+        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAceptarABMP.Location = New Point(132, 544)
         btnAceptarABMP.Name = "btnAceptarABMP"
-        btnAceptarABMP.Size = New Size(75, 52)
-        btnAceptarABMP.TabIndex = 14
+        btnAceptarABMP.Size = New Size(176, 55)
+        btnAceptarABMP.TabIndex = 39
         btnAceptarABMP.Text = "Aceptar"
-        btnAceptarABMP.UseVisualStyleBackColor = True
+        btnAceptarABMP.UseVisualStyleBackColor = False
         ' 
-        ' Button2
+        ' btnVolverABMP
         ' 
-        Button2.Location = New Point(551, 462)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(75, 52)
-        Button2.TabIndex = 15
-        Button2.Text = "Volver"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' lblSeñalProducto
-        ' 
-        lblSeñalProducto.AutoSize = True
-        lblSeñalProducto.Location = New Point(906, 13)
-        lblSeñalProducto.Name = "lblSeñalProducto"
-        lblSeñalProducto.Size = New Size(41, 15)
-        lblSeñalProducto.TabIndex = 17
-        lblSeñalProducto.Text = "Label1"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(713, 16)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(25, 15)
-        Label8.TabIndex = 24
-        Label8.Text = "Iva:"
-        ' 
-        ' txtIvaProducto
-        ' 
-        txtIvaProducto.Location = New Point(757, 13)
-        txtIvaProducto.Name = "txtIvaProducto"
-        txtIvaProducto.Size = New Size(62, 23)
-        txtIvaProducto.TabIndex = 25
+        btnVolverABMP.BackColor = Color.Tan
+        btnVolverABMP.FlatAppearance.BorderSize = 0
+        btnVolverABMP.FlatStyle = FlatStyle.Flat
+        btnVolverABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnVolverABMP.Location = New Point(823, 544)
+        btnVolverABMP.Name = "btnVolverABMP"
+        btnVolverABMP.Size = New Size(176, 55)
+        btnVolverABMP.TabIndex = 40
+        btnVolverABMP.Text = "Volver"
+        btnVolverABMP.UseVisualStyleBackColor = False
         ' 
         ' ABM_Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        Controls.Add(lblSeñalProducto)
-        Controls.Add(Button2)
+        Controls.Add(btnVolverABMP)
         Controls.Add(btnAceptarABMP)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
+        Controls.Add(codProducto)
+        Controls.Add(descripProducto)
+        Controls.Add(Label3)
+        Controls.Add(Label7)
+        Controls.Add(especifiProducto)
+        Controls.Add(CB_Activo)
+        Controls.Add(Label5)
+        Controls.Add(StockProducto)
+        Controls.Add(lblSeñalProducto)
         Controls.Add(TextBox18)
         Controls.Add(PrecioUnitarioProducto)
-        Controls.Add(Panel1)
         Controls.Add(TituloAbmProducto)
+        Controls.Add(panelProducto)
         FormBorderStyle = FormBorderStyle.None
         Name = "ABM_Productos"
         Text = "ABM_Productos"
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
+        panelProducto.ResumeLayout(False)
+        panelProducto.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents descripProducto As TextBox
     Friend WithEvents especifiProducto As TextBox
-    Friend WithEvents id_producto As TextBox
-    Friend WithEvents codProducto As TextBox
-    Friend WithEvents UnidadProducto As TextBox
     Friend WithEvents TituloAbmProducto As TextBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents StockProducto As TextBox
-    Friend WithEvents CategoriaProducto As TextBox
-    Friend WithEvents RubroProducto As TextBox
     Friend WithEvents PrecioUnitarioProducto As TextBox
     Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents btnAceptarABMP As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents lblSeñalProducto As Label
     Friend WithEvents CB_Activo As CheckBox
-    Friend WithEvents ID As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtIvaProducto As TextBox
+    Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents StockProducto As TextBox
+    Friend WithEvents CategoriaProducto As TextBox
+    Friend WithEvents RubroProducto As TextBox
+    Friend WithEvents UnidadProducto As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtIvaProducto As TextBox
-    Friend WithEvents Label8 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents codProducto As TextBox
+    Friend WithEvents descripProducto As TextBox
+    Friend WithEvents ID As Label
+    Friend WithEvents id_producto As TextBox
+    Friend WithEvents panelProducto As Panel
+    Friend WithEvents btnAceptarABMP As Button
+    Friend WithEvents btnVolverABMP As Button
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class

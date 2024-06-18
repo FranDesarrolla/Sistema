@@ -1,15 +1,18 @@
 ﻿Imports System.Data.SqlClient
+
 Public Class Clientes
+
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaClientes()
     End Sub
+
     Private Sub btnBuscarCliente_Click(sender As Object, e As EventArgs) Handles btnBuscarCliente.Click
         Dim terminoBusquedaCliente As String = txtBusquedaCliente.Text.Trim()
         llenarGrillaClientes(terminoBusquedaCliente) ' Llamada al método con el término de búsqueda ingresado
     End Sub
 
     Public Sub llenarGrillaClientes(Optional ByVal terminoBusquedaCliente As String = "")
-        'Limpiar datos de la grilla
+        ' Limpiar datos de la grilla
         If setdedatos.Tables.Contains("dtCliente") Then
             setdedatos.Tables("dtCliente").Rows.Clear()
         End If
@@ -24,23 +27,22 @@ Public Class Clientes
 
         consultassql &= " ORDER BY Cuenta ASC"
 
+        ' Usa la conexión SQL proporcionada por ModuloPrincipal
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtCliente As New DataTable
         adaptadorSql.Fill(setdedatos, "dtCliente")
         GrillaClientes.DataSource = setdedatos.Tables("dtCliente")
         GrillaClientes.Font = New Font("Arial", 10)
 
-        'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
+        ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
         Dim columnasOcultas As Integer() = {0, 15}
         For Each col In columnasOcultas
             GrillaClientes.Columns(col).Visible = False
         Next
-
     End Sub
 
     Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
         ABM_Clientes.lblSeñalCliente.Text = "AGREGAR"
-
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
     End Sub
 
@@ -64,7 +66,6 @@ Public Class Clientes
         ABM_Clientes.txtCondicionivaClie.Text = GrillaClientes.CurrentRow.Cells(14).Value
         ABM_Clientes.dtFechaRegistroCliente.Text = GrillaClientes.CurrentRow.Cells(15).Value
         ABM_Clientes.txtEstadoCuenta.Text = GrillaClientes.CurrentRow.Cells(16).Value
-
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
     End Sub

@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Reflection
 
 Module ModuloSistema
     'para poder generar una cadena de conexión
