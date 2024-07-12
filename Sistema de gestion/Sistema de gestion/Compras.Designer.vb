@@ -22,82 +22,22 @@ Partial Class Compras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Label1 = New Label()
-        btnBuscarCompra = New Button()
-        txtCodigoCompraBusqueda = New TextBox()
-        EliminarCompra = New Button()
-        EditarCompra = New Button()
-        AgregarCompra = New Button()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         GrillaCompras = New DataGridView()
-        Button1 = New Button()
-        Button2 = New Button()
+        Panel2 = New Panel()
+        lblTitulo = New Label()
+        btnEditarCompra = New Button()
+        btnAgregarCompra = New Button()
+        btnAddCompra = New Button()
+        btnDeleteCompra = New Button()
+        Panel1 = New Panel()
+        btnDetalle = New Button()
+        btnBalance = New Button()
         CType(GrillaCompras, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(468, 9)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(75, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "COMPRASSS"
-        ' 
-        ' btnBuscarCompra
-        ' 
-        btnBuscarCompra.BackgroundImage = My.Resources.Resources.cuadrado
-        btnBuscarCompra.BackgroundImageLayout = ImageLayout.Stretch
-        btnBuscarCompra.FlatAppearance.BorderSize = 0
-        btnBuscarCompra.FlatStyle = FlatStyle.Flat
-        btnBuscarCompra.Location = New Point(561, 108)
-        btnBuscarCompra.Name = "btnBuscarCompra"
-        btnBuscarCompra.Size = New Size(21, 20)
-        btnBuscarCompra.TabIndex = 27
-        btnBuscarCompra.UseVisualStyleBackColor = True
-        btnBuscarCompra.Visible = False
-        ' 
-        ' txtCodigoCompraBusqueda
-        ' 
-        txtCodigoCompraBusqueda.BackColor = Color.White
-        txtCodigoCompraBusqueda.BorderStyle = BorderStyle.None
-        txtCodigoCompraBusqueda.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
-        txtCodigoCompraBusqueda.ForeColor = Color.Black
-        txtCodigoCompraBusqueda.Location = New Point(132, 108)
-        txtCodigoCompraBusqueda.Margin = New Padding(0)
-        txtCodigoCompraBusqueda.Name = "txtCodigoCompraBusqueda"
-        txtCodigoCompraBusqueda.Size = New Size(409, 20)
-        txtCodigoCompraBusqueda.TabIndex = 26
-        txtCodigoCompraBusqueda.TextAlign = HorizontalAlignment.Center
-        ' 
-        ' EliminarCompra
-        ' 
-        EliminarCompra.Location = New Point(461, 499)
-        EliminarCompra.Name = "EliminarCompra"
-        EliminarCompra.Size = New Size(121, 46)
-        EliminarCompra.TabIndex = 25
-        EliminarCompra.Text = "Eliminar"
-        EliminarCompra.UseVisualStyleBackColor = True
-        ' 
-        ' EditarCompra
-        ' 
-        EditarCompra.Location = New Point(305, 499)
-        EditarCompra.Name = "EditarCompra"
-        EditarCompra.Size = New Size(121, 46)
-        EditarCompra.TabIndex = 24
-        EditarCompra.Text = "Editar"
-        EditarCompra.UseVisualStyleBackColor = True
-        ' 
-        ' AgregarCompra
-        ' 
-        AgregarCompra.Location = New Point(151, 499)
-        AgregarCompra.Name = "AgregarCompra"
-        AgregarCompra.Size = New Size(121, 46)
-        AgregarCompra.TabIndex = 23
-        AgregarCompra.Text = "Agregar"
-        AgregarCompra.UseVisualStyleBackColor = True
         ' 
         ' GrillaCompras
         ' 
@@ -108,65 +48,152 @@ Partial Class Compras
         GrillaCompras.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaCompras.BorderStyle = BorderStyle.None
         GrillaCompras.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = Color.Tan
-        DataGridViewCellStyle7.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle7.ForeColor = Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle7.SelectionForeColor = Color.White
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        GrillaCompras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.Tan
+        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle1.SelectionForeColor = Color.White
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        GrillaCompras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         GrillaCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaCompras.Cursor = Cursors.Hand
         GrillaCompras.EditMode = DataGridViewEditMode.EditOnEnter
         GrillaCompras.EnableHeadersVisualStyles = False
         GrillaCompras.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        GrillaCompras.Location = New Point(122, 141)
+        GrillaCompras.Location = New Point(28, 71)
         GrillaCompras.MultiSelect = False
         GrillaCompras.Name = "GrillaCompras"
         GrillaCompras.ReadOnly = True
         GrillaCompras.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = Color.Beige
-        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle8.ForeColor = Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle8.SelectionForeColor = Color.White
-        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.True
-        GrillaCompras.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Beige
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        GrillaCompras.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         GrillaCompras.RowHeadersVisible = False
         GrillaCompras.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle9.BackColor = Color.Beige
-        DataGridViewCellStyle9.ForeColor = Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle9.SelectionForeColor = Color.White
-        GrillaCompras.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.BackColor = Color.Beige
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle3.SelectionForeColor = Color.White
+        GrillaCompras.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaCompras.RowTemplate.Height = 25
         GrillaCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaCompras.ShowCellErrors = False
         GrillaCompras.ShowCellToolTips = False
         GrillaCompras.ShowEditingIcon = False
         GrillaCompras.ShowRowErrors = False
-        GrillaCompras.Size = New Size(825, 341)
+        GrillaCompras.Size = New Size(780, 461)
         GrillaCompras.TabIndex = 22
         ' 
-        ' Button1
+        ' Panel2
         ' 
-        Button1.Location = New Point(691, 511)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(145, 23)
-        Button1.TabIndex = 28
-        Button1.Text = "Generar Detalle"
-        Button1.UseVisualStyleBackColor = True
+        Panel2.BackColor = Color.Tan
+        Panel2.Controls.Add(lblTitulo)
+        Panel2.Location = New Point(28, 11)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(1013, 47)
+        Panel2.TabIndex = 53
         ' 
-        ' Button2
+        ' lblTitulo
         ' 
-        Button2.Location = New Point(858, 511)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(166, 23)
-        Button2.TabIndex = 29
-        Button2.Text = "Generar balance "
-        Button2.UseVisualStyleBackColor = True
+        lblTitulo.AutoSize = True
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Location = New Point(452, 7)
+        lblTitulo.Name = "lblTitulo"
+        lblTitulo.Size = New Size(110, 32)
+        lblTitulo.TabIndex = 53
+        lblTitulo.Text = "Compras"
+        ' 
+        ' btnEditarCompra
+        ' 
+        btnEditarCompra.BackColor = Color.Tan
+        btnEditarCompra.FlatAppearance.BorderSize = 0
+        btnEditarCompra.FlatStyle = FlatStyle.Flat
+        btnEditarCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarCompra.Location = New Point(210, 538)
+        btnEditarCompra.Name = "btnEditarCompra"
+        btnEditarCompra.Size = New Size(176, 55)
+        btnEditarCompra.TabIndex = 57
+        btnEditarCompra.Text = "Editar"
+        btnEditarCompra.UseVisualStyleBackColor = False
+        ' 
+        ' btnAgregarCompra
+        ' 
+        btnAgregarCompra.BackColor = Color.Tan
+        btnAgregarCompra.FlatAppearance.BorderSize = 0
+        btnAgregarCompra.FlatStyle = FlatStyle.Flat
+        btnAgregarCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregarCompra.Location = New Point(28, 538)
+        btnAgregarCompra.Name = "btnAgregarCompra"
+        btnAgregarCompra.Size = New Size(176, 55)
+        btnAgregarCompra.TabIndex = 59
+        btnAgregarCompra.Text = "Agregar"
+        btnAgregarCompra.UseVisualStyleBackColor = False
+        ' 
+        ' btnAddCompra
+        ' 
+        btnAddCompra.BackColor = Color.Tan
+        btnAddCompra.FlatAppearance.BorderSize = 0
+        btnAddCompra.FlatStyle = FlatStyle.Flat
+        btnAddCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAddCompra.Location = New Point(28, 538)
+        btnAddCompra.Name = "btnAddCompra"
+        btnAddCompra.Size = New Size(176, 55)
+        btnAddCompra.TabIndex = 58
+        btnAddCompra.Text = "Agregar"
+        btnAddCompra.UseVisualStyleBackColor = False
+        ' 
+        ' btnDeleteCompra
+        ' 
+        btnDeleteCompra.BackColor = Color.Tan
+        btnDeleteCompra.FlatAppearance.BorderSize = 0
+        btnDeleteCompra.FlatStyle = FlatStyle.Flat
+        btnDeleteCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnDeleteCompra.Location = New Point(632, 538)
+        btnDeleteCompra.Name = "btnDeleteCompra"
+        btnDeleteCompra.Size = New Size(176, 55)
+        btnDeleteCompra.TabIndex = 59
+        btnDeleteCompra.Text = "Eliminar"
+        btnDeleteCompra.UseVisualStyleBackColor = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.Tan
+        Panel1.Location = New Point(814, 193)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(227, 400)
+        Panel1.TabIndex = 60
+        ' 
+        ' btnDetalle
+        ' 
+        btnDetalle.BackColor = Color.Tan
+        btnDetalle.FlatAppearance.BorderSize = 0
+        btnDetalle.FlatStyle = FlatStyle.Flat
+        btnDetalle.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnDetalle.Location = New Point(814, 132)
+        btnDetalle.Name = "btnDetalle"
+        btnDetalle.Size = New Size(227, 55)
+        btnDetalle.TabIndex = 61
+        btnDetalle.Text = "Generar detalle"
+        btnDetalle.UseVisualStyleBackColor = False
+        ' 
+        ' btnBalance
+        ' 
+        btnBalance.BackColor = Color.Tan
+        btnBalance.FlatAppearance.BorderSize = 0
+        btnBalance.FlatStyle = FlatStyle.Flat
+        btnBalance.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnBalance.Location = New Point(814, 71)
+        btnBalance.Name = "btnBalance"
+        btnBalance.Size = New Size(227, 55)
+        btnBalance.TabIndex = 62
+        btnBalance.Text = "Generar balance"
+        btnBalance.UseVisualStyleBackColor = False
         ' 
         ' Compras
         ' 
@@ -174,30 +201,35 @@ Partial Class Compras
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
-        Controls.Add(btnBuscarCompra)
-        Controls.Add(txtCodigoCompraBusqueda)
-        Controls.Add(EliminarCompra)
-        Controls.Add(EditarCompra)
-        Controls.Add(AgregarCompra)
+        Controls.Add(btnBalance)
+        Controls.Add(btnDetalle)
+        Controls.Add(btnDeleteCompra)
+        Controls.Add(btnAddCompra)
+        Controls.Add(btnEditarCompra)
+        Controls.Add(Panel2)
         Controls.Add(GrillaCompras)
-        Controls.Add(Label1)
+        Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Compras"
         Text = "Compras"
         CType(GrillaCompras, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
+        Panel2.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnBuscarCompra As Button
-    Friend WithEvents txtCodigoCompraBusqueda As TextBox
     Friend WithEvents EliminarCompra As Button
     Friend WithEvents EditarCompra As Button
-    Friend WithEvents AgregarCompra As Button
+    Friend WithEvents btnAgregar As Button
     Friend WithEvents GrillaCompras As DataGridView
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents lblTitulo As Label
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnEditarCompra As Button
+    Friend WithEvents btnAgregarCompra As Button
+    Friend WithEvents btnAddCompra As Button
+    Friend WithEvents btnDeleteCompra As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnDetalle As Button
+    Friend WithEvents btnBalance As Button
 End Class

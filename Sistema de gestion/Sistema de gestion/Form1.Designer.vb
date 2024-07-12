@@ -427,6 +427,7 @@ Partial Class ModuloPrincipal
         Controls.Add(PanelLateral)
         Controls.Add(PanelSuperior)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "ModuloPrincipal"
         StartPosition = FormStartPosition.CenterScreen
         Text = "344"

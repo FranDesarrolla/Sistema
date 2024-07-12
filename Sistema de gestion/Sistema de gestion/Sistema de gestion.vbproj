@@ -7,7 +7,12 @@
     <StartupObject>Sistema_de_gestion.ModuloPrincipal</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>nIcon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="nIcon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />

@@ -22,6 +22,7 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         btnIngresar = New Button()
         PBLogo = New PictureBox()
         PanelUsuario = New Panel()
@@ -150,6 +151,7 @@ Partial Class Login
         Controls.Add(btnCancelar)
         Controls.Add(PanelContraseña)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Login"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Login"
