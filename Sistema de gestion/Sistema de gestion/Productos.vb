@@ -2,13 +2,7 @@
 
 Public Class Productos
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        llenarGrillaProductos() ' Llamada al método sin término de búsqueda para mostrar todos los productos
-        'ModuloSistema.conexionSql.Open() ' Abre la conexión SQL
-    End Sub
-
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Dim terminoBusqueda As String = txtCodigoPbusqueda.Text.Trim()
-        llenarGrillaProductos(terminoBusqueda) ' Llamada al método con el término de búsqueda ingresado
+        llenarGrillaProductos()
     End Sub
 
     Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
@@ -17,11 +11,17 @@ Public Class Productos
             setdedatos.Tables("dtProducto").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDProducto,Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario,Iva FROM Productos"
+        Dim consultassql As String = "SELECT IDProducto, Codigo, Descripcion, Especificaciones, Unidad as 'U', Rubro, Categoria, Stock, PrecioUnitario as 'Unitario', Iva FROM Productos"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
-            consultassql &= " WHERE Descripcion LIKE '%" & terminoBusqueda & "%' OR Codigo LIKE '%" & terminoBusqueda & "%'"
+            ' Construir las condiciones de búsqueda para cada campo
+            Dim condicionesBusqueda As String = " WHERE Codigo LIKE '%" & terminoBusqueda & "%'" &
+                                         " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
+                                         " OR Especificaciones LIKE '%" & terminoBusqueda & "%'"
+
+            ' Añadir las condiciones a la consulta
+            consultassql &= condicionesBusqueda
         End If
 
         consultassql &= " ORDER BY Codigo ASC"
@@ -33,21 +33,17 @@ Public Class Productos
         GrillaProductos.Font = New Font("Arial", 10)
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-        Dim columnasOcultas As Integer() = {2}
+        Dim columnasOcultas As Integer() = {0, 2, 5, 6, 9}
         For Each col In columnasOcultas
             GrillaProductos.Columns(col).Visible = False
         Next
 
         'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
-        GrillaProductos.Columns(0).FillWeight = 8
         GrillaProductos.Columns(1).FillWeight = 15
-        GrillaProductos.Columns(2).FillWeight = 30
-        GrillaProductos.Columns(3).FillWeight = 5
-        GrillaProductos.Columns(4).FillWeight = 7
-        GrillaProductos.Columns(5).FillWeight = 7
-        GrillaProductos.Columns(6).FillWeight = 7
-        GrillaProductos.Columns(7).FillWeight = 7
-        GrillaProductos.Columns(8).FillWeight = 5
+        GrillaProductos.Columns(3).FillWeight = 50
+        GrillaProductos.Columns(4).FillWeight = 5
+        GrillaProductos.Columns(7).FillWeight = 15
+        GrillaProductos.Columns(8).FillWeight = 15
 
         'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
         For i As Integer = 0 To 8
@@ -55,11 +51,61 @@ Public Class Productos
         Next i
     End Sub
 
+    Private Sub GrillaProductos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrillaProductos.CellClick
+        ' Verificar si la celda seleccionada está en una fila válida
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            ' Obtener el código del producto de la celda seleccionada
+            Dim codigoProducto As String = GrillaProductos.Rows(e.RowIndex).Cells("Codigo").Value.ToString()
+
+            ' Llamar al método para llenar la grilla de stock con base en el código del producto
+            LlenarGrillaStock(codigoProducto)
+        End If
+    End Sub
+
+    Private Sub LlenarGrillaStock(codigoProducto As String)
+        ' Limpiar datos de la grilla de stock (supongamos que se llama GrillaStockDepositos)
+        If setdedatos.Tables.Contains("dtStock") Then
+            setdedatos.Tables("dtStock").Rows.Clear()
+        End If
+
+        ' Consulta SQL para obtener el stock de los depósitos
+        Dim consultaSQL As String = "SELECT d.NumeroDeposito, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
+                                "FROM StockDepositos sd " &
+                                "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
+                                "WHERE sd.CodigoProducto = @CodigoProducto"
+
+        Using comandoSql As New SqlCommand(consultaSQL, conexionSql)
+            comandoSql.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
+
+            Dim adaptadorSql As New SqlDataAdapter(comandoSql)
+            Dim dtStock As New DataTable
+            adaptadorSql.Fill(setdedatos, "dtStock")
+            GrillaStockDepositos.DataSource = setdedatos.Tables("dtStock")
+            GrillaStockDepositos.Font = New Font("Yu Gothic UI", 10)
+
+            ' Configurar columnas visibles
+            Dim columnasVisibles As Integer() = {0}
+            For Each col In columnasVisibles
+                GrillaStockDepositos.Columns(col).Visible = False
+            Next
+
+            ' Configurar ancho de las columnas
+            GrillaStockDepositos.Columns(1).FillWeight = 65 ' Nombre
+            GrillaStockDepositos.Columns(2).FillWeight = 35 ' CantidadStock
+
+            ' Configurar auto tamaño de columnas
+            For i As Integer = 0 To 2
+                GrillaStockDepositos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            Next i
+        End Using
+    End Sub
+
+
     Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
         llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
     End Sub
 
-    Private Sub btnEditar_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         ABM_Productos.lblSeñalProducto.Text = "EDITAR"
 
         ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
@@ -73,6 +119,28 @@ Public Class Productos
         ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value
         ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value
 
+        ' Cargar la imagen del producto desde la base de datos
+        Dim idProducto As Integer = Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value)
+        Dim consultaSQL As String = "SELECT Imagen FROM ProductosImagenes WHERE IDProducto = @IDProducto"
+
+        Using connection As New SqlConnection(conexionSql.ConnectionString),
+          command As New SqlCommand(consultaSQL, connection)
+            command.Parameters.AddWithValue("@IDProducto", idProducto)
+            connection.Open()
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    Dim imageData As Byte() = If(reader("Imagen") IsNot DBNull.Value, CType(reader("Imagen"), Byte()), Nothing)
+                    If imageData IsNot Nothing Then
+                        Using ms As New IO.MemoryStream(imageData)
+                            ABM_Productos.picProducto.Image = Image.FromStream(ms)
+                        End Using
+                    Else
+                        ABM_Productos.picProducto.Image = Nothing
+                    End If
+                End If
+            End Using
+        End Using
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
     End Sub
@@ -83,7 +151,63 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
     End Sub
 
-    Public Interface IFormConConexion
-        Property conexionSql As SqlConnection
-    End Interface
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        ' Verificar si hay una fila seleccionada para eliminar
+        If GrillaProductos.SelectedRows.Count > 0 Then
+            ' Obtener el ID del producto seleccionado (suponiendo que el ID está en la primera columna)
+            Dim idProducto = Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value)
+
+            ' Construir la consulta SQL para eliminar de ProductosImagenes
+            Dim consultaSqlImagen = "DELETE FROM ProductosImagenes WHERE IDProducto = @IDProducto"
+
+            ' Construir la consulta SQL para eliminar de Productos
+            Dim consultaSqlProducto = "DELETE FROM Productos WHERE IDProducto = @IDProducto"
+
+            ' Usar la conexión establecida en ModuloSistema
+            If conexionSql.State = ConnectionState.Closed Then
+                conexionSql.Open()
+            End If
+
+            Try
+                ' Iniciar una transacción para garantizar la atomicidad
+                Using transaccion = conexionSql.BeginTransaction
+                    Try
+                        ' Eliminar registros de ProductosImagenes
+                        Using comandoImagen As New SqlCommand(consultaSqlImagen, conexionSql, transaccion)
+                            comandoImagen.Parameters.AddWithValue("@IDProducto", idProducto)
+                            comandoImagen.ExecuteNonQuery()
+                        End Using
+
+                        ' Eliminar registro de Productos
+                        Using comandoProducto As New SqlCommand(consultaSqlProducto, conexionSql, transaccion)
+                            comandoProducto.Parameters.AddWithValue("@IDProducto", idProducto)
+                            Dim filasAfectadas = comandoProducto.ExecuteNonQuery
+
+                            ' Verificar si se eliminó correctamente
+                            If filasAfectadas > 0 Then
+                                transaccion.Commit() ' Confirmar la transacción si todo fue exitoso
+                                MessageBox.Show("Registro eliminado correctamente.")
+
+                                ' Volver a llenar la grilla después de eliminar
+                                llenarGrillaProductos()
+                            Else
+                                transaccion.Rollback() ' Revertir la transacción si no se eliminó ningún registro
+                                MessageBox.Show("No se pudo eliminar el registro.")
+                            End If
+                        End Using
+                    Catch ex As Exception
+                        transaccion.Rollback() ' Revertir la transacción en caso de error
+                        MessageBox.Show("Error al intentar eliminar el registro: " & ex.Message)
+                    End Try
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error al intentar conectar con la base de datos: " & ex.Message)
+            Finally
+                conexionSql.Close()
+            End Try
+        Else
+            MessageBox.Show("Seleccione una fila para eliminar.")
+        End If
+    End Sub
+
 End Class

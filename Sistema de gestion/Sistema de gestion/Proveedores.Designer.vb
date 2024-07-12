@@ -26,12 +26,15 @@ Partial Class Proveedores
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         GrillaProveedores = New DataGridView()
+        txtBusquedaProveedor = New TextBox()
+        Panel3 = New Panel()
+        lblTitulo = New Label()
+        lblBusqueda = New Label()
         btnEliminarProveedor = New Button()
         btnEditarProveedor = New Button()
-        btnAgregarProveedor = New Button()
-        btnBuscarProveedor = New Button()
-        txtBusquedaProveedor = New TextBox()
+        btnAgregar = New Button()
         CType(GrillaProveedores, ComponentModel.ISupportInitialize).BeginInit()
+        Panel3.SuspendLayout()
         SuspendLayout()
         ' 
         ' GrillaProveedores
@@ -45,7 +48,7 @@ Partial Class Proveedores
         GrillaProveedores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -56,7 +59,7 @@ Partial Class Proveedores
         GrillaProveedores.EditMode = DataGridViewEditMode.EditOnEnter
         GrillaProveedores.EnableHeadersVisualStyles = False
         GrillaProveedores.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        GrillaProveedores.Location = New Point(40, 102)
+        GrillaProveedores.Location = New Point(28, 96)
         GrillaProveedores.MultiSelect = False
         GrillaProveedores.Name = "GrillaProveedores"
         GrillaProveedores.ReadOnly = True
@@ -82,50 +85,85 @@ Partial Class Proveedores
         GrillaProveedores.ShowCellToolTips = False
         GrillaProveedores.ShowEditingIcon = False
         GrillaProveedores.ShowRowErrors = False
-        GrillaProveedores.Size = New Size(989, 407)
+        GrillaProveedores.Size = New Size(1013, 436)
         GrillaProveedores.TabIndex = 21
-        ' 
-        ' btnEliminarProveedor
-        ' 
-        btnEliminarProveedor.Location = New Point(322, 515)
-        btnEliminarProveedor.Name = "btnEliminarProveedor"
-        btnEliminarProveedor.Size = New Size(135, 37)
-        btnEliminarProveedor.TabIndex = 24
-        btnEliminarProveedor.Text = "Eliminar"
-        btnEliminarProveedor.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditarProveedor
-        ' 
-        btnEditarProveedor.Location = New Point(181, 515)
-        btnEditarProveedor.Name = "btnEditarProveedor"
-        btnEditarProveedor.Size = New Size(135, 37)
-        btnEditarProveedor.TabIndex = 23
-        btnEditarProveedor.Text = "Editar"
-        btnEditarProveedor.UseVisualStyleBackColor = True
-        ' 
-        ' btnAgregarProveedor
-        ' 
-        btnAgregarProveedor.Location = New Point(40, 515)
-        btnAgregarProveedor.Name = "btnAgregarProveedor"
-        btnAgregarProveedor.Size = New Size(135, 37)
-        btnAgregarProveedor.TabIndex = 22
-        btnAgregarProveedor.Text = "Agregar"
-        btnAgregarProveedor.UseVisualStyleBackColor = True
-        ' 
-        ' btnBuscarProveedor
-        ' 
-        btnBuscarProveedor.Location = New Point(434, 73)
-        btnBuscarProveedor.Name = "btnBuscarProveedor"
-        btnBuscarProveedor.Size = New Size(25, 23)
-        btnBuscarProveedor.TabIndex = 26
-        btnBuscarProveedor.UseVisualStyleBackColor = True
         ' 
         ' txtBusquedaProveedor
         ' 
-        txtBusquedaProveedor.Location = New Point(40, 73)
+        txtBusquedaProveedor.BorderStyle = BorderStyle.None
+        txtBusquedaProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txtBusquedaProveedor.Location = New Point(88, 66)
         txtBusquedaProveedor.Name = "txtBusquedaProveedor"
-        txtBusquedaProveedor.Size = New Size(388, 23)
+        txtBusquedaProveedor.Size = New Size(953, 22)
         txtBusquedaProveedor.TabIndex = 25
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.Tan
+        Panel3.Controls.Add(lblTitulo)
+        Panel3.Location = New Point(28, 11)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(1013, 47)
+        Panel3.TabIndex = 55
+        ' 
+        ' lblTitulo
+        ' 
+        lblTitulo.AutoSize = True
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Location = New Point(433, 7)
+        lblTitulo.Name = "lblTitulo"
+        lblTitulo.Size = New Size(149, 32)
+        lblTitulo.TabIndex = 53
+        lblTitulo.Text = "Proveedores"
+        ' 
+        ' lblBusqueda
+        ' 
+        lblBusqueda.AutoSize = True
+        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lblBusqueda.Location = New Point(24, 66)
+        lblBusqueda.Name = "lblBusqueda"
+        lblBusqueda.Size = New Size(62, 21)
+        lblBusqueda.TabIndex = 56
+        lblBusqueda.Text = "Buscar:"
+        ' 
+        ' btnEliminarProveedor
+        ' 
+        btnEliminarProveedor.BackColor = Color.Tan
+        btnEliminarProveedor.FlatAppearance.BorderSize = 0
+        btnEliminarProveedor.FlatStyle = FlatStyle.Flat
+        btnEliminarProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminarProveedor.Location = New Point(865, 538)
+        btnEliminarProveedor.Name = "btnEliminarProveedor"
+        btnEliminarProveedor.Size = New Size(176, 55)
+        btnEliminarProveedor.TabIndex = 61
+        btnEliminarProveedor.Text = "Eliminar"
+        btnEliminarProveedor.UseVisualStyleBackColor = False
+        ' 
+        ' btnEditarProveedor
+        ' 
+        btnEditarProveedor.BackColor = Color.Tan
+        btnEditarProveedor.FlatAppearance.BorderSize = 0
+        btnEditarProveedor.FlatStyle = FlatStyle.Flat
+        btnEditarProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarProveedor.Location = New Point(210, 538)
+        btnEditarProveedor.Name = "btnEditarProveedor"
+        btnEditarProveedor.Size = New Size(176, 55)
+        btnEditarProveedor.TabIndex = 60
+        btnEditarProveedor.Text = "Editar"
+        btnEditarProveedor.UseVisualStyleBackColor = False
+        ' 
+        ' btnAgregar
+        ' 
+        btnAgregar.BackColor = Color.Tan
+        btnAgregar.FlatAppearance.BorderSize = 0
+        btnAgregar.FlatStyle = FlatStyle.Flat
+        btnAgregar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregar.Location = New Point(28, 538)
+        btnAgregar.Name = "btnAgregar"
+        btnAgregar.Size = New Size(176, 55)
+        btnAgregar.TabIndex = 62
+        btnAgregar.Text = "Agregar"
+        btnAgregar.UseVisualStyleBackColor = False
         ' 
         ' Proveedores
         ' 
@@ -133,16 +171,19 @@ Partial Class Proveedores
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        Controls.Add(btnBuscarProveedor)
-        Controls.Add(txtBusquedaProveedor)
+        Controls.Add(btnAgregar)
         Controls.Add(btnEliminarProveedor)
         Controls.Add(btnEditarProveedor)
-        Controls.Add(btnAgregarProveedor)
+        Controls.Add(lblBusqueda)
+        Controls.Add(Panel3)
+        Controls.Add(txtBusquedaProveedor)
         Controls.Add(GrillaProveedores)
         FormBorderStyle = FormBorderStyle.None
         Name = "Proveedores"
         Text = "Proveedores"
         CType(GrillaProveedores, ComponentModel.ISupportInitialize).EndInit()
+        Panel3.ResumeLayout(False)
+        Panel3.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -151,6 +192,12 @@ Partial Class Proveedores
     Friend WithEvents btnEliminarProveedor As Button
     Friend WithEvents btnEditarProveedor As Button
     Friend WithEvents btnAgregarProveedor As Button
-    Friend WithEvents btnBuscarProveedor As Button
     Friend WithEvents txtBusquedaProveedor As TextBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents lblTitulo As Label
+    Friend WithEvents lblBusqueda As Label
+    Friend WithEvents btnEliminarCliente As Button
+    Friend WithEvents btnEditarCliente As Button
+    Friend WithEvents btnAgregar As Button
+    'Friend WithEvents btnAgregarProveedor As Button
 End Class

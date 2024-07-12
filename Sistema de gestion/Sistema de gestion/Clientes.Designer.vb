@@ -25,67 +25,26 @@ Partial Class Clientes
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Label1 = New Label()
+        txtBusquedaCliente = New TextBox()
+        GrillaClientes = New DataGridView()
+        Panel3 = New Panel()
+        lblTitulo = New Label()
+        lblBusqueda = New Label()
         btnAgregarCliente = New Button()
         btnEditarCliente = New Button()
         btnEliminarCliente = New Button()
-        txtBusquedaCliente = New TextBox()
-        btnBuscarCliente = New Button()
-        GrillaClientes = New DataGridView()
         CType(GrillaClientes, ComponentModel.ISupportInitialize).BeginInit()
+        Panel3.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(496, 21)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(111, 37)
-        Label1.TabIndex = 0
-        Label1.Text = "Clientes"
-        ' 
-        ' btnAgregarCliente
-        ' 
-        btnAgregarCliente.Location = New Point(41, 527)
-        btnAgregarCliente.Name = "btnAgregarCliente"
-        btnAgregarCliente.Size = New Size(135, 37)
-        btnAgregarCliente.TabIndex = 6
-        btnAgregarCliente.Text = "Agregar"
-        btnAgregarCliente.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditarCliente
-        ' 
-        btnEditarCliente.Location = New Point(182, 527)
-        btnEditarCliente.Name = "btnEditarCliente"
-        btnEditarCliente.Size = New Size(135, 37)
-        btnEditarCliente.TabIndex = 7
-        btnEditarCliente.Text = "Editar"
-        btnEditarCliente.UseVisualStyleBackColor = True
-        ' 
-        ' btnEliminarCliente
-        ' 
-        btnEliminarCliente.Location = New Point(323, 527)
-        btnEliminarCliente.Name = "btnEliminarCliente"
-        btnEliminarCliente.Size = New Size(135, 37)
-        btnEliminarCliente.TabIndex = 8
-        btnEliminarCliente.Text = "Eliminar"
-        btnEliminarCliente.UseVisualStyleBackColor = True
         ' 
         ' txtBusquedaCliente
         ' 
-        txtBusquedaCliente.Location = New Point(41, 85)
+        txtBusquedaCliente.BorderStyle = BorderStyle.None
+        txtBusquedaCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txtBusquedaCliente.Location = New Point(88, 66)
         txtBusquedaCliente.Name = "txtBusquedaCliente"
-        txtBusquedaCliente.Size = New Size(388, 23)
+        txtBusquedaCliente.Size = New Size(953, 22)
         txtBusquedaCliente.TabIndex = 18
-        ' 
-        ' btnBuscarCliente
-        ' 
-        btnBuscarCliente.Location = New Point(435, 85)
-        btnBuscarCliente.Name = "btnBuscarCliente"
-        btnBuscarCliente.Size = New Size(25, 23)
-        btnBuscarCliente.TabIndex = 19
-        btnBuscarCliente.UseVisualStyleBackColor = True
         ' 
         ' GrillaClientes
         ' 
@@ -98,7 +57,7 @@ Partial Class Clientes
         GrillaClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -109,7 +68,7 @@ Partial Class Clientes
         GrillaClientes.EditMode = DataGridViewEditMode.EditOnEnter
         GrillaClientes.EnableHeadersVisualStyles = False
         GrillaClientes.GridColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
-        GrillaClientes.Location = New Point(41, 114)
+        GrillaClientes.Location = New Point(28, 96)
         GrillaClientes.MultiSelect = False
         GrillaClientes.Name = "GrillaClientes"
         GrillaClientes.ReadOnly = True
@@ -135,8 +94,76 @@ Partial Class Clientes
         GrillaClientes.ShowCellToolTips = False
         GrillaClientes.ShowEditingIcon = False
         GrillaClientes.ShowRowErrors = False
-        GrillaClientes.Size = New Size(989, 407)
+        GrillaClientes.Size = New Size(1013, 436)
         GrillaClientes.TabIndex = 20
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.Tan
+        Panel3.Controls.Add(lblTitulo)
+        Panel3.Location = New Point(28, 11)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(1013, 47)
+        Panel3.TabIndex = 54
+        ' 
+        ' lblTitulo
+        ' 
+        lblTitulo.AutoSize = True
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Location = New Point(455, 7)
+        lblTitulo.Name = "lblTitulo"
+        lblTitulo.Size = New Size(100, 32)
+        lblTitulo.TabIndex = 53
+        lblTitulo.Text = "Clientes"
+        ' 
+        ' lblBusqueda
+        ' 
+        lblBusqueda.AutoSize = True
+        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lblBusqueda.Location = New Point(24, 66)
+        lblBusqueda.Name = "lblBusqueda"
+        lblBusqueda.Size = New Size(62, 21)
+        lblBusqueda.TabIndex = 55
+        lblBusqueda.Text = "Buscar:"
+        ' 
+        ' btnAgregarCliente
+        ' 
+        btnAgregarCliente.BackColor = Color.Tan
+        btnAgregarCliente.FlatAppearance.BorderSize = 0
+        btnAgregarCliente.FlatStyle = FlatStyle.Flat
+        btnAgregarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregarCliente.Location = New Point(28, 538)
+        btnAgregarCliente.Name = "btnAgregarCliente"
+        btnAgregarCliente.Size = New Size(176, 55)
+        btnAgregarCliente.TabIndex = 56
+        btnAgregarCliente.Text = "Agregar"
+        btnAgregarCliente.UseVisualStyleBackColor = False
+        ' 
+        ' btnEditarCliente
+        ' 
+        btnEditarCliente.BackColor = Color.Tan
+        btnEditarCliente.FlatAppearance.BorderSize = 0
+        btnEditarCliente.FlatStyle = FlatStyle.Flat
+        btnEditarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarCliente.Location = New Point(210, 538)
+        btnEditarCliente.Name = "btnEditarCliente"
+        btnEditarCliente.Size = New Size(176, 55)
+        btnEditarCliente.TabIndex = 57
+        btnEditarCliente.Text = "Editar"
+        btnEditarCliente.UseVisualStyleBackColor = False
+        ' 
+        ' btnEliminarCliente
+        ' 
+        btnEliminarCliente.BackColor = Color.Tan
+        btnEliminarCliente.FlatAppearance.BorderSize = 0
+        btnEliminarCliente.FlatStyle = FlatStyle.Flat
+        btnEliminarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminarCliente.Location = New Point(865, 538)
+        btnEliminarCliente.Name = "btnEliminarCliente"
+        btnEliminarCliente.Size = New Size(176, 55)
+        btnEliminarCliente.TabIndex = 58
+        btnEliminarCliente.Text = "Eliminar"
+        btnEliminarCliente.UseVisualStyleBackColor = False
         ' 
         ' Clientes
         ' 
@@ -144,26 +171,28 @@ Partial Class Clientes
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        Controls.Add(GrillaClientes)
-        Controls.Add(btnBuscarCliente)
-        Controls.Add(txtBusquedaCliente)
         Controls.Add(btnEliminarCliente)
         Controls.Add(btnEditarCliente)
         Controls.Add(btnAgregarCliente)
-        Controls.Add(Label1)
+        Controls.Add(lblBusqueda)
+        Controls.Add(Panel3)
+        Controls.Add(GrillaClientes)
+        Controls.Add(txtBusquedaCliente)
         FormBorderStyle = FormBorderStyle.None
         Name = "Clientes"
         Text = "Clientes"
         CType(GrillaClientes, ComponentModel.ISupportInitialize).EndInit()
+        Panel3.ResumeLayout(False)
+        Panel3.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
+    Friend WithEvents txtBusquedaCliente As TextBox
+    Friend WithEvents GrillaClientes As DataGridView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents lblTitulo As Label
+    Friend WithEvents lblBusqueda As Label
     Friend WithEvents btnAgregarCliente As Button
     Friend WithEvents btnEditarCliente As Button
     Friend WithEvents btnEliminarCliente As Button
-    Friend WithEvents txtBusquedaCliente As TextBox
-    Friend WithEvents btnBuscarCliente As Button
-    Friend WithEvents GrillaClientes As DataGridView
 End Class

@@ -47,79 +47,6 @@ Public Class ABM_Ventas
         End If
     End Sub
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Try
-            ' Asegurarse de que la conexión SQL está inicializada
-            If ModuloSistema.conexionSql Is Nothing Then
-                Throw New InvalidOperationException("La conexión SQL no está inicializada.")
-            End If
-
-            ' Asegurarse de abrir la conexión
-            If ModuloSistema.conexionSql.State <> ConnectionState.Open Then
-                ModuloSistema.conexionSql.Open()
-            End If
-
-            ' Obtener el código de producto ingresado en el TextBox
-            Dim codProd As String = txtCodprod.Text
-
-            ' Limpiar los parámetros anteriores para evitar conflictos
-            If ModuloSistema.consultasSql Is Nothing Then
-                ModuloSistema.consultasSql = New SqlCommand()
-            End If
-            ModuloSistema.consultasSql.Parameters.Clear()
-
-            ' Configurar el comando SQL
-            ModuloSistema.consultasSql.Connection = ModuloSistema.conexionSql
-            ModuloSistema.consultasSql.CommandType = CommandType.Text
-            ModuloSistema.consultasSql.CommandText = "SELECT * FROM Productos WHERE Codigo = @codigo"
-            ModuloSistema.consultasSql.Parameters.AddWithValue("@codigo", codProd)
-
-            ' Ejecutar la consulta y obtener los resultados
-            Using reader As SqlDataReader = ModuloSistema.consultasSql.ExecuteReader()
-                ' Verificar si se encontraron resultados
-                If reader.HasRows Then
-                    ' Leer los datos del producto
-                    While reader.Read()
-                        Try
-                            ' Verificar y asignar los valores a los controles correspondientes
-                            If Not IsDBNull(reader("Descripcion")) Then
-                                txtDescripcion.Text = reader("Descripcion").ToString()
-                            Else
-                                txtDescripcion.Text = String.Empty
-                            End If
-
-                            If Not IsDBNull(reader("Iva")) Then
-                                txtIVAP.Text = reader("Iva").ToString()
-                            Else
-                                txtIVAP.Text = String.Empty
-                            End If
-
-                            If Not IsDBNull(reader("PrecioUnitario")) Then
-                                txtUnitario.Text = reader("PrecioUnitario").ToString()
-                            Else
-                                txtUnitario.Text = String.Empty
-                            End If
-
-                        Catch ex As Exception
-                            MessageBox.Show("Error al leer los datos del producto: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End Try
-                    End While
-                Else
-                    ' Mostrar mensaje si no se encuentra el producto
-                    MessageBox.Show("Producto no encontrado")
-                End If
-            End Using
-        Catch ex As Exception
-            ' Manejo de errores
-            MessageBox.Show("Error al buscar el producto: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            ' Asegurarse de cerrar la conexión
-            If ModuloSistema.conexionSql IsNot Nothing AndAlso ModuloSistema.conexionSql.State = ConnectionState.Open Then
-                ModuloSistema.conexionSql.Close()
-            End If
-        End Try
-    End Sub
-
     Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
 
         ' Reemplazar puntos por comas
@@ -521,74 +448,17 @@ Public Class ABM_Ventas
         LimpiaMovVentas()
     End Sub
 
-    'Campos validados
+    ' Validaciones
 
-    Private Sub txtCodprod_TextChanged(sender As Object, e As EventArgs) Handles txtCodprod.TextChanged
-        ValidarCampoProducto(txtCodprod)
-    End Sub
-
-    Private Sub txtUnitario_TextChanged(sender As Object, e As EventArgs) Handles txtUnitario.TextChanged
-        ValidarCampoUnitario(txtUnitario)
-    End Sub
-
-    'Mensajes correspondientes segun validaciones
-
-    Private Sub ValidarCampoProducto(textBox As TextBox)
-        Dim input As String = textBox.Text
-        If Not ValidarLongitudYContenido(input) Then
-            MessageBox.Show("El campo debe tener hasta 15 caracteres")
-            textBox.Text = ""
-        ElseIf Not ValidarCaracteresEspeciales(input) Then
-            MessageBox.Show("Error. El campo no debe contener caracteres especiales")
-            textBox.Text = ""
-        End If
-    End Sub
-
-    Private Sub ValidarCampoUnitario(textBox As TextBox)
-        Dim input As String = textBox.Text
-
-        If Not ValidarLetras(input) Then
-            MessageBox.Show("El campo solo permite números, ya sea decimales o enteros")
-            textBox.Text = ""
-        ElseIf Not ValidarCaracteresEspeciales(input) Then
-            MessageBox.Show("Error. El campo no debe contener caracteres especiales")
-            textBox.Text = ""
-        ElseIf Not ValidarMontoMaximo(input) Then
-            MessageBox.Show("El monto es superior al permitido menores a 999.999.999,99")
-            textBox.Text = ""
-        End If
-    End Sub
-
-
-    'Validar longitudes
-
-    Private Function ValidarLongitudYContenido(input As String) As Boolean
-        Return input.Trim().Length > 0 AndAlso input.Length <= 15
-    End Function
-
-    'Validar caracteres especiales
-
-    Private Function ValidarCaracteresEspeciales(input As String) As Boolean
-        Dim regex As New Regex("^[^#%$/Ñ]*$")
-        Return regex.IsMatch(input)
-    End Function
-
-    'Validar que no contenga letras ni numeros negativos, excepto numeros, comas y puntos
-
-    Private Function ValidarLetras(input As String) As Boolean
-        Dim regex As New Regex("^\d*([.,]?\d+)?$")
-        Return regex.IsMatch(input)
-    End Function
-
-    'Validar que el monto no supere los 999.999.999,99
-
-    Private Function ValidarMontoMaximo(input As String) As Boolean
-        Dim monto As Decimal
-        If Decimal.TryParse(input, monto) Then
-            Return monto <= 999999999.99
+    Private Sub txtCodprod_Leave(sender As Object, e As EventArgs) Handles txtCodprod.Leave
+        If txtCodprod IsNot Nothing Then
+            If txtCodprod.Text.Contains("%") Or txtCodprod.Text.Contains("#") Or txtCodprod.Text.Contains("$") Or txtCodprod.Text.Contains("""") Or txtCodprod.Text.Contains("'") Or txtCodprod.Text.Contains("/") Then
+                MessageBox.Show("El campo no puede contener los caracteres especiales", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                txtCodprod.Focus()
+            End If
         Else
-            Return False
+            MessageBox.Show("TxtCodprod no esta inicializado", "Error de inicialización", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-    End Function
+    End Sub
 
 End Class

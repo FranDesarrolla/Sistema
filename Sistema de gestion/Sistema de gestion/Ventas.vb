@@ -4,6 +4,7 @@ Public Class Ventas
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaVentas()
     End Sub
+
     Public Sub llenarGrillaVentas()
         'LIMPIAR DATOS DE LA GRILLA
         If setdedatos.Tables.Contains("dtventa") Then
@@ -20,7 +21,7 @@ Public Class Ventas
         Dim dtventa As New DataTable
         adaptadorSql.Fill(setdedatos, "dtventa")
         GrillaVentas.DataSource = setdedatos.Tables("dtventa")
-        GrillaVentas.Font = New Font("Yu Gothic UI", 12)
+        GrillaVentas.Font = New Font("Yu Gothic UI", 10)
 
         'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
 
@@ -159,11 +160,4 @@ Public Class Ventas
             MessageBox.Show("Seleccione una fila para eliminar.")
         End If
     End Sub
-
-
-
-    Public Interface IFormConConexion
-        Property conexionSql As SqlConnection
-    End Interface
-
 End Class

@@ -6,9 +6,8 @@ Public Class Clientes
         llenarGrillaClientes()
     End Sub
 
-    Private Sub btnBuscarCliente_Click(sender As Object, e As EventArgs) Handles btnBuscarCliente.Click
-        Dim terminoBusquedaCliente As String = txtBusquedaCliente.Text.Trim()
-        llenarGrillaClientes(terminoBusquedaCliente) ' Llamada al método con el término de búsqueda ingresado
+    Private Sub txtBusquedaCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBusquedaCliente.TextChanged
+        llenarGrillaClientes(txtBusquedaCliente.Text.Trim())
     End Sub
 
     Public Sub llenarGrillaClientes(Optional ByVal terminoBusquedaCliente As String = "")
@@ -17,12 +16,23 @@ Public Class Clientes
             setdedatos.Tables("dtCliente").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDCliente, Cuenta, Nombre, Apellido, DNI, CUIT, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, CondicionIVA, FechaDeRegistro, EstadoDeCuenta 
-                                      FROM Clientes"
+        Dim consultassql As String = "SELECT C.IDCliente, C.Cuenta, C.Nombre, C.Apellido, C.DNI, C.CUIT, C.Nacionalidad, P.Provincia, L.Localidad, C.CodigoPostal, C.Direccion, C.FechaDeNacimiento, C.Telefono, C.Email, C.CondicionIVA, C.FechaDeRegistro, C.EstadoDeCuenta 
+                                      FROM Clientes C
+                                      INNER JOIN Provincias P ON C.Provincia = P.IDProvincia
+                                      INNER JOIN Localidades L ON C.Localidad = L.IDLocalidad"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusquedaCliente) Then
-            consultassql &= " WHERE Cuenta LIKE '%" & terminoBusquedaCliente & "%' OR Nombre LIKE '%" & terminoBusquedaCliente & "%'"
+            ' Construir las condiciones de búsqueda para cada campo
+            Dim condicionesBusqueda As String = " WHERE Cuenta LIKE '%" & terminoBusquedaCliente & "%'" &
+                                         " OR Nombre LIKE '%" & terminoBusquedaCliente & "%'" &
+                                         " OR Apellido LIKE '%" & terminoBusquedaCliente & "%'" &
+                                         " OR DNI LIKE '%" & terminoBusquedaCliente & "%'" &
+                                         " OR CUIT LIKE '%" & terminoBusquedaCliente & "%'" &
+                                         " Or P.Provincia Like '%" & terminoBusquedaCliente & "%'" &
+                                         " OR L.Localidad LIKE '%" & terminoBusquedaCliente & "%'"
+            ' Añadir las condiciones a la consulta
+            consultassql &= condicionesBusqueda
         End If
 
         consultassql &= " ORDER BY Cuenta ASC"
@@ -32,13 +42,30 @@ Public Class Clientes
         Dim dtCliente As New DataTable
         adaptadorSql.Fill(setdedatos, "dtCliente")
         GrillaClientes.DataSource = setdedatos.Tables("dtCliente")
-        GrillaClientes.Font = New Font("Arial", 10)
+        GrillaClientes.Font = New Font("Yu Gothic UI", 10)
 
         ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-        Dim columnasOcultas As Integer() = {0, 15}
+        Dim columnasOcultas As Integer() = {0, 6, 9, 11, 13, 14, 15, 16}
         For Each col In columnasOcultas
             GrillaClientes.Columns(col).Visible = False
         Next
+
+        'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
+        GrillaClientes.Columns(1).FillWeight = 7
+        GrillaClientes.Columns(2).FillWeight = 10
+        GrillaClientes.Columns(3).FillWeight = 10
+        GrillaClientes.Columns(4).FillWeight = 8
+        GrillaClientes.Columns(5).FillWeight = 11.5
+        GrillaClientes.Columns(7).FillWeight = 10.5
+        GrillaClientes.Columns(8).FillWeight = 15
+        GrillaClientes.Columns(10).FillWeight = 15
+        GrillaClientes.Columns(12).FillWeight = 15
+
+        'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
+        For i As Integer = 0 To 16
+            GrillaClientes.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next i
+
     End Sub
 
     Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
@@ -69,5 +96,4 @@ Public Class Clientes
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
     End Sub
-
 End Class

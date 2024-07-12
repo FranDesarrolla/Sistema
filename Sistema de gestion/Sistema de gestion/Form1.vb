@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
-Imports System.Runtime.InteropServices
 
 Public Class ModuloPrincipal
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -23,7 +22,7 @@ Public Class ModuloPrincipal
 
     Private Sub InicializarComponentes()
         RutaDelLogoDelSistema()
-        notificacion()
+        Notificacion()
         LlenarComboBoxPV()
         InicializarModo()
     End Sub
@@ -57,57 +56,86 @@ Public Class ModuloPrincipal
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Public Sub AbrirFormEnPanel(ByVal formHijo As Form)
-        If Me.PanelContenedor.Controls.Count > 0 Then
-            Me.PanelContenedor.Controls.RemoveAt(0)
-        End If
+    ' Definir los colores
+    Private ReadOnly ColorOriginal As Color = Color.FromArgb(227, 238, 212)
+    Private ReadOnly ColorSeleccionado As Color = Color.FromArgb(218, 232, 197)
 
+    ' Método para cambiar el color del botón seleccionado
+    Private Sub CambiarColorBotonSeleccionado(botonSeleccionado As Button)
+        ' Primero, restablece el color de todos los botones al color original
+
+        btnProductos.BackColor = ColorOriginal
+        btnClientes.BackColor = ColorOriginal
+        btnVentas.BackColor = ColorOriginal
+        btnPedidos.BackColor = ColorOriginal
+        btnCompras.BackColor = ColorOriginal
+        btnProveedores.BackColor = ColorOriginal
+        btnPagos.BackColor = ColorOriginal
+        btnReportes.BackColor = ColorOriginal
+
+        ' Luego, cambia el color del botón seleccionado
+        botonSeleccionado.BackColor = ColorSeleccionado
+    End Sub
+
+    Public Sub AbrirFormEnPanel(ByVal formHijo As Form)
+        ' Limpiar controles previos en el panel
+        Me.PanelContenedor.Controls.Clear()
+
+        ' Configurar el nuevo formulario
         formHijo.TopLevel = False
         formHijo.FormBorderStyle = FormBorderStyle.None
         formHijo.Dock = DockStyle.Fill
+
+        ' Agregar el formulario al panel y mostrarlo
         Me.PanelContenedor.Controls.Add(formHijo)
         Me.PanelContenedor.Tag = formHijo
-
         formHijo.Show()
     End Sub
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
         Me.AbrirFormEnPanel(Productos)
+        CambiarColorBotonSeleccionado(btnProductos)
     End Sub
-
 
     Private Sub btnClientes_Click(sender As Object, e As EventArgs) Handles btnClientes.Click
         AbrirFormEnPanel(Clientes)
+        CambiarColorBotonSeleccionado(btnClientes)
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
+        CambiarColorBotonSeleccionado(btnVentas)
         AbrirFormEnPanel(Ventas)
     End Sub
 
     Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
-        AbrirFormEnPanel(Pedidos)
+        'gAbrirFormEnPanel(Pedidos)
+        'CambiarColorBotonSeleccionado(btnPedidos)
     End Sub
 
     Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
+        CambiarColorBotonSeleccionado(btnCompras)
         AbrirFormEnPanel(Compras)
     End Sub
 
     Private Sub btnPagos_Click(sender As Object, e As EventArgs) Handles btnPagos.Click
+        CambiarColorBotonSeleccionado(btnPagos)
         AbrirFormEnPanel(Pagos)
     End Sub
 
     Private Sub btnProveedores_Click(sender As Object, e As EventArgs) Handles btnProveedores.Click
+        CambiarColorBotonSeleccionado(btnProveedores)
         AbrirFormEnPanel(Proveedores)
     End Sub
 
     Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+        CambiarColorBotonSeleccionado(btnReportes)
         AbrirFormEnPanel(Reportes)
     End Sub
 
     Private WithEvents timer As New Timer()
     Private limiteFinal As Integer = 1200 ' Ajusta este valor según tu límite final
 
-    Private Sub notificacion()
+    Private Sub Notificacion()
         timer.Interval = 10 ' Intervalo en milisegundos
         timer.Start()
     End Sub
@@ -150,4 +178,25 @@ Public Class ModuloPrincipal
         ' Implementa el cambio a modo oscuro
     End Sub
 
+    Private Sub btnSesion_Click(sender As Object, e As EventArgs) Handles btnSesion.Click
+        ModuloSistema.CargarCadenaConexion()
+
+        Dim loginForm As New Login()
+        Me.Hide()
+        loginForm.ShowDialog()
+
+        If loginForm.DialogResult = DialogResult.OK Then
+            Me.Show()
+        Else
+            Application.Exit()
+            Return
+        End If
+
+        InicializarComponentes()
+        lblUsuario.Text = loginForm.txtUsuario.Text
+    End Sub
+
+    Private Sub btnUser_Click(sender As Object, e As EventArgs) Handles btnUser.Click
+        AbrirFormEnPanel(Usuarios)
+    End Sub
 End Class
