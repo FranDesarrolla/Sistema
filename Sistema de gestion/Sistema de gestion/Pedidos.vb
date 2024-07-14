@@ -65,11 +65,11 @@ Public Class Pedidos
 
         ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
         GrillaPedidos.Columns(0).FillWeight = 10
-        GrillaPedidos.Columns(1).FillWeight = 20
-        GrillaPedidos.Columns(2).FillWeight = 20
-        GrillaPedidos.Columns(3).FillWeight = 20
-        GrillaPedidos.Columns(6).FillWeight = 10
-        GrillaPedidos.Columns(7).FillWeight = 20
+        GrillaPedidos.Columns(1).FillWeight = 15
+        GrillaPedidos.Columns(2).FillWeight = 25
+        GrillaPedidos.Columns(3).FillWeight = 25
+        GrillaPedidos.Columns(6).FillWeight = 15
+        GrillaPedidos.Columns(7).FillWeight = 10
 
         ' COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
         For i As Integer = 0 To GrillaPedidos.Columns.Count - 1
@@ -181,12 +181,13 @@ Public Class Pedidos
                 btnAceptar.Enabled = False
                 btnFacturar.Enabled = False
                 btnTerminar.Enabled = False
+                btnFaltapagar.Enabled = False
+                btnAnular.Enabled = False
             Case 6 ' FALTA DE PAGO
                 btnPendiente.Enabled = False
                 btnPreparar.Enabled = False
                 btnAceptar.Enabled = False
                 btnFacturar.Enabled = False
-                btnTerminar.Enabled = False
                 btnFaltapagar.Enabled = False
             Case 7 ' ANULADO
                 btnPendiente.Enabled = False
