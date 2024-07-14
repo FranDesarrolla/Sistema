@@ -25,6 +25,7 @@ Partial Class Clientes
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         txtBusquedaCliente = New TextBox()
         GrillaClientes = New DataGridView()
         Panel3 = New Panel()
@@ -33,6 +34,7 @@ Partial Class Clientes
         btnAgregarCliente = New Button()
         btnEditarCliente = New Button()
         btnEliminarCliente = New Button()
+        lblEdit = New Label()
         CType(GrillaClientes, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         SuspendLayout()
@@ -130,8 +132,11 @@ Partial Class Clientes
         btnAgregarCliente.FlatAppearance.BorderSize = 0
         btnAgregarCliente.FlatStyle = FlatStyle.Flat
         btnAgregarCliente.Font = New Font("Yu Gothic UI", 12F)
+        btnAgregarCliente.Image = CType(resources.GetObject("btnAgregarCliente.Image"), Image)
+        btnAgregarCliente.ImageAlign = ContentAlignment.MiddleLeft
         btnAgregarCliente.Location = New Point(28, 538)
         btnAgregarCliente.Name = "btnAgregarCliente"
+        btnAgregarCliente.Padding = New Padding(10, 0, 10, 0)
         btnAgregarCliente.Size = New Size(176, 55)
         btnAgregarCliente.TabIndex = 56
         btnAgregarCliente.Text = "Agregar"
@@ -143,8 +148,11 @@ Partial Class Clientes
         btnEditarCliente.FlatAppearance.BorderSize = 0
         btnEditarCliente.FlatStyle = FlatStyle.Flat
         btnEditarCliente.Font = New Font("Yu Gothic UI", 12F)
+        btnEditarCliente.Image = CType(resources.GetObject("btnEditarCliente.Image"), Image)
+        btnEditarCliente.ImageAlign = ContentAlignment.MiddleLeft
         btnEditarCliente.Location = New Point(210, 538)
         btnEditarCliente.Name = "btnEditarCliente"
+        btnEditarCliente.Padding = New Padding(10, 0, 10, 0)
         btnEditarCliente.Size = New Size(176, 55)
         btnEditarCliente.TabIndex = 57
         btnEditarCliente.Text = "Editar"
@@ -154,14 +162,28 @@ Partial Class Clientes
         ' 
         btnEliminarCliente.BackColor = Color.Tan
         btnEliminarCliente.FlatAppearance.BorderSize = 0
+        btnEliminarCliente.FlatAppearance.MouseOverBackColor = Color.Red
         btnEliminarCliente.FlatStyle = FlatStyle.Flat
         btnEliminarCliente.Font = New Font("Yu Gothic UI", 12F)
+        btnEliminarCliente.Image = CType(resources.GetObject("btnEliminarCliente.Image"), Image)
+        btnEliminarCliente.ImageAlign = ContentAlignment.MiddleLeft
         btnEliminarCliente.Location = New Point(865, 538)
         btnEliminarCliente.Name = "btnEliminarCliente"
+        btnEliminarCliente.Padding = New Padding(10, 0, 10, 0)
         btnEliminarCliente.Size = New Size(176, 55)
         btnEliminarCliente.TabIndex = 58
         btnEliminarCliente.Text = "Eliminar"
         btnEliminarCliente.UseVisualStyleBackColor = False
+        ' 
+        ' lblEdit
+        ' 
+        lblEdit.AutoSize = True
+        lblEdit.Location = New Point(1028, 596)
+        lblEdit.Name = "lblEdit"
+        lblEdit.Size = New Size(41, 15)
+        lblEdit.TabIndex = 59
+        lblEdit.Text = "Label1"
+        lblEdit.Visible = False
         ' 
         ' Clientes
         ' 
@@ -169,6 +191,7 @@ Partial Class Clientes
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
+        Controls.Add(lblEdit)
         Controls.Add(btnEliminarCliente)
         Controls.Add(btnEditarCliente)
         Controls.Add(btnAgregarCliente)
@@ -193,4 +216,5 @@ Partial Class Clientes
     Friend WithEvents btnAgregarCliente As Button
     Friend WithEvents btnEditarCliente As Button
     Friend WithEvents btnEliminarCliente As Button
+    Friend WithEvents lblEdit As Label
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Globalization
 Imports System.Text.RegularExpressions
 Public Class ABM_Ventas
     Private cambiosRealizados As New List(Of Cambio)
@@ -14,6 +15,7 @@ Public Class ABM_Ventas
         LlenarComboBoxMetodos()
         ConfigurarComboBoxComprobante()
         lblTotal.Left = lblTitotal.Right
+        dateTime.Focus()
     End Sub
 
     Private Sub ConfigurarComboBoxComprobante()
@@ -21,114 +23,161 @@ Public Class ABM_Ventas
         boxComprobante.SelectedItem = "Factura"
     End Sub
 
+    Private isCabeceraCreada As Boolean = False
+
+    Private Sub CrearCabeceraNotaDeVenta()
+        If lblABM.Text = "Agregar" AndAlso Not isCabeceraCreada Then
+            Try
+                ' Obtener los valores de los controles
+                Dim cliente As String = txtCuenta.Text
+                Dim empleado As String = "EM0001" ' Asigna el empleado según la lógica de tu aplicación
+                Dim fechaDeVenta As DateTime = dateTime.Value
+                Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
+                Dim puntoDeVenta As String = "00001" ' Ajusta según sea necesario
+                Dim metodoDePago As String = "EFECTIVO" ' Obtener del combo si es necesario
+                Dim total As Decimal = 0 ' Se puede ajustar si es necesario calcular el total
+                Dim letra As String = ObtenerLetraCondicionIVA() ' Obtener la letra según el CondicionIVA
+
+                ' Consulta SQL para insertar la cabecera y obtener el ID insertado
+                Dim query As String = "INSERT INTO dbo.NotasDeVentas (Cliente, Empleado, FechaDeVenta, PuntoDeVenta, MetodoDePago, TipoFactura, Letra, Total) 
+                                   VALUES (@cliente, @empleado, @fechadeventa, @puntodeventa, @metododepago, @tipofactura, @letra, @total);
+                                   SELECT SCOPE_IDENTITY();"
+
+                Using connection As New SqlConnection(conexionSql.ConnectionString),
+                  command As New SqlCommand(query, connection)
+                    ' Agregar los parámetros a la consulta
+                    command.Parameters.AddWithValue("@cliente", cliente)
+                    command.Parameters.AddWithValue("@empleado", empleado)
+                    command.Parameters.AddWithValue("@fechadeventa", fechaDeVenta)
+                    command.Parameters.AddWithValue("@puntodeventa", puntoDeVenta)
+                    command.Parameters.AddWithValue("@metododepago", metodoDePago)
+                    command.Parameters.AddWithValue("@tipofactura", tipoFactura)
+                    command.Parameters.AddWithValue("@letra", letra)
+                    command.Parameters.AddWithValue("@total", total)
+
+                    ' Ejecutar la consulta y obtener el ID de la nueva cabecera
+                    connection.Open()
+                    Dim nuevoID As Integer = Convert.ToInt32(command.ExecuteScalar())
+                    lblID.Text = nuevoID.ToString()
+
+                    ' Actualizar la interfaz de usuario
+                    isCabeceraCreada = True
+                    txtCuenta.Enabled = False
+                    picBuscar.Enabled = False
+                    GrillaMovVentas.Enabled = True
+                    pnlInferior.Enabled = True
+                    btnFin.Enabled = True
+
+                    MessageBox.Show("Cabecera creada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error al guardar la cabecera: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        ElseIf lblABM.Text <> "Agregar" Then
+            MessageBox.Show("La cabecera no puede ser creada en modo edición.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Function ObtenerLetraCondicionIVA() As String
+        Dim letra As String = "A" ' Valor predeterminado en caso de error
+
+        Try
+            ' Obtener la condicion IVA de la empresa
+            Dim condicionIvaEmpresa As String = ""
+            Dim queryCondicionIvaEmpresa As String = "SELECT CondicionIva FROM Empresa WHERE IdEmpresa = 1" ' Ajusta el IdEmpresa según sea necesario
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+                  command As New SqlCommand(queryCondicionIvaEmpresa, connection)
+                connection.Open()
+                condicionIvaEmpresa = Convert.ToString(command.ExecuteScalar())
+            End Using
+
+            ' Obtener la condicion IVA del cliente
+            Dim condicionIvaCliente As String = ""
+            Dim queryCondicionIvaCliente As String = "SELECT CondicionIVA FROM Clientes WHERE Cuenta = @Cuenta"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+                  command As New SqlCommand(queryCondicionIvaCliente, connection)
+                command.Parameters.AddWithValue("@Cuenta", txtCuenta.Text)
+                connection.Open()
+                condicionIvaCliente = Convert.ToString(command.ExecuteScalar())
+            End Using
+
+            ' Determinar la letra según las condiciones IVA
+            Select Case condicionIvaCliente
+                Case "RI" ' Responsable Inscripto
+                    letra = "A"
+                Case "RM" ' Responsable Monotributo
+                    letra = "B"
+                Case "CF" ' Consumidor Final
+                    letra = "B"
+                Case "EX" ' Exento
+                    letra = "C"
+            End Select
+        Catch ex As Exception
+            MessageBox.Show("Error al obtener la letra del comprobante: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        Return letra
+    End Function
+
+    Private Function FormatearDecimal(valor As Decimal) As String
+        ' Formatear el decimal con separadores de miles y dos decimales
+        Dim culture As CultureInfo = New CultureInfo("es-AR") ' Ajusta el código de cultura si es necesario
+        Return valor.ToString("N2", culture)
+    End Function
 
     Private Sub txtUnitario_Leave(sender As Object, e As EventArgs) Handles txtUnitario.Leave
-        ' Reemplazar puntos por comas
-        txtUnitario.Text = txtUnitario.Text.Replace(".", ",")
-
-        ' Verificar si el cuadro de texto está vacío
-        If String.IsNullOrEmpty(txtUnitario.Text) Then
-            ' Si está vacío, establecer el valor en "0,00"
-            txtUnitario.Text = "0,00"
+        Dim valorDecimal As Decimal
+        ' Intenta convertir el texto del campo a Decimal, usa 0 si no es válido
+        If Decimal.TryParse(txtUnitario.Text, NumberStyles.Any, New CultureInfo("es-AR"), valorDecimal) Then
+            txtUnitario.Text = FormatearDecimal(valorDecimal)
         Else
-            ' Si no está vacío, verificar si tiene decimales
-            If Not txtUnitario.Text.Contains(",") Then
-                ' Si no tiene decimales, agregar ",00"
-                txtUnitario.Text &= ",00"
-            Else
-                ' Separar la parte decimal
-                Dim partes As String() = txtUnitario.Text.Split(","c)
-                ' Verificar si la parte decimal tiene solo un dígito
-                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
-                    ' Si solo tiene un dígito, agregar un 0 adicional
-                    txtUnitario.Text &= "0"
-                End If
-            End If
+            txtUnitario.Text = FormatearDecimal(0)
         End If
     End Sub
 
     Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
-
-        ' Reemplazar puntos por comas
-        txtCantidad.Text = txtCantidad.Text.Replace(".", ",")
-
-        ' Verificar si el cuadro de texto está vacío
-        If String.IsNullOrEmpty(txtCantidad.Text) Then
-            ' Si está vacío, establecer el valor en "0,00"
-            txtCantidad.Text = "0,00"
+        Dim valorDecimal As Decimal
+        ' Intenta convertir el texto del campo a Decimal, usa 0 si no es válido
+        If Decimal.TryParse(txtCantidad.Text, NumberStyles.Any, New CultureInfo("es-AR"), valorDecimal) Then
+            txtCantidad.Text = FormatearDecimal(valorDecimal)
         Else
-            ' Si no está vacío, verificar si tiene decimales
-            If Not txtCantidad.Text.Contains(",") Then
-                ' Si no tiene decimales, agregar ",00"
-                txtCantidad.Text &= ",00"
-            Else
-                ' Separar la parte decimal
-                Dim partes As String() = txtCantidad.Text.Split(","c)
-                ' Verificar si la parte decimal tiene solo un dígito
-                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
-                    ' Si solo tiene un dígito, agregar un 0 adicional
-                    txtCantidad.Text &= "0"
-                End If
-            End If
+            txtCantidad.Text = FormatearDecimal(0)
         End If
     End Sub
 
     Private Sub txtIVAP_Leave(sender As Object, e As EventArgs) Handles txtIVAP.Leave
-
-        ' Reemplazar puntos por comas
-        txtIVAP.Text = txtIVAP.Text.Replace(".", ",")
-
-        ' Verificar si el cuadro de texto está vacío
-        If String.IsNullOrEmpty(txtIVAP.Text) Then
-            ' Si está vacío, establecer el valor en "0,00"
-            txtIVAP.Text = "0,00"
+        Dim valorDecimal As Decimal
+        ' Intenta convertir el texto del campo a Decimal, usa 0 si no es válido
+        If Decimal.TryParse(txtIVAP.Text, NumberStyles.Any, New CultureInfo("es-AR"), valorDecimal) Then
+            txtIVAP.Text = FormatearDecimal(valorDecimal)
         Else
-            ' Si no está vacío, verificar si tiene decimales
-            If Not txtIVAP.Text.Contains(",") Then
-                ' Si no tiene decimales, agregar ",00"
-                txtIVAP.Text &= ",00"
-            Else
-                ' Separar la parte decimal
-                Dim partes As String() = txtIVAP.Text.Split(","c)
-                ' Verificar si la parte decimal tiene solo un dígito
-                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
-                    ' Si solo tiene un dígito, agregar un 0 adicional
-                    txtIVAP.Text &= "0"
-                End If
-            End If
+            txtIVAP.Text = FormatearDecimal(0)
         End If
     End Sub
 
     Private Sub txtDescuento_Leave(sender As Object, e As EventArgs) Handles txtDescuento.Leave
-
-        ' Reemplazar puntos por comas
-        txtDescuento.Text = txtDescuento.Text.Replace(".", ",")
-
-        ' Verificar si el cuadro de texto está vacío
-        If String.IsNullOrEmpty(txtDescuento.Text) Then
-            ' Si está vacío, establecer el valor en "0,00"
-            txtDescuento.Text = "0,00"
+        Dim valorDecimal As Decimal
+        ' Intenta convertir el texto del campo a Decimal, usa 0 si no es válido
+        If Decimal.TryParse(txtDescuento.Text, NumberStyles.Any, New CultureInfo("es-AR"), valorDecimal) Then
+            txtDescuento.Text = FormatearDecimal(valorDecimal)
         Else
-            ' Si no está vacío, verificar si tiene decimales
-            If Not txtDescuento.Text.Contains(",") Then
-                ' Si no tiene decimales, agregar ",00"
-                txtDescuento.Text &= ",00"
-            Else
-                ' Separar la parte decimal
-                Dim partes As String() = txtDescuento.Text.Split(","c)
-                ' Verificar si la parte decimal tiene solo un dígito
-                If partes.Length = 2 AndAlso partes(1).Length = 1 Then
-                    ' Si solo tiene un dígito, agregar un 0 adicional
-                    txtDescuento.Text &= "0"
-                End If
-            End If
+            txtDescuento.Text = FormatearDecimal(0)
         End If
 
-        If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso Not String.IsNullOrEmpty(txtCantidad.Text) AndAlso Not String.IsNullOrEmpty(txtDescuento.Text) AndAlso Not String.IsNullOrEmpty(txtIVAP.Text) Then
-            Dim unitario As Decimal = Decimal.Parse(txtUnitario.Text)
-            Dim cantidad As Decimal = Decimal.Parse(txtCantidad.Text)
-            Dim descuento As Decimal = Decimal.Parse(txtDescuento.Text)
-            Dim iva As Decimal = Decimal.Parse(txtIVAP.Text)
+        ' Realizar cálculos solo si todos los campos tienen valor
+        Dim culture As CultureInfo = New CultureInfo("es-AR")
+        Dim unitario As Decimal
+        Dim cantidad As Decimal
+        Dim descuento As Decimal
+        Dim iva As Decimal
+
+        ' Intenta convertir los valores de los campos a Decimal, usa 0 si no es válido
+        If Decimal.TryParse(txtUnitario.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture, unitario) AndAlso
+       Decimal.TryParse(txtCantidad.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture, cantidad) AndAlso
+       Decimal.TryParse(txtDescuento.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture, descuento) AndAlso
+       Decimal.TryParse(txtIVAP.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture, iva) Then
 
             Dim subtotalSinIva As Decimal = unitario * cantidad
             Dim descuentoAplicado As Decimal = subtotalSinIva * (descuento / 100)
@@ -137,25 +186,14 @@ Public Class ABM_Ventas
             Dim importeIVA As Decimal = subtotalConDescuento * (iva / 100)
             Dim subtotalConDescuentoConIVA As Decimal = subtotalConDescuento + importeIVA
 
-            ' Utilizamos String.Format para limitar la cantidad de decimales a 2
-            txtSubtotalCon.Text = String.Format("{0:0.00}", subtotalConDescuentoConIVA)
-
-            ' Verificar si el cuadro de texto está vacío
-            If String.IsNullOrEmpty(txtDescuento.Text) Then
-                ' Si está vacío, establecer el valor en "0,00"
-                txtDescuento.Text = "0,00"
-            Else
-                ' Si no está vacío, verificar si tiene decimales
-                If Not txtDescuento.Text.Contains(",") Then
-                    ' Si no tiene decimales, agregar ",00"
-                    txtDescuento.Text = txtDescuento.Text & ",00"
-                ElseIf txtDescuento.Text.IndexOf(",") = txtDescuento.Text.Length - 1 Then
-                    ' Si solo tiene un decimal, agregar un 0 adicional
-                    txtDescuento.Text = txtDescuento.Text & "0"
-                End If
-            End If
+            ' Formatear el resultado con dos decimales
+            txtSubtotalCon.Text = FormatearDecimal(subtotalConDescuentoConIVA)
+        Else
+            ' Si alguna conversión falla, limpiar el resultado
+            txtSubtotalCon.Text = FormatearDecimal(0)
         End If
     End Sub
+
 
     Private Sub SumarSubtotalesYActualizarTotal()
         Dim total As Decimal = 0
@@ -177,7 +215,8 @@ Public Class ABM_Ventas
         LimpiarGrilla()
 
 
-        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto WHERE NDM.IDNotaDeVenta = " & lblID.Text
+        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto
+                                      WHERE NDM.IDNotaDeVenta = " & lblID.Text
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         adaptadorSql.Fill(setdedatos, "dtmovventas")
@@ -194,18 +233,26 @@ Public Class ABM_Ventas
     End Sub
 
     Private Sub ConfigurarColumnasGrilla()
-        Dim columnasOcultar() As Integer = {0, 8, 9}
+        Dim columnasOcultar() As Integer = {0, 2, 8, 9}
 
         For Each columna As Integer In columnasOcultar
             GrillaMovVentas.Columns(columna).Visible = False
         Next
 
-        Dim columnasFillWeight() As Integer = {1, 2, 3, 4, 5, 6, 7}
+        GrillaMovVentas.Columns(1).FillWeight = 20
+        GrillaMovVentas.Columns(3).FillWeight = 10
+        GrillaMovVentas.Columns(4).FillWeight = 20
+        GrillaMovVentas.Columns(5).FillWeight = 10
+        GrillaMovVentas.Columns(6).FillWeight = 15
+        GrillaMovVentas.Columns(7).FillWeight = 25
 
-        For Each columna As Integer In columnasFillWeight
-            GrillaMovVentas.Columns(columna).FillWeight = 12
-            GrillaMovVentas.Columns(columna).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Next
+
+        'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
+
+        For i As Integer = 0 To 9
+            GrillaMovVentas.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next i
+
     End Sub
 
     Public Sub ActivarBotones()
@@ -311,64 +358,43 @@ Public Class ABM_Ventas
             ' Obtener el índice seleccionado en boxComprobante (se le suma 1 para obtener el valor deseado)
             Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
 
+            Dim puntoVenta As Integer = ModuloPrincipal.boxPV.SelectedIndex + 1
+
             ' Obtener el valor seleccionado en boxMetodo
             Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
 
+            ' Limpiar el texto de lblTotal.Text eliminando el símbolo de moneda y otros caracteres no numéricos
+            Dim cleanedTotalText As String = lblTotal.Text.Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, "")
+            cleanedTotalText = Regex.Replace(cleanedTotalText, "[^\d.,-]", "")
+
+            ' Convertir el texto limpio a Decimal
+            Dim total As Decimal
+            If Not Decimal.TryParse(cleanedTotalText, NumberStyles.Currency, CultureInfo.CurrentCulture, total) Then
+                MessageBox.Show("El valor total no es un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
             Dim id As Integer = Convert.ToInt32(lblID.Text)
-            Dim query As String = "UPDATE dbo.NotasDeVentasMov
-                                SET IDNotaDeVenta = @idnotadeventa, Cliente = @cliente, Empleado = @empleado, FechaDeVenta = @fechadeventa, PuntoDeVenta = @puntodeventa, NroComprobante = @nrocomprobante, MetodoDePago = @metododepago, Letra = @letra, TipoFactura = @tipofactura, Total = @total
-                                WHERE IDNotasDeVentasMov = @ID"
+            Dim query As String = "UPDATE dbo.NotasDeVentas
+                                SET FechaDeVenta = @fechadeventa, PuntoDeVenta = @puntodeventa, MetodoDePago = @metododepago, TipoFactura = @tipofactura, Total = @total
+                                WHERE IDNotaDeVenta = " & lblID.Text
 
             Using connection As New SqlConnection(conexionSql.ConnectionString),
               command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
+                command.Parameters.AddWithValue("@idnotadeventa", lblID.Text)
                 command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
+                command.Parameters.AddWithValue("@puntodeventa", "00001") ' Ajusta según sea necesario
                 command.Parameters.AddWithValue("@metododepago", metodoPago)
                 command.Parameters.AddWithValue("@tipofactura", tipoFactura)
-                command.Parameters.AddWithValue("@total", 0)
-                command.Parameters.AddWithValue("@ID", id)
+                command.Parameters.AddWithValue("@total", total)
                 connection.Open()
                 command.ExecuteNonQuery()
             End Using
 
-            MessageBox.Show("Cabecera actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
-    Private Sub AgregarRegistro()
-        Try
-            ' Obtener el índice seleccionado en boxComprobante (se le suma 1 para obtener el valor deseado)
-            Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
-
-            ' Obtener el valor seleccionado en boxMetodo
-            Dim metodoPago As String = DirectCast(boxMetodo.SelectedItem, DataRowView)("Metodo").ToString()
-
-            Dim query As String = "INSERT INTO dbo.NotasDeVentas (Cliente, Empleado, FechaDeVenta, PuntoDeVenta, NroComprobante, MetodoDePago, Letra, TipoFactura, Total)
-                               VALUES (@cliente, @empleado, @fechadeventa, @puntodeventa, @nrocomprobante, @metododepago, @letra, @tipofactura, @total);
-                               SELECT SCOPE_IDENTITY();"
-
-            Using connection As New SqlConnection(conexionSql.ConnectionString),
-              command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@cliente", txtCuenta.Text)
-                command.Parameters.AddWithValue("@fechadeventa", dateTime.Value)
-                command.Parameters.AddWithValue("@metododepago", metodoPago)
-                command.Parameters.AddWithValue("@tipofactura", tipoFactura)
-                command.Parameters.AddWithValue("@total", lblTotal.Text)
-                connection.Open()
-
-                ' Ejecutar la consulta y obtener el último ID insertado
-                Dim nuevoID As Integer = Convert.ToInt32(command.ExecuteScalar())
-                lblID.Text = nuevoID.ToString()
-            End Using
-
-            MessageBox.Show("Cabecera creada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
 
     Public Sub LimpiaMovVentas()
         Me.txtDescripcion.Text = ""
@@ -433,32 +459,189 @@ Public Class ABM_Ventas
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
         LimpiaMovVentas()
+        Ventas.llenarGrillaVentas()
     End Sub
 
     Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
 
         If lblABM.Text = "Agregar" Then
-            AgregarRegistro()
+            EditarRegistro()
         ElseIf lblABM.Text = "Editar" Then
             EditarRegistro()
         End If
 
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
+        Ventas.llenarGrillaVentas()
         LimpiaMovVentas()
     End Sub
 
     ' Validaciones
 
     Private Sub txtCodprod_Leave(sender As Object, e As EventArgs) Handles txtCodprod.Leave
-        If txtCodprod IsNot Nothing Then
-            If txtCodprod.Text.Contains("%") Or txtCodprod.Text.Contains("#") Or txtCodprod.Text.Contains("$") Or txtCodprod.Text.Contains("""") Or txtCodprod.Text.Contains("'") Or txtCodprod.Text.Contains("/") Then
-                MessageBox.Show("El campo no puede contener los caracteres especiales", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                txtCodprod.Focus()
-            End If
+        If String.IsNullOrWhiteSpace(txtCodprod.Text) Then
+            ' Si txtCuenta está vacío, llama al evento Click de picBuscar manualmente.
+            picBuscarProd_Click(picBuscarProd, EventArgs.Empty)
         Else
-            MessageBox.Show("TxtCodprod no esta inicializado", "Error de inicialización", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            BuscarProducto(txtCodprod.Text)
         End If
+    End Sub
+
+    Public Sub BuscarProducto(codigoProducto As String)
+        Dim consultaSQL As String = "SELECT Descripcion, PrecioUnitario, IVA FROM Productos WHERE Codigo = @Codigo"
+
+        Using connection As New SqlConnection(conexionSql.ConnectionString),
+          command As New SqlCommand(consultaSQL, connection)
+            command.Parameters.AddWithValue("@Codigo", codigoProducto)
+
+            connection.Open()
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    txtDescripcion.Text = reader("Descripcion").ToString()
+                    txtUnitario.Text = FormatearDecimal(CDec(reader("PrecioUnitario")))
+                    txtIVAP.Text = FormatearDecimal(CDec(reader("IVA")))
+
+                    ' Inicializar los campos txtDescuento y txtCantidad con valores predeterminados
+                    txtDescuento.Text = FormatearDecimal(0D) ' Descuento inicial en 0,00
+                    txtCantidad.Text = FormatearDecimal(1D) ' Cantidad inicial en 1,00
+
+                    ' Calcular y actualizar txtTotal después de buscar el producto
+                    CalcularTotal()
+                Else
+                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    txtDescripcion.Text = ""
+                    txtUnitario.Text = ""
+                    txtIVAP.Text = ""
+                    txtDescuento.Text = ""
+                    txtCantidad.Text = ""
+                    txtSubtotalCon.Text = ""
+                End If
+            End Using
+        End Using
+    End Sub
+
+    Private Sub CalcularTotal()
+        If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso
+       Not String.IsNullOrEmpty(txtCantidad.Text) AndAlso
+       Not String.IsNullOrEmpty(txtDescuento.Text) AndAlso
+       Not String.IsNullOrEmpty(txtIVAP.Text) Then
+
+            Dim culture As CultureInfo = New CultureInfo("es-AR") ' Ajusta el código de cultura si es necesario
+            Dim unitario As Decimal = Decimal.Parse(txtUnitario.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture)
+            Dim cantidad As Decimal = Decimal.Parse(txtCantidad.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture)
+            Dim descuento As Decimal = Decimal.Parse(txtDescuento.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture)
+            Dim iva As Decimal = Decimal.Parse(txtIVAP.Text, NumberStyles.AllowThousands Or NumberStyles.AllowDecimalPoint, culture)
+
+            Dim subtotalSinIva As Decimal = unitario * cantidad
+            Dim descuentoAplicado As Decimal = subtotalSinIva * (descuento / 100)
+            Dim subtotalConDescuento As Decimal = subtotalSinIva - descuentoAplicado
+
+            Dim importeIVA As Decimal = subtotalConDescuento * (iva / 100)
+            Dim subtotalConDescuentoConIVA As Decimal = subtotalConDescuento + importeIVA
+
+            ' Actualizar el campo txtTotal con el valor calculado
+            txtSubtotalCon.Text = FormatearDecimal(subtotalConDescuentoConIVA)
+        End If
+    End Sub
+
+    Private Sub LimpiarCamposProducto()
+        txtDescripcion.Text = ""
+        txtUnitario.Text = "0,00"
+        txtCantidad.Text = ""
+    End Sub
+
+    ' Maneja el clic en picBuscar para abrir el formulario Clientes.
+    Private Sub picBuscar_Click(sender As Object, e As EventArgs) Handles picBuscar.Click
+        Clientes.lblEdit.Text = "Ventas"
+        ModuloPrincipal.AbrirFormEnPanel(Clientes)
+    End Sub
+
+    ' Maneja el evento Leave del campo txtCuenta.
+    Private Sub txtCuenta_Leave(sender As Object, e As EventArgs) Handles txtCuenta.Leave
+        If String.IsNullOrWhiteSpace(txtCuenta.Text) Then
+            ' Si txtCuenta está vacío, llama al evento Click de picBuscar manualmente.
+            picBuscar_Click(picBuscar, EventArgs.Empty)
+        Else
+            ' Verifica si lblABM es igual a "AGREGAR"
+            If lblABM.Text = "Agregar" Then
+                panelProducto.Enabled = True
+                Dim resultado As DialogResult = MessageBox.Show("¿Desea crear la cabecera de la nota de venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If resultado = DialogResult.Yes Then
+                    CrearCabeceraNotaDeVenta()
+                End If
+            Else
+
+            End If
+        End If
+    End Sub
+
+    Public Sub ActualizarDatosCliente(Cuenta As String)
+        Dim consultaSQL As String = "SELECT C.Nombre + ' ' + C.Apellido AS Cliente, C.Direccion, C.CUIT, C.DNI, P.Provincia, L.Localidad, CI.CondicionIva, C.Telefono FROM Clientes C
+                                    INNER JOIN Provincias P ON C.Provincia = P.IDProvincia
+                                    INNER JOIN Localidades L ON C.Localidad = L.IDLocalidad
+                                    INNER JOIN CondicionIVA CI ON C.CondicionIva = CI.Abreviatura
+                                    WHERE C.Cuenta = @Cuenta"
+
+        Using connection As New SqlConnection(conexionSql.ConnectionString),
+          command As New SqlCommand(consultaSQL, connection)
+            command.Parameters.AddWithValue("@Cuenta", Cuenta)
+
+            Try
+                connection.Open()
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        ' Asignar los valores a los lbl
+                        lblDatos.Text = reader("Cliente").ToString()
+                        lblDireccion.Text = reader("Direccion").ToString()
+                        lblCuit.Text = reader("CUIT").ToString()
+                        lblDni.Text = reader("DNI").ToString()
+                        lblProvincia.Text = reader("Provincia").ToString()
+                        lblLocalidad.Text = reader("Localidad").ToString()
+                        lblCondiva.Text = reader("CondicionIva").ToString()
+                        lblTelefono.Text = reader("Telefono").ToString()
+
+                        lblDatos.Visible = True
+                        lblDireccion.Visible = True
+                        lblCuit.Visible = True
+                        lblDni.Visible = True
+                        lblProvincia.Visible = True
+                        lblLocalidad.Visible = True
+                        lblCondiva.Visible = True
+                        lblTelefono.Visible = True
+
+                    Else
+
+                        ' Si no se encuentra el cliente, limpiar los lbl
+                        lblDatos.Text = ""
+                        lblDireccion.Text = ""
+                        lblCuit.Text = ""
+                        lblDni.Text = ""
+                        lblProvincia.Text = ""
+                        lblLocalidad.Text = ""
+                        lblCondiva.Text = ""
+                        lblTelefono.Text = ""
+
+                        lblDatos.Visible = False
+                        lblDireccion.Visible = False
+                        lblCuit.Visible = False
+                        lblDni.Visible = False
+                        lblProvincia.Visible = False
+                        lblLocalidad.Visible = False
+                        lblCondiva.Visible = False
+                        lblTelefono.Visible = False
+
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error al obtener los datos del cliente: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub picBuscarProd_Click(sender As Object, e As EventArgs) Handles picBuscarProd.Click
+        Productos.lblEdit.Text = "Ventas"
+        ModuloPrincipal.AbrirFormEnPanel(Productos)
     End Sub
 
 End Class

@@ -64,12 +64,12 @@ Public Class Pedidos
         Next
 
         ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
-        GrillaPedidos.Columns(0).FillWeight = 10
-        GrillaPedidos.Columns(1).FillWeight = 15
-        GrillaPedidos.Columns(2).FillWeight = 25
-        GrillaPedidos.Columns(3).FillWeight = 25
+        GrillaPedidos.Columns(0).FillWeight = 8
+        GrillaPedidos.Columns(1).FillWeight = 10
+        GrillaPedidos.Columns(2).FillWeight = 27.5
+        GrillaPedidos.Columns(3).FillWeight = 27.5
         GrillaPedidos.Columns(6).FillWeight = 15
-        GrillaPedidos.Columns(7).FillWeight = 10
+        GrillaPedidos.Columns(7).FillWeight = 12
 
         ' COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
         For i As Integer = 0 To GrillaPedidos.Columns.Count - 1

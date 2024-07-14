@@ -42,7 +42,7 @@ Partial Class Login
         btnIngresar.BackColor = Color.Tan
         btnIngresar.FlatAppearance.BorderSize = 0
         btnIngresar.FlatStyle = FlatStyle.Flat
-        btnIngresar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnIngresar.Font = New Font("Yu Gothic UI", 11F)
         btnIngresar.Location = New Point(110, 108)
         btnIngresar.Name = "btnIngresar"
         btnIngresar.Size = New Size(142, 31)
@@ -73,22 +73,21 @@ Partial Class Login
         ' txtUsuario
         ' 
         txtUsuario.BackColor = Color.White
-        txtUsuario.BorderStyle = BorderStyle.None
-        txtUsuario.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtUsuario.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         txtUsuario.ForeColor = Color.Black
-        txtUsuario.Location = New Point(102, 10)
+        txtUsuario.Location = New Point(102, 6)
         txtUsuario.Margin = New Padding(0)
         txtUsuario.Name = "txtUsuario"
-        txtUsuario.Size = New Size(178, 20)
+        txtUsuario.Size = New Size(178, 29)
         txtUsuario.TabIndex = 1
         ' 
         ' lblUsuario
         ' 
         lblUsuario.AutoSize = True
-        lblUsuario.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        lblUsuario.Location = New Point(8, 12)
+        lblUsuario.Font = New Font("Yu Gothic UI", 12F)
+        lblUsuario.Location = New Point(8, 9)
         lblUsuario.Name = "lblUsuario"
-        lblUsuario.Size = New Size(59, 19)
+        lblUsuario.Size = New Size(67, 21)
         lblUsuario.TabIndex = 5
         lblUsuario.Text = "Usuario:"
         ' 
@@ -97,7 +96,7 @@ Partial Class Login
         btnCancelar.BackColor = Color.Tan
         btnCancelar.FlatAppearance.BorderSize = 0
         btnCancelar.FlatStyle = FlatStyle.Flat
-        btnCancelar.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        btnCancelar.Font = New Font("Yu Gothic UI", 11F)
         btnCancelar.Location = New Point(257, 108)
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(142, 31)
@@ -118,24 +117,23 @@ Partial Class Login
         ' lblContraseña
         ' 
         lblContraseña.AutoSize = True
-        lblContraseña.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        lblContraseña.Location = New Point(8, 11)
+        lblContraseña.Font = New Font("Yu Gothic UI", 12F)
+        lblContraseña.Location = New Point(8, 9)
         lblContraseña.Name = "lblContraseña"
-        lblContraseña.Size = New Size(82, 19)
+        lblContraseña.Size = New Size(92, 21)
         lblContraseña.TabIndex = 7
         lblContraseña.Text = "Contraseña:"
         ' 
         ' txtContraseña
         ' 
         txtContraseña.BackColor = Color.White
-        txtContraseña.BorderStyle = BorderStyle.None
-        txtContraseña.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtContraseña.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         txtContraseña.ForeColor = Color.Black
-        txtContraseña.Location = New Point(102, 9)
+        txtContraseña.Location = New Point(102, 6)
         txtContraseña.Margin = New Padding(0)
         txtContraseña.Name = "txtContraseña"
         txtContraseña.PasswordChar = "*"c
-        txtContraseña.Size = New Size(178, 20)
+        txtContraseña.Size = New Size(178, 29)
         txtContraseña.TabIndex = 2
         ' 
         ' Login

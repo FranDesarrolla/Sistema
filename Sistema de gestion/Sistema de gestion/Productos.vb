@@ -4,8 +4,17 @@ Public Class Productos
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaProductos()
         Me.CB_Inactivos.Checked = False
+
+        If lblEdit.Text = "Ventas" Then
+            btnEditar.Enabled = False
+            btnEliminar.Enabled = False
+            btnStock.Enabled = False
+        End If
+
     End Sub
 
+    ' Método para llenar la grilla
+    ' Método para llenar la grilla
     Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
         ' Limpiar datos de la grilla
         If setdedatos.Tables.Contains("dtProducto") Then
@@ -31,8 +40,8 @@ Public Class Productos
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
             ' Construir las condiciones de búsqueda para cada campo
             Dim condicionesBusqueda As String = " AND (Codigo LIKE '%" & terminoBusqueda & "%'" &
-                                             " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
-                                             " OR Especificaciones LIKE '%" & terminoBusqueda & "%')"
+                                         " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
+                                         " OR Especificaciones LIKE '%" & terminoBusqueda & "%')"
 
             ' Añadir las condiciones a la consulta
             consultassql &= condicionesBusqueda
@@ -63,8 +72,23 @@ Public Class Productos
         For i As Integer = 0 To 13
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
+
+        ' Añadir el manejador de eventos para formatear las celdas
+        AddHandler GrillaProductos.CellFormatting, AddressOf GrillaProductos_CellFormatting
     End Sub
 
+    ' Método para formatear celdas en el DataGridView
+    Private Sub GrillaProductos_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs)
+        ' Verificar si la columna actual es la de Precio Unitario
+        If GrillaProductos.Columns(e.ColumnIndex).Name = "Unitario" Then
+            ' Verificar si el valor de la celda no es nulo y es un número
+            If e.Value IsNot Nothing AndAlso IsNumeric(e.Value) Then
+                ' Formatear el valor con separadores de miles y dos decimales
+                e.Value = Convert.ToDecimal(e.Value).ToString("N2")
+                e.FormattingApplied = True
+            End If
+        End If
+    End Sub
 
     Private Sub GrillaProductos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrillaProductos.CellClick
         ' Verificar si la celda seleccionada está en una fila válida
@@ -164,7 +188,15 @@ Public Class Productos
         ABM_Productos.RubroProducto.Text = GrillaProductos.CurrentRow.Cells(5).Value.ToString()
         ABM_Productos.CategoriaProducto.Text = GrillaProductos.CurrentRow.Cells(6).Value.ToString()
         ABM_Productos.StockProducto.Text = GrillaProductos.CurrentRow.Cells(7).Value.ToString()
-        ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value.ToString()
+
+        ' Convertir el precio al formato adecuado para mostrarlo
+        Dim precioUnitario As Decimal
+        If Decimal.TryParse(GrillaProductos.CurrentRow.Cells(8).Value.ToString(), precioUnitario) Then
+            ABM_Productos.PrecioUnitarioProducto.Text = precioUnitario.ToString("N2", Globalization.CultureInfo.CurrentCulture)
+        Else
+            ABM_Productos.PrecioUnitarioProducto.Text = "0,00"
+        End If
+
         ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value.ToString()
 
         ABM_Productos.lblCategoria.Text = GrillaProductos.CurrentRow.Cells(10).Value.ToString()
@@ -190,13 +222,25 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
     End Sub
 
-
     Private Sub btnAceptarABMP_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
-        ABM_Productos.codProducto.Enabled = True
-        ABM_Productos.CB_Activo.Checked = True
-        ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
 
-        ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
+        If lblEdit.Text = "Ventas" Then
+
+            ABM_Ventas.txtCodprod.Text = GrillaProductos.CurrentRow.Cells(1).Value
+            lblEdit.Text = ""
+            ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
+            ABM_Ventas.txtCodprod.Focus()
+            ABM_Ventas.BuscarProducto(ABM_Ventas.txtCodprod.Text)
+
+        Else
+
+            ABM_Productos.codProducto.Enabled = True
+            ABM_Productos.CB_Activo.Checked = True
+            ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
+
+            ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
+
+        End If
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click

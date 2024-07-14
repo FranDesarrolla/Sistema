@@ -58,8 +58,9 @@ Public Class Ventas
 
         'Activar paneles
         ABM_Ventas.panelProducto.Enabled = True
-        ABM_Ventas.panelAdd.Enabled = True
+        'ABM_Ventas.panelAdd.Enabled = True
         ABM_Ventas.GrillaMovVentas.Enabled = True
+        ABM_Ventas.ActualizarDatosCliente(ABM_Ventas.txtCuenta.Text)
 
         ABM_Ventas.lblID.Text = GrillaVentas.CurrentRow.Cells(0).Value
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value

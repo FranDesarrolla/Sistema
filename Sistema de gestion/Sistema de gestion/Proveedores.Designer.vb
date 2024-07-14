@@ -25,6 +25,7 @@ Partial Class Proveedores
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Proveedores))
         GrillaProveedores = New DataGridView()
         txtBusquedaProveedor = New TextBox()
         Panel3 = New Panel()
@@ -128,10 +129,14 @@ Partial Class Proveedores
         ' 
         btnEliminarProveedor.BackColor = Color.Tan
         btnEliminarProveedor.FlatAppearance.BorderSize = 0
+        btnEliminarProveedor.FlatAppearance.MouseOverBackColor = Color.Red
         btnEliminarProveedor.FlatStyle = FlatStyle.Flat
         btnEliminarProveedor.Font = New Font("Yu Gothic UI", 12F)
+        btnEliminarProveedor.Image = CType(resources.GetObject("btnEliminarProveedor.Image"), Image)
+        btnEliminarProveedor.ImageAlign = ContentAlignment.MiddleLeft
         btnEliminarProveedor.Location = New Point(865, 538)
         btnEliminarProveedor.Name = "btnEliminarProveedor"
+        btnEliminarProveedor.Padding = New Padding(10, 0, 10, 0)
         btnEliminarProveedor.Size = New Size(176, 55)
         btnEliminarProveedor.TabIndex = 61
         btnEliminarProveedor.Text = "Eliminar"
@@ -143,8 +148,11 @@ Partial Class Proveedores
         btnEditarProveedor.FlatAppearance.BorderSize = 0
         btnEditarProveedor.FlatStyle = FlatStyle.Flat
         btnEditarProveedor.Font = New Font("Yu Gothic UI", 12F)
+        btnEditarProveedor.Image = CType(resources.GetObject("btnEditarProveedor.Image"), Image)
+        btnEditarProveedor.ImageAlign = ContentAlignment.MiddleLeft
         btnEditarProveedor.Location = New Point(210, 538)
         btnEditarProveedor.Name = "btnEditarProveedor"
+        btnEditarProveedor.Padding = New Padding(10, 0, 10, 0)
         btnEditarProveedor.Size = New Size(176, 55)
         btnEditarProveedor.TabIndex = 60
         btnEditarProveedor.Text = "Editar"
@@ -156,8 +164,11 @@ Partial Class Proveedores
         btnAgregar.FlatAppearance.BorderSize = 0
         btnAgregar.FlatStyle = FlatStyle.Flat
         btnAgregar.Font = New Font("Yu Gothic UI", 12F)
+        btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), Image)
+        btnAgregar.ImageAlign = ContentAlignment.MiddleLeft
         btnAgregar.Location = New Point(28, 538)
         btnAgregar.Name = "btnAgregar"
+        btnAgregar.Padding = New Padding(10, 0, 10, 0)
         btnAgregar.Size = New Size(176, 55)
         btnAgregar.TabIndex = 62
         btnAgregar.Text = "Agregar"

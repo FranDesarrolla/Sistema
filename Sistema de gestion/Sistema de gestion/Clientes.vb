@@ -4,6 +4,12 @@ Public Class Clientes
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaClientes()
+
+        If lblEdit.Text = "Ventas" Then
+            btnEliminarCliente.Enabled = False
+            btnEditarCliente.Enabled = False
+        End If
+
     End Sub
 
     Private Sub txtBusquedaCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBusquedaCliente.TextChanged
@@ -69,8 +75,21 @@ Public Class Clientes
     End Sub
 
     Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
-        ABM_Clientes.lblSeñalCliente.Text = "AGREGAR"
-        ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
+
+        If lblEdit.Text = "Ventas" Then
+
+            ABM_Ventas.txtCuenta.Text = GrillaClientes.CurrentRow.Cells(1).Value
+            lblEdit.Text = ""
+            ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
+            ABM_Ventas.txtCuenta.Focus()
+            ABM_Ventas.ActualizarDatosCliente(ABM_Ventas.txtCuenta.Text)
+
+        Else
+
+            ABM_Clientes.lblSeñalCliente.Text = "AGREGAR"
+            ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
+
+        End If
     End Sub
 
     Private Sub btnEditarCliente_Click(sender As Object, e As EventArgs) Handles btnEditarCliente.Click

@@ -36,6 +36,7 @@ Partial Class Ventas
         Panel1 = New Panel()
         Panel3 = New Panel()
         lblTitulo = New Label()
+        Button2 = New Button()
         CType(GrillaVentas, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         SuspendLayout()
@@ -51,7 +52,7 @@ Partial Class Ventas
         GrillaVentas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -69,7 +70,7 @@ Partial Class Ventas
         GrillaVentas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle2.SelectionForeColor = Color.White
@@ -82,7 +83,6 @@ Partial Class Ventas
         DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaVentas.RowsDefaultCellStyle = DataGridViewCellStyle3
-        GrillaVentas.RowTemplate.Height = 25
         GrillaVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaVentas.ShowCellErrors = False
         GrillaVentas.ShowCellToolTips = False
@@ -96,12 +96,12 @@ Partial Class Ventas
         btnAgregar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnAgregar.FlatAppearance.BorderSize = 0
         btnAgregar.FlatStyle = FlatStyle.Flat
-        btnAgregar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregar.Font = New Font("Yu Gothic UI", 12F)
         btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), Image)
         btnAgregar.ImageAlign = ContentAlignment.MiddleLeft
-        btnAgregar.Location = New Point(814, 70)
+        btnAgregar.Location = New Point(28, 538)
         btnAgregar.Name = "btnAgregar"
-        btnAgregar.Padding = New Padding(20, 0, 0, 0)
+        btnAgregar.Padding = New Padding(15, 0, 15, 0)
         btnAgregar.Size = New Size(227, 55)
         btnAgregar.TabIndex = 12
         btnAgregar.Text = "Agregar"
@@ -112,12 +112,12 @@ Partial Class Ventas
         btnRemito.BackColor = Color.Tan
         btnRemito.FlatAppearance.BorderSize = 0
         btnRemito.FlatStyle = FlatStyle.Flat
-        btnRemito.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btnRemito.Location = New Point(210, 538)
+        btnRemito.Font = New Font("Yu Gothic UI", 12F)
+        btnRemito.Location = New Point(814, 131)
         btnRemito.Name = "btnRemito"
-        btnRemito.Size = New Size(176, 55)
+        btnRemito.Size = New Size(227, 55)
         btnRemito.TabIndex = 14
-        btnRemito.Text = "Emite Remito"
+        btnRemito.Text = "Emite remito"
         btnRemito.UseVisualStyleBackColor = False
         ' 
         ' btnFactura
@@ -125,12 +125,12 @@ Partial Class Ventas
         btnFactura.BackColor = Color.Tan
         btnFactura.FlatAppearance.BorderSize = 0
         btnFactura.FlatStyle = FlatStyle.Flat
-        btnFactura.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btnFactura.Location = New Point(28, 538)
+        btnFactura.Font = New Font("Yu Gothic UI", 12F)
+        btnFactura.Location = New Point(814, 70)
         btnFactura.Name = "btnFactura"
-        btnFactura.Size = New Size(176, 55)
+        btnFactura.Size = New Size(227, 55)
         btnFactura.TabIndex = 15
-        btnFactura.Text = "Emite Factura"
+        btnFactura.Text = "Emite factura"
         btnFactura.UseVisualStyleBackColor = False
         ' 
         ' btnEditar
@@ -138,12 +138,12 @@ Partial Class Ventas
         btnEditar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnEditar.FlatAppearance.BorderSize = 0
         btnEditar.FlatStyle = FlatStyle.Flat
-        btnEditar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditar.Font = New Font("Yu Gothic UI", 12F)
         btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), Image)
         btnEditar.ImageAlign = ContentAlignment.MiddleLeft
-        btnEditar.Location = New Point(814, 131)
+        btnEditar.Location = New Point(261, 538)
         btnEditar.Name = "btnEditar"
-        btnEditar.Padding = New Padding(20, 0, 0, 0)
+        btnEditar.Padding = New Padding(15, 0, 15, 0)
         btnEditar.Size = New Size(227, 55)
         btnEditar.TabIndex = 16
         btnEditar.Text = "Editar"
@@ -154,12 +154,12 @@ Partial Class Ventas
         btnEliminar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnEliminar.FlatAppearance.BorderSize = 0
         btnEliminar.FlatStyle = FlatStyle.Flat
-        btnEliminar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminar.Font = New Font("Yu Gothic UI", 12F)
         btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), Image)
         btnEliminar.ImageAlign = ContentAlignment.MiddleLeft
-        btnEliminar.Location = New Point(814, 192)
+        btnEliminar.Location = New Point(581, 538)
         btnEliminar.Name = "btnEliminar"
-        btnEliminar.Padding = New Padding(20, 0, 0, 0)
+        btnEliminar.Padding = New Padding(15, 0, 15, 0)
         btnEliminar.Size = New Size(227, 55)
         btnEliminar.TabIndex = 13
         btnEliminar.Text = "Eliminar"
@@ -170,20 +170,20 @@ Partial Class Ventas
         Button1.BackColor = Color.Tan
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Button1.Location = New Point(632, 538)
+        Button1.Font = New Font("Yu Gothic UI", 12F)
+        Button1.Location = New Point(814, 192)
         Button1.Name = "Button1"
-        Button1.Size = New Size(176, 55)
+        Button1.Size = New Size(227, 55)
         Button1.TabIndex = 47
-        Button1.Text = "Emite Presupuesto"
+        Button1.Text = "Emite presupuesto"
         Button1.UseVisualStyleBackColor = False
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.Tan
-        Panel1.Location = New Point(814, 253)
+        Panel1.Location = New Point(814, 314)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(227, 341)
+        Panel1.Size = New Size(227, 280)
         Panel1.TabIndex = 50
         ' 
         ' Panel3
@@ -198,12 +198,25 @@ Partial Class Ventas
         ' lblTitulo
         ' 
         lblTitulo.AutoSize = True
-        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
         lblTitulo.Location = New Point(462, 7)
         lblTitulo.Name = "lblTitulo"
         lblTitulo.Size = New Size(87, 32)
         lblTitulo.TabIndex = 53
         lblTitulo.Text = "Ventas"
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Tan
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Yu Gothic UI", 12F)
+        Button2.Location = New Point(814, 253)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(227, 55)
+        Button2.TabIndex = 54
+        Button2.Text = "Emite proforma"
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' Ventas
         ' 
@@ -211,6 +224,7 @@ Partial Class Ventas
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
+        Controls.Add(Button2)
         Controls.Add(Panel3)
         Controls.Add(Button1)
         Controls.Add(btnEditar)
@@ -238,4 +252,5 @@ Partial Class Ventas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblTitulo As Label
+    Friend WithEvents Button2 As Button
 End Class

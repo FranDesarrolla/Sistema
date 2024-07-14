@@ -281,7 +281,6 @@ Public Class ABM_Productos
     End Sub
 
     Private Sub UnidadProducto_Leave(sender As Object, e As EventArgs) Handles UnidadProducto.Leave
-
         ' Verificar si el campo de UnidadProducto no está vacío
         If Not String.IsNullOrWhiteSpace(UnidadProducto.Text) Then
             ' Verificar si el Unidad ingresado existe en la base de datos
@@ -301,11 +300,14 @@ Public Class ABM_Productos
                         Dim descripcionUnidad As Object = command.ExecuteScalar()
 
                         If descripcionUnidad IsNot Nothing Then
+                            ' Convertir el texto de UnidadProducto a mayúsculas
+                            UnidadProducto.Text = Unidad.ToUpper()
+
                             ' Actualizar lblUnidad con la descripción del Unidad
                             lblUnidad.Text = descripcionUnidad.ToString()
                         Else
                             ' Mostrar mensaje si el Unidad no existe y evitar que el usuario salga del campo
-                            MsgBox("La Unidad ingresado no existe. Por favor, ingrese una Unidad válida.", vbOKOnly + vbExclamation)
+                            MsgBox("La Unidad ingresada no existe. Por favor, ingrese una Unidad válida.", vbOKOnly + vbExclamation)
                             UnidadProducto.Focus() ' Volver a enfocar el campo UnidadProducto
                         End If
                     End Using
@@ -317,7 +319,6 @@ Public Class ABM_Productos
             MessageBox.Show("El campo Unidad no puede estar vacío.")
             UnidadProducto.Focus()
         End If
-
     End Sub
 
     Private Sub codProducto_Leave(sender As Object, e As EventArgs) Handles codProducto.Leave
@@ -337,18 +338,23 @@ Public Class ABM_Productos
     Private Sub PrecioUnitarioProducto_Leave(sender As Object, e As EventArgs) Handles PrecioUnitarioProducto.Leave
         If String.IsNullOrWhiteSpace(PrecioUnitarioProducto.Text) Then
             PrecioUnitarioProducto.Text = "0,00"
+        Else
+            Dim precio As Decimal
+            If Decimal.TryParse(PrecioUnitarioProducto.Text, precio) Then
+                ' Formatear el precio con separadores de miles y dos decimales
+                PrecioUnitarioProducto.Text = precio.ToString("N2")
+            Else
+                MessageBox.Show("El campo Precio Unitario debe contener solo números.")
+                PrecioUnitarioProducto.Focus()
+            End If
         End If
     End Sub
+
 
     Private Sub txtIvaProducto_Leave(sender As Object, e As EventArgs) Handles txtIvaProducto.Leave
+        StockProducto.Text = "0,00"
         If String.IsNullOrWhiteSpace(txtIvaProducto.Text) Then
             txtIvaProducto.Text = "21"
-        End If
-    End Sub
-
-    Private Sub StockProducto_Leave(sender As Object, e As EventArgs) Handles StockProducto.Leave
-        If String.IsNullOrWhiteSpace(StockProducto.Text) Then
-            StockProducto.Text = "0,00"
         End If
     End Sub
 End Class

@@ -50,4 +50,17 @@ Public Class Login
             End Using
         End If
     End Sub
+
+    Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
+        If txtUsuario.Text.Length = 1 Then
+            txtUsuario.Text = txtUsuario.Text.Substring(0, 1).ToUpper()
+            txtUsuario.SelectionStart = txtUsuario.Text.Length
+        End If
+    End Sub
+
+    Private Sub txtContraseña_KeyDown(sender As Object, e As KeyEventArgs) Handles txtContraseña.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnIngresar.PerformClick()
+        End If
+    End Sub
 End Class

@@ -50,6 +50,7 @@ Partial Class ABM_Productos
         btnAceptarABMP = New Button()
         btnVolverABMP = New Button()
         gbDetalle = New GroupBox()
+        Label4 = New Label()
         lblPorc = New Label()
         Label12 = New Label()
         gbCategorizacion = New GroupBox()
@@ -137,7 +138,7 @@ Partial Class ABM_Productos
         PrecioUnitarioProducto.Location = New Point(11, 121)
         PrecioUnitarioProducto.MaxLength = 10
         PrecioUnitarioProducto.Name = "PrecioUnitarioProducto"
-        PrecioUnitarioProducto.Size = New Size(106, 29)
+        PrecioUnitarioProducto.Size = New Size(122, 29)
         PrecioUnitarioProducto.TabIndex = 3
         ' 
         ' lblSeñalProducto
@@ -197,12 +198,14 @@ Partial Class ABM_Productos
         ' 
         ' StockProducto
         ' 
+        StockProducto.Enabled = False
         StockProducto.Font = New Font("Yu Gothic UI", 12F)
         StockProducto.Location = New Point(315, 121)
         StockProducto.MaxLength = 12
         StockProducto.Name = "StockProducto"
         StockProducto.Size = New Size(71, 29)
         StockProducto.TabIndex = 5
+        StockProducto.Text = "0,00"
         ' 
         ' CategoriaProducto
         ' 
@@ -260,7 +263,7 @@ Partial Class ABM_Productos
         codProducto.Location = New Point(11, 57)
         codProducto.MaxLength = 15
         codProducto.Name = "codProducto"
-        codProducto.Size = New Size(106, 29)
+        codProducto.Size = New Size(143, 29)
         codProducto.TabIndex = 1
         ' 
         ' descripProducto
@@ -356,6 +359,7 @@ Partial Class ABM_Productos
         ' gbDetalle
         ' 
         gbDetalle.BackColor = Color.Tan
+        gbDetalle.Controls.Add(Label4)
         gbDetalle.Controls.Add(lblPorc)
         gbDetalle.Controls.Add(Label11)
         gbDetalle.Controls.Add(lblUnidad)
@@ -378,6 +382,17 @@ Partial Class ABM_Productos
         gbDetalle.TabIndex = 1
         gbDetalle.TabStop = False
         gbDetalle.Text = "Detalle"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
+        Label4.Font = New Font("Yu Gothic UI", 12F)
+        Label4.Location = New Point(136, 125)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(19, 21)
+        Label4.TabIndex = 46
+        Label4.Text = "$"
         ' 
         ' lblPorc
         ' 
@@ -530,4 +545,5 @@ Partial Class ABM_Productos
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents lblPorc As Label
+    Friend WithEvents Label4 As Label
 End Class

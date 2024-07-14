@@ -25,6 +25,7 @@ Partial Class Compras
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Compras))
         GrillaCompras = New DataGridView()
         Panel2 = New Panel()
         lblTitulo = New Label()
@@ -50,7 +51,7 @@ Partial Class Compras
         GrillaCompras.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Arial", 10F)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -68,7 +69,7 @@ Partial Class Compras
         GrillaCompras.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle2.SelectionForeColor = Color.White
@@ -81,7 +82,6 @@ Partial Class Compras
         DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaCompras.RowsDefaultCellStyle = DataGridViewCellStyle3
-        GrillaCompras.RowTemplate.Height = 25
         GrillaCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaCompras.ShowCellErrors = False
         GrillaCompras.ShowCellToolTips = False
@@ -102,7 +102,7 @@ Partial Class Compras
         ' lblTitulo
         ' 
         lblTitulo.AutoSize = True
-        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
         lblTitulo.Location = New Point(452, 7)
         lblTitulo.Name = "lblTitulo"
         lblTitulo.Size = New Size(110, 32)
@@ -114,9 +114,12 @@ Partial Class Compras
         btnEditarCompra.BackColor = Color.Tan
         btnEditarCompra.FlatAppearance.BorderSize = 0
         btnEditarCompra.FlatStyle = FlatStyle.Flat
-        btnEditarCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarCompra.Font = New Font("Yu Gothic UI", 12F)
+        btnEditarCompra.Image = CType(resources.GetObject("btnEditarCompra.Image"), Image)
+        btnEditarCompra.ImageAlign = ContentAlignment.MiddleLeft
         btnEditarCompra.Location = New Point(210, 538)
         btnEditarCompra.Name = "btnEditarCompra"
+        btnEditarCompra.Padding = New Padding(10, 0, 10, 0)
         btnEditarCompra.Size = New Size(176, 55)
         btnEditarCompra.TabIndex = 57
         btnEditarCompra.Text = "Editar"
@@ -127,7 +130,7 @@ Partial Class Compras
         btnAgregarCompra.BackColor = Color.Tan
         btnAgregarCompra.FlatAppearance.BorderSize = 0
         btnAgregarCompra.FlatStyle = FlatStyle.Flat
-        btnAgregarCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregarCompra.Font = New Font("Yu Gothic UI", 12F)
         btnAgregarCompra.Location = New Point(28, 538)
         btnAgregarCompra.Name = "btnAgregarCompra"
         btnAgregarCompra.Size = New Size(176, 55)
@@ -140,9 +143,12 @@ Partial Class Compras
         btnAddCompra.BackColor = Color.Tan
         btnAddCompra.FlatAppearance.BorderSize = 0
         btnAddCompra.FlatStyle = FlatStyle.Flat
-        btnAddCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAddCompra.Font = New Font("Yu Gothic UI", 12F)
+        btnAddCompra.Image = CType(resources.GetObject("btnAddCompra.Image"), Image)
+        btnAddCompra.ImageAlign = ContentAlignment.MiddleLeft
         btnAddCompra.Location = New Point(28, 538)
         btnAddCompra.Name = "btnAddCompra"
+        btnAddCompra.Padding = New Padding(10, 0, 10, 0)
         btnAddCompra.Size = New Size(176, 55)
         btnAddCompra.TabIndex = 58
         btnAddCompra.Text = "Agregar"
@@ -152,10 +158,14 @@ Partial Class Compras
         ' 
         btnDeleteCompra.BackColor = Color.Tan
         btnDeleteCompra.FlatAppearance.BorderSize = 0
+        btnDeleteCompra.FlatAppearance.MouseOverBackColor = Color.Red
         btnDeleteCompra.FlatStyle = FlatStyle.Flat
-        btnDeleteCompra.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnDeleteCompra.Font = New Font("Yu Gothic UI", 12F)
+        btnDeleteCompra.Image = CType(resources.GetObject("btnDeleteCompra.Image"), Image)
+        btnDeleteCompra.ImageAlign = ContentAlignment.MiddleLeft
         btnDeleteCompra.Location = New Point(632, 538)
         btnDeleteCompra.Name = "btnDeleteCompra"
+        btnDeleteCompra.Padding = New Padding(10, 0, 10, 0)
         btnDeleteCompra.Size = New Size(176, 55)
         btnDeleteCompra.TabIndex = 59
         btnDeleteCompra.Text = "Eliminar"
@@ -174,7 +184,7 @@ Partial Class Compras
         btnDetalle.BackColor = Color.Tan
         btnDetalle.FlatAppearance.BorderSize = 0
         btnDetalle.FlatStyle = FlatStyle.Flat
-        btnDetalle.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnDetalle.Font = New Font("Yu Gothic UI", 12F)
         btnDetalle.Location = New Point(814, 132)
         btnDetalle.Name = "btnDetalle"
         btnDetalle.Size = New Size(227, 55)
@@ -187,7 +197,7 @@ Partial Class Compras
         btnBalance.BackColor = Color.Tan
         btnBalance.FlatAppearance.BorderSize = 0
         btnBalance.FlatStyle = FlatStyle.Flat
-        btnBalance.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnBalance.Font = New Font("Yu Gothic UI", 12F)
         btnBalance.Location = New Point(814, 71)
         btnBalance.Name = "btnBalance"
         btnBalance.Size = New Size(227, 55)
