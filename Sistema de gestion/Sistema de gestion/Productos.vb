@@ -6,7 +6,7 @@ Public Class Productos
     End Sub
 
     Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
-        'Limpiar datos de la grilla
+        ' Limpiar datos de la grilla
         If setdedatos.Tables.Contains("dtProducto") Then
             setdedatos.Tables("dtProducto").Rows.Clear()
         End If
@@ -17,8 +17,8 @@ Public Class Productos
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
             ' Construir las condiciones de búsqueda para cada campo
             Dim condicionesBusqueda As String = " WHERE Codigo LIKE '%" & terminoBusqueda & "%'" &
-                                         " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
-                                         " OR Especificaciones LIKE '%" & terminoBusqueda & "%'"
+                                                 " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
+                                                 " OR Especificaciones LIKE '%" & terminoBusqueda & "%'"
 
             ' Añadir las condiciones a la consulta
             consultassql &= condicionesBusqueda
@@ -32,20 +32,20 @@ Public Class Productos
         GrillaProductos.DataSource = setdedatos.Tables("dtProducto")
         GrillaProductos.Font = New Font("Arial", 10)
 
-        'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
+        ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
         Dim columnasOcultas As Integer() = {0, 2, 5, 6, 9}
         For Each col In columnasOcultas
             GrillaProductos.Columns(col).Visible = False
         Next
 
-        'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
+        ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
         GrillaProductos.Columns(1).FillWeight = 15
         GrillaProductos.Columns(3).FillWeight = 50
         GrillaProductos.Columns(4).FillWeight = 5
         GrillaProductos.Columns(7).FillWeight = 15
         GrillaProductos.Columns(8).FillWeight = 15
 
-        'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
+        ' COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
         For i As Integer = 0 To 8
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
@@ -59,6 +59,9 @@ Public Class Productos
 
             ' Llamar al método para llenar la grilla de stock con base en el código del producto
             LlenarGrillaStock(codigoProducto)
+
+            ' Cargar la imagen del producto desde la base de datos
+            CargarImagenProducto(Convert.ToInt32(GrillaProductos.Rows(e.RowIndex).Cells("IDProducto").Value))
         End If
     End Sub
 
@@ -70,9 +73,9 @@ Public Class Productos
 
         ' Consulta SQL para obtener el stock de los depósitos
         Dim consultaSQL As String = "SELECT d.NumeroDeposito, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
-                                "FROM StockDepositos sd " &
-                                "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
-                                "WHERE sd.CodigoProducto = @CodigoProducto"
+                                    "FROM StockDepositos sd " &
+                                    "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
+                                    "WHERE sd.CodigoProducto = @CodigoProducto"
 
         Using comandoSql As New SqlCommand(consultaSQL, conexionSql)
             comandoSql.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
@@ -100,6 +103,34 @@ Public Class Productos
         End Using
     End Sub
 
+    Private Sub CargarImagenProducto(idProducto As Integer)
+        Dim consultaSQL As String = "SELECT Imagen FROM ProductosImagenes WHERE IDProducto = @IDProducto"
+
+        Try
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+                  command As New SqlCommand(consultaSQL, connection)
+                command.Parameters.AddWithValue("@IDProducto", idProducto)
+                connection.Open()
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        Dim imageData As Byte() = If(reader("Imagen") IsNot DBNull.Value, CType(reader("Imagen"), Byte()), Nothing)
+                        If imageData IsNot Nothing Then
+                            Using ms As New IO.MemoryStream(imageData)
+                                ABM_Productos.picProducto.Image = Image.FromStream(ms)
+                            End Using
+                        Else
+                            ABM_Productos.picProducto.Image = Nothing
+                        End If
+                    Else
+                        ABM_Productos.picProducto.Image = Nothing
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error al cargar la imagen del producto: " & ex.Message)
+        End Try
+    End Sub
 
     Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
         llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
@@ -107,7 +138,9 @@ Public Class Productos
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         ABM_Productos.lblSeñalProducto.Text = "EDITAR"
+        ABM_Productos.codProducto.Enabled = False
 
+        ' Asignar valores de la fila seleccionada a los campos del formulario de edición
         ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
         ABM_Productos.codProducto.Text = GrillaProductos.CurrentRow.Cells(1).Value
         ABM_Productos.descripProducto.Text = GrillaProductos.CurrentRow.Cells(2).Value
@@ -120,27 +153,7 @@ Public Class Productos
         ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value
 
         ' Cargar la imagen del producto desde la base de datos
-        Dim idProducto As Integer = Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value)
-        Dim consultaSQL As String = "SELECT Imagen FROM ProductosImagenes WHERE IDProducto = @IDProducto"
-
-        Using connection As New SqlConnection(conexionSql.ConnectionString),
-          command As New SqlCommand(consultaSQL, connection)
-            command.Parameters.AddWithValue("@IDProducto", idProducto)
-            connection.Open()
-
-            Using reader As SqlDataReader = command.ExecuteReader()
-                If reader.Read() Then
-                    Dim imageData As Byte() = If(reader("Imagen") IsNot DBNull.Value, CType(reader("Imagen"), Byte()), Nothing)
-                    If imageData IsNot Nothing Then
-                        Using ms As New IO.MemoryStream(imageData)
-                            ABM_Productos.picProducto.Image = Image.FromStream(ms)
-                        End Using
-                    Else
-                        ABM_Productos.picProducto.Image = Nothing
-                    End If
-                End If
-            End Using
-        End Using
+        CargarImagenProducto(Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value))
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
     End Sub

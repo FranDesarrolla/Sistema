@@ -104,7 +104,7 @@ Partial Class Productos
         GrillaProductos.ShowEditingIcon = False
         GrillaProductos.ShowRowErrors = False
         GrillaProductos.Size = New Size(780, 436)
-        GrillaProductos.TabIndex = 16
+        GrillaProductos.TabIndex = 2
         ' 
         ' GrillaStockDepositos
         ' 
@@ -156,6 +156,7 @@ Partial Class Productos
         GrillaStockDepositos.ShowRowErrors = False
         GrillaStockDepositos.Size = New Size(227, 412)
         GrillaStockDepositos.TabIndex = 17
+        GrillaStockDepositos.TabStop = False
         ' 
         ' txtCodigoPbusqueda
         ' 
@@ -167,7 +168,7 @@ Partial Class Productos
         txtCodigoPbusqueda.Margin = New Padding(0)
         txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
         txtCodigoPbusqueda.Size = New Size(953, 22)
-        txtCodigoPbusqueda.TabIndex = 18
+        txtCodigoPbusqueda.TabIndex = 1
         ' 
         ' btnAceptarABMP
         ' 
@@ -178,7 +179,7 @@ Partial Class Productos
         btnAceptarABMP.Location = New Point(28, 538)
         btnAceptarABMP.Name = "btnAceptarABMP"
         btnAceptarABMP.Size = New Size(176, 55)
-        btnAceptarABMP.TabIndex = 40
+        btnAceptarABMP.TabIndex = 3
         btnAceptarABMP.Text = "Agregar"
         btnAceptarABMP.UseVisualStyleBackColor = False
         ' 
@@ -191,7 +192,7 @@ Partial Class Productos
         btnEditar.Location = New Point(210, 538)
         btnEditar.Name = "btnEditar"
         btnEditar.Size = New Size(176, 55)
-        btnEditar.TabIndex = 41
+        btnEditar.TabIndex = 4
         btnEditar.Text = "Editar"
         btnEditar.UseVisualStyleBackColor = False
         ' 
@@ -204,7 +205,7 @@ Partial Class Productos
         btnEliminar.Location = New Point(632, 538)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(176, 55)
-        btnEliminar.TabIndex = 42
+        btnEliminar.TabIndex = 5
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = False
         ' 
@@ -256,7 +257,7 @@ Partial Class Productos
         Button1.Location = New Point(814, 538)
         Button1.Name = "Button1"
         Button1.Size = New Size(227, 55)
-        Button1.TabIndex = 56
+        Button1.TabIndex = 6
         Button1.Text = "Stock"
         Button1.UseVisualStyleBackColor = False
         ' 
