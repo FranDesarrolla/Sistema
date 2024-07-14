@@ -17,6 +17,9 @@ Public Class ABM_Productos
         Me.StockProducto.Text = ""
         Me.PrecioUnitarioProducto.Text = ""
         Me.txtIvaProducto.Text = ""
+        Me.lblCategoria.Text = ""
+        Me.lblRubro.Text = ""
+        Me.lblUnidad.Text = ""
 
         ' Limpiar el PictureBox
         Me.picProducto.Image = Nothing
@@ -33,8 +36,11 @@ Public Class ABM_Productos
                     Dim ivaFormateado As Decimal = Decimal.Parse(txtIvaProducto.Text)
                     Dim stockFormateado As Decimal = Decimal.Parse(StockProducto.Text)
 
-                    Using command As New SqlCommand("INSERT INTO dbo.Productos (Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario, Iva) 
-                                      VALUES (@Codigo, @Descripcion, @Especificaciones, @Unidad, @Rubro, @Categoria, @Stock, @PrecioUnitario, @Iva); SELECT SCOPE_IDENTITY()", connection)
+                    ' Determinar el estado del producto según el estado del CheckBox
+                    Dim estado As String = If(CB_Activo.Checked, "A", "I")
+
+                    Using command As New SqlCommand("INSERT INTO dbo.Productos (Codigo, Descripcion, Especificaciones, Unidad, Rubro, Categoria, Stock, PrecioUnitario, Iva, Estado) 
+                                  VALUES (@Codigo, @Descripcion, @Especificaciones, @Unidad, @Rubro, @Categoria, @Stock, @PrecioUnitario, @Iva, @Estado); SELECT SCOPE_IDENTITY()", connection)
                         command.Parameters.AddWithValue("@Codigo", codProducto.Text)
                         command.Parameters.AddWithValue("@Descripcion", descripProducto.Text)
                         command.Parameters.AddWithValue("@Especificaciones", especifiProducto.Text)
@@ -44,6 +50,7 @@ Public Class ABM_Productos
                         command.Parameters.AddWithValue("@Stock", stockFormateado)
                         command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
                         command.Parameters.AddWithValue("@Iva", ivaFormateado)
+                        command.Parameters.AddWithValue("@Estado", estado)
 
                         ' Ejecuta la consulta de inserción y obtiene el ID del producto insertado
                         Dim idProducto As Integer = Convert.ToInt32(command.ExecuteScalar())
@@ -88,9 +95,12 @@ Public Class ABM_Productos
                     Dim ivaFormateado As Decimal = Decimal.Parse(txtIvaProducto.Text)
                     Dim stockFormateado As Decimal = Decimal.Parse(StockProducto.Text)
 
+                    ' Determinar el estado del producto según el estado del CheckBox
+                    Dim estado As String = If(CB_Activo.Checked, "A", "I")
+
                     Using command As New SqlCommand("UPDATE dbo.Productos
-                                         SET Codigo = @Codigo, Descripcion = @Descripcion, Especificaciones = @Especificaciones, Unidad = @Unidad, Rubro = @Rubro, Categoria = @Categoria, Stock = @Stock, PrecioUnitario = @PrecioUnitario, Iva = @Iva
-                                         WHERE IDProducto = @IDProducto", connection)
+                                     SET Codigo = @Codigo, Descripcion = @Descripcion, Especificaciones = @Especificaciones, Unidad = @Unidad, Rubro = @Rubro, Categoria = @Categoria, Stock = @Stock, PrecioUnitario = @PrecioUnitario, Iva = @Iva, Estado = @Estado
+                                     WHERE IDProducto = @IDProducto", connection)
                         command.Parameters.AddWithValue("@Codigo", codProducto.Text)
                         command.Parameters.AddWithValue("@Descripcion", descripProducto.Text)
                         command.Parameters.AddWithValue("@Especificaciones", especifiProducto.Text)
@@ -100,6 +110,7 @@ Public Class ABM_Productos
                         command.Parameters.AddWithValue("@Stock", stockFormateado)
                         command.Parameters.AddWithValue("@PrecioUnitario", precioFormateado)
                         command.Parameters.AddWithValue("@Iva", ivaFormateado)
+                        command.Parameters.AddWithValue("@Estado", estado)
                         command.Parameters.AddWithValue("@IDProducto", idProducto)
 
                         Dim rowsAffected As Integer = command.ExecuteNonQuery()
@@ -142,6 +153,7 @@ Public Class ABM_Productos
             ModuloPrincipal.AbrirFormEnPanel(Productos)
         End If
     End Sub
+
 
     Private Sub btnVolverABMP_Click(sender As Object, e As EventArgs) Handles btnVolverABMP.Click
         ModuloPrincipal.AbrirFormEnPanel(Productos)
@@ -190,4 +202,153 @@ Public Class ABM_Productos
         End If
     End Sub
 
+    Private Sub RubroProducto_Leave(sender As Object, e As EventArgs) Handles RubroProducto.Leave
+        ' Verificar si el campo de RubroProducto no está vacío
+        If Not String.IsNullOrWhiteSpace(RubroProducto.Text) Then
+            ' Verificar si el rubro ingresado existe en la base de datos
+            Dim rubro As String = RubroProducto.Text.Trim()
+
+            Try
+                Using connection As New SqlConnection(conexionSql.ConnectionString)
+                    connection.Open()
+
+                    ' Consulta para verificar la existencia del rubro y obtener la descripción
+                    Dim consultaSQL As String = "SELECT Descripcion FROM Rubros WHERE Rubro = @Rubro"
+
+                    Using command As New SqlCommand(consultaSQL, connection)
+                        command.Parameters.AddWithValue("@Rubro", rubro)
+
+                        ' Ejecutar la consulta y obtener la descripción
+                        Dim descripcionRubro As Object = command.ExecuteScalar()
+
+                        If descripcionRubro IsNot Nothing Then
+                            ' Actualizar lblRubro con la descripción del rubro
+                            lblRubro.Text = descripcionRubro.ToString()
+                        Else
+                            ' Mostrar mensaje si el rubro no existe y evitar que el usuario salga del campo
+                            MsgBox("El rubro ingresado no existe. Por favor, ingrese un rubro válido.", vbOKOnly + vbExclamation)
+                            RubroProducto.Focus() ' Volver a enfocar el campo RubroProducto
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox("Error al verificar el rubro: " & ex.Message, vbOKOnly + vbExclamation)
+            End Try
+        Else
+            MessageBox.Show("El campo rubro no puede estar vacío.")
+            RubroProducto.Focus()
+        End If
+    End Sub
+
+    ' VALIDACIONES POR CAMPO
+
+    Private Sub CategoriaProducto_Leave(sender As Object, e As EventArgs) Handles CategoriaProducto.Leave
+        ' Verificar si el campo de categoriaProducto no está vacío
+        If Not String.IsNullOrWhiteSpace(CategoriaProducto.Text) Then
+            ' Verificar si el Categoria ingresado existe en la base de datos
+            Dim categoria As String = CategoriaProducto.Text.Trim()
+
+            Try
+                Using connection As New SqlConnection(conexionSql.ConnectionString)
+                    connection.Open()
+
+                    ' Consulta para verificar la existencia del categoria y obtener la descripción
+                    Dim consultaSQL As String = "SELECT Descripcion FROM Categorias WHERE Categoria = @Categoria"
+
+                    Using command As New SqlCommand(consultaSQL, connection)
+                        command.Parameters.AddWithValue("@Categoria", categoria)
+
+                        ' Ejecutar la consulta y obtener la descripción
+                        Dim descripcionCategoria As Object = command.ExecuteScalar()
+
+                        If descripcionCategoria IsNot Nothing Then
+                            ' Actualizar lblcategoria con la descripción del Categoria
+                            lblCategoria.Text = descripcionCategoria.ToString()
+                        Else
+                            ' Mostrar mensaje si el categoria no existe y evitar que el usuario salga del campo
+                            MsgBox("La categoria ingresado no existe. Por favor, ingrese una categoria válida.", vbOKOnly + vbExclamation)
+                            CategoriaProducto.Focus() ' Volver a enfocar el campo CategoriaProducto
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox("Error al verificar la categoria: " & ex.Message, vbOKOnly + vbExclamation)
+            End Try
+        Else
+            MessageBox.Show("El campo categoria no puede estar vacío.")
+            CategoriaProducto.Focus()
+        End If
+    End Sub
+
+    Private Sub UnidadProducto_Leave(sender As Object, e As EventArgs) Handles UnidadProducto.Leave
+
+        ' Verificar si el campo de UnidadProducto no está vacío
+        If Not String.IsNullOrWhiteSpace(UnidadProducto.Text) Then
+            ' Verificar si el Unidad ingresado existe en la base de datos
+            Dim Unidad As String = UnidadProducto.Text.Trim()
+
+            Try
+                Using connection As New SqlConnection(conexionSql.ConnectionString)
+                    connection.Open()
+
+                    ' Consulta para verificar la existencia del Unidad y obtener la descripción
+                    Dim consultaSQL As String = "SELECT Descripcion FROM Unidades WHERE Unidad = @Unidad"
+
+                    Using command As New SqlCommand(consultaSQL, connection)
+                        command.Parameters.AddWithValue("@Unidad", Unidad)
+
+                        ' Ejecutar la consulta y obtener la descripción
+                        Dim descripcionUnidad As Object = command.ExecuteScalar()
+
+                        If descripcionUnidad IsNot Nothing Then
+                            ' Actualizar lblUnidad con la descripción del Unidad
+                            lblUnidad.Text = descripcionUnidad.ToString()
+                        Else
+                            ' Mostrar mensaje si el Unidad no existe y evitar que el usuario salga del campo
+                            MsgBox("La Unidad ingresado no existe. Por favor, ingrese una Unidad válida.", vbOKOnly + vbExclamation)
+                            UnidadProducto.Focus() ' Volver a enfocar el campo UnidadProducto
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox("Error al verificar la Unidad: " & ex.Message, vbOKOnly + vbExclamation)
+            End Try
+        Else
+            MessageBox.Show("El campo Unidad no puede estar vacío.")
+            UnidadProducto.Focus()
+        End If
+
+    End Sub
+
+    Private Sub codProducto_Leave(sender As Object, e As EventArgs) Handles codProducto.Leave
+        If String.IsNullOrWhiteSpace(codProducto.Text) Then
+            MessageBox.Show("El campo Código no puede estar vacío.")
+            codProducto.Focus()
+        End If
+    End Sub
+
+    Private Sub descripProducto_Leave(sender As Object, e As EventArgs) Handles descripProducto.Leave
+        If String.IsNullOrWhiteSpace(descripProducto.Text) Then
+            MessageBox.Show("El campo Descripción no puede estar vacío.")
+            descripProducto.Focus()
+        End If
+    End Sub
+
+    Private Sub PrecioUnitarioProducto_Leave(sender As Object, e As EventArgs) Handles PrecioUnitarioProducto.Leave
+        If String.IsNullOrWhiteSpace(PrecioUnitarioProducto.Text) Then
+            PrecioUnitarioProducto.Text = "0,00"
+        End If
+    End Sub
+
+    Private Sub txtIvaProducto_Leave(sender As Object, e As EventArgs) Handles txtIvaProducto.Leave
+        If String.IsNullOrWhiteSpace(txtIvaProducto.Text) Then
+            txtIvaProducto.Text = "21"
+        End If
+    End Sub
+
+    Private Sub StockProducto_Leave(sender As Object, e As EventArgs) Handles StockProducto.Leave
+        If String.IsNullOrWhiteSpace(StockProducto.Text) Then
+            StockProducto.Text = "0,00"
+        End If
+    End Sub
 End Class

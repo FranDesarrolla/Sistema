@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\my project\\application.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\my project\\application.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\sistema de gestion.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\sistema de gestion.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +34,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Application.Designer.vb",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\My Project\\Application.Designer.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\My Project\\Application.Designer.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\My Project\\Application.Designer.vb",
+              "RelativeToolTip": "Sistema de gestion\\My Project\\Application.Designer.vb",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAACMAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-14T08:19:52.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Sistema de gestion",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Sistema de gestion.vbproj",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
+              "RelativeToolTip": "Sistema de gestion\\Sistema de gestion.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
+              "WhenOpened": "2024-07-14T08:18:34.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Productos.vb",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Productos.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Productos.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Productos.vb",
+              "RelativeToolTip": "Sistema de gestion\\Productos.vb",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowDoAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-14T07:39:35.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ABM_Productos.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Productos.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\ABM_Productos.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-14T07:39:25.859Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ABM_Productos.vb",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Productos.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
+              "RelativeToolTip": "Sistema de gestion\\ABM_Productos.vb",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAAAJoAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-14T07:19:45.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Productos.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Productos.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Productos.vb",
@@ -34,31 +109,6 @@
               "RelativeToolTip": "Sistema de gestion\\Productos.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-07-14T06:05:05.291Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ABM_Productos.vb",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Productos.vb",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Productos.vb",
-              "ViewState": "AQIAADkAAAAAAAAAAAAowAIAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-07-12T23:26:30.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ABM_Productos.vb [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Productos.vb",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Productos.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Productos.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-07-12T23:26:23.631Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

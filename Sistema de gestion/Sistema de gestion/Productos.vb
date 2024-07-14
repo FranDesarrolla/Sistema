@@ -3,6 +3,7 @@
 Public Class Productos
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaProductos()
+        Me.CB_Inactivos.Checked = False
     End Sub
 
     Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
@@ -11,20 +12,33 @@ Public Class Productos
             setdedatos.Tables("dtProducto").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT IDProducto, Codigo, Descripcion, Especificaciones, Unidad as 'U', Rubro, Categoria, Stock, PrecioUnitario as 'Unitario', Iva FROM Productos"
+        ' Crear la consulta base
+        Dim consultassql As String = "SELECT P.IDProducto, P.Codigo, P.Descripcion, P.Especificaciones, P.Unidad as 'Un.', P.Rubro, P.Categoria, P.Stock, P.PrecioUnitario as 'Unitario', P.Iva, C.Descripcion AS CategoriaDescripcion, R.Descripcion AS RubroDescripcion, U.Descripcion AS UnidadDescripcion, P.Estado FROM Productos P
+                                  INNER JOIN Categorias C ON P.Categoria = C.Categoria
+                                  INNER JOIN Rubros R ON P.Rubro = R.Rubro
+                                  INNER JOIN Unidades U ON P.Unidad = U.Unidad"
+
+        ' Añadir la condición del estado según el CheckBox
+        If CB_Inactivos.Checked Then
+            ' Mostrar todos los productos si CB_Inactivos está marcado
+            consultassql &= " WHERE P.Estado = 'I'"
+        Else
+            ' Mostrar solo productos activos si CB_Inactivos no está marcado
+            consultassql &= " WHERE P.Estado = 'A'"
+        End If
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
             ' Construir las condiciones de búsqueda para cada campo
-            Dim condicionesBusqueda As String = " WHERE Codigo LIKE '%" & terminoBusqueda & "%'" &
-                                                 " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
-                                                 " OR Especificaciones LIKE '%" & terminoBusqueda & "%'"
+            Dim condicionesBusqueda As String = " AND (Codigo LIKE '%" & terminoBusqueda & "%'" &
+                                             " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
+                                             " OR Especificaciones LIKE '%" & terminoBusqueda & "%')"
 
             ' Añadir las condiciones a la consulta
             consultassql &= condicionesBusqueda
         End If
 
-        consultassql &= " ORDER BY Codigo ASC"
+        consultassql &= " ORDER BY P.Codigo ASC"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtProducto As New DataTable
@@ -33,23 +47,24 @@ Public Class Productos
         GrillaProductos.Font = New Font("Arial", 10)
 
         ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-        Dim columnasOcultas As Integer() = {0, 2, 5, 6, 9}
+        Dim columnasOcultas As Integer() = {0, 2, 5, 6, 9, 10, 11, 12, 13}
         For Each col In columnasOcultas
             GrillaProductos.Columns(col).Visible = False
         Next
 
         ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
-        GrillaProductos.Columns(1).FillWeight = 15
+        GrillaProductos.Columns(1).FillWeight = 18
         GrillaProductos.Columns(3).FillWeight = 50
-        GrillaProductos.Columns(4).FillWeight = 5
-        GrillaProductos.Columns(7).FillWeight = 15
-        GrillaProductos.Columns(8).FillWeight = 15
+        GrillaProductos.Columns(4).FillWeight = 6
+        GrillaProductos.Columns(7).FillWeight = 10
+        GrillaProductos.Columns(8).FillWeight = 16
 
         ' COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
-        For i As Integer = 0 To 8
+        For i As Integer = 0 To 13
             GrillaProductos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
     End Sub
+
 
     Private Sub GrillaProductos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrillaProductos.CellClick
         ' Verificar si la celda seleccionada está en una fila válida
@@ -141,16 +156,33 @@ Public Class Productos
         ABM_Productos.codProducto.Enabled = False
 
         ' Asignar valores de la fila seleccionada a los campos del formulario de edición
-        ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value
-        ABM_Productos.codProducto.Text = GrillaProductos.CurrentRow.Cells(1).Value
-        ABM_Productos.descripProducto.Text = GrillaProductos.CurrentRow.Cells(2).Value
-        ABM_Productos.especifiProducto.Text = GrillaProductos.CurrentRow.Cells(3).Value
-        ABM_Productos.UnidadProducto.Text = GrillaProductos.CurrentRow.Cells(4).Value
-        ABM_Productos.RubroProducto.Text = GrillaProductos.CurrentRow.Cells(5).Value
-        ABM_Productos.CategoriaProducto.Text = GrillaProductos.CurrentRow.Cells(6).Value
-        ABM_Productos.StockProducto.Text = GrillaProductos.CurrentRow.Cells(7).Value
-        ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value
-        ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value
+        ABM_Productos.id_producto.Text = GrillaProductos.CurrentRow.Cells(0).Value.ToString()
+        ABM_Productos.codProducto.Text = GrillaProductos.CurrentRow.Cells(1).Value.ToString()
+        ABM_Productos.descripProducto.Text = GrillaProductos.CurrentRow.Cells(2).Value.ToString()
+        ABM_Productos.especifiProducto.Text = GrillaProductos.CurrentRow.Cells(3).Value.ToString()
+        ABM_Productos.UnidadProducto.Text = GrillaProductos.CurrentRow.Cells(4).Value.ToString()
+        ABM_Productos.RubroProducto.Text = GrillaProductos.CurrentRow.Cells(5).Value.ToString()
+        ABM_Productos.CategoriaProducto.Text = GrillaProductos.CurrentRow.Cells(6).Value.ToString()
+        ABM_Productos.StockProducto.Text = GrillaProductos.CurrentRow.Cells(7).Value.ToString()
+        ABM_Productos.PrecioUnitarioProducto.Text = GrillaProductos.CurrentRow.Cells(8).Value.ToString()
+        ABM_Productos.txtIvaProducto.Text = GrillaProductos.CurrentRow.Cells(9).Value.ToString()
+
+        ABM_Productos.lblCategoria.Text = GrillaProductos.CurrentRow.Cells(10).Value.ToString()
+        ABM_Productos.lblRubro.Text = GrillaProductos.CurrentRow.Cells(11).Value.ToString()
+        ABM_Productos.lblUnidad.Text = GrillaProductos.CurrentRow.Cells(12).Value.ToString()
+
+        ' Obtener el valor del campo Estado
+        Dim estado As String = GrillaProductos.CurrentRow.Cells(13).Value.ToString()
+
+        ' Establecer el estado del CheckBox basado en el valor del campo Estado
+        If estado = "A" Then
+            ABM_Productos.CB_Activo.Checked = True
+        ElseIf estado = "I" Then
+            ABM_Productos.CB_Activo.Checked = False
+        Else
+            ' Manejar el caso de valores inesperados
+            MsgBox("Valor de estado inesperado: " & estado, vbExclamation)
+        End If
 
         ' Cargar la imagen del producto desde la base de datos
         CargarImagenProducto(Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value))
@@ -158,7 +190,10 @@ Public Class Productos
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
     End Sub
 
+
     Private Sub btnAceptarABMP_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
+        ABM_Productos.codProducto.Enabled = True
+        ABM_Productos.CB_Activo.Checked = True
         ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
@@ -223,4 +258,7 @@ Public Class Productos
         End If
     End Sub
 
+    Private Sub CB_Inactivos_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Inactivos.CheckedChanged
+        llenarGrillaProductos()
+    End Sub
 End Class

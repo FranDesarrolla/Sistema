@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <RootNamespace>Sistema_de_gestion</RootNamespace>
-    <StartupObject>Sistema_de_gestion.ModuloPrincipal</StartupObject>
+    <StartupObject>Sistema_de_gestion.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>nIcon.ico</ApplicationIcon>

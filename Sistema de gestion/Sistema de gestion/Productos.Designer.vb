@@ -40,6 +40,8 @@ Partial Class Productos
         lblBusqueda = New Label()
         Label1 = New Label()
         Button1 = New Button()
+        Panel1 = New Panel()
+        CB_Inactivos = New CheckBox()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         CType(GrillaStockDepositos, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
@@ -98,6 +100,7 @@ Partial Class Productos
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaProductos.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaProductos.RowTemplate.Height = 25
+        GrillaProductos.ScrollBars = ScrollBars.Vertical
         GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaProductos.ShowCellErrors = False
         GrillaProductos.ShowCellToolTips = False
@@ -166,8 +169,9 @@ Partial Class Productos
         txtCodigoPbusqueda.ForeColor = Color.Black
         txtCodigoPbusqueda.Location = New Point(88, 66)
         txtCodigoPbusqueda.Margin = New Padding(0)
+        txtCodigoPbusqueda.MaxLength = 255
         txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
-        txtCodigoPbusqueda.Size = New Size(953, 22)
+        txtCodigoPbusqueda.Size = New Size(720, 22)
         txtCodigoPbusqueda.TabIndex = 1
         ' 
         ' btnAceptarABMP
@@ -241,8 +245,9 @@ Partial Class Productos
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Label1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(857, 93)
+        Label1.Location = New Point(857, 97)
         Label1.Name = "Label1"
         Label1.Size = New Size(151, 21)
         Label1.TabIndex = 55
@@ -261,12 +266,35 @@ Partial Class Productos
         Button1.Text = "Stock"
         Button1.UseVisualStyleBackColor = False
         ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        Panel1.Location = New Point(814, 96)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(227, 24)
+        Panel1.TabIndex = 56
+        ' 
+        ' CB_Inactivos
+        ' 
+        CB_Inactivos.AutoSize = True
+        CB_Inactivos.BackColor = Color.Transparent
+        CB_Inactivos.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        CB_Inactivos.Location = New Point(854, 65)
+        CB_Inactivos.Name = "CB_Inactivos"
+        CB_Inactivos.Size = New Size(150, 25)
+        CB_Inactivos.TabIndex = 57
+        CB_Inactivos.TabStop = False
+        CB_Inactivos.Text = "Ver solo inactivos"
+        CB_Inactivos.UseVisualStyleBackColor = False
+        ' 
         ' Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
+        Controls.Add(CB_Inactivos)
+        Controls.Add(GrillaStockDepositos)
         Controls.Add(Button1)
         Controls.Add(Label1)
         Controls.Add(lblBusqueda)
@@ -275,9 +303,9 @@ Partial Class Productos
         Controls.Add(btnEditar)
         Controls.Add(btnAceptarABMP)
         Controls.Add(txtCodigoPbusqueda)
-        Controls.Add(GrillaStockDepositos)
         Controls.Add(GrillaProductos)
         Controls.Add(Label2)
+        Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Productos"
         Text = "Productos"
@@ -300,4 +328,6 @@ Partial Class Productos
     Friend WithEvents lblBusqueda As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents CB_Inactivos As CheckBox
 End Class

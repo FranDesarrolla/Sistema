@@ -101,7 +101,7 @@ Partial Class ModuloPrincipal
         ' 
         btnUser.BackgroundImageLayout = ImageLayout.Zoom
         btnUser.Image = CType(resources.GetObject("btnUser.Image"), Image)
-        btnUser.Location = New Point(237, 10)
+        btnUser.Location = New Point(257, 10)
         btnUser.Name = "btnUser"
         btnUser.Size = New Size(25, 25)
         btnUser.SizeMode = PictureBoxSizeMode.StretchImage
@@ -125,7 +125,7 @@ Partial Class ModuloPrincipal
         ' 
         lblUsuario.AutoSize = True
         lblUsuario.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lblUsuario.Location = New Point(262, 11)
+        lblUsuario.Location = New Point(282, 11)
         lblUsuario.Name = "lblUsuario"
         lblUsuario.Size = New Size(64, 21)
         lblUsuario.TabIndex = 4
