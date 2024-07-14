@@ -4,24 +4,34 @@ Public Class Pedidos
     Private Sub Pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrillaPedidos()
     End Sub
-    Private Sub btnBuscarPedido_Click(sender As Object, e As EventArgs) Handles btnBuscarPedido.Click
-        Dim terminoBusqueda As String = txtCodigoPedidobusqueda.Text.Trim()
-        llenarGrillaPedidos(terminoBusqueda) ' Llamada al método con el término de búsqueda ingresado
-    End Sub
-    Public Sub llenarGrillaPedidos(Optional ByVal terminoBusqueda As String = "")
-        'LIMPIAR DATOS DE LA GRILLA
 
+    Public Sub llenarGrillaPedidos(Optional ByVal terminoBusqueda As String = "")
+        ' LIMPIAR DATOS DE LA GRILLA
         If setdedatos.Tables.Contains("dtPedido") Then
             setdedatos.Tables("dtPedido").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT   PED.IDPedido AS ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, PED.Cliente, PED.Empleado, PED.FechaPedido AS Fecha,  
-                                      PED.PuntoDeVenta as Sucursal,C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, PED.EstadoPedido
-                                      FROM Pedidos PED
-                                      INNER JOIN Clientes C ON C.Cuenta = PED.Cliente
-                                      INNER JOIN Empleados E ON E.Cuenta = PED.Empleado"
+        Dim consultassql As String = "SELECT PED.IDPedido AS 'Pedido', C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, PED.Cliente, PED.Empleado, PED.FechaPedido AS Fecha,  
+                           PED.PuntoDeVenta as Sucursal, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, PED.Estado
+                           FROM Pedidos PED
+                           INNER JOIN Clientes C ON C.Cuenta = PED.Cliente
+                           INNER JOIN Empleados E ON E.Cuenta = PED.Empleado
+                           INNER JOIN Provincias P ON P.IDProvincia = C.Provincia
+                           INNER JOIN Localidades L ON L.IDLocalidad = C.Localidad"
 
+        ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
+        If Not String.IsNullOrEmpty(terminoBusqueda) Then
+            ' Construir las condiciones de búsqueda para cada campo
+            Dim condicionesBusqueda As String = " WHERE PED.IDPedido LIKE '%" & terminoBusqueda & "%'" &
+                                     " OR C.Nombre LIKE '%" & terminoBusqueda & "%'" &
+                                     " OR C.Apellido LIKE '%" & terminoBusqueda & "%'" &
+                                     " OR P.Provincia Like '%" & terminoBusqueda & "%'" &
+                                     " OR L.Localidad LIKE '%" & terminoBusqueda & "%'"
+            ' Añadir las condiciones a la consulta
+            consultassql &= condicionesBusqueda
+        End If
 
+        consultassql &= " ORDER BY PED.IDPedido ASC"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtPedido As New DataTable
@@ -29,44 +39,232 @@ Public Class Pedidos
         GrillaPedidos.DataSource = setdedatos.Tables("dtPedido")
         GrillaPedidos.Font = New Font("Arial", 10)
 
-        'CONFIGURAR QUE COLUMNAS SERAN VISIBLES
+        ' Añadir una columna de imagen al principio de la grilla si no existe
+        If Not GrillaPedidos.Columns.Contains("EstadoImagen") Then
+            Dim imgCol As New DataGridViewImageColumn()
+            imgCol.Name = "EstadoImagen"
+            imgCol.HeaderText = "Estado"
+            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom
+            ' Insertar la columna al principio sin desplazar las columnas existentes
+            GrillaPedidos.Columns.Insert(0, imgCol)
+        End If
 
-        Dim columnasOcultar() As Integer = {3, 4, 7, 8, 9, 10, 11}
-
-        For Each columna As Integer In columnasOcultar
-            GrillaPedidos.Columns(columna).Visible = False
+        ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
+        ' Primero, asegurar que todas las columnas estén visibles
+        For i As Integer = 0 To GrillaPedidos.Columns.Count - 1
+            GrillaPedidos.Columns(i).Visible = True
         Next
 
-        'CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
+        ' Ahora ocultar las columnas no deseadas
+        Dim columnasOcultar() As Integer = {4, 5, 8, 9, 10, 11, 12, 13}
+        For Each columna As Integer In columnasOcultar
+            If GrillaPedidos.Columns.Count > columna Then
+                GrillaPedidos.Columns(columna).Visible = False
+            End If
+        Next
 
-        GrillaPedidos.Columns(0).FillWeight = 5
+        ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
+        GrillaPedidos.Columns(0).FillWeight = 10
         GrillaPedidos.Columns(1).FillWeight = 20
         GrillaPedidos.Columns(2).FillWeight = 20
-        GrillaPedidos.Columns(5).FillWeight = 10
+        GrillaPedidos.Columns(3).FillWeight = 20
         GrillaPedidos.Columns(6).FillWeight = 10
-        GrillaPedidos.Columns(12).FillWeight = 15
+        GrillaPedidos.Columns(7).FillWeight = 20
 
-        'COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
-
-        For i As Integer = 0 To 12
+        ' COLOCAR QUE SE HAGA .FILL LA GRILLA PARA DELIMITAR EL ESPACIO AL TOTAL DE LA GRILLA
+        For i As Integer = 0 To GrillaPedidos.Columns.Count - 1
             GrillaPedidos.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next i
 
-
-        ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
-        If Not String.IsNullOrEmpty(terminoBusqueda) Then
-            consultassql &= " WHERE Cliente LIKE '%" & terminoBusqueda & "%' OR IDPedido LIKE '%" & terminoBusqueda & "%'"
-        End If
-
-        consultassql &= " ORDER BY IDPedido ASC"
-
-
+        ' Asignar las imágenes correspondientes a cada estado en el evento DataBindingComplete
+        AddHandler GrillaPedidos.DataBindingComplete, AddressOf GrillaPedidos_DataBindingComplete
     End Sub
+
+    Private Sub GrillaPedidos_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs)
+        For Each row As DataGridViewRow In GrillaPedidos.Rows
+            Dim estado As Integer = Convert.ToInt32(row.Cells("Estado").Value)
+
+            Select Case estado
+                Case 1
+                    row.Cells("EstadoImagen").Value = My.Resources.pendiente_1 ' Imagen para estado 1
+                Case 2
+                    row.Cells("EstadoImagen").Value = My.Resources.preparado_2 ' Imagen para estado 2
+                Case 3
+                    row.Cells("EstadoImagen").Value = My.Resources.aceptado_3 ' Imagen para estado 3
+                Case 4
+                    row.Cells("EstadoImagen").Value = My.Resources.facturado_4 ' Imagen para estado 4
+                Case 5
+                    row.Cells("EstadoImagen").Value = My.Resources.terminado_5 ' Imagen para estado 5
+                Case 6
+                    row.Cells("EstadoImagen").Value = My.Resources.faltadepago_6 ' Imagen para estado 6
+                Case 7
+                    row.Cells("EstadoImagen").Value = My.Resources.anulado_7 ' Imagen para estado 7
+                Case Else
+                    row.Cells("EstadoImagen").Value = My.Resources.pendiente_1 ' Imagen por defecto
+            End Select
+        Next
+    End Sub
+
+
+    Private Sub ActualizarEstadoPedido(idPedido As Integer, nuevoEstado As Integer)
+        Dim consultaSQL As String = "UPDATE Pedidos SET Estado = @NuevoEstado WHERE IDPedido = @IDPedido"
+
+        ' Obtener el estado actual del pedido
+        Dim estadoActual As Integer
+        Dim consultaEstadoSQL As String = "SELECT Estado FROM Pedidos WHERE IDPedido = @IDPedido"
+
+        Try
+            ' Verificar el estado actual del pedido
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(consultaEstadoSQL, connection)
+                command.Parameters.AddWithValue("@IDPedido", idPedido)
+                connection.Open()
+
+                estadoActual = Convert.ToInt32(command.ExecuteScalar())
+            End Using
+
+            ' Verificar si el nuevo estado es válido (no puede retroceder de estado)
+            If nuevoEstado <= estadoActual Then
+                MessageBox.Show("No se puede retroceder el estado del pedido.")
+                Exit Sub
+            End If
+
+            ' Actualizar el estado del pedido
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(consultaSQL, connection)
+                command.Parameters.AddWithValue("@NuevoEstado", nuevoEstado)
+                command.Parameters.AddWithValue("@IDPedido", idPedido)
+                connection.Open()
+
+                command.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Estado del pedido actualizado con éxito.")
+
+            ' Volver a llenar la grilla para reflejar los cambios
+            llenarGrillaPedidos()
+
+        Catch ex As Exception
+            MessageBox.Show("Error al actualizar el estado del pedido: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DeshabilitarBotonesPorEstado(estado As Integer)
+        ' Habilitar todos los botones primero
+        btnPendiente.Enabled = True
+        btnPreparar.Enabled = True
+        btnAceptar.Enabled = True
+        btnFacturar.Enabled = True
+        btnTerminar.Enabled = True
+        btnFaltapagar.Enabled = True
+        btnAnular.Enabled = True
+
+        ' Deshabilitar los botones basados en el estado
+        Select Case estado
+            Case 1 ' PENDIENTE
+                btnPendiente.Enabled = False
+            Case 2 ' PREPARADO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+            Case 3 ' ACEPTADO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+                btnAceptar.Enabled = False
+            Case 4 ' FACTURADO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+                btnAceptar.Enabled = False
+                btnFacturar.Enabled = False
+            Case 5 ' TERMINADO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+                btnAceptar.Enabled = False
+                btnFacturar.Enabled = False
+                btnTerminar.Enabled = False
+            Case 6 ' FALTA DE PAGO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+                btnAceptar.Enabled = False
+                btnFacturar.Enabled = False
+                btnTerminar.Enabled = False
+                btnFaltapagar.Enabled = False
+            Case 7 ' ANULADO
+                btnPendiente.Enabled = False
+                btnPreparar.Enabled = False
+                btnAceptar.Enabled = False
+                btnFacturar.Enabled = False
+                btnTerminar.Enabled = False
+                btnFaltapagar.Enabled = False
+                btnAnular.Enabled = False
+        End Select
+    End Sub
+
+    Private Sub ActualizarBotones()
+        ' Verificar que haya una fila seleccionada
+        If GrillaPedidos.CurrentRow IsNot Nothing Then
+            Dim estado As Integer = Convert.ToInt32(GrillaPedidos.CurrentRow.Cells("Estado").Value)
+            DeshabilitarBotonesPorEstado(estado)
+        End If
+    End Sub
+
+    Private Sub GrillaPedidos_SelectionChanged(sender As Object, e As EventArgs) Handles GrillaPedidos.SelectionChanged
+        ' Actualizar el estado de los botones cuando se cambie la selección
+        ActualizarBotones()
+    End Sub
+
+    Private Sub btnPendiente_Click(sender As Object, e As EventArgs) Handles btnPendiente.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 1)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnPreparar_Click(sender As Object, e As EventArgs) Handles btnPreparar.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 2)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 3)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnFacturar_Click(sender As Object, e As EventArgs) Handles btnFacturar.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 4)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnTerminar_Click(sender As Object, e As EventArgs) Handles btnTerminar.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 5)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnFaltapagar_Click(sender As Object, e As EventArgs) Handles btnFaltapagar.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 6)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Sub btnAnular_Click(sender As Object, e As EventArgs) Handles btnAnular.Click
+        Dim idPedido As Integer = ObtenerIDPedidoSeleccionado()
+        ActualizarEstadoPedido(idPedido, 7)
+        llenarGrillaPedidos()
+    End Sub
+
+    Private Function ObtenerIDPedidoSeleccionado() As Integer
+        ' Lógica para obtener el ID del pedido seleccionado
+        ' Por ejemplo:
+        Return Convert.ToInt32(GrillaPedidos.CurrentRow.Cells("Pedido").Value)
+    End Function
+
     Private Sub AgregarPedido_Click(sender As Object, e As EventArgs) Handles AgregarPedido.Click
         ABM_Pedidos.lblSeñalPedido.Text = "Agregar"
 
-        Dim idPuntoVenta As String = DirectCast(ModuloPrincipal.boxPV.SelectedItem, DataRowView)("IDPuntoVenta").ToString()
-        Dim idPuntoVentaRellenado As String = idPuntoVenta.PadLeft(5, "0"c)
+        Dim idPuntoVenta = DirectCast(ModuloPrincipal.boxPV.SelectedItem, DataRowView)("IDPuntoVenta").ToString
+        Dim idPuntoVentaRellenado = idPuntoVenta.PadLeft(5, "0"c)
         ABM_Pedidos.txtSucursal.Text = idPuntoVentaRellenado
 
         ABM_Pedidos.btnCabecera.Text = "Confirmar Cabecera"
@@ -80,7 +278,6 @@ Public Class Pedidos
     End Sub
 
     Private Sub EditarPedido_Click(sender As Object, e As EventArgs) Handles EditarPedido.Click
-
         ABM_Pedidos.btnCabecera.Text = "Actualizar Cabecera"
         ABM_Pedidos.lblSeñalPedido.Text = "Editar"
         ABM_Pedidos.btnFin.Enabled = True
@@ -103,4 +300,5 @@ Public Class Pedidos
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Pedidos)
     End Sub
+
 End Class

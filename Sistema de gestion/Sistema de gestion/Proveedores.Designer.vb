@@ -48,7 +48,7 @@ Partial Class Proveedores
         GrillaProveedores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -66,7 +66,7 @@ Partial Class Proveedores
         GrillaProveedores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle2.SelectionForeColor = Color.White
@@ -79,7 +79,6 @@ Partial Class Proveedores
         DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaProveedores.RowsDefaultCellStyle = DataGridViewCellStyle3
-        GrillaProveedores.RowTemplate.Height = 25
         GrillaProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaProveedores.ShowCellErrors = False
         GrillaProveedores.ShowCellToolTips = False
@@ -90,11 +89,10 @@ Partial Class Proveedores
         ' 
         ' txtBusquedaProveedor
         ' 
-        txtBusquedaProveedor.BorderStyle = BorderStyle.None
-        txtBusquedaProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txtBusquedaProveedor.Location = New Point(88, 66)
+        txtBusquedaProveedor.Font = New Font("Yu Gothic UI", 12F)
+        txtBusquedaProveedor.Location = New Point(88, 62)
         txtBusquedaProveedor.Name = "txtBusquedaProveedor"
-        txtBusquedaProveedor.Size = New Size(953, 22)
+        txtBusquedaProveedor.Size = New Size(953, 29)
         txtBusquedaProveedor.TabIndex = 25
         ' 
         ' Panel3
@@ -109,7 +107,7 @@ Partial Class Proveedores
         ' lblTitulo
         ' 
         lblTitulo.AutoSize = True
-        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
         lblTitulo.Location = New Point(433, 7)
         lblTitulo.Name = "lblTitulo"
         lblTitulo.Size = New Size(149, 32)
@@ -119,7 +117,7 @@ Partial Class Proveedores
         ' lblBusqueda
         ' 
         lblBusqueda.AutoSize = True
-        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         lblBusqueda.Location = New Point(24, 66)
         lblBusqueda.Name = "lblBusqueda"
         lblBusqueda.Size = New Size(62, 21)
@@ -131,7 +129,7 @@ Partial Class Proveedores
         btnEliminarProveedor.BackColor = Color.Tan
         btnEliminarProveedor.FlatAppearance.BorderSize = 0
         btnEliminarProveedor.FlatStyle = FlatStyle.Flat
-        btnEliminarProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminarProveedor.Font = New Font("Yu Gothic UI", 12F)
         btnEliminarProveedor.Location = New Point(865, 538)
         btnEliminarProveedor.Name = "btnEliminarProveedor"
         btnEliminarProveedor.Size = New Size(176, 55)
@@ -144,7 +142,7 @@ Partial Class Proveedores
         btnEditarProveedor.BackColor = Color.Tan
         btnEditarProveedor.FlatAppearance.BorderSize = 0
         btnEditarProveedor.FlatStyle = FlatStyle.Flat
-        btnEditarProveedor.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarProveedor.Font = New Font("Yu Gothic UI", 12F)
         btnEditarProveedor.Location = New Point(210, 538)
         btnEditarProveedor.Name = "btnEditarProveedor"
         btnEditarProveedor.Size = New Size(176, 55)
@@ -157,7 +155,7 @@ Partial Class Proveedores
         btnAgregar.BackColor = Color.Tan
         btnAgregar.FlatAppearance.BorderSize = 0
         btnAgregar.FlatStyle = FlatStyle.Flat
-        btnAgregar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregar.Font = New Font("Yu Gothic UI", 12F)
         btnAgregar.Location = New Point(28, 538)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(176, 55)

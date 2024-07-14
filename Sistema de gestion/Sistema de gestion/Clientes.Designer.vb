@@ -39,11 +39,10 @@ Partial Class Clientes
         ' 
         ' txtBusquedaCliente
         ' 
-        txtBusquedaCliente.BorderStyle = BorderStyle.None
-        txtBusquedaCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txtBusquedaCliente.Location = New Point(88, 66)
+        txtBusquedaCliente.Font = New Font("Yu Gothic UI", 12F)
+        txtBusquedaCliente.Location = New Point(88, 62)
         txtBusquedaCliente.Name = "txtBusquedaCliente"
-        txtBusquedaCliente.Size = New Size(953, 22)
+        txtBusquedaCliente.Size = New Size(953, 29)
         txtBusquedaCliente.TabIndex = 18
         ' 
         ' GrillaClientes
@@ -57,7 +56,7 @@ Partial Class Clientes
         GrillaClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -75,7 +74,7 @@ Partial Class Clientes
         GrillaClientes.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle2.SelectionForeColor = Color.White
@@ -88,7 +87,6 @@ Partial Class Clientes
         DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaClientes.RowsDefaultCellStyle = DataGridViewCellStyle3
-        GrillaClientes.RowTemplate.Height = 25
         GrillaClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaClientes.ShowCellErrors = False
         GrillaClientes.ShowCellToolTips = False
@@ -109,7 +107,7 @@ Partial Class Clientes
         ' lblTitulo
         ' 
         lblTitulo.AutoSize = True
-        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
         lblTitulo.Location = New Point(455, 7)
         lblTitulo.Name = "lblTitulo"
         lblTitulo.Size = New Size(100, 32)
@@ -119,7 +117,7 @@ Partial Class Clientes
         ' lblBusqueda
         ' 
         lblBusqueda.AutoSize = True
-        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         lblBusqueda.Location = New Point(24, 66)
         lblBusqueda.Name = "lblBusqueda"
         lblBusqueda.Size = New Size(62, 21)
@@ -131,7 +129,7 @@ Partial Class Clientes
         btnAgregarCliente.BackColor = Color.Tan
         btnAgregarCliente.FlatAppearance.BorderSize = 0
         btnAgregarCliente.FlatStyle = FlatStyle.Flat
-        btnAgregarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAgregarCliente.Font = New Font("Yu Gothic UI", 12F)
         btnAgregarCliente.Location = New Point(28, 538)
         btnAgregarCliente.Name = "btnAgregarCliente"
         btnAgregarCliente.Size = New Size(176, 55)
@@ -144,7 +142,7 @@ Partial Class Clientes
         btnEditarCliente.BackColor = Color.Tan
         btnEditarCliente.FlatAppearance.BorderSize = 0
         btnEditarCliente.FlatStyle = FlatStyle.Flat
-        btnEditarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditarCliente.Font = New Font("Yu Gothic UI", 12F)
         btnEditarCliente.Location = New Point(210, 538)
         btnEditarCliente.Name = "btnEditarCliente"
         btnEditarCliente.Size = New Size(176, 55)
@@ -157,7 +155,7 @@ Partial Class Clientes
         btnEliminarCliente.BackColor = Color.Tan
         btnEliminarCliente.FlatAppearance.BorderSize = 0
         btnEliminarCliente.FlatStyle = FlatStyle.Flat
-        btnEliminarCliente.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminarCliente.Font = New Font("Yu Gothic UI", 12F)
         btnEliminarCliente.Location = New Point(865, 538)
         btnEliminarCliente.Name = "btnEliminarCliente"
         btnEliminarCliente.Size = New Size(176, 55)

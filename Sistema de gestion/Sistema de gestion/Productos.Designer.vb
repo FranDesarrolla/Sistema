@@ -68,7 +68,7 @@ Partial Class Productos
         GrillaProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F)
         DataGridViewCellStyle1.ForeColor = Color.Black
         DataGridViewCellStyle1.SelectionBackColor = Color.Beige
         DataGridViewCellStyle1.SelectionForeColor = Color.White
@@ -86,7 +86,7 @@ Partial Class Productos
         GrillaProductos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle2.SelectionForeColor = Color.White
@@ -99,7 +99,6 @@ Partial Class Productos
         DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaProductos.RowsDefaultCellStyle = DataGridViewCellStyle3
-        GrillaProductos.RowTemplate.Height = 25
         GrillaProductos.ScrollBars = ScrollBars.Vertical
         GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaProductos.ShowCellErrors = False
@@ -120,7 +119,7 @@ Partial Class Productos
         GrillaStockDepositos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        DataGridViewCellStyle4.Font = New Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle4.Font = New Font("Yu Gothic UI", 9F)
         DataGridViewCellStyle4.ForeColor = Color.Black
         DataGridViewCellStyle4.SelectionBackColor = Color.Beige
         DataGridViewCellStyle4.SelectionForeColor = Color.White
@@ -138,7 +137,7 @@ Partial Class Productos
         GrillaStockDepositos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = Color.Beige
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle5.ForeColor = Color.Black
         DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle5.SelectionForeColor = Color.White
@@ -151,7 +150,6 @@ Partial Class Productos
         DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
         DataGridViewCellStyle6.SelectionForeColor = Color.White
         GrillaStockDepositos.RowsDefaultCellStyle = DataGridViewCellStyle6
-        GrillaStockDepositos.RowTemplate.Height = 25
         GrillaStockDepositos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaStockDepositos.ShowCellErrors = False
         GrillaStockDepositos.ShowCellToolTips = False
@@ -164,14 +162,13 @@ Partial Class Productos
         ' txtCodigoPbusqueda
         ' 
         txtCodigoPbusqueda.BackColor = Color.White
-        txtCodigoPbusqueda.BorderStyle = BorderStyle.None
-        txtCodigoPbusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txtCodigoPbusqueda.Font = New Font("Yu Gothic UI", 12F)
         txtCodigoPbusqueda.ForeColor = Color.Black
-        txtCodigoPbusqueda.Location = New Point(88, 66)
+        txtCodigoPbusqueda.Location = New Point(88, 62)
         txtCodigoPbusqueda.Margin = New Padding(0)
         txtCodigoPbusqueda.MaxLength = 255
         txtCodigoPbusqueda.Name = "txtCodigoPbusqueda"
-        txtCodigoPbusqueda.Size = New Size(720, 22)
+        txtCodigoPbusqueda.Size = New Size(720, 29)
         txtCodigoPbusqueda.TabIndex = 1
         ' 
         ' btnAceptarABMP
@@ -179,7 +176,7 @@ Partial Class Productos
         btnAceptarABMP.BackColor = Color.Tan
         btnAceptarABMP.FlatAppearance.BorderSize = 0
         btnAceptarABMP.FlatStyle = FlatStyle.Flat
-        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F)
         btnAceptarABMP.Location = New Point(28, 538)
         btnAceptarABMP.Name = "btnAceptarABMP"
         btnAceptarABMP.Size = New Size(176, 55)
@@ -192,7 +189,7 @@ Partial Class Productos
         btnEditar.BackColor = Color.Tan
         btnEditar.FlatAppearance.BorderSize = 0
         btnEditar.FlatStyle = FlatStyle.Flat
-        btnEditar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEditar.Font = New Font("Yu Gothic UI", 12F)
         btnEditar.Location = New Point(210, 538)
         btnEditar.Name = "btnEditar"
         btnEditar.Size = New Size(176, 55)
@@ -205,7 +202,7 @@ Partial Class Productos
         btnEliminar.BackColor = Color.Tan
         btnEliminar.FlatAppearance.BorderSize = 0
         btnEliminar.FlatStyle = FlatStyle.Flat
-        btnEliminar.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnEliminar.Font = New Font("Yu Gothic UI", 12F)
         btnEliminar.Location = New Point(632, 538)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(176, 55)
@@ -225,7 +222,7 @@ Partial Class Productos
         ' lblTitulo
         ' 
         lblTitulo.AutoSize = True
-        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
         lblTitulo.Location = New Point(446, 7)
         lblTitulo.Name = "lblTitulo"
         lblTitulo.Size = New Size(123, 32)
@@ -235,7 +232,7 @@ Partial Class Productos
         ' lblBusqueda
         ' 
         lblBusqueda.AutoSize = True
-        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         lblBusqueda.Location = New Point(24, 66)
         lblBusqueda.Name = "lblBusqueda"
         lblBusqueda.Size = New Size(62, 21)
@@ -246,7 +243,7 @@ Partial Class Productos
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Label1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         Label1.Location = New Point(857, 97)
         Label1.Name = "Label1"
         Label1.Size = New Size(151, 21)
@@ -258,7 +255,7 @@ Partial Class Productos
         Button1.BackColor = Color.Tan
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.Font = New Font("Yu Gothic UI", 12F)
         Button1.Location = New Point(814, 538)
         Button1.Name = "Button1"
         Button1.Size = New Size(227, 55)
@@ -278,7 +275,7 @@ Partial Class Productos
         ' 
         CB_Inactivos.AutoSize = True
         CB_Inactivos.BackColor = Color.Transparent
-        CB_Inactivos.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        CB_Inactivos.Font = New Font("Yu Gothic UI", 12F)
         CB_Inactivos.Location = New Point(854, 65)
         CB_Inactivos.Name = "CB_Inactivos"
         CB_Inactivos.Size = New Size(150, 25)

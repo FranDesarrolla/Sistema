@@ -65,14 +65,13 @@ Partial Class ABM_Productos
         ' 
         ' especifiProducto
         ' 
-        especifiProducto.BorderStyle = BorderStyle.None
-        especifiProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        especifiProducto.Font = New Font("Yu Gothic UI", 12F)
         especifiProducto.ForeColor = SystemColors.WindowText
-        especifiProducto.Location = New Point(12, 143)
+        especifiProducto.Location = New Point(12, 130)
         especifiProducto.MaxLength = 255
         especifiProducto.Multiline = True
         especifiProducto.Name = "especifiProducto"
-        especifiProducto.Size = New Size(646, 162)
+        especifiProducto.Size = New Size(646, 175)
         especifiProducto.TabIndex = 3
         ' 
         ' TituloAbmProducto
@@ -90,19 +89,18 @@ Partial Class ABM_Productos
         ' 
         ' txtIvaProducto
         ' 
-        txtIvaProducto.BorderStyle = BorderStyle.None
-        txtIvaProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txtIvaProducto.Font = New Font("Yu Gothic UI", 12F)
         txtIvaProducto.Location = New Point(185, 121)
         txtIvaProducto.MaxLength = 3
         txtIvaProducto.Name = "txtIvaProducto"
-        txtIvaProducto.Size = New Size(43, 22)
+        txtIvaProducto.Size = New Size(43, 29)
         txtIvaProducto.TabIndex = 4
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
         Label8.BackColor = Color.Transparent
-        Label8.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label8.Font = New Font("Yu Gothic UI", 12F)
         Label8.Location = New Point(181, 93)
         Label8.Name = "Label8"
         Label8.Size = New Size(30, 21)
@@ -113,7 +111,7 @@ Partial Class ABM_Productos
         ' 
         CB_Activo.AutoSize = True
         CB_Activo.BackColor = Color.Transparent
-        CB_Activo.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        CB_Activo.Font = New Font("Yu Gothic UI", 12F)
         CB_Activo.Location = New Point(594, 20)
         CB_Activo.Name = "CB_Activo"
         CB_Activo.Size = New Size(72, 25)
@@ -126,8 +124,8 @@ Partial Class ABM_Productos
         ' 
         Label3.AutoSize = True
         Label3.BackColor = Color.Transparent
-        Label3.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(8, 114)
+        Label3.Font = New Font("Yu Gothic UI", 12F)
+        Label3.Location = New Point(8, 101)
         Label3.Name = "Label3"
         Label3.Size = New Size(121, 21)
         Label3.TabIndex = 19
@@ -135,18 +133,17 @@ Partial Class ABM_Productos
         ' 
         ' PrecioUnitarioProducto
         ' 
-        PrecioUnitarioProducto.BorderStyle = BorderStyle.None
-        PrecioUnitarioProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        PrecioUnitarioProducto.Font = New Font("Yu Gothic UI", 12F)
         PrecioUnitarioProducto.Location = New Point(11, 121)
         PrecioUnitarioProducto.MaxLength = 10
         PrecioUnitarioProducto.Name = "PrecioUnitarioProducto"
-        PrecioUnitarioProducto.Size = New Size(106, 22)
+        PrecioUnitarioProducto.Size = New Size(106, 29)
         PrecioUnitarioProducto.TabIndex = 3
         ' 
         ' lblSeñalProducto
         ' 
         lblSeñalProducto.AutoSize = True
-        lblSeñalProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        lblSeñalProducto.Font = New Font("Yu Gothic UI", 12F)
         lblSeñalProducto.Location = New Point(1014, 0)
         lblSeñalProducto.Name = "lblSeñalProducto"
         lblSeñalProducto.Size = New Size(56, 21)
@@ -158,8 +155,8 @@ Partial Class ABM_Productos
         ' 
         Label7.AutoSize = True
         Label7.BackColor = Color.Transparent
-        Label7.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.Location = New Point(317, 93)
+        Label7.Font = New Font("Yu Gothic UI", 12F)
+        Label7.Location = New Point(311, 93)
         Label7.Name = "Label7"
         Label7.Size = New Size(48, 21)
         Label7.TabIndex = 31
@@ -169,8 +166,8 @@ Partial Class ABM_Productos
         ' 
         Label6.AutoSize = True
         Label6.BackColor = Color.Transparent
-        Label6.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(287, 38)
+        Label6.Font = New Font("Yu Gothic UI", 12F)
+        Label6.Location = New Point(287, 31)
         Label6.Name = "Label6"
         Label6.Size = New Size(77, 21)
         Label6.TabIndex = 30
@@ -180,8 +177,8 @@ Partial Class ABM_Productos
         ' 
         Label5.AutoSize = True
         Label5.BackColor = Color.Transparent
-        Label5.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(7, 39)
+        Label5.Font = New Font("Yu Gothic UI", 12F)
+        Label5.Location = New Point(7, 32)
         Label5.Name = "Label5"
         Label5.Size = New Size(53, 21)
         Label5.TabIndex = 29
@@ -192,58 +189,54 @@ Partial Class ABM_Productos
         lblUnidad.AutoSize = True
         lblUnidad.BackColor = Color.Transparent
         lblUnidad.Enabled = False
-        lblUnidad.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lblUnidad.Location = New Point(482, 119)
+        lblUnidad.Font = New Font("Yu Gothic UI", 12F)
+        lblUnidad.Location = New Point(511, 125)
         lblUnidad.Name = "lblUnidad"
         lblUnidad.Size = New Size(0, 21)
         lblUnidad.TabIndex = 28
         ' 
         ' StockProducto
         ' 
-        StockProducto.BorderStyle = BorderStyle.None
-        StockProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        StockProducto.Location = New Point(321, 121)
+        StockProducto.Font = New Font("Yu Gothic UI", 12F)
+        StockProducto.Location = New Point(315, 121)
         StockProducto.MaxLength = 12
         StockProducto.Name = "StockProducto"
-        StockProducto.Size = New Size(71, 22)
+        StockProducto.Size = New Size(71, 29)
         StockProducto.TabIndex = 5
         ' 
         ' CategoriaProducto
         ' 
-        CategoriaProducto.BorderStyle = BorderStyle.None
-        CategoriaProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        CategoriaProducto.Location = New Point(291, 67)
+        CategoriaProducto.Font = New Font("Yu Gothic UI", 12F)
+        CategoriaProducto.Location = New Point(291, 60)
         CategoriaProducto.MaxLength = 3
         CategoriaProducto.Name = "CategoriaProducto"
-        CategoriaProducto.Size = New Size(43, 22)
+        CategoriaProducto.Size = New Size(43, 29)
         CategoriaProducto.TabIndex = 2
         ' 
         ' RubroProducto
         ' 
-        RubroProducto.BorderStyle = BorderStyle.None
-        RubroProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        RubroProducto.Location = New Point(11, 67)
+        RubroProducto.Font = New Font("Yu Gothic UI", 12F)
+        RubroProducto.Location = New Point(11, 60)
         RubroProducto.MaxLength = 3
         RubroProducto.Name = "RubroProducto"
-        RubroProducto.Size = New Size(43, 22)
+        RubroProducto.Size = New Size(43, 29)
         RubroProducto.TabIndex = 1
         ' 
         ' UnidadProducto
         ' 
-        UnidadProducto.BorderStyle = BorderStyle.None
-        UnidadProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        UnidadProducto.Location = New Point(430, 121)
+        UnidadProducto.Font = New Font("Yu Gothic UI", 12F)
+        UnidadProducto.Location = New Point(458, 121)
         UnidadProducto.MaxLength = 3
         UnidadProducto.Name = "UnidadProducto"
-        UnidadProducto.Size = New Size(43, 22)
+        UnidadProducto.Size = New Size(43, 29)
         UnidadProducto.TabIndex = 6
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
-        Label2.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(7, 34)
+        Label2.Font = New Font("Yu Gothic UI", 12F)
+        Label2.Location = New Point(7, 29)
         Label2.Name = "Label2"
         Label2.Size = New Size(108, 21)
         Label2.TabIndex = 37
@@ -253,8 +246,8 @@ Partial Class ABM_Productos
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(181, 34)
+        Label1.Font = New Font("Yu Gothic UI", 12F)
+        Label1.Location = New Point(181, 29)
         Label1.Name = "Label1"
         Label1.Size = New Size(91, 21)
         Label1.TabIndex = 36
@@ -262,31 +255,29 @@ Partial Class ABM_Productos
         ' 
         ' codProducto
         ' 
-        codProducto.BorderStyle = BorderStyle.None
-        codProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        codProducto.Font = New Font("Yu Gothic UI", 12F)
         codProducto.ForeColor = SystemColors.WindowText
-        codProducto.Location = New Point(11, 62)
+        codProducto.Location = New Point(11, 57)
         codProducto.MaxLength = 15
         codProducto.Name = "codProducto"
-        codProducto.Size = New Size(106, 22)
+        codProducto.Size = New Size(106, 29)
         codProducto.TabIndex = 1
         ' 
         ' descripProducto
         ' 
-        descripProducto.BorderStyle = BorderStyle.None
-        descripProducto.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        descripProducto.Font = New Font("Yu Gothic UI", 12F)
         descripProducto.ForeColor = SystemColors.WindowText
-        descripProducto.Location = New Point(185, 62)
+        descripProducto.Location = New Point(185, 57)
         descripProducto.MaxLength = 75
         descripProducto.Name = "descripProducto"
-        descripProducto.Size = New Size(473, 22)
+        descripProducto.Size = New Size(473, 29)
         descripProducto.TabIndex = 2
         ' 
         ' id_producto
         ' 
         id_producto.BorderStyle = BorderStyle.None
         id_producto.Enabled = False
-        id_producto.Font = New Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        id_producto.Font = New Font("Microsoft Sans Serif", 11F)
         id_producto.Location = New Point(0, 0)
         id_producto.Name = "id_producto"
         id_producto.Size = New Size(53, 17)
@@ -307,8 +298,8 @@ Partial Class ABM_Productos
         ' 
         Label11.AutoSize = True
         Label11.BackColor = Color.Transparent
-        Label11.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label11.Location = New Point(425, 93)
+        Label11.Font = New Font("Yu Gothic UI", 12F)
+        Label11.Location = New Point(453, 93)
         Label11.Name = "Label11"
         Label11.Size = New Size(60, 21)
         Label11.TabIndex = 43
@@ -319,8 +310,8 @@ Partial Class ABM_Productos
         lblCategoria.AutoSize = True
         lblCategoria.BackColor = Color.Transparent
         lblCategoria.Enabled = False
-        lblCategoria.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lblCategoria.Location = New Point(363, 66)
+        lblCategoria.Font = New Font("Yu Gothic UI", 12F)
+        lblCategoria.Location = New Point(343, 64)
         lblCategoria.Name = "lblCategoria"
         lblCategoria.Size = New Size(0, 21)
         lblCategoria.TabIndex = 42
@@ -330,8 +321,8 @@ Partial Class ABM_Productos
         lblRubro.AutoSize = True
         lblRubro.BackColor = Color.Transparent
         lblRubro.Enabled = False
-        lblRubro.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lblRubro.Location = New Point(60, 66)
+        lblRubro.Font = New Font("Yu Gothic UI", 12F)
+        lblRubro.Location = New Point(64, 64)
         lblRubro.Name = "lblRubro"
         lblRubro.Size = New Size(0, 21)
         lblRubro.TabIndex = 41
@@ -341,7 +332,7 @@ Partial Class ABM_Productos
         btnAceptarABMP.BackColor = Color.Tan
         btnAceptarABMP.FlatAppearance.BorderSize = 0
         btnAceptarABMP.FlatStyle = FlatStyle.Flat
-        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAceptarABMP.Font = New Font("Yu Gothic UI", 12F)
         btnAceptarABMP.Location = New Point(345, 532)
         btnAceptarABMP.Name = "btnAceptarABMP"
         btnAceptarABMP.Size = New Size(176, 55)
@@ -354,7 +345,7 @@ Partial Class ABM_Productos
         btnVolverABMP.BackColor = Color.Tan
         btnVolverABMP.FlatAppearance.BorderSize = 0
         btnVolverABMP.FlatStyle = FlatStyle.Flat
-        btnVolverABMP.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnVolverABMP.Font = New Font("Yu Gothic UI", 12F)
         btnVolverABMP.Location = New Point(860, 532)
         btnVolverABMP.Name = "btnVolverABMP"
         btnVolverABMP.Size = New Size(176, 55)
@@ -380,7 +371,7 @@ Partial Class ABM_Productos
         gbDetalle.Controls.Add(Label8)
         gbDetalle.Controls.Add(CB_Activo)
         gbDetalle.Controls.Add(PrecioUnitarioProducto)
-        gbDetalle.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        gbDetalle.Font = New Font("Yu Gothic UI", 12F)
         gbDetalle.Location = New Point(8, 2)
         gbDetalle.Name = "gbDetalle"
         gbDetalle.Size = New Size(673, 165)
@@ -392,8 +383,8 @@ Partial Class ABM_Productos
         ' 
         lblPorc.AutoSize = True
         lblPorc.BackColor = Color.Transparent
-        lblPorc.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lblPorc.Location = New Point(231, 121)
+        lblPorc.Font = New Font("Yu Gothic UI", 12F)
+        lblPorc.Location = New Point(231, 125)
         lblPorc.Name = "lblPorc"
         lblPorc.Size = New Size(23, 21)
         lblPorc.TabIndex = 45
@@ -403,7 +394,7 @@ Partial Class ABM_Productos
         ' 
         Label12.AutoSize = True
         Label12.BackColor = Color.Transparent
-        Label12.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label12.Font = New Font("Yu Gothic UI", 12F)
         Label12.Location = New Point(7, 93)
         Label12.Name = "Label12"
         Label12.Size = New Size(111, 21)
@@ -421,7 +412,7 @@ Partial Class ABM_Productos
         gbCategorizacion.Controls.Add(lblRubro)
         gbCategorizacion.Controls.Add(RubroProducto)
         gbCategorizacion.Controls.Add(Label6)
-        gbCategorizacion.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        gbCategorizacion.Font = New Font("Yu Gothic UI", 12F)
         gbCategorizacion.Location = New Point(353, 192)
         gbCategorizacion.Name = "gbCategorizacion"
         gbCategorizacion.Size = New Size(673, 318)
@@ -434,7 +425,7 @@ Partial Class ABM_Productos
         btnLimpiarImagen.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         btnLimpiarImagen.FlatAppearance.BorderSize = 0
         btnLimpiarImagen.FlatStyle = FlatStyle.Flat
-        btnLimpiarImagen.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnLimpiarImagen.Font = New Font("Yu Gothic UI", 12F)
         btnLimpiarImagen.Location = New Point(40, 387)
         btnLimpiarImagen.Name = "btnLimpiarImagen"
         btnLimpiarImagen.Size = New Size(275, 55)
@@ -448,7 +439,7 @@ Partial Class ABM_Productos
         btnCargarImagen.BackColor = Color.Tan
         btnCargarImagen.FlatAppearance.BorderSize = 0
         btnCargarImagen.FlatStyle = FlatStyle.Flat
-        btnCargarImagen.Font = New Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnCargarImagen.Font = New Font("Yu Gothic UI", 12F)
         btnCargarImagen.Location = New Point(40, 325)
         btnCargarImagen.Name = "btnCargarImagen"
         btnCargarImagen.Size = New Size(275, 55)

@@ -108,8 +108,8 @@ Public Class ModuloPrincipal
     End Sub
 
     Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
-        'gAbrirFormEnPanel(Pedidos)
-        'CambiarColorBotonSeleccionado(btnPedidos)
+        AbrirFormEnPanel(Pedidos)
+        CambiarColorBotonSeleccionado(btnPedidos)
     End Sub
 
     Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
