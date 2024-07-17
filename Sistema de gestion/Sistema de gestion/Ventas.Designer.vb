@@ -93,7 +93,7 @@ Partial Class Ventas
         ' 
         ' btnAgregar
         ' 
-        btnAgregar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        btnAgregar.BackColor = Color.Tan
         btnAgregar.FlatAppearance.BorderSize = 0
         btnAgregar.FlatStyle = FlatStyle.Flat
         btnAgregar.Font = New Font("Yu Gothic UI", 12F)
@@ -101,15 +101,15 @@ Partial Class Ventas
         btnAgregar.ImageAlign = ContentAlignment.MiddleLeft
         btnAgregar.Location = New Point(28, 538)
         btnAgregar.Name = "btnAgregar"
-        btnAgregar.Padding = New Padding(15, 0, 15, 0)
-        btnAgregar.Size = New Size(227, 55)
+        btnAgregar.Padding = New Padding(10, 0, 10, 0)
+        btnAgregar.Size = New Size(176, 55)
         btnAgregar.TabIndex = 12
         btnAgregar.Text = "Agregar"
         btnAgregar.UseVisualStyleBackColor = False
         ' 
         ' btnRemito
         ' 
-        btnRemito.BackColor = Color.Tan
+        btnRemito.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnRemito.FlatAppearance.BorderSize = 0
         btnRemito.FlatStyle = FlatStyle.Flat
         btnRemito.Font = New Font("Yu Gothic UI", 12F)
@@ -122,7 +122,7 @@ Partial Class Ventas
         ' 
         ' btnFactura
         ' 
-        btnFactura.BackColor = Color.Tan
+        btnFactura.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         btnFactura.FlatAppearance.BorderSize = 0
         btnFactura.FlatStyle = FlatStyle.Flat
         btnFactura.Font = New Font("Yu Gothic UI", 12F)
@@ -135,39 +135,40 @@ Partial Class Ventas
         ' 
         ' btnEditar
         ' 
-        btnEditar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        btnEditar.BackColor = Color.Tan
         btnEditar.FlatAppearance.BorderSize = 0
         btnEditar.FlatStyle = FlatStyle.Flat
         btnEditar.Font = New Font("Yu Gothic UI", 12F)
         btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), Image)
         btnEditar.ImageAlign = ContentAlignment.MiddleLeft
-        btnEditar.Location = New Point(261, 538)
+        btnEditar.Location = New Point(210, 538)
         btnEditar.Name = "btnEditar"
-        btnEditar.Padding = New Padding(15, 0, 15, 0)
-        btnEditar.Size = New Size(227, 55)
+        btnEditar.Padding = New Padding(10, 0, 10, 0)
+        btnEditar.Size = New Size(176, 55)
         btnEditar.TabIndex = 16
         btnEditar.Text = "Editar"
         btnEditar.UseVisualStyleBackColor = False
         ' 
         ' btnEliminar
         ' 
-        btnEliminar.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        btnEliminar.BackColor = Color.Tan
         btnEliminar.FlatAppearance.BorderSize = 0
+        btnEliminar.FlatAppearance.MouseOverBackColor = Color.Red
         btnEliminar.FlatStyle = FlatStyle.Flat
         btnEliminar.Font = New Font("Yu Gothic UI", 12F)
         btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), Image)
         btnEliminar.ImageAlign = ContentAlignment.MiddleLeft
-        btnEliminar.Location = New Point(581, 538)
+        btnEliminar.Location = New Point(632, 538)
         btnEliminar.Name = "btnEliminar"
-        btnEliminar.Padding = New Padding(15, 0, 15, 0)
-        btnEliminar.Size = New Size(227, 55)
+        btnEliminar.Padding = New Padding(10, 0, 10, 0)
+        btnEliminar.Size = New Size(176, 55)
         btnEliminar.TabIndex = 13
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = False
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.Tan
+        Button1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Yu Gothic UI", 12F)
@@ -183,7 +184,7 @@ Partial Class Ventas
         Panel1.BackColor = Color.Tan
         Panel1.Location = New Point(814, 314)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(227, 280)
+        Panel1.Size = New Size(227, 218)
         Panel1.TabIndex = 50
         ' 
         ' Panel3
@@ -207,7 +208,7 @@ Partial Class Ventas
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Tan
+        Button2.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         Button2.FlatAppearance.BorderSize = 0
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Yu Gothic UI", 12F)

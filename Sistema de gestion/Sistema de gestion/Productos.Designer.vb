@@ -22,12 +22,12 @@ Partial Class Productos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Productos))
         Label2 = New Label()
         GrillaProductos = New DataGridView()
@@ -52,7 +52,7 @@ Partial Class Productos
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(1026, 2)
+        Label2.Location = New Point(1026, 9)
         Label2.Name = "Label2"
         Label2.Size = New Size(41, 15)
         Label2.TabIndex = 5
@@ -68,14 +68,14 @@ Partial Class Productos
         GrillaProductos.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaProductos.BorderStyle = BorderStyle.None
         GrillaProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = Color.Tan
-        DataGridViewCellStyle7.Font = New Font("Yu Gothic UI", 10F)
-        DataGridViewCellStyle7.ForeColor = Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle7.SelectionForeColor = Color.White
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        GrillaProductos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.Tan
+        DataGridViewCellStyle1.Font = New Font("Yu Gothic UI", 10F)
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle1.SelectionForeColor = Color.White
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        GrillaProductos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         GrillaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaProductos.Cursor = Cursors.Hand
         GrillaProductos.EditMode = DataGridViewEditMode.EditOnEnter
@@ -86,21 +86,21 @@ Partial Class Productos
         GrillaProductos.Name = "GrillaProductos"
         GrillaProductos.ReadOnly = True
         GrillaProductos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = Color.Beige
-        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle8.ForeColor = Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle8.SelectionForeColor = Color.White
-        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.True
-        GrillaProductos.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Beige
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        GrillaProductos.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         GrillaProductos.RowHeadersVisible = False
         GrillaProductos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle9.BackColor = Color.Beige
-        DataGridViewCellStyle9.ForeColor = Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle9.SelectionForeColor = Color.White
-        GrillaProductos.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.BackColor = Color.Beige
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle3.SelectionForeColor = Color.White
+        GrillaProductos.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaProductos.ScrollBars = ScrollBars.Vertical
         GrillaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaProductos.ShowCellErrors = False
@@ -119,14 +119,14 @@ Partial Class Productos
         GrillaStockDepositos.BackgroundColor = Color.Tan
         GrillaStockDepositos.BorderStyle = BorderStyle.None
         GrillaStockDepositos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        DataGridViewCellStyle10.Font = New Font("Yu Gothic UI", 9F)
-        DataGridViewCellStyle10.ForeColor = Color.Black
-        DataGridViewCellStyle10.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle10.SelectionForeColor = Color.White
-        DataGridViewCellStyle10.WrapMode = DataGridViewTriState.True
-        GrillaStockDepositos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        DataGridViewCellStyle4.Font = New Font("Yu Gothic UI", 9F)
+        DataGridViewCellStyle4.ForeColor = Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        GrillaStockDepositos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         GrillaStockDepositos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaStockDepositos.Cursor = Cursors.Hand
         GrillaStockDepositos.EditMode = DataGridViewEditMode.EditOnEnter
@@ -137,21 +137,21 @@ Partial Class Productos
         GrillaStockDepositos.Name = "GrillaStockDepositos"
         GrillaStockDepositos.ReadOnly = True
         GrillaStockDepositos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = Color.Beige
-        DataGridViewCellStyle11.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle11.ForeColor = Color.Black
-        DataGridViewCellStyle11.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle11.SelectionForeColor = Color.White
-        DataGridViewCellStyle11.WrapMode = DataGridViewTriState.True
-        GrillaStockDepositos.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.Beige
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle5.SelectionForeColor = Color.White
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        GrillaStockDepositos.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         GrillaStockDepositos.RowHeadersVisible = False
         GrillaStockDepositos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle12.BackColor = Color.Beige
-        DataGridViewCellStyle12.ForeColor = Color.Black
-        DataGridViewCellStyle12.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle12.SelectionForeColor = Color.White
-        GrillaStockDepositos.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle6.BackColor = Color.Beige
+        DataGridViewCellStyle6.ForeColor = Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle6.SelectionForeColor = Color.White
+        GrillaStockDepositos.RowsDefaultCellStyle = DataGridViewCellStyle6
         GrillaStockDepositos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaStockDepositos.ShowCellErrors = False
         GrillaStockDepositos.ShowCellToolTips = False
@@ -306,6 +306,7 @@ Partial Class Productos
         lblEdit.Size = New Size(40, 15)
         lblEdit.TabIndex = 58
         lblEdit.Text = "lblEdit"
+        lblEdit.Visible = False
         ' 
         ' Productos
         ' 

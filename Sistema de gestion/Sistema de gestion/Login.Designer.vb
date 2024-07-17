@@ -101,6 +101,7 @@ Partial Class Login
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(142, 31)
         btnCancelar.TabIndex = 26
+        btnCancelar.TabStop = False
         btnCancelar.Text = "Cancelar"
         btnCancelar.UseVisualStyleBackColor = False
         ' 

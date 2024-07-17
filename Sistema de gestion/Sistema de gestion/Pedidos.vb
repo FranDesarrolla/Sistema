@@ -150,54 +150,41 @@ Public Class Pedidos
     End Sub
 
     Private Sub DeshabilitarBotonesPorEstado(estado As Integer)
-        ' Habilitar todos los botones primero
-        btnPendiente.Enabled = True
-        btnPreparar.Enabled = True
-        btnAceptar.Enabled = True
-        btnFacturar.Enabled = True
-        btnTerminar.Enabled = True
-        btnFaltapagar.Enabled = True
-        btnAnular.Enabled = True
+        ' Definir los botones y colores
+        Dim botones As Button() = {btnPendiente, btnPreparar, btnAceptar, btnFacturar, btnTerminar, btnFaltapagar, btnAnular}
+        Dim colorActivo As Color = Color.FromArgb(237, 244, 226)
+        Dim colorInactivo As Color = Color.Tan
 
-        ' Deshabilitar los botones basados en el estado
+        ' Habilitar todos los botones primero y establecer color activo
+        For Each btn As Button In botones
+            btn.Enabled = True
+            btn.BackColor = colorActivo
+        Next
+
+        ' Deshabilitar los botones basados en el estado y establecer color inactivo
         Select Case estado
             Case 1 ' PENDIENTE
-                btnPendiente.Enabled = False
+                DeshabilitarBotones({btnPendiente}, colorInactivo)
             Case 2 ' PREPARADO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar}, colorInactivo)
             Case 3 ' ACEPTADO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
-                btnAceptar.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar, btnAceptar}, colorInactivo)
             Case 4 ' FACTURADO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
-                btnAceptar.Enabled = False
-                btnFacturar.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar, btnAceptar, btnFacturar}, colorInactivo)
             Case 5 ' TERMINADO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
-                btnAceptar.Enabled = False
-                btnFacturar.Enabled = False
-                btnTerminar.Enabled = False
-                btnFaltapagar.Enabled = False
-                btnAnular.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar, btnAceptar, btnFacturar, btnTerminar, btnFaltapagar, btnAnular}, colorInactivo)
             Case 6 ' FALTA DE PAGO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
-                btnAceptar.Enabled = False
-                btnFacturar.Enabled = False
-                btnFaltapagar.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar, btnAceptar, btnFacturar, btnFaltapagar}, colorInactivo)
             Case 7 ' ANULADO
-                btnPendiente.Enabled = False
-                btnPreparar.Enabled = False
-                btnAceptar.Enabled = False
-                btnFacturar.Enabled = False
-                btnTerminar.Enabled = False
-                btnFaltapagar.Enabled = False
-                btnAnular.Enabled = False
+                DeshabilitarBotones({btnPendiente, btnPreparar, btnAceptar, btnFacturar, btnTerminar, btnFaltapagar, btnAnular}, colorInactivo)
         End Select
+    End Sub
+
+    Private Sub DeshabilitarBotones(botones As Button(), colorInactivo As Color)
+        For Each btn As Button In botones
+            btn.Enabled = False
+            btn.BackColor = colorInactivo
+        Next
     End Sub
 
     Private Sub ActualizarBotones()

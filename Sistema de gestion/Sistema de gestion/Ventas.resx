@@ -121,15 +121,17 @@
   <data name="btnAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoBwwQGxkfTpDNAAABxklEQVRYR+2WTS8DURSGy4YNISIs
-        iKWlpY+lX2DpZ/BTSCQiEt8fO7+DtYgEQUhYi534eB56kjGddtqakkjf5Emnd+6975lzzp221FZbLVA/
-        jJfx+tfUC4twAo/wAMewAN5rqQZhG17hPcUbrEPLgtD8EMLwDjZgC+7LYwZhJgqX5gcQ5k8wB6FZMCDv
-        WY5CeyJtLpbAUgxAyGx4z56wMQtR2vwSLhLfdyGC2IRCA0ibn8E0TMJpeUzMhOWIEng6+uBHyjKfgdAU
-        RBCWw56I6yaasKP8+aU885CZSJZDPBE90LTqNVeWw56IuR5R1zetRswd937MdV3bvCn9K/NuGILOz285
-        6oI1KNJ8Gc5h3oE8jcA1uOEV/MRcjcItOGfHgTyNQSzYdyBD9ZorA7gB5/n7kCsDiAV78P1dWH/aNRZf
-        SvGf4AjcX4YhsyfSATgpgmik5mbRfTR/Aec/g+NStSeSJbAXDEIshz1Ry1zZ7W4e82qxAhVKNk01atXc
-        jPlkNpw1N+0+ueuSD7QKE1AhU7gEkSrTKF67gUe0mnmWkhlNl7SqoomiYQKPqO+JRpQOINe8aNnt0ROm
-        /dcVPWHDZdb8j1UqfQCaJ+BG94/xtAAAAABJRU5ErkJggg==
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoBw4RKTL1SZ9AAAACSElEQVRYR+2Wv2sVQRRGn4oBtUih
+        sRB/pVH/gdjERhBFBNFGRUVbSxvBQNLFMikC2mijoqWtIrYKNjYJ2oiKYKGQWIgIaeI5wQnLOjM7u++l
+        0g8OvJ03s/PNvXd2pvdfCW2F3bCvAzthI3TSBjgDL+AjfO7AW5gBjbSWky/BCnyF2ARN/ATH34EhKJZh
+        fw4OnoWDEAtxjr1wGjTyBnZAscz5B3DlB2zoQ4dhDExpsVxBCKO/c/LFOYLqz1k1GRiF63APHrXgPtyC
+        I5DdHTkDR2EerI+uWNw3YDNElTLgysPkz+AaXIRLBdjvKrgjfsAvOAdRpQwY9jD5dhs6yDq4Cb7nKWyB
+        v5QyYM4d6Mr70SH4Bu9hlw11xQzo3ELSgOFMaRucgKrxulILXFOTAXOa0ikwv3OrT3Gtq4HLYJ/HkNpq
+        62rgAtjn4epTXAM1YM4Nuyt38ttgn5d/2ux7HjwbggZqwIIz57bn8FALGqgB/7fgzLlhd+X28Q5hf3kA
+        xyGo0YAXiHfwHTzJlAUVMxAUCi4UoX03gcalqkYDDrwLvsgb0X5QOQNB/hcM1CcOajSg/Fq9Am81J21A
+        JQYsOPsY9r4MKCv3GFjp1RrIfQkdY8FVc15XsYGqNOB5roErNvQhT9Uv8An22FCqadCAez0V3hKdhWV4
+        DcM2lGocFsHzfAKsE0NYiiv3tr0ALmQSWsmt5k0mfHg8UkMuSzDsrtyxT2AEWstrlDcZLxOe57GJUphz
+        wz4FnSavypuMl4lYqFNYcK1y/i+p1/sNByP3IyonJ9cAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

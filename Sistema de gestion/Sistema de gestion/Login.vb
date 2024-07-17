@@ -21,8 +21,11 @@ Public Class Login
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Dim patron As String = "Gesnet"
 
-        If txtUsuario.Text = "" Or txtContraseña.Text = "" Then
-            MsgBox("Debe completar todos los campos", MsgBoxStyle.Exclamation, "Advertencia")
+        If txtUsuario.Text = "" Then
+            MsgBox("Ingrese un usuario", MsgBoxStyle.Exclamation, "Gesnet")
+            Exit Sub
+        ElseIf txtContraseña.Text = "" Then
+            MsgBox("Ingrese una contraseña", MsgBoxStyle.Exclamation, "Gesnet")
             Exit Sub
         Else
             Dim consultassql As String = "EXEC dbo.SP_ValidarUsuario @Usuario, @Password, @Patron"
@@ -39,11 +42,11 @@ Public Class Login
                         Me.DialogResult = DialogResult.OK
                         Me.Close()
                     Else
-                        MsgBox("Usuario o contraseña incorrectos", MsgBoxStyle.Exclamation, "Advertencia")
+                        MsgBox("Usuario o contraseña incorrectos", MsgBoxStyle.Exclamation, "Gesnet")
                     End If
                 Catch ex As Exception
                     ' Manejar errores de ejecución de consulta
-                    MsgBox("Error al ejecutar la consulta: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                    MsgBox("Error al ejecutar la consulta: " & ex.Message, MsgBoxStyle.Critical, "Gesnet")
                 Finally
                     connection.Close() ' Asegúrate de cerrar la conexión
                 End Try
@@ -58,9 +61,16 @@ Public Class Login
         End If
     End Sub
 
+    Private Sub txtUsuario_KeyDown(sender As Object, e As KeyEventArgs) Handles txtUsuario.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnIngresar.PerformClick()
+        End If
+    End Sub
+
     Private Sub txtContraseña_KeyDown(sender As Object, e As KeyEventArgs) Handles txtContraseña.KeyDown
         If e.KeyCode = Keys.Enter Then
             btnIngresar.PerformClick()
         End If
     End Sub
+
 End Class

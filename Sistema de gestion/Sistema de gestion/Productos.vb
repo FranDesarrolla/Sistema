@@ -2,7 +2,9 @@
 
 Public Class Productos
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         llenarGrillaProductos()
+
         Me.CB_Inactivos.Checked = False
 
         If lblEdit.Text = "Ventas" Then
@@ -14,7 +16,6 @@ Public Class Productos
     End Sub
 
     ' Método para llenar la grilla
-    ' Método para llenar la grilla
     Public Sub llenarGrillaProductos(Optional ByVal terminoBusqueda As String = "")
         ' Limpiar datos de la grilla
         If setdedatos.Tables.Contains("dtProducto") Then
@@ -23,9 +24,9 @@ Public Class Productos
 
         ' Crear la consulta base
         Dim consultassql As String = "SELECT P.IDProducto, P.Codigo, P.Descripcion, P.Especificaciones, P.Unidad as 'Un.', P.Rubro, P.Categoria, P.Stock, P.PrecioUnitario as 'Unitario', P.Iva, C.Descripcion AS CategoriaDescripcion, R.Descripcion AS RubroDescripcion, U.Descripcion AS UnidadDescripcion, P.Estado FROM Productos P
-                                  INNER JOIN Categorias C ON P.Categoria = C.Categoria
-                                  INNER JOIN Rubros R ON P.Rubro = R.Rubro
-                                  INNER JOIN Unidades U ON P.Unidad = U.Unidad"
+                              INNER JOIN Categorias C ON P.Categoria = C.Categoria
+                              INNER JOIN Rubros R ON P.Rubro = R.Rubro
+                              INNER JOIN Unidades U ON P.Unidad = U.Unidad"
 
         ' Añadir la condición del estado según el CheckBox
         If CB_Inactivos.Checked Then
@@ -39,9 +40,9 @@ Public Class Productos
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
             ' Construir las condiciones de búsqueda para cada campo
-            Dim condicionesBusqueda As String = " AND (Codigo LIKE '%" & terminoBusqueda & "%'" &
-                                         " OR Descripcion LIKE '%" & terminoBusqueda & "%'" &
-                                         " OR Especificaciones LIKE '%" & terminoBusqueda & "%')"
+            Dim condicionesBusqueda As String = " AND (P.Codigo LIKE '%" & terminoBusqueda & "%'" &
+                                     " OR P.Descripcion LIKE '%" & terminoBusqueda & "%'" &
+                                     " OR P.Especificaciones LIKE '%" & terminoBusqueda & "%')"
 
             ' Añadir las condiciones a la consulta
             consultassql &= condicionesBusqueda
@@ -53,17 +54,17 @@ Public Class Productos
         Dim dtProducto As New DataTable
         adaptadorSql.Fill(setdedatos, "dtProducto")
         GrillaProductos.DataSource = setdedatos.Tables("dtProducto")
-        GrillaProductos.Font = New Font("Arial", 10)
+        GrillaProductos.Font = New Font("Yu Gothic UI", 11)
 
         ' CONFIGURAR QUE COLUMNAS SERAN VISIBLES
-        Dim columnasOcultas As Integer() = {0, 2, 5, 6, 9, 10, 11, 12, 13}
+        Dim columnasOcultas As Integer() = {0, 3, 5, 6, 9, 10, 11, 12, 13}
         For Each col In columnasOcultas
             GrillaProductos.Columns(col).Visible = False
         Next
 
         ' CONFIGURAR ANCHOS DE LAS COLUMNAS VISIBLES
         GrillaProductos.Columns(1).FillWeight = 18
-        GrillaProductos.Columns(3).FillWeight = 50
+        GrillaProductos.Columns(2).FillWeight = 50
         GrillaProductos.Columns(4).FillWeight = 6
         GrillaProductos.Columns(7).FillWeight = 10
         GrillaProductos.Columns(8).FillWeight = 16
@@ -75,6 +76,15 @@ Public Class Productos
 
         ' Añadir el manejador de eventos para formatear las celdas
         AddHandler GrillaProductos.CellFormatting, AddressOf GrillaProductos_CellFormatting
+
+        ' Habilitar o deshabilitar los botones según la cantidad de filas en la grilla
+        If GrillaProductos.Rows.Count = 0 Then
+            btnEditar.Enabled = False
+            btnEliminar.Enabled = False
+        Else
+            btnEditar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
 
     ' Método para formatear celdas en el DataGridView
@@ -114,7 +124,7 @@ Public Class Productos
         Dim consultaSQL As String = "SELECT d.NumeroDeposito, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
                                     "FROM StockDepositos sd " &
                                     "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
-                                    "WHERE sd.CodigoProducto = @CodigoProducto"
+                                    "WHERE sd.Producto = @CodigoProducto"
 
         Using comandoSql As New SqlCommand(consultaSQL, conexionSql)
             comandoSql.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
@@ -172,7 +182,27 @@ Public Class Productos
     End Sub
 
     Private Sub txtCodigoPbusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoPbusqueda.TextChanged
-        llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
+        Dim caracteresEspeciales As String = "#%$&=()<>[]{}!@^*~`+|\\;:'"",?/\\"
+        Dim contieneCaracteresEspeciales As Boolean = False
+
+        ' Verificar si el texto contiene caracteres especiales
+        For Each ch As Char In txtCodigoPbusqueda.Text
+            If caracteresEspeciales.Contains(ch) Then
+                contieneCaracteresEspeciales = True
+                Exit For
+            End If
+        Next
+
+        If contieneCaracteresEspeciales Then
+            MessageBox.Show("El texto contiene caracteres especiales no permitidos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            ' Remover los caracteres especiales del texto
+            For Each ch As Char In caracteresEspeciales
+                txtCodigoPbusqueda.Text = txtCodigoPbusqueda.Text.Replace(ch.ToString(), String.Empty)
+            Next
+        Else
+            ' Llenar la grilla si no se encontraron caracteres especiales
+            llenarGrillaProductos(txtCodigoPbusqueda.Text.Trim())
+        End If
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
@@ -238,6 +268,9 @@ Public Class Productos
             ABM_Productos.CB_Activo.Checked = True
             ABM_Productos.lblSeñalProducto.Text = "AGREGAR"
 
+            ' Limpiar el PictureBox
+            ABM_Productos.picProducto.Image = Nothing
+
             ModuloPrincipal.AbrirFormEnPanel(ABM_Productos)
 
         End If
@@ -248,6 +281,15 @@ Public Class Productos
         If GrillaProductos.SelectedRows.Count > 0 Then
             ' Obtener el ID del producto seleccionado (suponiendo que el ID está en la primera columna)
             Dim idProducto = Convert.ToInt32(GrillaProductos.CurrentRow.Cells(0).Value)
+            Dim codigoProducto = GrillaProductos.CurrentRow.Cells(1).Value.ToString() ' Suponiendo que el código está en la segunda columna
+
+            ' Consultas SQL para verificar referencias en varias tablas
+            Dim consultaSqlVerificar = "
+            SELECT 
+                (SELECT COUNT(*) FROM NotasDeVentasMov WHERE Producto = @CodigoProducto) +
+                (SELECT COUNT(*) FROM ImpuestoMov WHERE Producto = @CodigoProducto) +
+                (SELECT COUNT(*) FROM FacturasMov WHERE Producto = @CodigoProducto) +
+                (SELECT COUNT(*) FROM ComprasMov WHERE Producto = @CodigoProducto)"
 
             ' Construir la consulta SQL para eliminar de ProductosImagenes
             Dim consultaSqlImagen = "DELETE FROM ProductosImagenes WHERE IDProducto = @IDProducto"
@@ -261,36 +303,51 @@ Public Class Productos
             End If
 
             Try
-                ' Iniciar una transacción para garantizar la atomicidad
-                Using transaccion = conexionSql.BeginTransaction
-                    Try
-                        ' Eliminar registros de ProductosImagenes
-                        Using comandoImagen As New SqlCommand(consultaSqlImagen, conexionSql, transaccion)
-                            comandoImagen.Parameters.AddWithValue("@IDProducto", idProducto)
-                            comandoImagen.ExecuteNonQuery()
-                        End Using
+                ' Verificar si el producto está referenciado en cualquiera de las tablas
+                Using comandoVerificar As New SqlCommand(consultaSqlVerificar, conexionSql)
+                    comandoVerificar.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
+                    Dim referencias As Integer = Convert.ToInt32(comandoVerificar.ExecuteScalar())
 
-                        ' Eliminar registro de Productos
-                        Using comandoProducto As New SqlCommand(consultaSqlProducto, conexionSql, transaccion)
-                            comandoProducto.Parameters.AddWithValue("@IDProducto", idProducto)
-                            Dim filasAfectadas = comandoProducto.ExecuteNonQuery
+                    If referencias > 0 Then
+                        MessageBox.Show("Este producto tiene movimientos, no puede borrarse.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ' Preguntar al usuario si está seguro de eliminar el producto
+                        Dim resultado As DialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                            ' Verificar si se eliminó correctamente
-                            If filasAfectadas > 0 Then
-                                transaccion.Commit() ' Confirmar la transacción si todo fue exitoso
-                                MessageBox.Show("Registro eliminado correctamente.")
+                        If resultado = DialogResult.Yes Then
+                            ' Iniciar una transacción para garantizar la atomicidad
+                            Using transaccion = conexionSql.BeginTransaction
+                                Try
+                                    ' Eliminar registros de ProductosImagenes
+                                    Using comandoImagen As New SqlCommand(consultaSqlImagen, conexionSql, transaccion)
+                                        comandoImagen.Parameters.AddWithValue("@IDProducto", idProducto)
+                                        comandoImagen.ExecuteNonQuery()
+                                    End Using
 
-                                ' Volver a llenar la grilla después de eliminar
-                                llenarGrillaProductos()
-                            Else
-                                transaccion.Rollback() ' Revertir la transacción si no se eliminó ningún registro
-                                MessageBox.Show("No se pudo eliminar el registro.")
-                            End If
-                        End Using
-                    Catch ex As Exception
-                        transaccion.Rollback() ' Revertir la transacción en caso de error
-                        MessageBox.Show("Error al intentar eliminar el registro: " & ex.Message)
-                    End Try
+                                    ' Eliminar registro de Productos
+                                    Using comandoProducto As New SqlCommand(consultaSqlProducto, conexionSql, transaccion)
+                                        comandoProducto.Parameters.AddWithValue("@IDProducto", idProducto)
+                                        Dim filasAfectadas = comandoProducto.ExecuteNonQuery
+
+                                        ' Verificar si se eliminó correctamente
+                                        If filasAfectadas > 0 Then
+                                            transaccion.Commit() ' Confirmar la transacción si todo fue exitoso
+                                            MessageBox.Show("Registro eliminado correctamente.")
+
+                                            ' Volver a llenar la grilla después de eliminar
+                                            llenarGrillaProductos()
+                                        Else
+                                            transaccion.Rollback() ' Revertir la transacción si no se eliminó ningún registro
+                                            MessageBox.Show("No se pudo eliminar el registro.")
+                                        End If
+                                    End Using
+                                Catch ex As Exception
+                                    transaccion.Rollback() ' Revertir la transacción en caso de error
+                                    MessageBox.Show("Error al intentar eliminar el registro: " & ex.Message)
+                                End Try
+                            End Using
+                        End If
+                    End If
                 End Using
             Catch ex As Exception
                 MessageBox.Show("Error al intentar conectar con la base de datos: " & ex.Message)

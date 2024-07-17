@@ -92,7 +92,7 @@ Partial Class ABM_Productos
         ' 
         txtIvaProducto.Font = New Font("Yu Gothic UI", 12F)
         txtIvaProducto.Location = New Point(185, 121)
-        txtIvaProducto.MaxLength = 3
+        txtIvaProducto.MaxLength = 4
         txtIvaProducto.Name = "txtIvaProducto"
         txtIvaProducto.Size = New Size(43, 29)
         txtIvaProducto.TabIndex = 4
@@ -136,7 +136,7 @@ Partial Class ABM_Productos
         ' 
         PrecioUnitarioProducto.Font = New Font("Yu Gothic UI", 12F)
         PrecioUnitarioProducto.Location = New Point(11, 121)
-        PrecioUnitarioProducto.MaxLength = 10
+        PrecioUnitarioProducto.MaxLength = 15
         PrecioUnitarioProducto.Name = "PrecioUnitarioProducto"
         PrecioUnitarioProducto.Size = New Size(122, 29)
         PrecioUnitarioProducto.TabIndex = 3
@@ -281,9 +281,9 @@ Partial Class ABM_Productos
         id_producto.BorderStyle = BorderStyle.None
         id_producto.Enabled = False
         id_producto.Font = New Font("Microsoft Sans Serif", 11F)
-        id_producto.Location = New Point(0, 0)
+        id_producto.Location = New Point(1084, 601)
         id_producto.Name = "id_producto"
-        id_producto.Size = New Size(53, 17)
+        id_producto.Size = New Size(10, 17)
         id_producto.TabIndex = 33
         id_producto.Visible = False
         ' 

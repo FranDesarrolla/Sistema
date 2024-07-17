@@ -29,13 +29,14 @@ Partial Class Usuarios
         txtPassword = New TextBox()
         btnCrear = New Button()
         btnEliminar = New Button()
+        lblTitulo = New Label()
         CType(btnUser, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnUser
         ' 
         btnUser.Image = CType(resources.GetObject("btnUser.Image"), Image)
-        btnUser.Location = New Point(507, 12)
+        btnUser.Location = New Point(12, 12)
         btnUser.Name = "btnUser"
         btnUser.Size = New Size(32, 32)
         btnUser.TabIndex = 5
@@ -43,29 +44,29 @@ Partial Class Usuarios
         ' 
         ' txtUsuario
         ' 
-        txtUsuario.Location = New Point(351, 155)
+        txtUsuario.Location = New Point(84, 44)
         txtUsuario.Name = "txtUsuario"
         txtUsuario.Size = New Size(161, 23)
         txtUsuario.TabIndex = 6
         ' 
         ' txtPatron
         ' 
-        txtPatron.Location = New Point(412, 184)
+        txtPatron.Location = New Point(-2, 0)
         txtPatron.Name = "txtPatron"
-        txtPatron.Size = New Size(100, 23)
+        txtPatron.Size = New Size(10, 23)
         txtPatron.TabIndex = 7
         txtPatron.Visible = False
         ' 
         ' txtPassword
         ' 
-        txtPassword.Location = New Point(351, 213)
+        txtPassword.Location = New Point(84, 102)
         txtPassword.Name = "txtPassword"
         txtPassword.Size = New Size(161, 23)
         txtPassword.TabIndex = 8
         ' 
         ' btnCrear
         ' 
-        btnCrear.Location = New Point(566, 155)
+        btnCrear.Location = New Point(299, 44)
         btnCrear.Name = "btnCrear"
         btnCrear.Size = New Size(167, 23)
         btnCrear.TabIndex = 9
@@ -74,12 +75,22 @@ Partial Class Usuarios
         ' 
         ' btnEliminar
         ' 
-        btnEliminar.Location = New Point(566, 213)
+        btnEliminar.Location = New Point(299, 102)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(167, 23)
         btnEliminar.TabIndex = 10
         btnEliminar.Text = "Eliminar usuario"
         btnEliminar.UseVisualStyleBackColor = True
+        ' 
+        ' lblTitulo
+        ' 
+        lblTitulo.AutoSize = True
+        lblTitulo.Font = New Font("Yu Gothic UI", 18F, FontStyle.Bold)
+        lblTitulo.Location = New Point(753, 33)
+        lblTitulo.Name = "lblTitulo"
+        lblTitulo.Size = New Size(117, 32)
+        lblTitulo.TabIndex = 54
+        lblTitulo.Text = "Permisos:"
         ' 
         ' Usuarios
         ' 
@@ -88,6 +99,7 @@ Partial Class Usuarios
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
         ControlBox = False
+        Controls.Add(lblTitulo)
         Controls.Add(btnEliminar)
         Controls.Add(btnCrear)
         Controls.Add(txtPassword)
@@ -108,4 +120,5 @@ Partial Class Usuarios
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnCrear As Button
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents lblTitulo As Label
 End Class

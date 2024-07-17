@@ -10,10 +10,10 @@ Public Class ABM_Ventas
     End Class
 
     Private Sub ABM_Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LimpiaMovVentas()
         llenarGrillaMovVentas()
         LlenarComboBoxMetodos()
         ConfigurarComboBoxComprobante()
+        ActualizarDatosCliente(txtCuenta.Text)
         lblTotal.Left = lblTitotal.Right
         dateTime.Focus()
     End Sub
@@ -212,8 +212,8 @@ Public Class ABM_Ventas
     End Sub
 
     Public Sub llenarGrillaMovVentas()
-        LimpiarGrilla()
 
+        LimpiarGrilla()
 
         Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto
                                       WHERE NDM.IDNotaDeVenta = " & lblID.Text
@@ -316,7 +316,6 @@ Public Class ABM_Ventas
                 command.ExecuteNonQuery()
             End Using
 
-            LimpiaMovVentas()
             MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             llenarGrillaMovVentas()
         Catch ex As Exception
@@ -345,7 +344,6 @@ Public Class ABM_Ventas
                 command.ExecuteNonQuery()
             End Using
 
-            LimpiaMovVentas()
             MessageBox.Show("Datos guardados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             llenarGrillaMovVentas()
         Catch ex As Exception
@@ -397,6 +395,8 @@ Public Class ABM_Ventas
     End Sub
 
     Public Sub LimpiaMovVentas()
+
+        Me.txtCuenta.Text = ""
         Me.txtDescripcion.Text = ""
         Me.txtCodprod.Text = ""
         Me.txtCantidad.Text = ""
@@ -405,8 +405,18 @@ Public Class ABM_Ventas
         Me.txtIVAP.Text = ""
         Me.txtSubtotalCon.Text = ""
 
-        btnAgregar.Text = "Agregar"
+        Me.lblDatos.Text = ""
+        Me.lblDni.Text = ""
+        Me.lblProvincia.Text = ""
+        Me.lblLocalidad.Text = ""
+        Me.lblTelefono.Text = ""
+        Me.lblDireccion.Text = ""
+        Me.lblCondiva.Text = ""
+        Me.lblCuit.Text = ""
+
         lblMov.Text = ""
+        Me.lblTotal.Text = "0"
+
     End Sub
 
     Private Function ObtenerDatosAntesDeOperacion() As String()
@@ -444,17 +454,6 @@ Public Class ABM_Ventas
         boxMetodo.ValueMember = "IDMetodoPago"
     End Sub
 
-
-    'Private Sub boxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles boxProductos.SelectedIndexChanged
-    '    Dim filaSeleccionada As DataRowView = DirectCast(boxProductos.SelectedItem, DataRowView)
-
-    '    If filaSeleccionada IsNot Nothing AndAlso filaSeleccionada.Row IsNot Nothing Then
-    '        txtCodigo.Text = filaSeleccionada.Row("Codigo").ToString()
-    '        txtUnitario.Text = filaSeleccionada.Row("PrecioUnitario").ToString()
-    '        txtIVAP.Text = filaSeleccionada.Row("IVA").ToString()
-    '    End If
-    'End Sub
-
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
@@ -463,12 +462,16 @@ Public Class ABM_Ventas
     End Sub
 
     Private Sub btnFin_Click(sender As Object, e As EventArgs) Handles btnFin.Click
+        Dim operacion As String = lblABM.Text
 
-        If lblABM.Text = "Agregar" Then
+        If operacion = "Agregar" Then
             EditarRegistro()
-        ElseIf lblABM.Text = "Editar" Then
+        ElseIf operacion = "Editar" Then
             EditarRegistro()
         End If
+
+        ' Mostrar mensaje de confirmación
+        MessageBox.Show("La nota de ventas se cargó correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         ModuloPrincipal.AbrirFormEnPanel(Ventas)
         llenarGrillaMovVentas()
@@ -574,6 +577,9 @@ Public Class ABM_Ventas
 
             End If
         End If
+
+        ActualizarDatosCliente(txtCuenta.Text)
+
     End Sub
 
     Public Sub ActualizarDatosCliente(Cuenta As String)

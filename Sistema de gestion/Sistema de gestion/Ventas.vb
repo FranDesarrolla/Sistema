@@ -57,15 +57,15 @@ Public Class Ventas
         ABM_Ventas.btnFin.Enabled = True
 
         'Activar paneles
-        ABM_Ventas.panelProducto.Enabled = True
-        'ABM_Ventas.panelAdd.Enabled = True
-        ABM_Ventas.GrillaMovVentas.Enabled = True
-        ABM_Ventas.ActualizarDatosCliente(ABM_Ventas.txtCuenta.Text)
 
         ABM_Ventas.lblID.Text = GrillaVentas.CurrentRow.Cells(0).Value
         ABM_Ventas.txtCuenta.Text = GrillaVentas.CurrentRow.Cells(3).Value
         ABM_Ventas.dateTime.Value = GrillaVentas.CurrentRow.Cells(5).Value
 
+        ABM_Ventas.panelProducto.Enabled = True
+        ABM_Ventas.GrillaMovVentas.Enabled = True
+
+        ABM_Ventas.ActualizarDatosCliente(GrillaVentas.CurrentRow.Cells(3).Value)
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ABM_Ventas.llenarGrillaMovVentas()
 
@@ -103,38 +103,45 @@ Public Class Ventas
         ABM_Ventas.lblID.Text = ObtenerSiguienteIDNotaDeVenta()
         ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
         ABM_Ventas.llenarGrillaMovVentas()
+        ABM_Ventas.LimpiaMovVentas()
 
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         ' Verificar si hay una fila seleccionada para eliminar
         If GrillaVentas.SelectedRows.Count > 0 Then
-            ' Obtener el ID de la venta seleccionada (suponiendo que el ID está en la primera columna)
-            Dim idVenta = Convert.ToInt32(GrillaVentas.CurrentRow.Cells(0).Value)
+            ' Preguntar al usuario si está seguro de eliminar la nota de venta
+            Dim resultado As DialogResult = MessageBox.Show("¿Está seguro de que desea eliminar esta nota de venta?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            ' Construir la consulta SQL para eliminar de NotasDeVentasMov
-            Dim consultaSqlMov = "DELETE FROM NotasDeVentasMov WHERE IDNotaDeVenta = @IDVenta"
+            If resultado = DialogResult.Yes Then
+                ' Obtener el ID de la venta seleccionada (suponiendo que el ID está en la primera columna)
+                Dim idVenta = Convert.ToInt32(GrillaVentas.CurrentRow.Cells(0).Value)
 
-            ' Construir la consulta SQL para eliminar de NotasDeVentas
-            Dim consultaSqlVentas = "DELETE FROM NotasDeVentas WHERE IDNotaDeVenta = @IDVenta"
+                ' Construir la consulta SQL para eliminar de NotasDeVentasMov
+                Dim consultaSqlMov = "DELETE FROM NotasDeVentasMov WHERE IDNotaDeVenta = @IDVenta"
 
-            ' Usar la conexión establecida en ModuloSistema
-            Using conexion = conexionSql
+                ' Construir la consulta SQL para eliminar de NotasDeVentas
+                Dim consultaSqlVentas = "DELETE FROM NotasDeVentas WHERE IDNotaDeVenta = @IDVenta"
+
+                ' Usar la conexión establecida en ModuloSistema
+                If conexionSql.State = ConnectionState.Closed Then
+                    conexionSql.Open()
+                End If
+
                 Try
-
                     ' Iniciar una transacción para garantizar la atomicidad
-                    Using transaccion = conexion.BeginTransaction
+                    Using transaccion = conexionSql.BeginTransaction
                         Try
                             ' Eliminar registros de NotasDeVentasMov
-                            Using comandoMov As New SqlCommand(consultaSqlMov, conexion, transaccion)
+                            Using comandoMov As New SqlCommand(consultaSqlMov, conexionSql, transaccion)
                                 comandoMov.Parameters.AddWithValue("@IDVenta", idVenta)
                                 comandoMov.ExecuteNonQuery()
                             End Using
 
                             ' Eliminar registro de NotasDeVentas
-                            Using comandoVentas As New SqlCommand(consultaSqlVentas, conexion, transaccion)
+                            Using comandoVentas As New SqlCommand(consultaSqlVentas, conexionSql, transaccion)
                                 comandoVentas.Parameters.AddWithValue("@IDVenta", idVenta)
-                                Dim filasAfectadas = comandoVentas.ExecuteNonQuery
+                                Dim filasAfectadas = comandoVentas.ExecuteNonQuery()
 
                                 ' Verificar si se eliminó correctamente
                                 If filasAfectadas > 0 Then
@@ -155,10 +162,16 @@ Public Class Ventas
                     End Using
                 Catch ex As Exception
                     MessageBox.Show("Error al intentar conectar con la base de datos: " & ex.Message)
+                Finally
+                    ' Cerrar la conexión si está abierta
+                    If conexionSql.State = ConnectionState.Open Then
+                        conexionSql.Close()
+                    End If
                 End Try
-            End Using
+            End If
         Else
             MessageBox.Show("Seleccione una fila para eliminar.")
         End If
     End Sub
+
 End Class

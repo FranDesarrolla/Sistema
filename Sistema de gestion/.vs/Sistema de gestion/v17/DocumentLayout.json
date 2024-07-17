@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\productos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|c:\\users\\franc\\onedrive\\escritorio\\proyectos\\sistema\\sistema de gestion\\sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Form1.vb [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\Form1.vb",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Sistema de gestion\\Form1.vb [Dise\u00F1o]",
+              "Title": "Productos.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Productos.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Productos.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Productos.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Productos.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-07-14T22:15:46.623Z",
+              "WhenOpened": "2024-07-17T04:38:59.139Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ABM_Ventas.vb",
               "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Ventas.vb",
               "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb",
               "RelativeToolTip": "Sistema de gestion\\ABM_Ventas.vb",
-              "ViewState": "AQIAAGIBAAAAAAAAAAAMwGcBAAAAAAAA",
+              "ViewState": "AQIAAL4BAAAAAAAAAAAzwN8BAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-07-14T22:11:27.299Z",
+              "WhenOpened": "2024-07-17T04:36:55.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Ventas.vb",
               "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Ventas.vb",
               "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
               "RelativeToolTip": "Sistema de gestion\\Ventas.vb",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAIAAAA",
+              "ViewState": "AQIAAIwAAAAAAAAAAAAswK8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-07-14T20:02:49.477Z",
+              "WhenOpened": "2024-07-17T04:23:56.431Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ventas.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Ventas.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\Ventas.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Ventas.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-17T04:23:35.551Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ABM_Ventas.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Ventas.vb",
+              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Proyectos\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Ventas.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\ABM_Ventas.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-07-17T04:18:58.463Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

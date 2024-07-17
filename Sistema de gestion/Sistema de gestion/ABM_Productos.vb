@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
-Imports System.Transactions
 
 Public Class ABM_Productos
 
@@ -71,7 +70,7 @@ Public Class ABM_Productos
                 End Using
 
                 ' Muestra un mensaje de éxito
-                MsgBox("Datos Guardados", vbOKOnly + vbInformation)
+                MsgBox("Producto creado con éxito", vbOKOnly + vbInformation, "Gesnet")
                 Productos.llenarGrillaProductos()
             Catch ex As Exception
                 ' Muestra un mensaje de error en caso de excepción
@@ -79,8 +78,10 @@ Public Class ABM_Productos
             End Try
 
             ModuloPrincipal.AbrirFormEnPanel(Productos)
+            LimpiarFormularioABMProducto()
 
         ElseIf lblSeñalProducto.Text = "EDITAR" Then
+
             Try
                 If String.IsNullOrWhiteSpace(id_producto.Text) Then
                     Throw New Exception("ID del producto no puede estar vacío.")
@@ -99,7 +100,8 @@ Public Class ABM_Productos
                     Dim estado As String = If(CB_Activo.Checked, "A", "I")
 
                     Using command As New SqlCommand("UPDATE dbo.Productos
-                                     SET Codigo = @Codigo, Descripcion = @Descripcion, Especificaciones = @Especificaciones, Unidad = @Unidad, Rubro = @Rubro, Categoria = @Categoria, Stock = @Stock, PrecioUnitario = @PrecioUnitario, Iva = @Iva, Estado = @Estado
+                                     SET Codigo = @Codigo, Descripcion = @Descripcion, Especificaciones = @Especificaciones, Unidad = @Unidad, Rubro = @Rubro,
+                                     Categoria = @Categoria, Stock = @Stock, PrecioUnitario = @PrecioUnitario, Iva = @Iva, Estado = @Estado
                                      WHERE IDProducto = @IDProducto", connection)
                         command.Parameters.AddWithValue("@Codigo", codProducto.Text)
                         command.Parameters.AddWithValue("@Descripcion", descripProducto.Text)
@@ -143,7 +145,7 @@ Public Class ABM_Productos
                 End Using
 
                 ' Muestra un mensaje de éxito
-                MsgBox("Datos Guardados", vbOKOnly + vbInformation)
+                MsgBox("Producto modificado con éxito", vbOKOnly + vbInformation, "Gesnet")
                 Productos.llenarGrillaProductos()
             Catch ex As Exception
                 ' Muestra un mensaje de error en caso de excepción
@@ -151,9 +153,9 @@ Public Class ABM_Productos
             End Try
 
             ModuloPrincipal.AbrirFormEnPanel(Productos)
+            LimpiarFormularioABMProducto()
         End If
     End Sub
-
 
     Private Sub btnVolverABMP_Click(sender As Object, e As EventArgs) Handles btnVolverABMP.Click
         ModuloPrincipal.AbrirFormEnPanel(Productos)
@@ -307,31 +309,87 @@ Public Class ABM_Productos
                             lblUnidad.Text = descripcionUnidad.ToString()
                         Else
                             ' Mostrar mensaje si el Unidad no existe y evitar que el usuario salga del campo
-                            MsgBox("La Unidad ingresada no existe. Por favor, ingrese una Unidad válida.", vbOKOnly + vbExclamation)
+                            MsgBox("La Unidad ingresada no existe. Por favor, ingrese una Unidad válida.", vbOKOnly + vbExclamation, "Gesnet")
                             UnidadProducto.Focus() ' Volver a enfocar el campo UnidadProducto
                         End If
                     End Using
                 End Using
             Catch ex As Exception
-                MsgBox("Error al verificar la Unidad: " & ex.Message, vbOKOnly + vbExclamation)
+                MsgBox("Error al verificar la Unidad: " & ex.Message, vbOKOnly + vbExclamation, "Gesnet")
             End Try
         Else
-            MessageBox.Show("El campo Unidad no puede estar vacío.")
+            MessageBox.Show("El campo unidad no puede ser vacío.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
             UnidadProducto.Focus()
         End If
     End Sub
 
+    ' Función para ver si contiene caracteres especiales
+    Private Function ContieneCaracteresEspeciales(texto As String) As Boolean
+
+        Dim caracteresEspeciales As String = "#%$&=()<>[]{}!@^*~`+|\\;:'"",?/\\"
+
+        For Each ch As Char In texto
+            If caracteresEspeciales.Contains(ch) Then
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
+
     Private Sub codProducto_Leave(sender As Object, e As EventArgs) Handles codProducto.Leave
+
         If String.IsNullOrWhiteSpace(codProducto.Text) Then
-            MessageBox.Show("El campo Código no puede estar vacío.")
+            MessageBox.Show("El campo código no puede estar vacío.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
             codProducto.Focus()
+            Return
         End If
+
+        If ContieneCaracteresEspeciales(codProducto.Text) Then
+            MessageBox.Show("El campo código no puede contener caracteres especiales.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            codProducto.Focus()
+            Return
+        End If
+
+        Dim codigo As String = codProducto.Text.Trim()
+
+        Try
+            Using connection As New SqlConnection(conexionSql.ConnectionString)
+                connection.Open()
+
+                Dim consultaSQL As String = "SELECT COUNT(*) FROM Productos WHERE Codigo = @Codigo"
+
+                Using command As New SqlCommand(consultaSQL, connection)
+                    command.Parameters.AddWithValue("@Codigo", codigo)
+
+                    Dim conteo As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                    If conteo > 0 Then
+
+                        MessageBox.Show("El código de producto ya existe en la base de datos. Por favor, ingrese un código de producto único.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        codProducto.Focus()
+
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error al verificar el código de producto: " & ex.Message, "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
+
 
     Private Sub descripProducto_Leave(sender As Object, e As EventArgs) Handles descripProducto.Leave
         If String.IsNullOrWhiteSpace(descripProducto.Text) Then
-            MessageBox.Show("El campo Descripción no puede estar vacío.")
+
+            MessageBox.Show("El campo descripción no puede estar vacío.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
             descripProducto.Focus()
+
+        ElseIf ContieneCaracteresEspeciales(descripProducto.Text) Then
+
+            MessageBox.Show("El campo descripción no puede contener caracteres especiales.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            descripProducto.Focus()
+
         End If
     End Sub
 
@@ -341,20 +399,41 @@ Public Class ABM_Productos
         Else
             Dim precio As Decimal
             If Decimal.TryParse(PrecioUnitarioProducto.Text, precio) Then
-                ' Formatear el precio con separadores de miles y dos decimales
-                PrecioUnitarioProducto.Text = precio.ToString("N2")
+
+                If precio < 0 Then
+                    MessageBox.Show("El campo precio unitario no puede contener valores negativos.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    PrecioUnitarioProducto.Focus()
+                ElseIf precio > 99999999.99 Then
+                    MessageBox.Show("El campo precio unitario no puede ser mayor a 99.999.999,99$", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    PrecioUnitarioProducto.Focus()
+                Else
+                    ' Formatear el precio con separadores de miles y dos decimales
+                    PrecioUnitarioProducto.Text = precio.ToString("N2")
+                End If
             Else
-                MessageBox.Show("El campo Precio Unitario debe contener solo números.")
+                MessageBox.Show("El campo precio unitario debe contener solo números.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 PrecioUnitarioProducto.Focus()
             End If
         End If
     End Sub
 
-
     Private Sub txtIvaProducto_Leave(sender As Object, e As EventArgs) Handles txtIvaProducto.Leave
-        StockProducto.Text = "0,00"
+
         If String.IsNullOrWhiteSpace(txtIvaProducto.Text) Then
-            txtIvaProducto.Text = "21"
+            txtIvaProducto.Text = "21,0"
+        Else
+
+            Dim valoresPermitidos As New List(Of String)({"21", "21,0", "10.5", "0", "0,0"})
+
+            If Not valoresPermitidos.Contains(txtIvaProducto.Text) Then
+                MessageBox.Show("Solo se permite IVA 21, 10,5 o 0 en caso de producto exento", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtIvaProducto.Focus()
+            End If
         End If
+
+    End Sub
+
+    Private Sub ABM_Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
