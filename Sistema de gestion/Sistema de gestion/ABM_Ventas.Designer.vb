@@ -23,9 +23,9 @@ Partial Class ABM_Ventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABM_Ventas))
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         lblABM = New Label()
         lblCliente = New Label()
         btnFin = New Button()
@@ -205,7 +205,7 @@ Partial Class ABM_Ventas
         ' 
         lblTotal.AutoSize = True
         lblTotal.Font = New Font("Yu Gothic UI", 14F, FontStyle.Bold)
-        lblTotal.Location = New Point(801, 10)
+        lblTotal.Location = New Point(782, 10)
         lblTotal.Name = "lblTotal"
         lblTotal.Size = New Size(23, 25)
         lblTotal.TabIndex = 19
@@ -215,7 +215,7 @@ Partial Class ABM_Ventas
         ' 
         lblTitotal.AutoSize = True
         lblTitotal.Font = New Font("Yu Gothic UI", 14F, FontStyle.Bold)
-        lblTitotal.Location = New Point(726, 10)
+        lblTitotal.Location = New Point(704, 10)
         lblTitotal.Name = "lblTitotal"
         lblTitotal.Size = New Size(72, 25)
         lblTitotal.TabIndex = 18
@@ -244,14 +244,14 @@ Partial Class ABM_Ventas
         GrillaMovVentas.BackgroundColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
         GrillaMovVentas.BorderStyle = BorderStyle.None
         GrillaMovVentas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = Color.Tan
-        DataGridViewCellStyle1.Font = New Font("Arial", 10F)
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = Color.Beige
-        DataGridViewCellStyle1.SelectionForeColor = Color.White
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        GrillaMovVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = Color.Tan
+        DataGridViewCellStyle4.Font = New Font("Arial", 10F)
+        DataGridViewCellStyle4.ForeColor = Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = Color.Beige
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        GrillaMovVentas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         GrillaMovVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         GrillaMovVentas.Cursor = Cursors.Hand
         GrillaMovVentas.EditMode = DataGridViewEditMode.EditOnEnter
@@ -263,21 +263,21 @@ Partial Class ABM_Ventas
         GrillaMovVentas.Name = "GrillaMovVentas"
         GrillaMovVentas.ReadOnly = True
         GrillaMovVentas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.Beige
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle2.SelectionForeColor = Color.White
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        GrillaMovVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.Beige
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle5.SelectionForeColor = Color.White
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        GrillaMovVentas.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         GrillaMovVentas.RowHeadersVisible = False
         GrillaMovVentas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.BackColor = Color.Beige
-        DataGridViewCellStyle3.ForeColor = Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
-        DataGridViewCellStyle3.SelectionForeColor = Color.White
-        GrillaMovVentas.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.BackColor = Color.Beige
+        DataGridViewCellStyle6.ForeColor = Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle6.SelectionForeColor = Color.White
+        GrillaMovVentas.RowsDefaultCellStyle = DataGridViewCellStyle6
         GrillaMovVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GrillaMovVentas.ShowCellErrors = False
         GrillaMovVentas.ShowCellToolTips = False
@@ -600,7 +600,7 @@ Partial Class ABM_Ventas
         ' 
         Label18.AutoSize = True
         Label18.Font = New Font("Yu Gothic UI", 12F)
-        Label18.Location = New Point(283, 17)
+        Label18.Location = New Point(287, 17)
         Label18.Name = "Label18"
         Label18.Size = New Size(161, 21)
         Label18.TabIndex = 30
@@ -622,7 +622,7 @@ Partial Class ABM_Ventas
         ' 
         Label17.AutoSize = True
         Label17.Font = New Font("Yu Gothic UI", 12F)
-        Label17.Location = New Point(655, 17)
+        Label17.Location = New Point(670, 17)
         Label17.Name = "Label17"
         Label17.Size = New Size(127, 21)
         Label17.TabIndex = 28
@@ -632,7 +632,7 @@ Partial Class ABM_Ventas
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Yu Gothic UI", 12F)
-        Label5.Location = New Point(16, 17)
+        Label5.Location = New Point(22, 17)
         Label5.Name = "Label5"
         Label5.Size = New Size(52, 21)
         Label5.TabIndex = 15
@@ -642,7 +642,7 @@ Partial Class ABM_Ventas
         ' 
         dateTime.Font = New Font("Yu Gothic UI", 12F)
         dateTime.Format = DateTimePickerFormat.Short
-        dateTime.Location = New Point(74, 13)
+        dateTime.Location = New Point(77, 14)
         dateTime.Name = "dateTime"
         dateTime.Size = New Size(124, 29)
         dateTime.TabIndex = 1

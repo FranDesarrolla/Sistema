@@ -1,8 +1,6 @@
-﻿Public Class ABM_Clientes
-    Private Sub btnVolverCliente_Click(sender As Object, e As EventArgs) Handles btnVolverCliente.Click
-        ModuloPrincipal.AbrirFormEnPanel(Clientes)
-        LimpiarFormularioABMCliente()
-    End Sub
+﻿Imports System.Data.SqlClient
+
+Public Class ABM_Clientes
 
     Public Sub LimpiarFormularioABMCliente()
 
@@ -22,7 +20,6 @@
         Me.txtTelefonoCliente.Text = ""
         Me.txtEmailCliente.Text = ""
         Me.txtCondicionivaClie.Text = ""
-        Me.dtFechaRegistroCliente.Value = "01/01/1999"
         Me.txtEstadoCuenta.Text = ""
 
         ' Desactivar el botón "Guardar" (si existe)
@@ -32,74 +29,86 @@
 
     End Sub
 
-    Private Sub BtnAceptarCliente_Click(sender As Object, e As EventArgs) Handles BtnAceptarCliente.Click
-        'Para agregar datos
-        If lblSeñalCliente.Text = "AGREGAR" Then ' Verifica si la etiqueta es "AGREGAR"
+    Private Sub BtnAceptarCliente_Click(sender As Object, e As EventArgs) Handles btnAceptarABMP.Click
+        Dim fechaHoy As DateTime = DateTime.Today
 
+        If lblSeñalCliente.Text = "AGREGAR" Then
             Try
-                acciones.Connection = conexionSql
-                acciones.CommandType = CommandType.Text
-                acciones.CommandText = "INSERT INTO dbo.Clientes (Cuenta, Nombre, Apellido, DNI, CUIT, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, CondicionIVA, FechaDeRegistro, EstadoDeCuenta)
-                                        VALUES ('" & txtCuentaCliente.Text & "', '" & txtNombreCliente.Text & "', '" & txtApellidoCliente.Text & "', '" & txtDniClie.Text & "', '" & txtCuitClie.Text & "', '" & txtNacionalidadCliente.Text & "', '" & txtProvinciaCliente.Text & "', '" & txtLocalidadCliente.Text & "', '" & txtCodPCliente.Text & "', '" & txtDireccionCliente.Text & "', '" & dtFechaNacimiento.Value & "', '" & txtTelefonoCliente.Text & "', '" & txtEmailCliente.Text & "', '" & txtCondicionivaClie.Text & "', '" & dtFechaRegistroCliente.Value & "', '" & txtEstadoCuenta.Text & "')"
-                ' Ejecuta la consulta de inserción
-                acciones.ExecuteNonQuery()
+                Using connection As New SqlConnection(conexionSql.ConnectionString)
+                    connection.Open()
 
-                ' Cierra la conexión después de ejecutar la consulta
-                ModuloSistema.conexionSql.Close()
+                    Using command As New SqlCommand("INSERT INTO dbo.Clientes (Cuenta, Nombre, Apellido, DNI, CUIT, Nacionalidad, Provincia, Localidad, CodigoPostal, Direccion, FechaDeNacimiento, Telefono, Email, CondicionIVA, FechaDeRegistro, EstadoDeCuenta)
+                                                 VALUES (@Cuenta, @Nombre, @Apellido, @DNI, @CUIT, @Nacionalidad, @Provincia, @Localidad, @CodigoPostal, @Direccion, @FechaDeNacimiento, @Telefono, @Email, @CondicionIVA, @FechaDeRegistro, @EstadoDeCuenta)", connection)
+                        command.Parameters.AddWithValue("@Cuenta", txtCuentaCliente.Text)
+                        command.Parameters.AddWithValue("@Nombre", txtNombreCliente.Text)
+                        command.Parameters.AddWithValue("@Apellido", txtApellidoCliente.Text)
+                        command.Parameters.AddWithValue("@DNI", txtDniClie.Text)
+                        command.Parameters.AddWithValue("@CUIT", txtCuitClie.Text)
+                        command.Parameters.AddWithValue("@Nacionalidad", txtNacionalidadCliente.Text)
+                        command.Parameters.AddWithValue("@Provincia", txtProvinciaCliente.Text)
+                        command.Parameters.AddWithValue("@Localidad", txtLocalidadCliente.Text)
+                        command.Parameters.AddWithValue("@CodigoPostal", txtCodPCliente.Text)
+                        command.Parameters.AddWithValue("@Direccion", txtDireccionCliente.Text)
+                        command.Parameters.AddWithValue("@FechaDeNacimiento", dtFechaNacimiento.Value)
+                        command.Parameters.AddWithValue("@Telefono", txtTelefonoCliente.Text)
+                        command.Parameters.AddWithValue("@Email", txtEmailCliente.Text)
+                        command.Parameters.AddWithValue("@CondicionIVA", txtCondicionivaClie.Text)
+                        command.Parameters.AddWithValue("@FechaDeRegistro", fechaHoy)
+                        command.Parameters.AddWithValue("@EstadoDeCuenta", txtEstadoCuenta.Text)
 
-                ' Muestra un mensaje de éxito
-                MsgBox("Datos Guardados", +vbOKOnly + vbInformation)
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
+
+                MsgBox("Datos Guardados", vbOKOnly + vbInformation)
             Catch ex As Exception
-                ' Muestra un mensaje de error en caso de excepción
-                MsgBox(ex.ToString)
+                MsgBox("Error al guardar los datos: " & ex.Message)
             End Try
-
 
             ModuloPrincipal.AbrirFormEnPanel(Clientes)
 
         ElseIf lblSeñalCliente.Text = "EDITAR" Then
             Try
-                acciones.Connection = conexionSql
-                acciones.CommandType = CommandType.Text
-                acciones.CommandText = "
-                                            UPDATE dbo.Clientes
-                                            SET 
-	                                            Cuenta = '" & txtCuentaCliente.Text & "',
-	                                            Nombre = '" & txtNombreCliente.Text & "',
-	                                            Apellido = '" & txtApellidoCliente.Text & "',
-                                                DNI = '" & txtDniClie.Text & "',
-                                                CUIT = '" & txtCuitClie.Text & "',
-	                                            Nacionalidad = '" & txtNacionalidadCliente.Text & "',
-	                                            Provincia = '" & txtProvinciaCliente.Text & "',
-	                                            Localidad = '" & txtLocalidadCliente.Text & "',
-	                                            CodigoPostal = '" & txtCodPCliente.Text & "',
-	                                            Direccion = '" & txtDireccionCliente.Text & "',
-	                                            FechaDeNacimiento = " & dtFechaNacimiento.Value & ",
-	                                            Telefono = '" & txtTelefonoCliente.Text & "',
-	                                            Email = '" & txtEmailCliente.Text & "',
-                                                CondicionIVA = '" & txtCondicionivaClie.Text & "',
-	                                            FechaDeRegistro = '" & dtFechaRegistroCliente.Text & "',
-	                                            EstadoDeCuenta = '" & txtEstadoCuenta.Text & "'
-                                                WHERE IDCliente = " & Val(txtIDCliente.Text) & ""
-                acciones.ExecuteNonQuery()
+                Using connection As New SqlConnection(conexionSql.ConnectionString)
+                    connection.Open()
 
-                ' Cierra la conexión después de ejecutar la consulta
-                MsgBox("Datos Guardados", +vbOKOnly + vbInformation)
+                    Using command As New SqlCommand("UPDATE dbo.Clientes
+                                                 SET Cuenta = @Cuenta, Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, CUIT = @CUIT, Nacionalidad = @Nacionalidad, Provincia = @Provincia, Localidad = @Localidad, CodigoPostal = @CodigoPostal, Direccion = @Direccion, FechaDeNacimiento = @FechaDeNacimiento, Telefono = @Telefono, Email = @Email, CondicionIVA = @CondicionIVA, EstadoDeCuenta = @EstadoDeCuenta
+                                                 WHERE IDCliente = @IDCliente", connection)
+                        command.Parameters.AddWithValue("@Cuenta", txtCuentaCliente.Text)
+                        command.Parameters.AddWithValue("@Nombre", txtNombreCliente.Text)
+                        command.Parameters.AddWithValue("@Apellido", txtApellidoCliente.Text)
+                        command.Parameters.AddWithValue("@DNI", txtDniClie.Text)
+                        command.Parameters.AddWithValue("@CUIT", txtCuitClie.Text)
+                        command.Parameters.AddWithValue("@Nacionalidad", txtNacionalidadCliente.Text)
+                        command.Parameters.AddWithValue("@Provincia", txtProvinciaCliente.Text)
+                        command.Parameters.AddWithValue("@Localidad", txtLocalidadCliente.Text)
+                        command.Parameters.AddWithValue("@CodigoPostal", txtCodPCliente.Text)
+                        command.Parameters.AddWithValue("@Direccion", txtDireccionCliente.Text)
+                        command.Parameters.AddWithValue("@FechaDeNacimiento", dtFechaNacimiento.Value)
+                        command.Parameters.AddWithValue("@Telefono", txtTelefonoCliente.Text)
+                        command.Parameters.AddWithValue("@Email", txtEmailCliente.Text)
+                        command.Parameters.AddWithValue("@CondicionIVA", txtCondicionivaClie.Text)
+                        command.Parameters.AddWithValue("@EstadoDeCuenta", txtEstadoCuenta.Text)
+                        command.Parameters.AddWithValue("@IDCliente", Val(txtIDCliente.Text))
 
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
 
-
+                MsgBox("Datos Guardados", vbOKOnly + vbInformation)
             Catch ex As Exception
-                MsgBox(ex.ToString)
-
+                MsgBox("Error al editar los datos: " & ex.Message)
             End Try
 
             Clientes.llenarGrillaClientes()
             ModuloPrincipal.AbrirFormEnPanel(Clientes)
-
         End If
     End Sub
 
-    Private Sub ABM_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub btnVolverCliente_Click(sender As Object, e As EventArgs) Handles btnVolverABMP.Click
+        ModuloPrincipal.AbrirFormEnPanel(Clientes)
+        LimpiarFormularioABMCliente()
     End Sub
+
 End Class

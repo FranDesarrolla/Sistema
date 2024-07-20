@@ -110,7 +110,6 @@ Public Class Clientes
         ABM_Clientes.txtTelefonoCliente.Text = GrillaClientes.CurrentRow.Cells(12).Value
         ABM_Clientes.txtEmailCliente.Text = GrillaClientes.CurrentRow.Cells(13).Value
         ABM_Clientes.txtCondicionivaClie.Text = GrillaClientes.CurrentRow.Cells(14).Value
-        ABM_Clientes.dtFechaRegistroCliente.Text = GrillaClientes.CurrentRow.Cells(15).Value
         ABM_Clientes.txtEstadoCuenta.Text = GrillaClientes.CurrentRow.Cells(16).Value
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)

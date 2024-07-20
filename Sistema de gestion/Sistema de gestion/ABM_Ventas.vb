@@ -649,5 +649,4 @@ Public Class ABM_Ventas
         Productos.lblEdit.Text = "Ventas"
         ModuloPrincipal.AbrirFormEnPanel(Productos)
     End Sub
-
 End Class

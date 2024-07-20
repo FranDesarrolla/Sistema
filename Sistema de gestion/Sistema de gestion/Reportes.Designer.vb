@@ -30,7 +30,7 @@ Partial Class Reportes
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
         ClientSize = New Size(1069, 611)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Reportes"
         Text = "Reportes"
         ResumeLayout(False)
