@@ -124,7 +124,7 @@ Public Class Productos
         Dim consultaSQL As String = "SELECT d.NumeroDeposito, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
                                     "FROM StockDepositos sd " &
                                     "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
-                                    "WHERE sd.Producto = @CodigoProducto"
+                                    "WHERE sd.CodigoProducto = @CodigoProducto"
 
         Using comandoSql As New SqlCommand(consultaSQL, conexionSql)
             comandoSql.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
@@ -260,7 +260,6 @@ Public Class Productos
             lblEdit.Text = ""
             ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
             ABM_Ventas.txtCodprod.Focus()
-            ABM_Ventas.BuscarProducto(ABM_Ventas.txtCodprod.Text)
 
         Else
 

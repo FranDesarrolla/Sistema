@@ -41,3 +41,46 @@ C:\Users\franc\OneDrive\Escritorio\Proyectos\Sistema\Sistema de gestion\Sistema 
 C:\Users\franc\OneDrive\Escritorio\Proyectos\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.pdb
 C:\Users\franc\OneDrive\Escritorio\Proyectos\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.genruntimeconfig.cache
 C:\Users\franc\OneDrive\Escritorio\Proyectos\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\ref\Sistema de gestion.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\Sistema de gestion.exe
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\Sistema de gestion.deps.json
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\Sistema de gestion.runtimeconfig.json
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\Sistema de gestion.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\Sistema de gestion.pdb
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\System.Data.SqlClient.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\runtimes\win-arm64\native\sni.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\runtimes\win-x64\native\sni.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\runtimes\win-x86\native\sni.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\bin\Debug\net8.0-windows7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.vbproj.AssemblyReference.cache
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Clientes.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Compras.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Pedidos.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Productos.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Proveedores.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ABM_Ventas.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Clientes.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Compras.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.ModuloPrincipal.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Login.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Resources.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Notificaciones.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Pagos.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Pedidos.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Productos.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Proveedores.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Reportes.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Usuarios.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema_de_gestion.Ventas.resources
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.vbproj.GenerateResource.cache
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.AssemblyInfoInputs.cache
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.AssemblyInfo.vb
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.vbproj.CoreCompileInputs.cache
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.sourcelink.json
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema .3DB07AE5.Up2Date
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\refint\Sistema de gestion.dll
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.pdb
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\Sistema de gestion.genruntimeconfig.cache
+D:\Proyectos\Sistema\Sistema\Sistema de gestion\Sistema de gestion\obj\Debug\net8.0-windows7.0\ref\Sistema de gestion.dll

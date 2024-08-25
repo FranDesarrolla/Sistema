@@ -321,6 +321,8 @@ Public Class ABM_Ventas
         Catch ex As Exception
             MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+        LimpiaMovVentas()
     End Sub
 
     Private Sub AgregarMovimiento()
@@ -349,6 +351,8 @@ Public Class ABM_Ventas
         Catch ex As Exception
             MessageBox.Show("Error al guardar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+        LimpiaMovVentas()
     End Sub
 
     Private Sub EditarRegistro()
@@ -480,49 +484,66 @@ Public Class ABM_Ventas
     End Sub
 
     ' Validaciones
-
     Private Sub txtCodprod_Leave(sender As Object, e As EventArgs) Handles txtCodprod.Leave
         If String.IsNullOrWhiteSpace(txtCodprod.Text) Then
-            ' Si txtCuenta está vacío, llama al evento Click de picBuscar manualmente.
+            ' Si txtCodprod está vacío, llama al evento Click de picBuscar manualmente.
             picBuscarProd_Click(picBuscarProd, EventArgs.Empty)
+
+        ElseIf ContieneCaracteresEspeciales(txtCodprod.Text) Then
+            MessageBox.Show("El campo Producto no puede contener caracteres especiales.", "Gesnet", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            txtCodprod.Focus()
+            Return
         Else
-            BuscarProducto(txtCodprod.Text)
+
+            ' Busca el producto directamente dentro del evento Leave
+            Dim consultaSQL As String = "SELECT Descripcion, PrecioUnitario, IVA FROM Productos WHERE Codigo = @Codigo"
+
+            Using connection As New SqlConnection(conexionSql.ConnectionString),
+              command As New SqlCommand(consultaSQL, connection)
+                command.Parameters.AddWithValue("@Codigo", txtCodprod.Text)
+
+                connection.Open()
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        txtDescripcion.Text = reader("Descripcion").ToString()
+                        txtUnitario.Text = FormatearDecimal(CDec(reader("PrecioUnitario")))
+                        txtIVAP.Text = FormatearDecimal(CDec(reader("IVA")))
+
+                        ' Inicializar los campos txtDescuento y txtCantidad con valores predeterminados
+                        txtDescuento.Text = FormatearDecimal(0D) ' Descuento inicial en 0,00
+                        txtCantidad.Text = FormatearDecimal(1D) ' Cantidad inicial en 1,00
+
+                        ' Calcular y actualizar txtTotal después de buscar el producto
+                        CalcularTotal()
+                    Else
+                        MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        txtCodprod.Focus()
+                        txtDescripcion.Text = ""
+                        txtUnitario.Text = ""
+                        txtIVAP.Text = ""
+                        txtDescuento.Text = ""
+                        txtCantidad.Text = ""
+                        txtSubtotalCon.Text = ""
+                    End If
+                End Using
+            End Using
         End If
     End Sub
 
-    Public Sub BuscarProducto(codigoProducto As String)
-        Dim consultaSQL As String = "SELECT Descripcion, PrecioUnitario, IVA FROM Productos WHERE Codigo = @Codigo"
+    ' Función para ver si contiene caracteres especiales
+    Private Function ContieneCaracteresEspeciales(texto As String) As Boolean
 
-        Using connection As New SqlConnection(conexionSql.ConnectionString),
-          command As New SqlCommand(consultaSQL, connection)
-            command.Parameters.AddWithValue("@Codigo", codigoProducto)
+        Dim caracteresEspeciales As String = "#%$&=()<>[]{}!@^*~`+|\\;:'"",?/\\"
 
-            connection.Open()
+        For Each ch As Char In texto
+            If caracteresEspeciales.Contains(ch) Then
+                Return True
+            End If
+        Next
 
-            Using reader As SqlDataReader = command.ExecuteReader()
-                If reader.Read() Then
-                    txtDescripcion.Text = reader("Descripcion").ToString()
-                    txtUnitario.Text = FormatearDecimal(CDec(reader("PrecioUnitario")))
-                    txtIVAP.Text = FormatearDecimal(CDec(reader("IVA")))
-
-                    ' Inicializar los campos txtDescuento y txtCantidad con valores predeterminados
-                    txtDescuento.Text = FormatearDecimal(0D) ' Descuento inicial en 0,00
-                    txtCantidad.Text = FormatearDecimal(1D) ' Cantidad inicial en 1,00
-
-                    ' Calcular y actualizar txtTotal después de buscar el producto
-                    CalcularTotal()
-                Else
-                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    txtDescripcion.Text = ""
-                    txtUnitario.Text = ""
-                    txtIVAP.Text = ""
-                    txtDescuento.Text = ""
-                    txtCantidad.Text = ""
-                    txtSubtotalCon.Text = ""
-                End If
-            End Using
-        End Using
-    End Sub
+        Return False
+    End Function
 
     Private Sub CalcularTotal()
         If Not String.IsNullOrEmpty(txtUnitario.Text) AndAlso
@@ -562,25 +583,47 @@ Public Class ABM_Ventas
 
     ' Maneja el evento Leave del campo txtCuenta.
     Private Sub txtCuenta_Leave(sender As Object, e As EventArgs) Handles txtCuenta.Leave
+        Dim cantCuentas As Integer = 0
+
+        If Not String.IsNullOrWhiteSpace(txtCuenta.Text) Then
+            Dim consultaSQL As String = "SELECT COUNT(*) FROM Clientes WHERE Cuenta = @Cuenta"
+
+            Try
+                Using connection As New SqlConnection(conexionSql.ConnectionString),
+                  command As New SqlCommand(consultaSQL, connection)
+                    ' Agrega el parámetro @Cuenta correctamente
+                    command.Parameters.AddWithValue("@Cuenta", txtCuenta.Text)
+                    connection.Open()
+                    cantCuentas = Convert.ToInt32(command.ExecuteScalar()) ' Ejecuta la consulta y obtiene el resultado
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error al verificar la cuenta: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
+
         If String.IsNullOrWhiteSpace(txtCuenta.Text) Then
             ' Si txtCuenta está vacío, llama al evento Click de picBuscar manualmente.
             picBuscar_Click(picBuscar, EventArgs.Empty)
+        ElseIf cantCuentas = 0 Then
+            MessageBox.Show("Cuenta no encontrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtCuenta.Focus()
         Else
-            ' Verifica si lblABM es igual a "AGREGAR"
+            ' Verifica si lblABM es igual a "Agregar"
             If lblABM.Text = "Agregar" Then
                 panelProducto.Enabled = True
                 Dim resultado As DialogResult = MessageBox.Show("¿Desea crear la cabecera de la nota de venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If resultado = DialogResult.Yes Then
                     CrearCabeceraNotaDeVenta()
+                Else
+                    txtCuenta.Focus()
                 End If
-            Else
-
             End If
         End If
 
         ActualizarDatosCliente(txtCuenta.Text)
-
     End Sub
+
 
     Public Sub ActualizarDatosCliente(Cuenta As String)
         Dim consultaSQL As String = "SELECT C.Nombre + ' ' + C.Apellido AS Cliente, C.Direccion, C.CUIT, C.DNI, P.Provincia, L.Localidad, CI.CondicionIva, C.Telefono FROM Clientes C
@@ -649,4 +692,5 @@ Public Class ABM_Ventas
         Productos.lblEdit.Text = "Ventas"
         ModuloPrincipal.AbrirFormEnPanel(Productos)
     End Sub
+
 End Class

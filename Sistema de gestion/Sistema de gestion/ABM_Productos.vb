@@ -432,8 +432,4 @@ Public Class ABM_Productos
         End If
 
     End Sub
-
-    Private Sub ABM_Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class
