@@ -5,7 +5,6 @@ Public Class ModuloPrincipal
     Private Sub ModuloPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ModuloSistema.CargarCadenaConexion()
-
         Dim loginForm As New Login()
         loginForm.ShowDialog()
 
@@ -199,4 +198,5 @@ Public Class ModuloPrincipal
     Private Sub btnUser_Click(sender As Object, e As EventArgs) Handles btnUser.Click
         AbrirFormEnPanel(Usuarios)
     End Sub
+
 End Class

@@ -693,4 +693,7 @@ Public Class ABM_Ventas
         ModuloPrincipal.AbrirFormEnPanel(Productos)
     End Sub
 
+    Private Sub boxComprobante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles boxComprobante.SelectedIndexChanged
+
+    End Sub
 End Class
