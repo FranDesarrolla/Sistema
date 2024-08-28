@@ -14,6 +14,29 @@ Public Class ModuloPrincipal
         End Using
 
         InicializarComponentes()
+        CargarConfiguracion()
+    End Sub
+
+    Private Sub CargarConfiguracion()
+        Dim rutaConfig As String = "configuracion.ini"
+        If IO.File.Exists(rutaConfig) Then
+            Dim modoOscuro As Boolean = False
+            Using sr As New IO.StreamReader(rutaConfig)
+                Dim linea As String = sr.ReadLine()
+                modoOscuro = Boolean.Parse(linea.Split("="c)(1))
+            End Using
+            If modoOscuro Then
+                cbModo.SelectedIndex = 1 ' Establecer en "Modo Oscuro"
+                ModuloSistema.CambiarPaletaOscuro()
+            Else
+                cbModo.SelectedIndex = 0 ' Establecer en "Modo Claro"
+                ModuloSistema.CambiarPaletaClaro()
+            End If
+        Else
+            ' Si no existe el archivo de configuración, usar el modo claro por defecto
+            cbModo.SelectedIndex = 0
+            ModuloSistema.CambiarPaletaClaro()
+        End If
     End Sub
 
     Private Sub InicializarComponentes()
@@ -135,8 +158,10 @@ Public Class ModuloPrincipal
         Select Case cbModo.SelectedIndex
             Case 0 ' Modo Claro
                 ModuloSistema.CambiarPaletaClaro()
+                GuardarConfiguracion(False) ' Guardar modo claro en el archivo .ini
             Case 1 ' Modo Oscuro
                 ModuloSistema.CambiarPaletaOscuro()
+                GuardarConfiguracion(True) ' Guardar modo oscuro en el archivo .ini
         End Select
     End Sub
 
@@ -156,4 +181,12 @@ Public Class ModuloPrincipal
     Private Sub btnUser_Click(sender As Object, e As EventArgs) Handles btnUser.Click
         AbrirFormEnPanel(Usuarios)
     End Sub
+
+    Private Sub GuardarConfiguracion(modoOscuro As Boolean)
+        Dim rutaConfig As String = "Config.ini"
+        Using sw As New IO.StreamWriter(rutaConfig)
+            sw.WriteLine("ModoOscuro=" & modoOscuro.ToString())
+        End Using
+    End Sub
+
 End Class

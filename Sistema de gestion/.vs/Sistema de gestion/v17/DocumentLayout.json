@@ -3,15 +3,11 @@
   "WorkspaceRootPath": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\notificaciones.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\notificaciones.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\abm_pedidos.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_pedidos.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\my project\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\sistema de gestion\\my project\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\my project\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
@@ -21,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\sistema de gestion.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\sistema de gestion.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\modulosistema.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -43,69 +35,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Notificaciones.Designer.vb",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Notificaciones.Designer.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\Notificaciones.Designer.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Notificaciones.Designer.vb",
-              "RelativeToolTip": "Sistema de gestion\\Notificaciones.Designer.vb",
-              "ViewState": "AQIAACsAAAAAAAAAAAAmwDwAAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-08-28T19:44:21.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ABM_Pedidos.Designer.vb",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.Designer.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Pedidos.Designer.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Pedidos.Designer.vb",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Pedidos.Designer.vb",
-              "ViewState": "AQIAADsBAAAAAAAAAAAmwEwBAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-08-28T19:44:16.281Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Form1.vb",
               "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Form1.vb",
               "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb",
               "RelativeToolTip": "Sistema de gestion\\Form1.vb",
-              "ViewState": "AQIAADUAAAAAAAAAAIAywCQAAAAAAAAA",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAYwK4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-08-28T19:43:10.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Sistema de gestion",
               "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
               "RelativeDocumentMoniker": "Sistema de gestion\\Sistema de gestion.vbproj",
               "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Sistema de gestion.vbproj",
               "RelativeToolTip": "Sistema de gestion\\Sistema de gestion.vbproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
-              "WhenOpened": "2024-08-28T19:34:48.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T19:34:48.327Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Resources.resx",
               "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\My Project\\Resources.resx",
               "RelativeDocumentMoniker": "Sistema de gestion\\My Project\\Resources.resx",
               "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\My Project\\Resources.resx",
               "RelativeToolTip": "Sistema de gestion\\My Project\\Resources.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-08-28T19:27:40.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T19:27:40.441Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form1.vb [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Form1.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\Form1.vb",
@@ -117,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "ModuloSistema.vb",
               "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ModuloSistema.vb",
               "RelativeDocumentMoniker": "Sistema de gestion\\ModuloSistema.vb",
@@ -125,8 +89,7 @@
               "RelativeToolTip": "Sistema de gestion\\ModuloSistema.vb",
               "ViewState": "AQIAAGcAAAAAAAAAAAAcwIYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-08-28T18:49:32.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T18:49:32.579Z"
             }
           ]
         }
