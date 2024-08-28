@@ -59,7 +59,6 @@ Partial Class Notificaciones
         ' btnCerrarNotificaciones
         ' 
         btnCerrarNotificaciones.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        btnCerrarNotificaciones.Image = My.Resources.Resources.letra_x
         btnCerrarNotificaciones.Location = New Point(366, -1)
         btnCerrarNotificaciones.Name = "btnCerrarNotificaciones"
         btnCerrarNotificaciones.Size = New Size(25, 25)

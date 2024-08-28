@@ -89,7 +89,7 @@ Partial Class ModuloPrincipal
         ' 
         ' PBcopy
         ' 
-        PBcopy.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
+        PBcopy.BackColor = Color.Transparent
         PBcopy.Location = New Point(0, 0)
         PBcopy.Name = "PBcopy"
         PBcopy.Size = New Size(231, 46)
@@ -445,28 +445,27 @@ Partial Class ModuloPrincipal
         PanelContenedor.PerformLayout()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents PanelSuperior As Panel
-    Friend WithEvents PanelLateral As Panel
-    Friend WithEvents btnProductos As Button
-    Friend WithEvents btnPedidos As Button
-    Friend WithEvents boxPV As ComboBox
-    Friend WithEvents btnSesion As Button
-    Friend WithEvents btnMinimizar As PictureBox
-    Friend WithEvents btnCerrar As PictureBox
-    Friend WithEvents btnUser As PictureBox
-    Friend WithEvents lblUsuario As Label
-    Friend WithEvents PBcopy As PictureBox
-    Friend WithEvents cbModo As ComboBox
     Friend WithEvents btnMaximizar As PictureBox
     Friend WithEvents brnRestaurar As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LabelNotificacion As Label
-    Friend WithEvents PanelContenedor As Panel
-    Friend WithEvents btnVentas As Button
-    Friend WithEvents btnClientes As Button
-    Friend WithEvents btnReportes As Button
-    Friend WithEvents btnPagos As Button
-    Friend WithEvents btnCompras As Button
-    Friend WithEvents btnProveedores As Button
+    Public WithEvents PanelSuperior As Panel
+    Public WithEvents PanelLateral As Panel
+    Public WithEvents btnProductos As Button
+    Public WithEvents btnPedidos As Button
+    Public WithEvents btnSesion As Button
+    Public WithEvents btnVentas As Button
+    Public WithEvents btnClientes As Button
+    Public WithEvents btnReportes As Button
+    Public WithEvents btnPagos As Button
+    Public WithEvents btnCompras As Button
+    Public WithEvents btnProveedores As Button
+    Public WithEvents PanelContenedor As Panel
+    Public WithEvents PBcopy As PictureBox
+    Public WithEvents btnUser As PictureBox
+    Public WithEvents lblUsuario As Label
+    Public WithEvents boxPV As ComboBox
+    Public WithEvents btnMinimizar As PictureBox
+    Public WithEvents btnCerrar As PictureBox
+    Public WithEvents cbModo As ComboBox
 End Class

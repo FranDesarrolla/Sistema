@@ -331,7 +331,6 @@ Partial Class ABM_Pedidos
         ' btnLimpiar
         ' 
         btnLimpiar.BackColor = Color.Tan
-        btnLimpiar.BackgroundImage = My.Resources.Resources.menos
         btnLimpiar.BackgroundImageLayout = ImageLayout.Stretch
         btnLimpiar.FlatAppearance.BorderSize = 0
         btnLimpiar.FlatStyle = FlatStyle.Flat

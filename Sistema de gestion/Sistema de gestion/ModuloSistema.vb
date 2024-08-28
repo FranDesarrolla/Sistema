@@ -36,101 +36,103 @@ Module ModuloSistema
         End If
     End Sub
 
-    '' Paleta de colores para modo claro
-    'Public Const PrincipalClaro As String = "Tan"
-    'Public Const SecundarioClaro As String = "#DAE8C5"
-    'Public Const TerciarioClaro As String = "#E3EED4"
-    'Public Const AdicionalClaro As String = "#ffffff"
+    ' Paletas de colores
+    Public Const PrincipalClaro As String = "Tan"
+    Public Const SecundarioClaro As String = "#DAE8C5"
+    Public Const TerciarioClaro As String = "#E3EED4"
+    Public Const AdicionalClaro As String = "#ffffff"
 
-    '' Paleta de colores para modo oscuro
-    'Public Const PrincipalOscuro As String = "#000028"
-    'Public Const SecundarioOscuro As String = "#000a47"
-    'Public Const TerciarioOscuro As String = "#001465"
-    'Public Const AdicionalOscuro As String = "#000f56"
+    Public Const PrincipalOscuro As String = "#000028"
+    Public Const SecundarioOscuro As String = "#000a47"
+    Public Const TerciarioOscuro As String = "#001465"
+    Public Const AdicionalOscuro As String = "#000f56"
 
-    'Public Sub CambiarPaletaClaro()
+    ' Método para cambiar a modo claro
+    Public Sub CambiarPaletaClaro()
+        CambiarColores(ModuloPrincipal, PrincipalClaro, SecundarioClaro, TerciarioClaro, AdicionalClaro, Color.Black,
+                       My.Resources.productos_b, My.Resources.proveedores_b, My.Resources.ventas_b, My.Resources.clientes_b,
+                       My.Resources.pedidos_b, My.Resources.compras_b, My.Resources.pagos_b, My.Resources.reportes_b, My.Resources.cerrarsesion_b,
+                       My.Resources.usuario_b)
+    End Sub
 
-    '    ' Login
-    '    Login.BackColor = ColorTranslator.FromHtml(PrincipalClaro)
-    '    Login.PBLogo.BackColor = ColorTranslator.FromHtml(PrincipalClaro)
-    '    Login.PanelUsuario.BackColor = ColorTranslator.FromHtml(TerciarioClaro)
-    '    Login.PanelContraseña.BackColor = ColorTranslator.FromHtml(TerciarioClaro)
+    ' Método para cambiar a modo oscuro
+    Public Sub CambiarPaletaOscuro()
+        CambiarColores(ModuloPrincipal, PrincipalOscuro, SecundarioOscuro, TerciarioOscuro, AdicionalOscuro, Color.White,
+                       My.Resources.productos_w, My.Resources.proveedores_w, My.Resources.ventas_w, My.Resources.clientes_w,
+                       My.Resources.pedidos_w, My.Resources.compras_w, My.Resources.pagos_w, My.Resources.reportes_w, My.Resources.cerrarsesion_w,
+                       My.Resources.usuario_w)
+    End Sub
 
-    '    ' Modulo principal
-    '    ModuloPrincipal.PanelContenedor.BackColor = ColorTranslator.FromHtml(ModuloSistema.PrincipalClaro)
-    '    ModuloPrincipal.PanelSuperior.BackColor = ColorTranslator.FromHtml(ModuloSistema.TerciarioClaro)
-    '    ModuloPrincipal.PanelLateral.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
+    ' Método para cambiar colores en base a la paleta seleccionada
+    Private Sub CambiarColores(modulo As Object, principal As String, secundario As String, terciario As String, adicional As String, textoColor As Color,
+                               iconoProducto As Image, iconoProveedores As Image, iconoVentas As Image, iconoClientes As Image,
+                               iconoPedidos As Image, iconoCompras As Image, iconoPagos As Image, iconoReportes As Image, iconoSesion As Image,
+                               iconoUsuario As Image)
+        ' Login
+        Login.BackColor = ColorTranslator.FromHtml(principal)
+        Login.PBLogo.BackColor = ColorTranslator.FromHtml(principal)
+        Login.PanelUsuario.BackColor = ColorTranslator.FromHtml(terciario)
+        Login.PanelContraseña.BackColor = ColorTranslator.FromHtml(terciario)
 
-    '    ' Botones
+        ' Módulo principal
+        modulo.PanelContenedor.BackColor = ColorTranslator.FromHtml(principal)
+        modulo.PanelSuperior.BackColor = ColorTranslator.FromHtml(terciario)
+        modulo.PanelLateral.BackColor = ColorTranslator.FromHtml(secundario)
 
-    '    ModuloPrincipal.btnProductos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnProductos.ForeColor = Color.Black
-    '    ModuloPrincipal.btnVentas.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnVentas.ForeColor = Color.Black
-    '    ModuloPrincipal.btnClientes.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnClientes.ForeColor = Color.Black
-    '    ModuloPrincipal.btnPedidos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnPedidos.ForeColor = Color.Black
-    '    ModuloPrincipal.btnCompras.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnCompras.ForeColor = Color.Black
-    '    ModuloPrincipal.btnPagos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnPagos.ForeColor = Color.Black
-    '    ModuloPrincipal.btnReportes.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnReportes.ForeColor = Color.Black
-    '    ModuloPrincipal.btnProveedores.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnProveedores.ForeColor = Color.Black
-    '    ModuloPrincipal.btnSesion.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioClaro)
-    '    ModuloPrincipal.btnSesion.ForeColor = Color.Black
+        ' Botones
+        CambiarColorBotones(modulo, secundario, textoColor, iconoProducto, iconoProveedores, iconoVentas, iconoClientes,
+                            iconoPedidos, iconoCompras, iconoPagos, iconoReportes, iconoSesion, iconoUsuario)
+    End Sub
 
-    '    Dim rutaProyecto As String = "C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\Resources\Icons"
-    '    Dim productosW As String = "productos-b.png"
+    ' Método para cambiar los colores de los botones
+    Private Sub CambiarColorBotones(modulo As Object, fondoColor As String, textoColor As Color,
+                                    iconoProducto As Image, iconoProveedores As Image, iconoVentas As Image, iconoClientes As Image,
+                                    iconoPedidos As Image, iconoCompras As Image, iconoPagos As Image, iconoReportes As Image, iconoSesion As Image,
+                                    iconoUsuario As Image)
+        modulo.btnProductos.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnProductos.ForeColor = textoColor
+        modulo.btnProductos.Image = iconoProducto
 
-    '    Dim rutaImagen As String = Path.Combine(rutaProyecto, productosW)
+        modulo.btnProveedores.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnProveedores.ForeColor = textoColor
+        modulo.btnProveedores.Image = iconoProveedores
 
-    '    ModuloPrincipal.btnProductos.Image = Image.FromFile(rutaImagen)
+        modulo.btnVentas.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnVentas.ForeColor = textoColor
+        modulo.btnVentas.Image = iconoVentas
 
-    'End Sub
+        modulo.btnClientes.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnClientes.ForeColor = textoColor
+        modulo.btnClientes.Image = iconoClientes
 
-    'Public Sub CambiarPaletaOscuro()
-    '    ' Login
-    '    Login.BackColor = ColorTranslator.FromHtml(PrincipalOscuro)
-    '    Login.PBLogo.BackColor = ColorTranslator.FromHtml(PrincipalOscuro)
-    '    Login.PanelUsuario.BackColor = ColorTranslator.FromHtml(TerciarioOscuro)
-    '    Login.PanelContraseña.BackColor = ColorTranslator.FromHtml(TerciarioOscuro)
+        modulo.btnPedidos.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnPedidos.ForeColor = textoColor
+        modulo.btnPedidos.Image = iconoPedidos
 
-    '    ' Modulo principal
-    '    ModuloPrincipal.PanelContenedor.BackColor = ColorTranslator.FromHtml(ModuloSistema.PrincipalOscuro)
-    '    ModuloPrincipal.PanelSuperior.BackColor = ColorTranslator.FromHtml(ModuloSistema.TerciarioOscuro)
-    '    ModuloPrincipal.PanelLateral.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
+        modulo.btnCompras.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnCompras.ForeColor = textoColor
+        modulo.btnCompras.Image = iconoCompras
 
-    '    ' Botones
+        modulo.btnPagos.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnPagos.ForeColor = textoColor
+        modulo.btnPagos.Image = iconoPagos
 
-    '    ModuloPrincipal.btnProductos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnProductos.ForeColor = Color.White
-    '    ModuloPrincipal.btnVentas.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnVentas.ForeColor = Color.White
-    '    ModuloPrincipal.btnClientes.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnClientes.ForeColor = Color.White
-    '    ModuloPrincipal.btnPedidos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnPedidos.ForeColor = Color.White
-    '    ModuloPrincipal.btnCompras.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnCompras.ForeColor = Color.White
-    '    ModuloPrincipal.btnPagos.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnPagos.ForeColor = Color.White
-    '    ModuloPrincipal.btnReportes.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnReportes.ForeColor = Color.White
-    '    ModuloPrincipal.btnProveedores.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnProveedores.ForeColor = Color.White
-    '    ModuloPrincipal.btnSesion.BackColor = ColorTranslator.FromHtml(ModuloSistema.SecundarioOscuro)
-    '    ModuloPrincipal.btnSesion.ForeColor = Color.White
+        modulo.btnReportes.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnReportes.ForeColor = textoColor
+        modulo.btnReportes.Image = iconoReportes
 
-    '    Dim rutaProyecto As String = "C:\Users\Francisco\Desktop\Sistema\Sistema\Sistema de gestion\Sistema de gestion\Resources\Icons"
-    '    Dim productosW As String = "productos-w.png"
+        modulo.btnSesion.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.btnSesion.ForeColor = textoColor
+        modulo.btnSesion.Image = iconoSesion
 
-    '    Dim rutaImagen As String = Path.Combine(rutaProyecto, productosW)
+        modulo.lblUsuario.ForeColor = textoColor
+        modulo.btnUser.Image = iconoUsuario
 
-    '    ModuloPrincipal.btnProductos.Image = Image.FromFile(rutaImagen)
+        modulo.cbModo.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.cbModo.ForeColor = textoColor
 
-    'End Sub
+        modulo.boxPV.BackColor = ColorTranslator.FromHtml(fondoColor)
+        modulo.boxPV.ForeColor = textoColor
+    End Sub
 
 End Module

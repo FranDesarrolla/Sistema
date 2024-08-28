@@ -118,20 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="letra-x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\letra-x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cuadrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cuadrado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="agregar-producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agregar-producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FamilyCannVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FamilyCannVerde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,5 +147,65 @@
   </data>
   <data name="terminado-5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estados\terminado-5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrarsesion-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\cerrarsesion-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrarsesion-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\cerrarsesion-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\clientes-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\clientes-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compras-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\compras-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compras-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\compras-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pagos-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\pagos-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pagos-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\pagos-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pedidos-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\pedidos-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pedidos-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\pedidos-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="productos-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\productos-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="productos-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\productos-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proveedores-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\proveedores-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proveedores-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\proveedores-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportes-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\reportes-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportes-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\reportes-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\usuario-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventas-b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\ventas-b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventas-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\ventas-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario-w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\usuario-w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
