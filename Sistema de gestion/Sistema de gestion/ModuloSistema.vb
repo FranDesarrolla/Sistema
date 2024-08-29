@@ -49,7 +49,7 @@ Module ModuloSistema
 
     ' Método para cambiar a modo claro
     Public Sub CambiarPaletaClaro()
-        CambiarColores(ModuloPrincipal, PrincipalClaro, SecundarioClaro, TerciarioClaro, AdicionalClaro, Color.Black,
+        CambiarColores(ModuloPrincipal, Productos, PrincipalClaro, SecundarioClaro, TerciarioClaro, AdicionalClaro, Color.Black,
                        My.Resources.productos_b, My.Resources.proveedores_b, My.Resources.ventas_b, My.Resources.clientes_b,
                        My.Resources.pedidos_b, My.Resources.compras_b, My.Resources.pagos_b, My.Resources.reportes_b, My.Resources.cerrarsesion_b,
                        My.Resources.usuario_b)
@@ -57,14 +57,14 @@ Module ModuloSistema
 
     ' Método para cambiar a modo oscuro
     Public Sub CambiarPaletaOscuro()
-        CambiarColores(ModuloPrincipal, PrincipalOscuro, SecundarioOscuro, TerciarioOscuro, AdicionalOscuro, Color.White,
+        CambiarColores(ModuloPrincipal, Productos, PrincipalOscuro, SecundarioOscuro, TerciarioOscuro, AdicionalOscuro, Color.White,
                        My.Resources.productos_w, My.Resources.proveedores_w, My.Resources.ventas_w, My.Resources.clientes_w,
                        My.Resources.pedidos_w, My.Resources.compras_w, My.Resources.pagos_w, My.Resources.reportes_w, My.Resources.cerrarsesion_w,
                        My.Resources.usuario_w)
     End Sub
 
     ' Método para cambiar colores en base a la paleta seleccionada
-    Private Sub CambiarColores(modulo As Object, principal As String, secundario As String, terciario As String, adicional As String, textoColor As Color,
+    Private Sub CambiarColores(modulo As Object, producto As Object, principal As String, secundario As String, terciario As String, adicional As String, textoColor As Color,
                                iconoProducto As Image, iconoProveedores As Image, iconoVentas As Image, iconoClientes As Image,
                                iconoPedidos As Image, iconoCompras As Image, iconoPagos As Image, iconoReportes As Image, iconoSesion As Image,
                                iconoUsuario As Image)
@@ -79,13 +79,39 @@ Module ModuloSistema
         modulo.PanelSuperior.BackColor = ColorTranslator.FromHtml(terciario)
         modulo.PanelLateral.BackColor = ColorTranslator.FromHtml(secundario)
 
+        ' Productos
+        producto.PanelContenedor.BackColor = ColorTranslator.FromHtml(secundario)
+        producto.panelTitulo.BackColor = ColorTranslator.FromHtml(principal)
+        producto.lblTitulo.ForeColor = textoColor
+        producto.lblBusqueda.BackColor = ColorTranslator.FromHtml(secundario)
+        producto.lblBusqueda.ForeColor = textoColor
+        producto.CB_Inactivos.BackColor = ColorTranslator.FromHtml(secundario)
+        producto.CB_Inactivos.ForeColor = textoColor
+        producto.panelStock.BackColor = ColorTranslator.FromHtml(terciario)
+        producto.panelStock.ForeColor = textoColor
+        producto.lblStock.BackColor = ColorTranslator.FromHtml(terciario)
+        producto.lblStock.ForeColor = textoColor
+
+        producto.GrillaStockDepositos.BackColor = ColorTranslator.FromHtml(principal)
+        producto.GrillaStockDepositos.GridColor = ColorTranslator.FromHtml(terciario)
+        producto.GrillaStockDepositos.ForeColor = textoColor
+
+        producto.btnAceptarABMP.BackColor = ColorTranslator.FromHtml(principal)
+        producto.btnAceptarABMP.ForeColor = textoColor
+        producto.btnEditar.BackColor = ColorTranslator.FromHtml(principal)
+        producto.btnEditar.ForeColor = textoColor
+        producto.btnEliminar.BackColor = ColorTranslator.FromHtml(principal)
+        producto.btnEliminar.ForeColor = textoColor
+        producto.btnStock.BackColor = ColorTranslator.FromHtml(principal)
+        producto.btnStock.ForeColor = textoColor
+
         ' Botones
-        CambiarColorBotones(modulo, secundario, textoColor, iconoProducto, iconoProveedores, iconoVentas, iconoClientes,
+        CambiarColorBotones(modulo, producto, secundario, textoColor, iconoProducto, iconoProveedores, iconoVentas, iconoClientes,
                             iconoPedidos, iconoCompras, iconoPagos, iconoReportes, iconoSesion, iconoUsuario)
     End Sub
 
     ' Método para cambiar los colores de los botones
-    Private Sub CambiarColorBotones(modulo As Object, fondoColor As String, textoColor As Color,
+    Private Sub CambiarColorBotones(modulo As Object, producto As Object, fondoColor As String, textoColor As Color,
                                     iconoProducto As Image, iconoProveedores As Image, iconoVentas As Image, iconoClientes As Image,
                                     iconoPedidos As Image, iconoCompras As Image, iconoPagos As Image, iconoReportes As Image, iconoSesion As Image,
                                     iconoUsuario As Image)
@@ -133,6 +159,7 @@ Module ModuloSistema
 
         modulo.boxPV.BackColor = ColorTranslator.FromHtml(fondoColor)
         modulo.boxPV.ForeColor = textoColor
+
     End Sub
 
 End Module

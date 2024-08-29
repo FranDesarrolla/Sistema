@@ -361,4 +361,6 @@ Public Class Productos
     Private Sub CB_Inactivos_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Inactivos.CheckedChanged
         llenarGrillaProductos()
     End Sub
+
+
 End Class

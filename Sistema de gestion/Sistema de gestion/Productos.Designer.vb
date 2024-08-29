@@ -36,17 +36,26 @@ Partial Class Productos
         btnAceptarABMP = New Button()
         btnEditar = New Button()
         btnEliminar = New Button()
-        Panel2 = New Panel()
+        panelTitulo = New Panel()
         lblTitulo = New Label()
         lblBusqueda = New Label()
-        Label1 = New Label()
+        lblStock = New Label()
         btnStock = New Button()
-        Panel1 = New Panel()
+        panelStock = New Panel()
         CB_Inactivos = New CheckBox()
         lblEdit = New Label()
+        btnMaximizar = New PictureBox()
+        brnRestaurar = New PictureBox()
+        PictureBox2 = New PictureBox()
+        LabelNotificacion = New Label()
+        PanelContenedor = New Panel()
         CType(GrillaProductos, ComponentModel.ISupportInitialize).BeginInit()
         CType(GrillaStockDepositos, ComponentModel.ISupportInitialize).BeginInit()
-        Panel2.SuspendLayout()
+        panelTitulo.SuspendLayout()
+        CType(btnMaximizar, ComponentModel.ISupportInitialize).BeginInit()
+        CType(brnRestaurar, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        PanelContenedor.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label2
@@ -98,7 +107,7 @@ Partial Class Productos
         GrillaProductos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle3.BackColor = Color.Beige
         DataGridViewCellStyle3.ForeColor = Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle3.SelectionBackColor = Color.Tan
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         GrillaProductos.RowsDefaultCellStyle = DataGridViewCellStyle3
         GrillaProductos.ScrollBars = ScrollBars.Vertical
@@ -149,7 +158,7 @@ Partial Class Productos
         GrillaStockDepositos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle6.BackColor = Color.Beige
         DataGridViewCellStyle6.ForeColor = Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = Color.DarkKhaki
+        DataGridViewCellStyle6.SelectionBackColor = Color.Tan
         DataGridViewCellStyle6.SelectionForeColor = Color.White
         GrillaStockDepositos.RowsDefaultCellStyle = DataGridViewCellStyle6
         GrillaStockDepositos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -221,14 +230,14 @@ Partial Class Productos
         btnEliminar.Text = "Eliminar"
         btnEliminar.UseVisualStyleBackColor = False
         ' 
-        ' Panel2
+        ' panelTitulo
         ' 
-        Panel2.BackColor = Color.Tan
-        Panel2.Controls.Add(lblTitulo)
-        Panel2.Location = New Point(28, 11)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1013, 47)
-        Panel2.TabIndex = 52
+        panelTitulo.BackColor = Color.Tan
+        panelTitulo.Controls.Add(lblTitulo)
+        panelTitulo.Location = New Point(28, 11)
+        panelTitulo.Name = "panelTitulo"
+        panelTitulo.Size = New Size(1013, 47)
+        panelTitulo.TabIndex = 52
         ' 
         ' lblTitulo
         ' 
@@ -243,6 +252,7 @@ Partial Class Productos
         ' lblBusqueda
         ' 
         lblBusqueda.AutoSize = True
+        lblBusqueda.BackColor = Color.Transparent
         lblBusqueda.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
         lblBusqueda.Location = New Point(24, 66)
         lblBusqueda.Name = "lblBusqueda"
@@ -250,16 +260,16 @@ Partial Class Productos
         lblBusqueda.TabIndex = 54
         lblBusqueda.Text = "Buscar:"
         ' 
-        ' Label1
+        ' lblStock
         ' 
-        Label1.AutoSize = True
-        Label1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Label1.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
-        Label1.Location = New Point(857, 97)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(151, 21)
-        Label1.TabIndex = 55
-        Label1.Text = "Stock por deposito"
+        lblStock.AutoSize = True
+        lblStock.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        lblStock.Font = New Font("Yu Gothic UI", 12F, FontStyle.Bold)
+        lblStock.Location = New Point(857, 97)
+        lblStock.Name = "lblStock"
+        lblStock.Size = New Size(151, 21)
+        lblStock.TabIndex = 55
+        lblStock.Text = "Stock por deposito"
         ' 
         ' btnStock
         ' 
@@ -277,18 +287,19 @@ Partial Class Productos
         btnStock.Text = "Stock"
         btnStock.UseVisualStyleBackColor = False
         ' 
-        ' Panel1
+        ' panelStock
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
-        Panel1.Location = New Point(814, 96)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(227, 24)
-        Panel1.TabIndex = 56
+        panelStock.BackColor = Color.FromArgb(CByte(237), CByte(244), CByte(226))
+        panelStock.Location = New Point(814, 96)
+        panelStock.Name = "panelStock"
+        panelStock.Size = New Size(227, 24)
+        panelStock.TabIndex = 56
         ' 
         ' CB_Inactivos
         ' 
         CB_Inactivos.AutoSize = True
         CB_Inactivos.BackColor = Color.Transparent
+        CB_Inactivos.FlatAppearance.BorderSize = 0
         CB_Inactivos.Font = New Font("Yu Gothic UI", 12F)
         CB_Inactivos.Location = New Point(854, 65)
         CB_Inactivos.Name = "CB_Inactivos"
@@ -308,6 +319,69 @@ Partial Class Productos
         lblEdit.Text = "lblEdit"
         lblEdit.Visible = False
         ' 
+        ' btnMaximizar
+        ' 
+        btnMaximizar.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnMaximizar.Enabled = False
+        btnMaximizar.Image = CType(resources.GetObject("btnMaximizar.Image"), Image)
+        btnMaximizar.Location = New Point(1755, 11)
+        btnMaximizar.Name = "btnMaximizar"
+        btnMaximizar.Size = New Size(25, 25)
+        btnMaximizar.SizeMode = PictureBoxSizeMode.Zoom
+        btnMaximizar.TabIndex = 1
+        btnMaximizar.TabStop = False
+        btnMaximizar.Visible = False
+        ' 
+        ' brnRestaurar
+        ' 
+        brnRestaurar.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        brnRestaurar.BackColor = Color.Transparent
+        brnRestaurar.Enabled = False
+        brnRestaurar.Image = CType(resources.GetObject("brnRestaurar.Image"), Image)
+        brnRestaurar.Location = New Point(1786, 11)
+        brnRestaurar.Name = "brnRestaurar"
+        brnRestaurar.Size = New Size(25, 25)
+        brnRestaurar.SizeMode = PictureBoxSizeMode.Zoom
+        brnRestaurar.TabIndex = 1
+        brnRestaurar.TabStop = False
+        brnRestaurar.Visible = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Enabled = False
+        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
+        PictureBox2.Location = New Point(948, 11)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(25, 25)
+        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox2.TabIndex = 3
+        PictureBox2.TabStop = False
+        PictureBox2.Visible = False
+        ' 
+        ' LabelNotificacion
+        ' 
+        LabelNotificacion.AutoSize = True
+        LabelNotificacion.Enabled = False
+        LabelNotificacion.Location = New Point(979, 11)
+        LabelNotificacion.Name = "LabelNotificacion"
+        LabelNotificacion.Size = New Size(41, 15)
+        LabelNotificacion.TabIndex = 2
+        LabelNotificacion.Text = "Label1"
+        LabelNotificacion.Visible = False
+        ' 
+        ' PanelContenedor
+        ' 
+        PanelContenedor.BackColor = Color.FromArgb(CByte(218), CByte(232), CByte(197))
+        PanelContenedor.Controls.Add(LabelNotificacion)
+        PanelContenedor.Controls.Add(PictureBox2)
+        PanelContenedor.Controls.Add(brnRestaurar)
+        PanelContenedor.Controls.Add(btnMaximizar)
+        PanelContenedor.Dock = DockStyle.Fill
+        PanelContenedor.Location = New Point(0, 0)
+        PanelContenedor.Name = "PanelContenedor"
+        PanelContenedor.Size = New Size(1069, 611)
+        PanelContenedor.TabIndex = 59
+        ' 
         ' Productos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -318,39 +392,50 @@ Partial Class Productos
         Controls.Add(CB_Inactivos)
         Controls.Add(GrillaStockDepositos)
         Controls.Add(btnStock)
-        Controls.Add(Label1)
+        Controls.Add(lblStock)
         Controls.Add(lblBusqueda)
-        Controls.Add(Panel2)
+        Controls.Add(panelTitulo)
         Controls.Add(btnEliminar)
         Controls.Add(btnEditar)
         Controls.Add(btnAceptarABMP)
         Controls.Add(txtCodigoPbusqueda)
         Controls.Add(GrillaProductos)
         Controls.Add(Label2)
-        Controls.Add(Panel1)
+        Controls.Add(panelStock)
+        Controls.Add(PanelContenedor)
         FormBorderStyle = FormBorderStyle.None
         Name = "Productos"
         Text = "Productos"
         CType(GrillaProductos, ComponentModel.ISupportInitialize).EndInit()
         CType(GrillaStockDepositos, ComponentModel.ISupportInitialize).EndInit()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
+        panelTitulo.ResumeLayout(False)
+        panelTitulo.PerformLayout()
+        CType(btnMaximizar, ComponentModel.ISupportInitialize).EndInit()
+        CType(brnRestaurar, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        PanelContenedor.ResumeLayout(False)
+        PanelContenedor.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents Label2 As Label
-    Friend WithEvents GrillaProductos As DataGridView
-    Friend WithEvents GrillaStockDepositos As DataGridView
-    Friend WithEvents txtCodigoPbusqueda As TextBox
-    Friend WithEvents btnAceptarABMP As Button
-    Friend WithEvents btnEditar As Button
-    Friend WithEvents btnEliminar As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents lblTitulo As Label
-    Friend WithEvents lblBusqueda As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents btnStock As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents CB_Inactivos As CheckBox
     Friend WithEvents lblEdit As Label
+    Public WithEvents Label2 As Label
+    Public WithEvents GrillaProductos As DataGridView
+    Public WithEvents GrillaStockDepositos As DataGridView
+    Public WithEvents txtCodigoPbusqueda As TextBox
+    Public WithEvents btnAceptarABMP As Button
+    Public WithEvents btnEditar As Button
+    Public WithEvents btnEliminar As Button
+    Public WithEvents panelTitulo As Panel
+    Public WithEvents lblBusqueda As Label
+    Public WithEvents lblStock As Label
+    Public WithEvents btnStock As Button
+    Public WithEvents panelStock As Panel
+    Public WithEvents CB_Inactivos As CheckBox
+    Public WithEvents lblTitulo As Label
+    Friend WithEvents btnMaximizar As PictureBox
+    Friend WithEvents brnRestaurar As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents LabelNotificacion As Label
+    Public WithEvents PanelContenedor As Panel
 End Class
