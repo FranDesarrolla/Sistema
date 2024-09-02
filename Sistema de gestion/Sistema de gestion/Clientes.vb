@@ -76,41 +76,66 @@ Public Class Clientes
 
     Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
 
+        'SI VIENE DESDE VENTAS, REALIZA LA PRIMER PARTE DEL IF
+
         If lblEdit.Text = "Ventas" Then
 
             ABM_Ventas.txtCuenta.Text = GrillaClientes.CurrentRow.Cells(1).Value
             lblEdit.Text = ""
-            ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
             ABM_Ventas.txtCuenta.Focus()
             ABM_Ventas.ActualizarDatosCliente(ABM_Ventas.txtCuenta.Text)
 
-        Else
+            ModuloPrincipal.AbrirFormEnPanel(ABM_Ventas)
 
-            ABM_Clientes.lblSeñalCliente.Text = "AGREGAR"
+        Else 'SI VIENE DESDE CLIENTES, REALIZA ESTE ELSE
+
+            ABM_Clientes.lblSeñalCliente.Text = "Agregar"
+
+            'ACTIVO
+            ABM_Clientes.chActivo.Checked = True
+
+            'CARGA LOS COMBOBOX
+            ABM_Clientes.Provincias()
+            ABM_Clientes.Localidades()
+            ABM_Clientes.CondicionesIva()
+
+            'ABRE EL PANEL
             ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
 
         End If
     End Sub
 
     Private Sub btnEditarCliente_Click(sender As Object, e As EventArgs) Handles btnEditarCliente.Click
-        ABM_Clientes.lblSeñalCliente.Text = "EDITAR"
 
+        ABM_Clientes.lblSeñalCliente.Text = "Editar"
+
+        'CARGA LOS COMBOBOX
+        ABM_Clientes.Provincias()
+        ABM_Clientes.Localidades()
+        ABM_Clientes.CondicionesIva()
+
+        'ACTIVO
+        Dim activo As Integer = GrillaClientes.CurrentRow.Cells(16).Value
+
+        ABM_Clientes.chActivo.Checked = (activo = 1)
+
+        'LLEVO LOS DATOS PARA EDITAR
         ABM_Clientes.txtIDCliente.Text = GrillaClientes.CurrentRow.Cells(0).Value
-        ABM_Clientes.txtCuentaCliente.Text = GrillaClientes.CurrentRow.Cells(1).Value
-        ABM_Clientes.txtNombreCliente.Text = GrillaClientes.CurrentRow.Cells(2).Value
-        ABM_Clientes.txtApellidoCliente.Text = GrillaClientes.CurrentRow.Cells(3).Value
-        ABM_Clientes.txtDniClie.Text = GrillaClientes.CurrentRow.Cells(4).Value
-        ABM_Clientes.txtCuitClie.Text = GrillaClientes.CurrentRow.Cells(5).Value
-        ABM_Clientes.txtNacionalidadCliente.Text = GrillaClientes.CurrentRow.Cells(6).Value
-        ABM_Clientes.txtProvinciaCliente.Text = GrillaClientes.CurrentRow.Cells(7).Value
-        ABM_Clientes.txtLocalidadCliente.Text = GrillaClientes.CurrentRow.Cells(8).Value
-        ABM_Clientes.txtCodPCliente.Text = GrillaClientes.CurrentRow.Cells(9).Value
-        ABM_Clientes.txtDireccionCliente.Text = GrillaClientes.CurrentRow.Cells(10).Value
+        ABM_Clientes.txtCuenta.Text = GrillaClientes.CurrentRow.Cells(1).Value
+        ABM_Clientes.txtNombre.Text = GrillaClientes.CurrentRow.Cells(2).Value
+        ABM_Clientes.txtApellido.Text = GrillaClientes.CurrentRow.Cells(3).Value
+        ABM_Clientes.txtDni.Text = GrillaClientes.CurrentRow.Cells(4).Value
+        ABM_Clientes.txtCuit.Text = GrillaClientes.CurrentRow.Cells(5).Value
+        ABM_Clientes.txtNacionalidad.Text = GrillaClientes.CurrentRow.Cells(6).Value
+        ABM_Clientes.cbProvincia.Text = GrillaClientes.CurrentRow.Cells(7).Value
+        ABM_Clientes.cbLocalidades.Text = GrillaClientes.CurrentRow.Cells(8).Value
+        ABM_Clientes.txtCp.Text = GrillaClientes.CurrentRow.Cells(9).Value
+        ABM_Clientes.txtDireccion.Text = GrillaClientes.CurrentRow.Cells(10).Value
         ABM_Clientes.dtFechaNacimiento.Value = GrillaClientes.CurrentRow.Cells(11).Value
-        ABM_Clientes.txtTelefonoCliente.Text = GrillaClientes.CurrentRow.Cells(12).Value
-        ABM_Clientes.txtEmailCliente.Text = GrillaClientes.CurrentRow.Cells(13).Value
-        ABM_Clientes.txtCondicionivaClie.Text = GrillaClientes.CurrentRow.Cells(14).Value
-        ABM_Clientes.txtEstadoCuenta.Text = GrillaClientes.CurrentRow.Cells(16).Value
+        ABM_Clientes.txtTelefono.Text = GrillaClientes.CurrentRow.Cells(12).Value
+        ABM_Clientes.txtEmail.Text = GrillaClientes.CurrentRow.Cells(13).Value
+        ABM_Clientes.cbCondicionIva.Text = GrillaClientes.CurrentRow.Cells(14).Value
+        ABM_Clientes.chActivo.Checked = activo
 
         ModuloPrincipal.AbrirFormEnPanel(ABM_Clientes)
     End Sub
