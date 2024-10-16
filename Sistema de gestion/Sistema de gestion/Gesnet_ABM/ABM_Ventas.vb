@@ -29,24 +29,25 @@ Public Class ABM_Ventas
         If lblABM.Text = "Agregar" AndAlso Not isCabeceraCreada Then
             Try
                 ' Obtener los valores de los controles
+                Dim clienteID As String = lblID.Text
                 Dim cliente As String = txtCuenta.Text
-                Dim empleado As String = "EM0001" ' Asigna el empleado según la lógica de tu aplicación
+                Dim empleado As String = "2" ' Asigna el empleado según la lógica de tu aplicación
                 Dim fechaDeVenta As DateTime = dateTime.Value
                 Dim tipoFactura As Integer = boxComprobante.SelectedIndex + 1
-                Dim puntoDeVenta As String = "00001" ' Ajusta según sea necesario
+                Dim puntoDeVenta As String = "1" ' Ajusta según sea necesario
                 Dim metodoDePago As String = "EFECTIVO" ' Obtener del combo si es necesario
                 Dim total As Decimal = 0 ' Se puede ajustar si es necesario calcular el total
                 Dim letra As String = ObtenerLetraCondicionIVA() ' Obtener la letra según el CondicionIVA
 
                 ' Consulta SQL para insertar la cabecera y obtener el ID insertado
-                Dim query As String = "INSERT INTO dbo.NotasDeVentas (Cliente, Empleado, FechaDeVenta, PuntoDeVenta, MetodoDePago, TipoFactura, Letra, Total) 
+                Dim query As String = "INSERT INTO dbo.NotasDeVentas (IDCliente, IDEmpleado, FechaDeVenta, IDPuntoVenta, MetodoDePago, TipoFactura, Letra, Total) 
                                    VALUES (@cliente, @empleado, @fechadeventa, @puntodeventa, @metododepago, @tipofactura, @letra, @total);
                                    SELECT SCOPE_IDENTITY();"
 
                 Using connection As New SqlConnection(conexionSql.ConnectionString),
                   command As New SqlCommand(query, connection)
                     ' Agregar los parámetros a la consulta
-                    command.Parameters.AddWithValue("@cliente", cliente)
+                    command.Parameters.AddWithValue("@cliente", clienteID)
                     command.Parameters.AddWithValue("@empleado", empleado)
                     command.Parameters.AddWithValue("@fechadeventa", fechaDeVenta)
                     command.Parameters.AddWithValue("@puntodeventa", puntoDeVenta)
@@ -215,7 +216,7 @@ Public Class ABM_Ventas
 
         LimpiarGrilla()
 
-        Dim consultassql As String = "SELECT NDM.IDNotasDeVentasMov as ID, NDM.Producto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.Codigo = NDM.Producto
+        Dim consultassql As String = "SELECT NDM.ID, NDM.IDProducto, P.Descripcion, NDM.Cantidad as 'Cant.', NDM.PrecioUnitario as Unitario, NDM.Descuento, NDM.Impuestos, NDM.SubTotal as Subtotal, P.Iva, P.Descripcion FROM NotasDeVentasMov NDM INNER JOIN Productos P ON P.ID = NDM.IDProducto
                                       WHERE NDM.IDNotaDeVenta = " & lblID.Text
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
@@ -449,13 +450,13 @@ Public Class ABM_Ventas
     End Sub
 
     Public Sub LlenarComboBoxMetodos()
-        Dim query As String = "SELECT IDMetodoPago, Metodo, ValDescAgregado FROM MetodosDePago"
+        Dim query As String = "SELECT ID, Metodo, ValDescAgregado FROM MetodosDePago"
         Dim adaptadorSql As New SqlDataAdapter(query, conexionSql)
         Dim dtMetodos As New DataTable
         adaptadorSql.Fill(dtMetodos)
         boxMetodo.DataSource = dtMetodos
         boxMetodo.DisplayMember = "Metodo"
-        boxMetodo.ValueMember = "IDMetodoPago"
+        boxMetodo.ValueMember = "ID"
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
@@ -627,8 +628,8 @@ Public Class ABM_Ventas
 
     Public Sub ActualizarDatosCliente(Cuenta As String)
         Dim consultaSQL As String = "SELECT C.Nombre + ' ' + C.Apellido AS Cliente, C.Direccion, C.CUIT, C.DNI, P.Provincia, L.Localidad, CI.CondicionIva, C.Telefono FROM Clientes C
-                                    INNER JOIN Provincias P ON C.Provincia = P.IDProvincia
-                                    INNER JOIN Localidades L ON C.Localidad = L.IDLocalidad
+                                    INNER JOIN Provincias P ON C.Provincia = P.ID
+                                    INNER JOIN Localidades L ON C.Localidad = L.ID
                                     INNER JOIN CondicionIVA CI ON C.CondicionIva = CI.Abreviatura
                                     WHERE C.Cuenta = @Cuenta"
 
@@ -693,7 +694,4 @@ Public Class ABM_Ventas
         ModuloPrincipal.AbrirFormEnPanel(Productos)
     End Sub
 
-    Private Sub boxComprobante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles boxComprobante.SelectedIndexChanged
-
-    End Sub
 End Class

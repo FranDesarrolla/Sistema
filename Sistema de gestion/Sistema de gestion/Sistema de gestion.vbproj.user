@@ -1,58 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="ABM_Clientes.vb">
+    <Compile Update="Gesnet_ABM\ABM_Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ABM_Compras.vb">
+    <Compile Update="Gesnet_ABM\ABM_Compras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ABM_Pedidos.vb">
+    <Compile Update="Gesnet_ABM\ABM_Pedidos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ABM_Productos.vb">
+    <Compile Update="Gesnet_ABM\ABM_Productos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ABM_Proveedores.vb">
+    <Compile Update="Gesnet_ABM\ABM_Proveedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ABM_Ventas.vb">
+    <Compile Update="Gesnet_ABM\ABM_Ventas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Clientes.vb">
+    <Compile Update="Gesnet_Grillas\Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Compras.vb">
+    <Compile Update="Gesnet_Grillas\Compras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.vb">
+    <Compile Update="Gesnet_Menu\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Login.vb">
+    <Compile Update="Gesnet_Login\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Notificaciones.vb">
+    <Compile Update="Gesnet_Grillas\Notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Pagos.vb">
+    <Compile Update="Gesnet_Grillas\Pagos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Pedidos.vb">
+    <Compile Update="Gesnet_Grillas\Pedidos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Productos.vb">
+    <Compile Update="Gesnet_Grillas\Productos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Proveedores.vb">
+    <Compile Update="Gesnet_Grillas\Proveedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reportes.vb">
+    <Compile Update="Gesnet_Grillas\Reportes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Usuarios.vb">
+    <Compile Update="Gesnet_Grillas\Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Ventas.vb">
+    <Compile Update="Gesnet_Grillas\Ventas.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

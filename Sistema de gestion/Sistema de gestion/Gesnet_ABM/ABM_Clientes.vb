@@ -98,7 +98,7 @@ Public Class ABM_Clientes
                                                      Email = @Email,
                                                      CondicionIVA = @CondicionIVA,
                                                      EstadoDeCuenta = @EstadoDeCuenta
-                                                 WHERE IDCliente = @IDCliente", connection)
+                                                 WHERE ID = @IDCliente", connection)
 
                     command.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = txtCuenta.Text
                     command.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = txtNombre.Text
@@ -140,7 +140,7 @@ Public Class ABM_Clientes
     Public Sub Provincias()
 
         'SELECT A LAS PROVINCIAS Y GUARDADO EN UNA DATATABLE
-        Dim query As String = "SELECT IDProvincia, Provincia FROM Provincias"
+        Dim query As String = "SELECT ID, Provincia FROM Provincias"
         Using adaptadorSql As New SqlDataAdapter(query, ModuloSistema.conexionSql)
             Dim dtProvincias As New DataTable()
             adaptadorSql.Fill(dtProvincias)
@@ -148,14 +148,14 @@ Public Class ABM_Clientes
             'TOMAMOS EL RECURSO GUARDADO Y LO MOSTRAMOS EN EL CB
             cbProvincia.DataSource = dtProvincias
             cbProvincia.DisplayMember = "Provincia"
-            cbProvincia.ValueMember = "IDProvincia"
+            cbProvincia.ValueMember = "ID"
         End Using
     End Sub
 
     Public Sub Localidades()
 
         'SELECT A LAS LOCALIDADES Y SEGUN LA PROVINCIA SELECCIONADA, MOSTRAR LO GUARDADO EN UNA DATATABLE
-        Dim query As String = "SELECT IDLocalidad, Localidad FROM Localidades WHERE IDProvincia = @IDProvincia"
+        Dim query As String = "SELECT ID, Localidad FROM Localidades WHERE IDProvincia = @IDProvincia"
         Using adaptadorSql As New SqlDataAdapter(query, ModuloSistema.conexionSql)
             adaptadorSql.SelectCommand.Parameters.Add("@IDProvincia", SqlDbType.NVarChar, 1).Value = cbProvincia.SelectedValue.ToString()
             Dim dtLocalidades As New DataTable()
@@ -164,7 +164,7 @@ Public Class ABM_Clientes
             'TOMAMOS EL RECURSO GUARDADO Y LO MOSTRAMOS EN EL CB
             cbLocalidades.DataSource = dtLocalidades
             cbLocalidades.DisplayMember = "Localidad"
-            cbLocalidades.ValueMember = "IDLocalidad"
+            cbLocalidades.ValueMember = "ID"
         End Using
     End Sub
 

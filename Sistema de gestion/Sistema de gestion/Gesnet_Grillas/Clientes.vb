@@ -22,10 +22,10 @@ Public Class Clientes
             setdedatos.Tables("dtCliente").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT C.IDCliente, C.Cuenta, C.Nombre, C.Apellido, C.DNI, C.CUIT, C.Nacionalidad, P.Provincia, L.Localidad, C.CodigoPostal, C.Direccion, C.FechaDeNacimiento, C.Telefono, C.Email, C.CondicionIVA, C.FechaDeRegistro, C.EstadoDeCuenta 
+        Dim consultassql As String = "SELECT C.ID, C.Cuenta, C.Nombre, C.Apellido, C.DNI, C.CUIT, C.Nacionalidad, P.Provincia, L.Localidad, C.CodigoPostal, C.Direccion, C.FechaDeNacimiento, C.Telefono, C.Email, C.CondicionIVA, C.FechaDeRegistro, C.EstadoDeCuenta 
                                       FROM Clientes C
-                                      INNER JOIN Provincias P ON C.Provincia = P.IDProvincia
-                                      INNER JOIN Localidades L ON C.Localidad = L.IDLocalidad"
+                                      INNER JOIN Provincias P ON C.Provincia = P.ID
+                                      INNER JOIN Localidades L ON C.Localidad = L.ID"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusquedaCliente) Then

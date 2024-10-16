@@ -74,7 +74,7 @@
 	                                            Email = '" & txtEmailProv.Text & "',
 	                                            FechaDeRegistro = " & DpFechaRegistroProv.Value & ",
 	                                            EstadoDeCuenta = '" & txtEstadoCuentaProv.Text & "'
-                                                WHERE IDProveedor = " & Val(txtIdProv.Text) & ""
+                                                WHERE ID = " & Val(txtIdProv.Text) & ""
                 acciones.ExecuteNonQuery()
 
                 ' Cierra la conexión después de ejecutar la consulta

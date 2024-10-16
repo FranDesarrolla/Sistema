@@ -23,7 +23,7 @@ Public Class Productos
         End If
 
         ' Crear la consulta base
-        Dim consultassql As String = "SELECT P.IDProducto, P.Codigo, P.Descripcion, P.Especificaciones, P.Unidad as 'Un.', P.Rubro, P.Categoria, P.Stock, P.PrecioUnitario as 'Unitario', P.Iva, C.Descripcion AS CategoriaDescripcion, R.Descripcion AS RubroDescripcion, U.Descripcion AS UnidadDescripcion, P.Estado FROM Productos P
+        Dim consultassql As String = "SELECT P.ID, P.Codigo, P.Descripcion, P.Especificaciones, P.Unidad as 'Un.', P.Rubro, P.Categoria, P.Stock, P.PrecioUnitario as 'Unitario', P.Iva, C.Descripcion AS CategoriaDescripcion, R.Descripcion AS RubroDescripcion, U.Descripcion AS UnidadDescripcion, P.Estado FROM Productos P
                               INNER JOIN Categorias C ON P.Categoria = C.Categoria
                               INNER JOIN Rubros R ON P.Rubro = R.Rubro
                               INNER JOIN Unidades U ON P.Unidad = U.Unidad"
@@ -104,30 +104,30 @@ Public Class Productos
         ' Verificar si la celda seleccionada está en una fila válida
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             ' Obtener el código del producto de la celda seleccionada
-            Dim codigoProducto As String = GrillaProductos.Rows(e.RowIndex).Cells("Codigo").Value.ToString()
+            Dim idProducto As String = GrillaProductos.Rows(e.RowIndex).Cells("ID").Value.ToString()
 
             ' Llamar al método para llenar la grilla de stock con base en el código del producto
-            LlenarGrillaStock(codigoProducto)
+            LlenarGrillaStock(idProducto)
 
             ' Cargar la imagen del producto desde la base de datos
-            CargarImagenProducto(Convert.ToInt32(GrillaProductos.Rows(e.RowIndex).Cells("IDProducto").Value))
+            CargarImagenProducto(Convert.ToInt32(GrillaProductos.Rows(e.RowIndex).Cells("ID").Value))
         End If
     End Sub
 
-    Private Sub LlenarGrillaStock(codigoProducto As String)
+    Private Sub LlenarGrillaStock(idProducto As String)
         ' Limpiar datos de la grilla de stock (supongamos que se llama GrillaStockDepositos)
         If setdedatos.Tables.Contains("dtStock") Then
             setdedatos.Tables("dtStock").Rows.Clear()
         End If
 
         ' Consulta SQL para obtener el stock de los depósitos
-        Dim consultaSQL As String = "SELECT d.NumeroDeposito, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
+        Dim consultaSQL As String = "SELECT d.ID, d.Nombre as 'Deposito', sd.CantidadStock as 'Stock' " &
                                     "FROM StockDepositos sd " &
-                                    "INNER JOIN Depositos d ON sd.NumeroDeposito = d.NumeroDeposito " &
-                                    "WHERE sd.CodigoProducto = @CodigoProducto"
+                                    "INNER JOIN Depositos d ON sd.IDDeposito = d.ID " &
+                                    "WHERE sd.IDProducto = @IDProducto"
 
         Using comandoSql As New SqlCommand(consultaSQL, conexionSql)
-            comandoSql.Parameters.AddWithValue("@CodigoProducto", codigoProducto)
+            comandoSql.Parameters.AddWithValue("@IDProducto", idProducto)
 
             Dim adaptadorSql As New SqlDataAdapter(comandoSql)
             Dim dtStock As New DataTable
@@ -294,7 +294,7 @@ Public Class Productos
             Dim consultaSqlImagen = "DELETE FROM ProductosImagenes WHERE IDProducto = @IDProducto"
 
             ' Construir la consulta SQL para eliminar de Productos
-            Dim consultaSqlProducto = "DELETE FROM Productos WHERE IDProducto = @IDProducto"
+            Dim consultaSqlProducto = "DELETE FROM Productos WHERE ID = @IDProducto"
 
             ' Usar la conexión establecida en ModuloSistema
             If conexionSql.State = ConnectionState.Closed Then
@@ -361,6 +361,5 @@ Public Class Productos
     Private Sub CB_Inactivos_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Inactivos.CheckedChanged
         llenarGrillaProductos()
     End Sub
-
 
 End Class

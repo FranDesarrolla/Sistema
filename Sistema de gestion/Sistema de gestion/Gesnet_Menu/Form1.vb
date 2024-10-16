@@ -145,7 +145,7 @@ Public Class ModuloPrincipal
     End Sub
 
     Public Sub LlenarComboBoxPV()
-        Dim query As String = "SELECT IDPuntoVenta, PuntoDeVenta FROM PuntosDeVentas"
+        Dim query As String = "SELECT ID, PuntoDeVenta FROM PuntosDeVentas"
         Using adaptadorSql As New SqlDataAdapter(query, ModuloSistema.conexionSql)
             Dim dtPV As New DataTable()
             adaptadorSql.Fill(dtPV)

@@ -15,10 +15,10 @@ Public Class Proveedores
             setdedatos.Tables("dtProveedor").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT P.IDProveedor, P.Cuenta, P.Nombre, P.Firma, P.Nacionalidad, Pr.Provincia, L.Localidad, P.CodigoPostal, P.Direccion, P.FechaDeNacimiento, P.Telefono, P.Email, P.FechaDeRegistro, P.EstadoDeCuenta 
+        Dim consultassql As String = "SELECT P.ID, P.Cuenta, P.Nombre, P.Firma, P.Nacionalidad, Pr.Provincia, L.Localidad, P.CodigoPostal, P.Direccion, P.FechaDeNacimiento, P.Telefono, P.Email, P.FechaDeRegistro, P.EstadoDeCuenta 
                               FROM Proveedores P
-                              INNER JOIN Provincias Pr ON P.Provincia = Pr.IDProvincia
-                              INNER JOIN Localidades L ON P.Localidad = L.IDLocalidad"
+                              INNER JOIN Provincias Pr ON P.Provincia = Pr.ID
+                              INNER JOIN Localidades L ON P.Localidad = L.ID"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusquedaProveedor) Then

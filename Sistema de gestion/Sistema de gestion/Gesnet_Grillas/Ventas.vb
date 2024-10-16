@@ -11,11 +11,11 @@ Public Class Ventas
             setdedatos.Tables("dtventa").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT NDV.IDNotaDeVenta AS ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, NDV.Cliente, NDV.Empleado, NDV.FechaDeVenta AS Fecha, 
-	                            NDV.PuntoDeVenta as Sucursal,  NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, C.CondicionIVA
+        Dim consultassql As String = "SELECT NDV.ID, C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, C.Cuenta, NDV.IDEmpleado, NDV.FechaDeVenta AS Fecha, 
+	                            NDV.IDPuntoVenta as Sucursal,  NDV.Letra, NDV.MetodoDePago as Metodo, NDV.TipoFactura as Tipo, NDV.Total, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, C.CondicionIVA
                                 FROM NotasDeVentas NDV
-                                INNER JOIN Clientes C ON C.Cuenta = NDV.Cliente
-                                INNER JOIN Empleados E ON E.Cuenta = NDV.Empleado"
+                                INNER JOIN Clientes C ON C.ID = NDV.IDCliente
+                                INNER JOIN Empleados E ON E.ID = NDV.IDEmpleado"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtventa As New DataTable
@@ -73,7 +73,7 @@ Public Class Ventas
 
     Private Function ObtenerSiguienteIDNotaDeVenta() As Integer
         Dim siguienteID As Integer = 1
-        Dim consultaSql As String = "SELECT MAX(IDNotaDeVenta) FROM NotasDeVentas"
+        Dim consultaSql As String = "SELECT MAX(ID) FROM NotasDeVentas"
 
         Using comandoSql As New SqlCommand(consultaSql, conexionSql)
             Try
@@ -121,7 +121,8 @@ Public Class Ventas
                 Dim consultaSqlMov = "DELETE FROM NotasDeVentasMov WHERE IDNotaDeVenta = @IDVenta"
 
                 ' Construir la consulta SQL para eliminar de NotasDeVentas
-                Dim consultaSqlVentas = "DELETE FROM NotasDeVentas WHERE IDNotaDeVenta = @IDVenta"
+                Dim consultaSqlVentas = "DELETE FROM NotasDeVentas WHERE ID = @IDVenta"
+
 
                 ' Usar la conexión establecida en ModuloSistema
                 If conexionSql.State = ConnectionState.Closed Then

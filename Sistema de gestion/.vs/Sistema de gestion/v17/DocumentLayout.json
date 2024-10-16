@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\gesnet_grillas\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\gesnet_grillas\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\gesnet_grillas\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\gesnet_grillas\\ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\abm_clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\gesnet_abm\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\gesnet_abm\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\abm_clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\abm_clientes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|d:\\proyectos\\sistema\\sistema\\sistema de gestion\\sistema de gestion\\gesnet_abm\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{A852639E-DC85-4DD0-9E48-F1061B4926B1}|Sistema de gestion\\Sistema de gestion.vbproj|solutionrelative:sistema de gestion\\gesnet_abm\\abm_ventas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Clientes.vb [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Clientes.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\Clientes.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Clientes.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Sistema de gestion\\Clientes.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-02T19:51:47.228Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Clientes.vb",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Clientes.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\Clientes.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Clientes.vb",
-              "RelativeToolTip": "Sistema de gestion\\Clientes.vb",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHMAAAAAAAAA",
+              "Title": "Ventas.vb",
+              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "RelativeToolTip": "Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAxwA0AAACOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-02T20:24:05.859Z",
+              "WhenOpened": "2024-10-16T13:57:13.369Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ABM_Clientes.vb [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Clientes.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Clientes.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Clientes.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Clientes.vb [Dise\u00F1o]",
+              "DocumentIndex": 1,
+              "Title": "Ventas.vb [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Gesnet_Grillas\\Ventas.vb",
+              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_Grillas\\Ventas.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Gesnet_Grillas\\Ventas.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-02T20:02:24.112Z",
+              "WhenOpened": "2024-10-16T13:57:12.078Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ABM_Ventas.vb [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-16T13:53:02.143Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ABM_Clientes.vb",
-              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Clientes.vb",
-              "RelativeDocumentMoniker": "Sistema de gestion\\ABM_Clientes.vb",
-              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\ABM_Clientes.vb",
-              "RelativeToolTip": "Sistema de gestion\\ABM_Clientes.vb",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAewLgAAAAAAAAA",
+              "Title": "ABM_Ventas.vb",
+              "DocumentMoniker": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "RelativeDocumentMoniker": "Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "ToolTip": "D:\\Proyectos\\Sistema\\Sistema\\Sistema de gestion\\Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "RelativeToolTip": "Sistema de gestion\\Gesnet_ABM\\ABM_Ventas.vb",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAgwDEAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-02T21:26:18.821Z",
+              "WhenOpened": "2024-10-16T13:46:50.146Z",
               "EditorCaption": ""
             }
           ]

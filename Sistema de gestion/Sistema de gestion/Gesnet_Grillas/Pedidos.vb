@@ -11,18 +11,18 @@ Public Class Pedidos
             setdedatos.Tables("dtPedido").Rows.Clear()
         End If
 
-        Dim consultassql As String = "SELECT PED.IDPedido AS 'Pedido', C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, PED.Cliente, PED.Empleado, PED.FechaPedido AS Fecha,  
+        Dim consultassql As String = "SELECT PED.ID AS 'Pedido', C.Nombre + ' ' + C.Apellido AS Cliente, E.Nombre + ' ' + E.Apellido AS Empleado, PED.IDCliente, PED.IDEmpleado, PED.FechaPedido AS Fecha,  
                            PED.PuntoDeVenta as Sucursal, C.Nombre, C.Apellido, C.Direccion, C.DNI, C.CUIT, PED.Estado
                            FROM Pedidos PED
-                           INNER JOIN Clientes C ON C.Cuenta = PED.Cliente
-                           INNER JOIN Empleados E ON E.Cuenta = PED.Empleado
-                           INNER JOIN Provincias P ON P.IDProvincia = C.Provincia
-                           INNER JOIN Localidades L ON L.IDLocalidad = C.Localidad"
+                           INNER JOIN Clientes C ON C.ID = PED.IDCliente
+                           INNER JOIN Empleados E ON E.ID = PED.IDEmpleado
+                           INNER JOIN Provincias P ON P.ID = C.Provincia
+                           INNER JOIN Localidades L ON L.ID = C.Localidad"
 
         ' Agregar la lógica de búsqueda si se proporciona un término de búsqueda
         If Not String.IsNullOrEmpty(terminoBusqueda) Then
             ' Construir las condiciones de búsqueda para cada campo
-            Dim condicionesBusqueda As String = " WHERE PED.IDPedido LIKE '%" & terminoBusqueda & "%'" &
+            Dim condicionesBusqueda As String = " WHERE PED.ID LIKE '%" & terminoBusqueda & "%'" &
                                      " OR C.Nombre LIKE '%" & terminoBusqueda & "%'" &
                                      " OR C.Apellido LIKE '%" & terminoBusqueda & "%'" &
                                      " OR P.Provincia Like '%" & terminoBusqueda & "%'" &
@@ -31,7 +31,7 @@ Public Class Pedidos
             consultassql &= condicionesBusqueda
         End If
 
-        consultassql &= " ORDER BY PED.IDPedido ASC"
+        consultassql &= " ORDER BY PED.ID ASC"
 
         Dim adaptadorSql As New SqlDataAdapter(consultassql, conexionSql)
         Dim dtPedido As New DataTable
@@ -111,7 +111,7 @@ Public Class Pedidos
 
         ' Obtener el estado actual del pedido
         Dim estadoActual As Integer
-        Dim consultaEstadoSQL As String = "SELECT Estado FROM Pedidos WHERE IDPedido = @IDPedido"
+        Dim consultaEstadoSQL As String = "SELECT Estado FROM Pedidos WHERE ID = @IDPedido"
 
         Try
             ' Verificar el estado actual del pedido
@@ -251,7 +251,7 @@ Public Class Pedidos
     Private Sub AgregarPedido_Click(sender As Object, e As EventArgs) Handles AgregarPedido.Click
         ABM_Pedidos.lblSeñalPedido.Text = "Agregar"
 
-        Dim idPuntoVenta = DirectCast(ModuloPrincipal.boxPV.SelectedItem, DataRowView)("IDPuntoVenta").ToString
+        Dim idPuntoVenta = DirectCast(ModuloPrincipal.boxPV.SelectedItem, DataRowView)("ID").ToString
         Dim idPuntoVentaRellenado = idPuntoVenta.PadLeft(5, "0"c)
         ABM_Pedidos.txtSucursal.Text = idPuntoVentaRellenado
 

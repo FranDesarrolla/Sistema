@@ -102,7 +102,7 @@ Public Class ABM_Productos
                     Using command As New SqlCommand("UPDATE dbo.Productos
                                      SET Codigo = @Codigo, Descripcion = @Descripcion, Especificaciones = @Especificaciones, Unidad = @Unidad, Rubro = @Rubro,
                                      Categoria = @Categoria, Stock = @Stock, PrecioUnitario = @PrecioUnitario, Iva = @Iva, Estado = @Estado
-                                     WHERE IDProducto = @IDProducto", connection)
+                                     WHERE ID = @IDProducto", connection)
                         command.Parameters.AddWithValue("@Codigo", codProducto.Text)
                         command.Parameters.AddWithValue("@Descripcion", descripProducto.Text)
                         command.Parameters.AddWithValue("@Especificaciones", especifiProducto.Text)
@@ -432,4 +432,5 @@ Public Class ABM_Productos
         End If
 
     End Sub
+
 End Class
